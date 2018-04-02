@@ -1,5 +1,4 @@
 import UIKit
-import AVKit
 
 class ListController: BasePopUpController {
     
@@ -29,23 +28,7 @@ class ListController: BasePopUpController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavigationBar()
         title = list.isEmpty ? "New Words Go Here" : "Tap Item to Play"
-    }
-    
-    private func setupNavigationBar() {
-        let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
-        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        let font = UIFont(name: "CircularStd-Book", size: 20)
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2769357264, green: 0.7137418389, blue: 0.9510393739, alpha: 1)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleTapOnDone))
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: font!]
-        navigationController?.navigationBar.tintColor = .white
-    }
-    
-    @objc func handleTapOnDone() {
-        SystemSoundID.playFileNamed(fileName: "button-click-garageband", withExtenstion: "wav")
-        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

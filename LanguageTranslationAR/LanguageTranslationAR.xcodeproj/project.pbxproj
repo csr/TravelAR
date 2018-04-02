@@ -181,7 +181,7 @@
 				1D441E6220726F22005E2ADD /* Extensions */,
 				1D441EAF20727BD9005E2ADD /* BasePopUpController */,
 				1D441E6820726F22005E2ADD /* LanguageController */,
-				1D441E7020726F22005E2ADD /* PopoverController */,
+				1D441E7020726F22005E2ADD /* ListController */,
 				1D441E7720726F22005E2ADD /* Views */,
 			);
 			path = Sources;
@@ -247,7 +247,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		1D441E7020726F22005E2ADD /* PopoverController */ = {
+		1D441E7020726F22005E2ADD /* ListController */ = {
 			isa = PBXGroup;
 			children = (
 				1D441E7320726F22005E2ADD /* ListController.swift */,
@@ -255,7 +255,7 @@
 				1D441E7220726F22005E2ADD /* ListController+Views.swift */,
 				1D441E7420726F22005E2ADD /* ListTableViewCell.swift */,
 			);
-			path = PopoverController;
+			path = ListController;
 			sourceTree = "<group>";
 		};
 		1D441E7520726F22005E2ADD /* TopController */ = {

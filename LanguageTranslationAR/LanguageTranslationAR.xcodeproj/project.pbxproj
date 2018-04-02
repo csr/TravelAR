@@ -47,14 +47,15 @@
 		1D441EA220726F22005E2ADD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6D20726F22005E2ADD /* Item.swift */; };
 		1D441EA320726F22005E2ADD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6E20726F22005E2ADD /* Language.swift */; };
 		1D441EA420726F22005E2ADD /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6F20726F22005E2ADD /* Languages.swift */; };
-		1D441EA520726F22005E2ADD /* PopoverController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7120726F22005E2ADD /* PopoverController+TableView.swift */; };
-		1D441EA620726F22005E2ADD /* PopoverController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7220726F22005E2ADD /* PopoverController+Views.swift */; };
-		1D441EA720726F22005E2ADD /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7320726F22005E2ADD /* PopoverController.swift */; };
-		1D441EA820726F22005E2ADD /* PopoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* PopoverTableViewCell.swift */; };
+		1D441EA520726F22005E2ADD /* ListController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7120726F22005E2ADD /* ListController+TableView.swift */; };
+		1D441EA620726F22005E2ADD /* ListController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7220726F22005E2ADD /* ListController+Views.swift */; };
+		1D441EA720726F22005E2ADD /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7320726F22005E2ADD /* ListController.swift */; };
+		1D441EA820726F22005E2ADD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* ListTableViewCell.swift */; };
 		1D441EA920726F22005E2ADD /* TopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7620726F22005E2ADD /* TopController.swift */; };
 		1D441EAA20726F22005E2ADD /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7820726F22005E2ADD /* DictionaryView.swift */; };
 		1D441EAB20726F22005E2ADD /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7920726F22005E2ADD /* PopUpView.swift */; };
 		1D441EAC20726F22005E2ADD /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7A20726F22005E2ADD /* TopView.swift */; };
+		1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,14 +101,15 @@
 		1D441E6D20726F22005E2ADD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1D441E6E20726F22005E2ADD /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		1D441E6F20726F22005E2ADD /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
-		1D441E7120726F22005E2ADD /* PopoverController+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PopoverController+TableView.swift"; sourceTree = "<group>"; };
-		1D441E7220726F22005E2ADD /* PopoverController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PopoverController+Views.swift"; sourceTree = "<group>"; };
-		1D441E7320726F22005E2ADD /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
-		1D441E7420726F22005E2ADD /* PopoverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTableViewCell.swift; sourceTree = "<group>"; };
+		1D441E7120726F22005E2ADD /* ListController+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListController+TableView.swift"; sourceTree = "<group>"; };
+		1D441E7220726F22005E2ADD /* ListController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListController+Views.swift"; sourceTree = "<group>"; };
+		1D441E7320726F22005E2ADD /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
+		1D441E7420726F22005E2ADD /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		1D441E7620726F22005E2ADD /* TopController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopController.swift; sourceTree = "<group>"; };
 		1D441E7820726F22005E2ADD /* DictionaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
 		1D441E7920726F22005E2ADD /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		1D441E7A20726F22005E2ADD /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopUpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,13 +174,14 @@
 		1D441E5720726F22005E2ADD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1D441E6C20726F22005E2ADD /* Model */,
 				1D441E5820726F22005E2ADD /* Dictionaries */,
+				1D441E7520726F22005E2ADD /* TopController */,
 				1D441E5920726F22005E2ADD /* DictionaryController */,
 				1D441E6220726F22005E2ADD /* Extensions */,
+				1D441EAF20727BD9005E2ADD /* BasePopUpController */,
 				1D441E6820726F22005E2ADD /* LanguageController */,
-				1D441E6C20726F22005E2ADD /* Model */,
 				1D441E7020726F22005E2ADD /* PopoverController */,
-				1D441E7520726F22005E2ADD /* TopController */,
 				1D441E7720726F22005E2ADD /* Views */,
 			);
 			path = Sources;
@@ -227,8 +230,8 @@
 		1D441E6820726F22005E2ADD /* LanguageController */ = {
 			isa = PBXGroup;
 			children = (
-				1D441E6920726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift */,
 				1D441E6A20726F22005E2ADD /* LanguageController.swift */,
+				1D441E6920726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift */,
 				1D441E6B20726F22005E2ADD /* LanguageSelectionDelegate.swift */,
 			);
 			path = LanguageController;
@@ -247,10 +250,10 @@
 		1D441E7020726F22005E2ADD /* PopoverController */ = {
 			isa = PBXGroup;
 			children = (
-				1D441E7120726F22005E2ADD /* PopoverController+TableView.swift */,
-				1D441E7220726F22005E2ADD /* PopoverController+Views.swift */,
-				1D441E7320726F22005E2ADD /* PopoverController.swift */,
-				1D441E7420726F22005E2ADD /* PopoverTableViewCell.swift */,
+				1D441E7320726F22005E2ADD /* ListController.swift */,
+				1D441E7120726F22005E2ADD /* ListController+TableView.swift */,
+				1D441E7220726F22005E2ADD /* ListController+Views.swift */,
+				1D441E7420726F22005E2ADD /* ListTableViewCell.swift */,
 			);
 			path = PopoverController;
 			sourceTree = "<group>";
@@ -271,6 +274,14 @@
 				1D441E7A20726F22005E2ADD /* TopView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1D441EAF20727BD9005E2ADD /* BasePopUpController */ = {
+			isa = PBXGroup;
+			children = (
+				1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */,
+			);
+			path = BasePopUpController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,22 +374,23 @@
 				1D441EAA20726F22005E2ADD /* DictionaryView.swift in Sources */,
 				1D441EA220726F22005E2ADD /* Item.swift in Sources */,
 				1D441EA120726F22005E2ADD /* LanguageSelectionDelegate.swift in Sources */,
-				1D441EA820726F22005E2ADD /* PopoverTableViewCell.swift in Sources */,
+				1D441EA820726F22005E2ADD /* ListTableViewCell.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
 				1D441E9620726F22005E2ADD /* DictionaryController+LanguageSelectionDelegate.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
 				1D441E9F20726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift in Sources */,
-				1D441EA620726F22005E2ADD /* PopoverController+Views.swift in Sources */,
+				1D441EA620726F22005E2ADD /* ListController+Views.swift in Sources */,
 				1D441E8020726F22005E2ADD /* exampleModelFP16.mlmodel in Sources */,
 				1D441E9920726F22005E2ADD /* PopUpDelegate.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,
 				1D441E9420726F22005E2ADD /* DictionaryController+CoreML.swift in Sources */,
 				1D441E9520726F22005E2ADD /* DictionaryController+JSON.swift in Sources */,
 				1D441EAC20726F22005E2ADD /* TopView.swift in Sources */,
-				1D441EA520726F22005E2ADD /* PopoverController+TableView.swift in Sources */,
+				1D441EA520726F22005E2ADD /* ListController+TableView.swift in Sources */,
 				1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */,
 				1D441EA020726F22005E2ADD /* LanguageController.swift in Sources */,
+				1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */,
 				1D441EA420726F22005E2ADD /* Languages.swift in Sources */,
 				1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */,
 				1D441EAB20726F22005E2ADD /* PopUpView.swift in Sources */,
@@ -388,7 +400,7 @@
 				1D441E9820726F22005E2ADD /* DictionaryController.swift in Sources */,
 				1D441E9720726F22005E2ADD /* DictionaryController+Views.swift in Sources */,
 				1D441E9220726F22005E2ADD /* DictionaryController+Actions.swift in Sources */,
-				1D441EA720726F22005E2ADD /* PopoverController.swift in Sources */,
+				1D441EA720726F22005E2ADD /* ListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

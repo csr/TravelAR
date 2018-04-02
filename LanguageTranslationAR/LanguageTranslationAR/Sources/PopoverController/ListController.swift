@@ -1,7 +1,15 @@
 import UIKit
 import AVKit
 
-class PopoverController: UITableViewController {
+class ListController: BasePopUpController {
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
     
     var list = [Item]() {
         didSet {

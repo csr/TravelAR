@@ -118,7 +118,7 @@ public class DictionaryController: TopController, PopUpDelegate {
     var hintViewCenterXAnchor: NSLayoutConstraint?
     var mlPrediction: String?
     var translationDict = [String: [String: String]]()
-    let bookmarksPopoverContent = PopoverController()
+    let bookmarksPopoverContent = ListController()
     var visionRequests = [VNRequest]()
     
     public override func viewDidLoad() {

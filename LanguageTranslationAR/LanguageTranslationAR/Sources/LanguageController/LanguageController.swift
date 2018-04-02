@@ -9,7 +9,7 @@
 import UIKit
 import AVKit
 
-class LanguageController: UIViewController {
+class LanguageController: BasePopUpController {
     
     var delegate: LanguageSelectionDelegate?
     var languages = [Language]()

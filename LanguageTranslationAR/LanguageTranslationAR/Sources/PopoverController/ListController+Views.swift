@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension PopoverController {
+extension ListController {
     internal func setupViews() {
         setupTableView()
         setupEmptyStateLabel()
@@ -25,7 +25,13 @@ extension PopoverController {
     }
     
     private func setupTableView() {
-        tableView.register(PopoverTableViewCell.self, forCellReuseIdentifier: PopoverTableViewCell.identifier)
+        view.addSubview(tableView)
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        
+        tableView.register(ListTableViewCell.self, forCellReuseIdentifier: ListTableViewCell.identifier)
         tableView.tableFooterView = UIView()
     }
 }

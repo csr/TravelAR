@@ -140,8 +140,8 @@
 		1D441E2A20726EFE005E2ADD /* LanguageTranslationAR */ = {
 			isa = PBXGroup;
 			children = (
-				1D441E3D20726F1B005E2ADD /* PrivateResources */,
 				1D441E5720726F22005E2ADD /* Sources */,
+				1D441E3D20726F1B005E2ADD /* PrivateResources */,
 				1D441E2B20726EFE005E2ADD /* AppDelegate.swift */,
 				1D441E3220726F00005E2ADD /* Assets.xcassets */,
 				1D441E3420726F00005E2ADD /* LaunchScreen.storyboard */,
@@ -156,18 +156,12 @@
 				1D441E3E20726F1B005E2ADD /* button-click-garageband.wav */,
 				1D441E3F20726F1B005E2ADD /* CircularStd-Book.otf */,
 				1D441E4020726F1B005E2ADD /* draw-sign.png */,
-				1D441E4120726F1B005E2ADD /* en-US.json */,
-				1D441E4220726F1B005E2ADD /* es.json */,
 				1D441E4320726F1B005E2ADD /* exampleModelFP16.mlmodel */,
 				1D441E4B20726F1B005E2ADD /* icon-bookmarks.png */,
 				1D441E4C20726F1B005E2ADD /* icon-translation.png */,
-				1D441E4D20726F1B005E2ADD /* id.json */,
-				1D441E4E20726F1B005E2ADD /* ms.json */,
 				1D441E4F20726F1B005E2ADD /* phone-sketch.png */,
 				1D441E5020726F1B005E2ADD /* pop_drip-reverse.wav */,
 				1D441E5120726F1B005E2ADD /* pop_drip.wav */,
-				1D441E5220726F1B005E2ADD /* pt.json */,
-				1D441E5320726F1B005E2ADD /* ro.json */,
 				1D441E5420726F1B005E2ADD /* scanning-my-sketch.png */,
 				1D441E5520726F1B005E2ADD /* sound.png */,
 				1D441E5620726F1B005E2ADD /* welcome.png */,
@@ -193,6 +187,12 @@
 		1D441E5820726F22005E2ADD /* Dictionaries */ = {
 			isa = PBXGroup;
 			children = (
+				1D441E5220726F1B005E2ADD /* pt.json */,
+				1D441E5320726F1B005E2ADD /* ro.json */,
+				1D441E4D20726F1B005E2ADD /* id.json */,
+				1D441E4E20726F1B005E2ADD /* ms.json */,
+				1D441E4120726F1B005E2ADD /* en-US.json */,
+				1D441E4220726F1B005E2ADD /* es.json */,
 			);
 			path = Dictionaries;
 			sourceTree = "<group>";
@@ -527,6 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G99G8858YN;
 				INFOPLIST_FILE = LanguageTranslationAR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -545,6 +546,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G99G8858YN;
 				INFOPLIST_FILE = LanguageTranslationAR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

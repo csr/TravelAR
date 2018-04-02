@@ -190,7 +190,7 @@ class PopUpView: UIView {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [.allowUserInteraction], animations: {
             self.transform = .identity
             self.heightConstraint?.constant = 400
-            self.widthConstraint?.constant = 400
+            self.widthConstraint?.constant = 370
             self.parent?.popUpCenterYAnchor?.constant = 0
             self.layoutIfNeeded()
         }, completion: nil)

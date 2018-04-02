@@ -2,10 +2,17 @@ import UIKit
 
 public class TopView: UIView {
 		
+    let verticalOffset: CGFloat = 6
+    
     var selectedLanguage: Language? {
         didSet {
             guard let language = selectedLanguage else { return }
-            languageLabel.text = language.getDescription()
+            
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                languageLabel.text = language.getDescription()
+            } else {
+                languageLabel.text = String(language.emoji)
+            }
         }
     }
     
@@ -58,7 +65,7 @@ public class TopView: UIView {
 	
     private func setupBookmarksButton() {
         addSubview(bookmarksButton)
-        bookmarksButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        bookmarksButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: verticalOffset).isActive = true
         bookmarksButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         bookmarksButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
         bookmarksButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
@@ -66,13 +73,13 @@ public class TopView: UIView {
     
     private func setupTranslationButton() {
         addSubview(translationButton)
-        translationButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        translationButton.centerYAnchor.constraint(equalTo: identifierLabel.centerYAnchor).isActive = true
         translationButton.rightAnchor.constraint(equalTo: bookmarksButton.leftAnchor, constant: -16.5).isActive = true
         translationButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
         translationButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         
         addSubview(languageLabel)
-        languageLabel.centerYAnchor.constraint(equalTo: translationButton.centerYAnchor).isActive = true
+        languageLabel.centerYAnchor.constraint(equalTo: identifierLabel.centerYAnchor).isActive = true
         languageLabel.rightAnchor.constraint(equalTo: translationButton.leftAnchor, constant: -20).isActive = true
     }
     
@@ -105,11 +112,11 @@ public class TopView: UIView {
 		parentView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16.5).isActive = true
 		parentView.rightAnchor.constraint(equalTo: rightAnchor, constant: -15).isActive = true
 		
-		identifierLabel.topAnchor.constraint(equalTo: parentView.topAnchor).isActive = true
 		identifierLabel.rightAnchor.constraint(equalTo: parentView.rightAnchor).isActive = true
 		identifierLabel.leftAnchor.constraint(equalTo: parentView.leftAnchor).isActive = true
-		identifierLabel.bottomAnchor.constraint(equalTo: parentView.bottomAnchor).isActive = true
-	}
+        identifierLabel.heightAnchor.constraint(equalTo: parentView.heightAnchor, multiplier: 1.2).isActive = true
+        identifierLabel.centerYAnchor.constraint(equalTo: parentView.centerYAnchor, constant: verticalOffset).isActive = true
+    }
 	
 	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")

@@ -14,6 +14,10 @@ class BasePopUpController: UIViewController {
         super.viewWillAppear(animated)
         setupNavigationBar()
         view.backgroundColor = .white
+        
+        UIView.animate(withDuration: 2, delay: 0, options: [.repeat], animations: {
+            self.view.transform = CGAffineTransform(rotationAngle: 6.28318530717959)
+        }, completion: nil)
     }
     
     @objc func handleTapOnDone() {

@@ -127,7 +127,6 @@ public class DictionaryController: TopController, PopUpDelegate {
 		setupViews()
         setupJSONFiles()
         setupCoreML()
-		setupAR()
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
         popUpView.present(title: "Welcome!", subtitle: "Ready to magically learn a new language?", buttonAction: "Yes, let's go!", imageName: "welcome", completionHandler: #selector(detectingPlanesState))

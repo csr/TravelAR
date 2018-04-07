@@ -18,6 +18,7 @@ extension DictionaryController {
         setupTimers()
         shouldShowTopView = true
         topView.alpha = 1
+        setupAR()
     }
     
     @objc internal func didTapClearScene() {

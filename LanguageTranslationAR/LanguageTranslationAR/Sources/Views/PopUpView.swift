@@ -119,15 +119,9 @@ class PopUpView: UIView {
         shadowView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         shadowView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         shadowView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        
         shadowView.layer.cornerRadius = 15
         shadowView.layer.masksToBounds = true
-        
-        
-        self.layer.shadowOpacity = 0.2 // opacity, 20%
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowRadius = 2 // HALF of blur
-        self.layer.shadowOffset = CGSize(width: 0, height: 2) // Spread x, y
+        shadowView.backgroundColor = .white
     }
     
     private func setupDrawSignImageView() {
@@ -167,11 +161,11 @@ class PopUpView: UIView {
         heightConstraint?.isActive = true
         widthConstraint = widthAnchor.constraint(equalToConstant: viewHeight)
         widthConstraint?.isActive = true
-        
+        layer.shadowOpacity = 0.2 // opacity, 20%
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 2 // HALF of blur
+        layer.shadowOffset = CGSize(width: 0, height: 2) // Spread x, y
         translatesAutoresizingMaskIntoConstraints = false
-        shadowView.backgroundColor = .white
-        //layer.masksToBounds = true
-        //layer.cornerRadius = 15
     }
     
     private func setConfirmButtonText(text: String) {

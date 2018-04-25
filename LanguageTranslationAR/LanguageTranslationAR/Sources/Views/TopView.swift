@@ -98,6 +98,10 @@ public class TopView: UIView {
 	private func setupView() {
 		translatesAutoresizingMaskIntoConstraints = false
 		backgroundColor = #colorLiteral(red: 0.2769357264, green: 0.7137418389, blue: 0.9510393739, alpha: 1)
+        layer.shadowOpacity = 0.2 // opacity, 20%
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 2 // HALF of blur
+        layer.shadowOffset = CGSize(width: 0, height: 2) // Spread x, y
 	}
 		
 	private func setupDescriptionLabel() {

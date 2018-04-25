@@ -14,6 +14,34 @@ extension DictionaryController {
         setupDictionaries()
     }
     
+    internal func fetchJSON(for word: String, source_lang: String) {
+        let urlString = "https://od-api.oxforddictionaries.com/api/v1/entries/en/" + word + "/definitions;lexicalCategory=noun;regions=us"
+        let appKey = "4dbd0d07dbcdea369dec5dc3e81a2bb9"
+        let appId = "4b991cea"
+        guard let url = URL(string: urlString) else { return }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.setValue(appKey, forHTTPHeaderField: "app_key")
+        urlRequest.setValue(appId, forHTTPHeaderField: "app_id")
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let err = error {
+                    print("Failed to get data from URL:", err)
+                    return
+                }
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let decoder = JSONDecoder()
+                let entry = try decoder.decode(DictionaryEntry.self, from: data)
+            } catch let jsonErr {
+                print("Failed to decode:", jsonErr)
+            }
+        }.resume()
+    }
+    
     internal func getDictionaryEntry(language: Language, word: String) -> (key: String, definition: String)? {
         guard let dictionary = translationDict[language.languageCode] else { return nil }
         let words = Array(word.split(separator: " "))

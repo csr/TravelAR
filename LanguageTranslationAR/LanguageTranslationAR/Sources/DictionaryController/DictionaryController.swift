@@ -129,7 +129,9 @@ public class DictionaryController: TopController, PopUpDelegate {
         setupCoreML()
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
-        popUpView.present(title: "Welcome!", subtitle: "Ready to magically learn a new language?", buttonAction: "Yes, let's go!", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+        popUpView.present(title: "Welcome!", subtitle: "To start learning a new language, we'll need camera permissions.", buttonAction: "Turn on camera", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+        
+        fetchJSON(for: "apple", source_lang: "en")
 	}
             
     internal func animateImageWalkthrough(shouldBeHidden: Bool) {
@@ -205,7 +207,7 @@ public class DictionaryController: TopController, PopUpDelegate {
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true)
         planesDetectionTimer.invalidate()
         
-        popUpView.present(title: "Good job!", subtitle: "Point your device at an object and tap the screen when a suggestion pops up.", buttonAction: "OK, let's try it out!", imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
+        popUpView.present(title: "Good job!", subtitle: "Point your device at an object and tap the screen when a suggestion pops up.", buttonAction: "OK, let's try!", imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
         popUpView.shouldShowImageWalkthrough = true
     }    
 }

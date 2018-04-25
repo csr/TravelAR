@@ -23,9 +23,16 @@ class PopUpView: UIView {
             imageWalkthroughView.alpha = shouldShowImageWalkthrough ? 1 : 0
         }
     }
-
+    
     var completionHandler: Selector?
     var delegate: PopUpDelegate?
+    
+    
+    private let shadowView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     private let topBarView: UIView = {
         let view = UIView()
@@ -47,7 +54,6 @@ class PopUpView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.text = "Welcome!"
         label.textAlignment = .center
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
@@ -99,11 +105,29 @@ class PopUpView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupShadowView()
         setupView()
         setupTopBar()
         setupStackView()
         confirmButton.addTarget(self, action: #selector(buttonTapHandler), for: .touchUpInside)
         setupDrawSignImageView()
+    }
+    
+    private func setupShadowView() {
+        addSubview(shadowView)
+        shadowView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        shadowView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        shadowView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        shadowView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        shadowView.layer.cornerRadius = 15
+        shadowView.layer.masksToBounds = true
+        
+        
+        self.layer.shadowOpacity = 0.2 // opacity, 20%
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowRadius = 2 // HALF of blur
+        self.layer.shadowOffset = CGSize(width: 0, height: 2) // Spread x, y
     }
     
     private func setupDrawSignImageView() {
@@ -127,7 +151,7 @@ class PopUpView: UIView {
         stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
     }
-        
+    
     func present(title: String, subtitle: String, buttonAction: String, imageName: String, completionHandler: Selector) {
         shouldShow()
         self.completionHandler = completionHandler
@@ -145,28 +169,28 @@ class PopUpView: UIView {
         widthConstraint?.isActive = true
         
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .white
-        layer.masksToBounds = true
-        layer.cornerRadius = 15
+        shadowView.backgroundColor = .white
+        //layer.masksToBounds = true
+        //layer.cornerRadius = 15
     }
     
     private func setConfirmButtonText(text: String) {
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-
+        
         let attributes: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: UIFont(name: "CircularStd-Book", size: 21)!,
-                          NSAttributedStringKey.foregroundColor: UIColor.white]
+                                                         NSAttributedStringKey.foregroundColor: UIColor.white]
         let attrString = NSAttributedString(string: text, attributes: attributes)
         confirmButton.setAttributedTitle(attrString, for: .normal)
     }
     
     private func setupTopBar() {
-        addSubview(topBarView)
+        shadowView.addSubview(topBarView)
         topBarView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         topBarView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         topBarView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         topBarView.heightAnchor.constraint(equalToConstant: 55).isActive = true
-
+        
         topBarView.addSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: topBarView.centerXAnchor).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: topBarView.centerYAnchor).isActive = true
@@ -189,6 +213,7 @@ class PopUpView: UIView {
         
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [.allowUserInteraction], animations: {
             self.transform = .identity
+            self.alpha = 1
             self.heightConstraint?.constant = 400
             self.widthConstraint?.constant = 370
             self.parent?.popUpCenterYAnchor?.constant = 0
@@ -204,6 +229,7 @@ class PopUpView: UIView {
             self.heightConstraint?.constant = 0
             self.widthConstraint?.constant = 0
             self.layoutIfNeeded()
+            self.alpha = 0
         }, completion: nil)
     }
     
@@ -211,3 +237,4 @@ class PopUpView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

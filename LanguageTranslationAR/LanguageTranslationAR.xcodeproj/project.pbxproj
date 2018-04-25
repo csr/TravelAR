@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D329F0B207A6AB20046877F /* DictionaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D329F0A207A6AB20046877F /* DictionaryEntry.swift */; };
 		1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E2B20726EFE005E2ADD /* AppDelegate.swift */; };
 		1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3220726F00005E2ADD /* Assets.xcassets */; };
 		1D441E3620726F00005E2ADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3420726F00005E2ADD /* LaunchScreen.storyboard */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D329F0A207A6AB20046877F /* DictionaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEntry.swift; sourceTree = "<group>"; };
 		1D441E2820726EFE005E2ADD /* LanguageTranslationAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageTranslationAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D441E2B20726EFE005E2ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D441E3220726F00005E2ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -203,13 +205,13 @@
 		1D441E5920726F22005E2ADD /* DictionaryController */ = {
 			isa = PBXGroup;
 			children = (
+				1D441E6020726F22005E2ADD /* DictionaryController.swift */,
+				1D441E5D20726F22005E2ADD /* DictionaryController+JSON.swift */,
 				1D441E5A20726F22005E2ADD /* DictionaryController+Actions.swift */,
 				1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */,
 				1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */,
-				1D441E5D20726F22005E2ADD /* DictionaryController+JSON.swift */,
 				1D441E5E20726F22005E2ADD /* DictionaryController+LanguageSelectionDelegate.swift */,
 				1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */,
-				1D441E6020726F22005E2ADD /* DictionaryController.swift */,
 				1D441E6120726F22005E2ADD /* PopUpDelegate.swift */,
 			);
 			path = DictionaryController;
@@ -243,6 +245,7 @@
 				1D441E6D20726F22005E2ADD /* Item.swift */,
 				1D441E6E20726F22005E2ADD /* Language.swift */,
 				1D441E6F20726F22005E2ADD /* Languages.swift */,
+				1D329F0A207A6AB20046877F /* DictionaryEntry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				1D441EA820726F22005E2ADD /* ListTableViewCell.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
+				1D329F0B207A6AB20046877F /* DictionaryEntry.swift in Sources */,
 				1D441E9620726F22005E2ADD /* DictionaryController+LanguageSelectionDelegate.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
 				1D441E9F20726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift in Sources */,

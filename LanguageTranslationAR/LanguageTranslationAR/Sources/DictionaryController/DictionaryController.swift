@@ -129,10 +129,24 @@ public class DictionaryController: TopController, PopUpDelegate {
         setupCoreML()
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
-        popUpView.present(title: "Welcome!", subtitle: "To start learning a new language, we'll need camera permissions.", buttonAction: "Turn on camera", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
         
         fetchJSON(for: "apple", source_lang: "en")
 	}
+    
+    private func checkCameraPermissions() {
+        let cameraMediaType = AVMediaType.video
+        let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
+        
+        switch cameraAuthorizationStatus {
+        case .denied:
+            popUpView.present(title: "Ooops!", subtitle: "It looks like we don't have camera permissions.", buttonAction: "Enable camera in settings", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+        case .authorized:
+            popUpView.present(title: "Welcome!", subtitle: "To start learning a new language, we'll need camera permissions.", buttonAction: "Turn on camera", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+        case .restricted: break
+        case .notDetermined:
+            popUpView.present(title: "Welcome!", subtitle: "To start learning a new language, we'll need camera permissions.", buttonAction: "Turn on camera", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+        }
+    }
             
     internal func animateImageWalkthrough(shouldBeHidden: Bool) {
         UIView.animate(withDuration: 0.5) {

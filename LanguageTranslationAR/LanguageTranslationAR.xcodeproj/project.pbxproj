@@ -57,7 +57,6 @@
 		1D441EAB20726F22005E2ADD /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7920726F22005E2ADD /* PopUpView.swift */; };
 		1D441EAC20726F22005E2ADD /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7A20726F22005E2ADD /* TopView.swift */; };
 		1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */; };
-		274120475FDBAA8994BE576C /* Pods_LanguageTranslationAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E701D48EFA0828668B57CF4E /* Pods_LanguageTranslationAR.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,9 +112,6 @@
 		1D441E7920726F22005E2ADD /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		1D441E7A20726F22005E2ADD /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopUpController.swift; sourceTree = "<group>"; };
-		7135FBC88A7496AEDD37A7ED /* Pods-LanguageTranslationAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LanguageTranslationAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LanguageTranslationAR/Pods-LanguageTranslationAR.debug.xcconfig"; sourceTree = "<group>"; };
-		8121E415182683011BD28101 /* Pods-LanguageTranslationAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LanguageTranslationAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-LanguageTranslationAR/Pods-LanguageTranslationAR.release.xcconfig"; sourceTree = "<group>"; };
-		E701D48EFA0828668B57CF4E /* Pods_LanguageTranslationAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LanguageTranslationAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +119,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				274120475FDBAA8994BE576C /* Pods_LanguageTranslationAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +130,6 @@
 			children = (
 				1D441E2A20726EFE005E2ADD /* LanguageTranslationAR */,
 				1D441E2920726EFE005E2ADD /* Products */,
-				80AB4741FC61BB9A1BA6FADC /* Pods */,
-				4159B4144CA8AD1A8CB8697F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -294,23 +287,6 @@
 			path = BasePopUpController;
 			sourceTree = "<group>";
 		};
-		4159B4144CA8AD1A8CB8697F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E701D48EFA0828668B57CF4E /* Pods_LanguageTranslationAR.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		80AB4741FC61BB9A1BA6FADC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7135FBC88A7496AEDD37A7ED /* Pods-LanguageTranslationAR.debug.xcconfig */,
-				8121E415182683011BD28101 /* Pods-LanguageTranslationAR.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,11 +294,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D441E3A20726F01005E2ADD /* Build configuration list for PBXNativeTarget "LanguageTranslationAR" */;
 			buildPhases = (
-				160F31754DB0E1A1C8152435 /* [CP] Check Pods Manifest.lock */,
 				1D441E2420726EFE005E2ADD /* Sources */,
 				1D441E2520726EFE005E2ADD /* Frameworks */,
 				1D441E2620726EFE005E2ADD /* Resources */,
-				5FF3555E34A68C835346EA10 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -394,47 +368,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		160F31754DB0E1A1C8152435 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LanguageTranslationAR-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5FF3555E34A68C835346EA10 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LanguageTranslationAR/Pods-LanguageTranslationAR-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
-				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LanguageTranslationAR/Pods-LanguageTranslationAR-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D441E2420726EFE005E2ADD /* Sources */ = {
@@ -605,7 +538,6 @@
 		};
 		1D441E3B20726F01005E2ADD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7135FBC88A7496AEDD37A7ED /* Pods-LanguageTranslationAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -622,7 +554,6 @@
 		};
 		1D441E3C20726F01005E2ADD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8121E415182683011BD28101 /* Pods-LanguageTranslationAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

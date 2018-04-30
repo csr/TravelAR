@@ -29,7 +29,7 @@ extension DictionaryController {
     }
     
     @objc internal func didTapOKTapToAdd() {
-        popUpView.shouldShowImageWalkthrough = false
+        //popUpView.shouldShowImageWalkthrough = false
     }
     
     @objc func handleTapOnBookmarks() {
@@ -107,9 +107,11 @@ extension DictionaryController {
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
         print("handletap")
+        /*
         if popUpView.frame.width > 0 {
             return
         }
+ */
         
         if let coords = detectWorldCoordinates() {
             print("didtapsceneview")

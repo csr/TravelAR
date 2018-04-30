@@ -3,9 +3,5 @@
 
 target 'LanguageTranslationAR' do
   use_frameworks!
-  pod 'PopupDialog', '~> 0.7'
-
-
   # Pods for LanguageTranslationAR
-
 end

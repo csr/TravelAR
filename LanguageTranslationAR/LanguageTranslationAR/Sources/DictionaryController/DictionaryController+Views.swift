@@ -59,7 +59,7 @@ extension DictionaryController {
         popUpView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         popUpView.layer.zPosition = 500
     }
-    
+ 
     private func setupInstructionsLabel() {
         view.addSubview(lookAroundLabel)
         lookAroundLabel.centerXAnchor.constraint(equalTo: sceneView.centerXAnchor).isActive = true

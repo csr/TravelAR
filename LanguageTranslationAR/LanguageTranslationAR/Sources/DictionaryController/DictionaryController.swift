@@ -93,7 +93,7 @@ public class DictionaryController: TopController, PopUpDelegate {
     lazy var popUpView: PopUpView = {
         let view = PopUpView()
         view.delegate = self
-        //view.parent = self
+        view.parent = self
         return view
     }()
 	
@@ -131,6 +131,7 @@ public class DictionaryController: TopController, PopUpDelegate {
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
         
         fetchJSON(for: "apple", source_lang: "en")
+        checkCameraPermissions()
 	}
     
     private func checkCameraPermissions() {

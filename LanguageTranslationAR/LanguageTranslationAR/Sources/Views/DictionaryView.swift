@@ -6,8 +6,8 @@ public class DictionaryView: UIView {
         didSet {
             if let item = item {
                 let wordToDisplay = item.translation ?? item.englishKey ?? item.predictedWord
-                mainLabel.text = "\(item.translatedLanguage.emoji) \(wordToDisplay)"
-                
+                mainLabel.text = wordToDisplay
+
                 if let definition = item.englishDefinition {
                     descriptionLabel.isHidden = definition.isEmpty
                     descriptionLabel.text = item.englishDefinition

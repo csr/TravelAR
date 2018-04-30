@@ -15,7 +15,7 @@ import AVFoundation
 @available(iOS 11.0, *)
 public class DictionaryController: TopController, PopUpDelegate {
     
-    var selectedLanguage: Language = Languages.spanish {
+    var selectedLanguage: Language? {
         didSet {
             topView.selectedLanguage = selectedLanguage
         }
@@ -123,9 +123,8 @@ public class DictionaryController: TopController, PopUpDelegate {
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
-        selectedLanguage = Languages.spanish
+        //selectedLanguage = Languages.spanish
 		setupViews()
-        setupJSONFiles()
         setupCoreML()
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
@@ -170,6 +169,7 @@ public class DictionaryController: TopController, PopUpDelegate {
         
         var item: Item?
         
+        /*
         if let (key, value) = getDictionaryEntry(language: selectedLanguage, word: latestPrediction) {
             if selectedLanguage == Languages.english {
                 item = Item(predictedWord: latestPrediction, englishKey: key, englishDefinition: value, translation: nil, translatedLanguage: selectedLanguage)
@@ -181,6 +181,7 @@ public class DictionaryController: TopController, PopUpDelegate {
         } else {
             item = Item(predictedWord: latestPrediction, englishKey: nil, englishDefinition: nil, translation: nil, translatedLanguage: Languages.english)
         }
+ */
         
         if !latestPrediction.isEmpty {
             addNode(title: latestPrediction, subtitle: item?.translation, coords: coords)

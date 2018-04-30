@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct Language: Equatable {
-    var name: String
-    var languageCode: String
-    var emoji: Character
-    
-    func getDescription() -> String {
-        return "\(name) \(emoji)"
-    }
+struct Language: Codable, Equatable {
+    var name: String?
+    var languageCode: String?
     
     static func ==(lhs: Language, rhs: Language) -> Bool {
         return lhs.name == rhs.name
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case languageCode = "language"
     }
 }
 

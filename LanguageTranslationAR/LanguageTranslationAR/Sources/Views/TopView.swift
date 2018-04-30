@@ -8,11 +8,15 @@ public class TopView: UIView {
         didSet {
             guard let language = selectedLanguage else { return }
             
+            /*
             if UIDevice.current.userInterfaceIdiom == .pad {
                 languageLabel.text = language.getDescription()
             } else {
-                languageLabel.text = String(language.emoji)
+                if let emoji = language.emoji {
+                    languageLabel.text = String(emoji)
+                }
             }
+ */
         }
     }
     

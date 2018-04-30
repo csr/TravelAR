@@ -57,7 +57,7 @@ extension DictionaryController {
 		}
 		
 		let classifications = obs[0...1] // top 2 results
-			.flatMap({
+            .compactMap({
 				$0 as? VNClassificationObservation
 			}).map({
 				if $0.confidence > 0.3 {

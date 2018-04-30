@@ -27,6 +27,14 @@ class LanguageController: BasePopUpController {
         setupLanguages()
         setupGestureRecognizer()
         title = "Translation Language"
+        loadLanguages()
+    }
+    
+    private func loadLanguages() {
+        GoogleTranslateAPI.getLanguages(target_language: "en") { (languages) in
+            self.languages = languages
+            self.pickerView.reloadAllComponents()
+        }
     }
     
     private func setupGestureRecognizer() {
@@ -52,7 +60,7 @@ class LanguageController: BasePopUpController {
     }
             
     private func setupLanguages() {
-        languages = Languages.getAll()
+        //languages = Languages.getAll()
         pickerView.reloadAllComponents()
     }
     

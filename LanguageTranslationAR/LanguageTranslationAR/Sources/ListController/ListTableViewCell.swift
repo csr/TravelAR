@@ -15,10 +15,8 @@ class ListTableViewCell: UITableViewCell {
     var item: Item? {
         didSet {
             guard let item = item else { return }
-            
             let wordToDisplay = item.translation ?? item.englishKey ?? item.predictedWord
-            textLabel?.text = "\(item.translatedLanguage.emoji) \(wordToDisplay)"
-            
+            textLabel?.text = wordToDisplay
             detailTextLabel!.text = item.englishDefinition
         }
     }

@@ -15,7 +15,7 @@ struct Item: Equatable {
     var englishDefinition: String?
     
     var translation: String?
-    var translatedLanguage: Language = Languages.english
+    var translatedLanguage: Language?
     
     static func ==(rhs: Item, lhs: Item) -> Bool {
         return (rhs.translatedLanguage == lhs.translatedLanguage) && (rhs.predictedWord == lhs.predictedWord)

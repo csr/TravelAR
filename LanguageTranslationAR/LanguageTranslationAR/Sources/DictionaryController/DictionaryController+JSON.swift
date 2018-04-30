@@ -9,11 +9,7 @@
 import UIKit
 
 @available(iOS 11.0, *)
-extension DictionaryController {
-    internal func setupJSONFiles() {
-        setupDictionaries()
-    }
-    
+extension DictionaryController {    
     internal func fetchJSON(for word: String, source_lang: String) {
         let urlString = "https://od-api.oxforddictionaries.com/api/v1/entries/en/" + word + "/definitions;lexicalCategory=noun;regions=us"
         let appKey = "4dbd0d07dbcdea369dec5dc3e81a2bb9"
@@ -43,23 +39,30 @@ extension DictionaryController {
     }
     
     internal func getDictionaryEntry(language: Language, word: String) -> (key: String, definition: String)? {
-        guard let dictionary = translationDict[language.languageCode] else { return nil }
-        let words = Array(word.split(separator: " "))
-        for oneWord in words {
-            for (key, definition) in dictionary {
-                if key == oneWord {
-                    return (key, definition)
+        if let code = language.languageCode {
+            guard let dictionary = translationDict[code] else { return nil }
+            let words = Array(word.split(separator: " "))
+            for oneWord in words {
+                for (key, definition) in dictionary {
+                    if key == oneWord {
+                        return (key, definition)
+                    }
                 }
             }
         }
+        
         return nil
     }
     
+    /*
     private func setupDictionaries() {
         for language in Languages.getAll() {
-            translationDict[language.languageCode] = getDictionaryFromJSON(named: language.languageCode)
+            if let code = language.languageCode {
+                translationDict[code] = getDictionaryFromJSON(named: code)
+            }
         }
     }
+ */
     
     private func getDictionaryFromJSON(named name: String) -> [String: String] {
         if let path = Bundle.main.path(forResource: name, ofType: "json") {

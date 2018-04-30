@@ -8,6 +8,7 @@
 
 import Foundation
 
+/*
 class Languages {
     static let spanish = Language(name: "Spanish", languageCode: "es", emoji: "🇪🇸")
     static let portuguese = Language(name: "Portuguese", languageCode: "pt", emoji: "🇵🇹")
@@ -20,3 +21,4 @@ class Languages {
         return [Languages.spanish, Languages.english, Languages.portuguese, Languages.romanian, Languages.malaysian, Languages.indonesian]
     }
 }
+*/

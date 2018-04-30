@@ -14,7 +14,7 @@ class PopUpView: UIView {
     
     let viewHeight: CGFloat = 400
     
-    var parent: DictionaryController?
+    //var parent: DictionaryController?
     var heightConstraint: NSLayoutConstraint?
     var widthConstraint: NSLayoutConstraint?
     
@@ -198,7 +198,7 @@ class PopUpView: UIView {
     }
     
     func shouldShow() {
-        parent?.popUpCenterYAnchor?.constant = -1000
+        //parent?.popUpCenterYAnchor?.constant = -1000
         layoutIfNeeded()
         
         alpha = 1
@@ -210,7 +210,7 @@ class PopUpView: UIView {
             self.alpha = 1
             self.heightConstraint?.constant = 400
             self.widthConstraint?.constant = 370
-            self.parent?.popUpCenterYAnchor?.constant = 0
+            //self.parent?.popUpCenterYAnchor?.constant = 0
             self.layoutIfNeeded()
         }, completion: nil)
         

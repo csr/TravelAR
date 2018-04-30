@@ -1,0 +1,20 @@
+PODS:
+  - DynamicBlurView (2.0.2)
+  - PopupDialog (0.7.1):
+    - DynamicBlurView (~> 2.0)
+
+DEPENDENCIES:
+  - PopupDialog (~> 0.7)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - DynamicBlurView
+    - PopupDialog
+
+SPEC CHECKSUMS:
+  DynamicBlurView: aa6db4defc6e537eb86fc5e58dd3991666178399
+  PopupDialog: 39598b7d41719f5c025b4b70e62728bae7734fef
+
+PODFILE CHECKSUM: f8d7f6eeb31483a6271fcb31a4a5436aed07c191
+
+COCOAPODS: 1.5.0

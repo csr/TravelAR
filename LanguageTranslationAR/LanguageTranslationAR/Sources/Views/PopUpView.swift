@@ -105,6 +105,8 @@ class PopUpView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        alpha = 0
+        
         setupShadowView()
         setupView()
         setupTopBar()

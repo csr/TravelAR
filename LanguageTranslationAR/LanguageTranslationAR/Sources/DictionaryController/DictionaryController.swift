@@ -142,7 +142,8 @@ public class DictionaryController: TopController, PopUpDelegate {
         case .denied:
             popUpView.present(title: "Ooops!", subtitle: "It looks like we don't have camera permissions.", buttonAction: "Enable camera in settings", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
         case .authorized:
-            popUpView.present(title: "Welcome!", subtitle: "To start learning a new language, we'll need camera permissions.", buttonAction: "Turn on camera", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+                detectingPlanesState()
+        //popUpView.present(title: "Welcome!", subtitle: "To start learning a new language, we'll need camera permissions.", buttonAction: "Turn on camera", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
         case .restricted: break
         case .notDetermined:
             popUpView.present(title: "Welcome!", subtitle: "To start learning a new language, we'll need camera permissions.", buttonAction: "Turn on camera", imageName: "welcome", completionHandler: #selector(detectingPlanesState))

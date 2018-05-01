@@ -10,7 +10,6 @@ import AudioToolbox
 
 extension SystemSoundID {
 	static func playFileNamed(fileName: String, withExtenstion fileExtension: String) {
-        print("playing file named \(fileName).\(fileExtension)")
 		var sound: SystemSoundID = 0
 		if let soundURL = Bundle.main.url(forResource: fileName, withExtension: fileExtension) {
 			AudioServicesCreateSystemSoundID(soundURL as CFURL, &sound)

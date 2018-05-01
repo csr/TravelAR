@@ -96,17 +96,13 @@ extension DictionaryController {
     }
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
-        print("handletap")
-        
         if popUpView.frame.width > 0 {
             return
         }
         
         if let coords = detectWorldCoordinates() {
-            print("didtapsceneview")
             didTapSceneView(coords: coords)
         } else {
-            print("shaking?")
             imageViewWalkthrough.shake()
             topView.identifierLabel.shake()
         }

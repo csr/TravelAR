@@ -39,8 +39,6 @@ extension DictionaryController: ARSCNViewDelegate {
         
     internal func createWordText(title: String, subtitle: String?) -> SCNNode {
         let depth: Float = 0.01
-
-        print("creating new bubble parent node")
         let billboardConstraint = SCNBillboardConstraint()
         billboardConstraint.freeAxes = SCNBillboardAxis.Y
         let mainWord = SCNText(string: title, extrusionDepth: CGFloat(depth))

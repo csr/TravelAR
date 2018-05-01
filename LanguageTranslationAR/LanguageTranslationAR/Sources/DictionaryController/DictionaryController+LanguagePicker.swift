@@ -41,15 +41,5 @@ extension DictionaryController {
         let index = pickerView.selectedRow(inComponent: 0)
         let language = languages[index]
         selectedLanguage = language
-    }
-    
-    internal func loadLanguages() {
-        let langStr = Locale.current.languageCode
-        GoogleTranslateAPI.getLanguages(targetLanguage: langStr ?? "en") { (languages) in
-            self.languages = languages
-            DispatchQueue.main.async {
-                self.pickerView.reloadAllComponents()
-            }
-        }
-    }
+    }    
 }

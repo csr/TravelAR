@@ -10,7 +10,7 @@ class ListController: BasePopUpController {
         return tableView
     }()
     
-    var list = [Item]() {
+    var list = [Translation]() {
         didSet {
             tableView.reloadData()
         }
@@ -20,7 +20,7 @@ class ListController: BasePopUpController {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.text = "Nothing on the list yet.\nLet's scan an object get started!"
+        label.text = "Nothing on the list yet.\nScan an object get started!"
         label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -28,7 +28,7 @@ class ListController: BasePopUpController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = list.isEmpty ? "New Words Go Here" : "Tap Item to Play"
+        title = list.isEmpty ? "New Words" : "Tap Item to Play"
     }
     
     override func viewDidLoad() {

@@ -2,18 +2,10 @@ import UIKit
 
 public class DictionaryView: UIView {
 	
-    var item: Item? {
+    var item: Translation? {
         didSet {
             if let item = item {
-                let wordToDisplay = item.translation ?? item.englishKey ?? item.predictedWord
-                mainLabel.text = wordToDisplay
-
-                if let definition = item.englishDefinition {
-                    descriptionLabel.isHidden = definition.isEmpty
-                    descriptionLabel.text = item.englishDefinition
-                } else {
-                    descriptionLabel.isHidden = true
-                }
+                mainLabel.text = item.translatedText
             }
         }
     }

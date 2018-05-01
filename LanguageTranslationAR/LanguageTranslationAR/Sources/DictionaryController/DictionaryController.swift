@@ -129,13 +129,10 @@ public class DictionaryController: TopController, PopUpDelegate {
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
-        //selectedLanguage = Languages.spanish
 		setupViews()
         setupCoreML()
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
-        
-        fetchJSON(for: "apple", source_lang: "en")
         checkCameraPermissions()
 	}
     
@@ -164,54 +161,43 @@ public class DictionaryController: TopController, PopUpDelegate {
 	func setupTimers() {
         planesDetectionTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.detectPlanes), userInfo: nil, repeats: true)
 	}
-	
+    	
     func didTapSceneView(coords: SCNVector3) {
         guard let latestPrediction = mlPrediction else {
-            print("latest prediction is nil")
             imageViewWalkthrough.shake()
             topView.identifierLabel.shake()
             return
         }
         
-        var item: Item?
-        
-        /*
-        if let (key, value) = getDictionaryEntry(language: selectedLanguage, word: latestPrediction) {
-            if selectedLanguage == Languages.english {
-                item = Item(predictedWord: latestPrediction, englishKey: key, englishDefinition: value, translation: nil, translatedLanguage: selectedLanguage)
-            } else {
-                if let (englishKey, englishDefinition) = getDictionaryEntry(language: Languages.english, word: latestPrediction) {
-                    item = Item(predictedWord: latestPrediction, englishKey: englishKey, englishDefinition: englishDefinition, translation: value, translatedLanguage: selectedLanguage)
+        if !latestPrediction.isEmpty {
+            getTranslations(text: latestPrediction) { (translations) in
+                if let firstTranslation = translations.first {
+                    self.addNode(title: latestPrediction, subtitle: firstTranslation.translatedText, coords: coords)
+                    self.handleIncomingTranslation(translation: firstTranslation)
                 }
             }
-        } else {
-            item = Item(predictedWord: latestPrediction, englishKey: nil, englishDefinition: nil, translation: nil, translatedLanguage: Languages.english)
-        }
- */
-        
-        if !latestPrediction.isEmpty {
-            addNode(title: latestPrediction, subtitle: item?.translation, coords: coords)
         } else {
             imageViewWalkthrough.shake()
             return
         }
-        
-        if let item = item {
-            animateDictionaryView(item: item)
-            if !bookmarksPopoverContent.list.contains(item) {
-                bookmarksPopoverContent.list.append(item)
-                topView.bookmarksButton.boingAnimation()
-                clearButton.isHidden = false
-                
-                if bookmarksPopoverContent.list.count == 1 {
-                    setupImageViewHint()
-                }
-                
-            }
-            TextToSpeech.speak(item: item)
-        }
     }
     
+    func handleIncomingTranslation(translation: Translation) {
+        DispatchQueue.main.async {
+            self.animateDictionaryView(item: translation)
+            TextToSpeech.speak(item: translation)
+            
+            if !self.bookmarksPopoverContent.list.contains(translation) {
+                self.bookmarksPopoverContent.list.append(translation)
+                self.topView.bookmarksButton.boingAnimation()
+                self.clearButton.isHidden = false
+                
+                if self.bookmarksPopoverContent.list.count == 1 {
+                    self.setupImageViewHint()
+                }
+            }
+        }
+    }
     
     func didTapButton(selector: Selector) {
         SystemSoundID.playFileNamed(fileName: "pop_drip-reverse", withExtenstion: "wav")

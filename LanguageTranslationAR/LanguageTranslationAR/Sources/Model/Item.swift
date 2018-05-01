@@ -8,6 +8,7 @@
 
 import Foundation
 
+/*
 struct Item: Equatable {
     var predictedWord: String
     
@@ -23,3 +24,4 @@ struct Item: Equatable {
 }
 
 
+*/

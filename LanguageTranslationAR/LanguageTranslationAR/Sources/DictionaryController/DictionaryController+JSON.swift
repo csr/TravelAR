@@ -9,7 +9,9 @@
 import UIKit
 
 @available(iOS 11.0, *)
-extension DictionaryController {    
+extension DictionaryController {
+    
+    /*
     internal func fetchJSON(for word: String, source_lang: String) {
         let urlString = "https://od-api.oxforddictionaries.com/api/v1/entries/en/" + word + "/definitions;lexicalCategory=noun;regions=us"
         let appKey = "4dbd0d07dbcdea369dec5dc3e81a2bb9"
@@ -78,4 +80,5 @@ extension DictionaryController {
         }
         return [:]
     }
+ */
 }

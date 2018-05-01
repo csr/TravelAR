@@ -8,7 +8,9 @@
 
 import Foundation
 
+/*
 struct DictionaryEntry: Decodable {
     var metadata: [String]?
     var results: [String]?
 }
+*/

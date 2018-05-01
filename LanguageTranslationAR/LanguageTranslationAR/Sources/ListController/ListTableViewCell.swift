@@ -12,12 +12,11 @@ class ListTableViewCell: UITableViewCell {
 
     static let identifier = "PopoverTableViewCell"
     
-    var item: Item? {
+    var item: Translation? {
         didSet {
             guard let item = item else { return }
-            let wordToDisplay = item.translation ?? item.englishKey ?? item.predictedWord
+            let wordToDisplay = item.translatedText
             textLabel?.text = wordToDisplay
-            detailTextLabel!.text = item.englishDefinition
         }
     }
     

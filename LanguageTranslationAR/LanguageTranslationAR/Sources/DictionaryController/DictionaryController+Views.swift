@@ -110,8 +110,7 @@ extension DictionaryController {
 		view.addGestureRecognizer(tapGesture)
 	}
 	
-    internal func animateDictionaryView(item: Item) {
-        print("animating view...")
+    internal func animateDictionaryView(item: Translation) {
         let dictionaryView = DictionaryView()
         dictionaryView.layer.zPosition = 10
         view.addSubview(dictionaryView)

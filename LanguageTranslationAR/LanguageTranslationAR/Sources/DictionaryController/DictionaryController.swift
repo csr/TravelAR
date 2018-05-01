@@ -149,8 +149,6 @@ public class DictionaryController: TopController, PopUpDelegate {
         setupCoreML()
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
-        checkCameraPermissions()
-        
         topView.selectedLanguage = selectedLanguage
 	}
     
@@ -171,7 +169,13 @@ public class DictionaryController: TopController, PopUpDelegate {
             let title = NSLocalizedString("Welcome", comment: "Welcome")
             let subtitle = NSLocalizedString("Ask camera permission", comment: "Ask camera permission")
             let buttonActionTitle = NSLocalizedString("Turn on camera", comment: "Turn on camera")
-            popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonActionTitle, imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+            popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonActionTitle, imageName: "welcome", completionHandler: #selector(openCameraSettings))
+        }
+    }
+    
+    @objc func openCameraSettings() {
+        if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+            UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
         }
     }
             
@@ -248,4 +252,52 @@ public class DictionaryController: TopController, PopUpDelegate {
         popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonTitle, imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
         popUpView.shouldShowImageWalkthrough = true
     }    
+}
+
+public enum PreferenceType: String {
+    
+    case about = "General&path=About"
+    case accessibility = "General&path=ACCESSIBILITY"
+    case airplaneMode = "AIRPLANE_MODE"
+    case autolock = "General&path=AUTOLOCK"
+    case cellularUsage = "General&path=USAGE/CELLULAR_USAGE"
+    case brightness = "Brightness"
+    case bluetooth = "Bluetooth"
+    case dateAndTime = "General&path=DATE_AND_TIME"
+    case facetime = "FACETIME"
+    case general = "General"
+    case keyboard = "General&path=Keyboard"
+    case castle = "CASTLE"
+    case storageAndBackup = "CASTLE&path=STORAGE_AND_BACKUP"
+    case international = "General&path=INTERNATIONAL"
+    case locationServices = "LOCATION_SERVICES"
+    case accountSettings = "ACCOUNT_SETTINGS"
+    case music = "MUSIC"
+    case equalizer = "MUSIC&path=EQ"
+    case volumeLimit = "MUSIC&path=VolumeLimit"
+    case network = "General&path=Network"
+    case nikePlusIPod = "NIKE_PLUS_IPOD"
+    case notes = "NOTES"
+    case notificationsId = "NOTIFICATIONS_ID"
+    case phone = "Phone"
+    case photos = "Photos"
+    case managedConfigurationList = "General&path=ManagedConfigurationList"
+    case reset = "General&path=Reset"
+    case ringtone = "Sounds&path=Ringtone"
+    case safari = "Safari"
+    case assistant = "General&path=Assistant"
+    case sounds = "Sounds"
+    case softwareUpdateLink = "General&path=SOFTWARE_UPDATE_LINK"
+    case store = "STORE"
+    case twitter = "TWITTER"
+    case facebook = "FACEBOOK"
+    case usage = "General&path=USAGE"
+    case video = "VIDEO"
+    case vpn = "General&path=Network/VPN"
+    case wallpaper = "Wallpaper"
+    case wifi = "WIFI"
+    case tethering = "INTERNET_TETHERING"
+    case blocked = "Phone&path=Blocked"
+    case doNotDisturb = "DO_NOT_DISTURB"
+    
 }

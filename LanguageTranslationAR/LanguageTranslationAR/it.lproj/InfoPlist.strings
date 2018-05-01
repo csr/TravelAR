@@ -6,4 +6,4 @@
   Copyright © 2018 Cesare de Cal. All rights reserved.
 */
 
-"Privacy - Camera Usage Description" = "Abbiamo bisogno di questi permessi per permetterti di scansionare l'ambiente che ti circonda.";
+"NSCameraUsageDescription" = "Abbiamo bisogno di questi permessi per permetterti di scansionare l'ambiente che ti circonda.";

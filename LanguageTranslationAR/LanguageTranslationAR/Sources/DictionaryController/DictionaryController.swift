@@ -20,36 +20,22 @@ public class DictionaryController: TopController, PopUpDelegate {
     
     var selectedLanguage: Language {
         get {
-            return getSelectedLanguage()
+            let defaults = UserDefaults.standard
+            if let code = defaults.string(forKey: "languageCode"), let name = defaults.string(forKey: "languageName") {
+                return Language(name: name, languageCode: code)
+            } else {
+                return Language(name: "Spanish", languageCode: "es")
+            }
         }
         
         set {
-            DispatchQueue.main.async {
-                self.setSelectedLanguage(language: newValue)
-            }
+            let defaults = UserDefaults.standard
+            defaults.set(newValue.name, forKey: "languageName")
+            defaults.set(newValue.languageCode, forKey: "languageCode")
+            self.topView.selectedLanguage = newValue
         }
     }
     
-    func getSelectedLanguage() -> Language {
-        let defaults = UserDefaults.standard
-        if let code = defaults.string(forKey: "languageCode"), let name = defaults.string(forKey: "languageName") {
-            return Language(name: name, languageCode: code)
-        } else {
-            return Language(name: "Spanish", languageCode: "es")
-        }
-    }
-    
-    func setSelectedLanguage(language: Language) {
-        //selectedLanguage = language
-        let defaults = UserDefaults.standard
-        print("Saving languageName:", language.name)
-        defaults.set("languageName", forKey: language.name)
-        defaults.set("languageCode", forKey: language.languageCode)
-        defaults.synchronize()
-        print("Should MATCH:", defaults.string(forKey: "languageName") ?? "nil")
-        self.topView.selectedLanguage = language
-    }
-        
 	var timer = Timer()
     var planesDetectionTimer = Timer()
 	

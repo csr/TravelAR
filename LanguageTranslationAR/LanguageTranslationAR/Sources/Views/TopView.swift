@@ -7,7 +7,6 @@ public class TopView: UIView {
     var selectedLanguage: Language? {
         didSet {
             if let language = selectedLanguage {
-                print("language name:", language.name)
                 translationLabel.text = language.name
             } else {
                 print("Selected language is nil")
@@ -106,7 +105,7 @@ public class TopView: UIView {
         
         let label = UILabel()
         addSubview(label)
-        label.text = "Bookmarks"
+        label.text = "Translations"
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0

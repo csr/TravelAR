@@ -46,7 +46,7 @@ public class DictionaryController: TopController, PopUpDelegate {
         defaults.set("languageName", forKey: language.name)
         defaults.set("languageCode", forKey: language.languageCode)
         defaults.synchronize()
-        print("Should MATCH:", defaults.string(forKey: "languageName"))
+        print("Should MATCH:", defaults.string(forKey: "languageName") ?? "nil")
         self.topView.selectedLanguage = language
     }
         
@@ -56,6 +56,7 @@ public class DictionaryController: TopController, PopUpDelegate {
 	lazy var sceneView: ARSCNView = {
 		let sv = ARSCNView()
 		sv.delegate = self
+        sv.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         sv.alpha = 0.5
 		sv.translatesAutoresizingMaskIntoConstraints = false
 		return sv
@@ -102,7 +103,7 @@ public class DictionaryController: TopController, PopUpDelegate {
     
     let lookAroundLabel: UILabel = {
         let label = UILabel()
-        label.text = "Move the device around to detect planes."
+        label.text = "Move your \(getDeviceName()) around to detect planes."
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.textAlignment = .center
@@ -236,6 +237,7 @@ public class DictionaryController: TopController, PopUpDelegate {
     
     internal func planesDetectedState() {
         topView.showRightIcons()
+        sceneView.debugOptions = []
         UIView.animate(withDuration: 0.5) {
             self.sceneView.alpha = 1
             self.lookAroundLabel.alpha = 0
@@ -245,7 +247,7 @@ public class DictionaryController: TopController, PopUpDelegate {
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true)
         planesDetectionTimer.invalidate()
         
-        popUpView.present(title: "Good job!", subtitle: "Point your device at an object and tap the screen when a suggestion pops up.", buttonAction: "OK, let's try!", imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
+        popUpView.present(title: "Good job!", subtitle: "Point your \(getDeviceName()) at an object and tap the screen when a suggestion pops up.", buttonAction: "OK, let's try!", imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
         popUpView.shouldShowImageWalkthrough = true
     }    
 }

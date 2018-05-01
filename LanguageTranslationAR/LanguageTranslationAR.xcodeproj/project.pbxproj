@@ -11,6 +11,7 @@
 		1D23B9502097AC3E00121E8F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94F2097AC3E00121E8F /* Keys.swift */; };
 		1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9522097C59D00121E8F /* LanguageData.swift */; };
 		1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9542097C5AF00121E8F /* LanguagesList.swift */; };
+		1D23B957209855A400121E8F /* DictionaryController+LanguagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B956209855A400121E8F /* DictionaryController+LanguagePicker.swift */; };
 		1D329F0B207A6AB20046877F /* DictionaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D329F0A207A6AB20046877F /* DictionaryEntry.swift */; };
 		1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E2B20726EFE005E2ADD /* AppDelegate.swift */; };
 		1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3220726F00005E2ADD /* Assets.xcassets */; };
@@ -37,7 +38,6 @@
 		1D441E9320726F22005E2ADD /* DictionaryController+ARKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */; };
 		1D441E9420726F22005E2ADD /* DictionaryController+CoreML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */; };
 		1D441E9520726F22005E2ADD /* DictionaryController+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5D20726F22005E2ADD /* DictionaryController+JSON.swift */; };
-		1D441E9620726F22005E2ADD /* DictionaryController+LanguageSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5E20726F22005E2ADD /* DictionaryController+LanguageSelectionDelegate.swift */; };
 		1D441E9720726F22005E2ADD /* DictionaryController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */; };
 		1D441E9820726F22005E2ADD /* DictionaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6020726F22005E2ADD /* DictionaryController.swift */; };
 		1D441E9920726F22005E2ADD /* PopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6120726F22005E2ADD /* PopUpDelegate.swift */; };
@@ -47,8 +47,6 @@
 		1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6620726F22005E2ADD /* TextToSpeech.swift */; };
 		1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6720726F22005E2ADD /* UIViewExtensions.swift */; };
 		1D441E9F20726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6920726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift */; };
-		1D441EA020726F22005E2ADD /* LanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6A20726F22005E2ADD /* LanguageController.swift */; };
-		1D441EA120726F22005E2ADD /* LanguageSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6B20726F22005E2ADD /* LanguageSelectionDelegate.swift */; };
 		1D441EA220726F22005E2ADD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6D20726F22005E2ADD /* Item.swift */; };
 		1D441EA320726F22005E2ADD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6E20726F22005E2ADD /* Language.swift */; };
 		1D441EA420726F22005E2ADD /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6F20726F22005E2ADD /* Languages.swift */; };
@@ -69,6 +67,7 @@
 		1D23B94F2097AC3E00121E8F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		1D23B9522097C59D00121E8F /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
 		1D23B9542097C5AF00121E8F /* LanguagesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesList.swift; sourceTree = "<group>"; };
+		1D23B956209855A400121E8F /* DictionaryController+LanguagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+LanguagePicker.swift"; sourceTree = "<group>"; };
 		1D329F0A207A6AB20046877F /* DictionaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEntry.swift; sourceTree = "<group>"; };
 		1D441E2820726EFE005E2ADD /* LanguageTranslationAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageTranslationAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D441E2B20726EFE005E2ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +96,6 @@
 		1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+ARKit.swift"; sourceTree = "<group>"; };
 		1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+CoreML.swift"; sourceTree = "<group>"; };
 		1D441E5D20726F22005E2ADD /* DictionaryController+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+JSON.swift"; sourceTree = "<group>"; };
-		1D441E5E20726F22005E2ADD /* DictionaryController+LanguageSelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+LanguageSelectionDelegate.swift"; sourceTree = "<group>"; };
 		1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Views.swift"; sourceTree = "<group>"; };
 		1D441E6020726F22005E2ADD /* DictionaryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryController.swift; sourceTree = "<group>"; };
 		1D441E6120726F22005E2ADD /* PopUpDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpDelegate.swift; sourceTree = "<group>"; };
@@ -107,8 +105,6 @@
 		1D441E6620726F22005E2ADD /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		1D441E6720726F22005E2ADD /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		1D441E6920726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LanguageController+ UIPickerViewDelegate.swift"; sourceTree = "<group>"; };
-		1D441E6A20726F22005E2ADD /* LanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageController.swift; sourceTree = "<group>"; };
-		1D441E6B20726F22005E2ADD /* LanguageSelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageSelectionDelegate.swift; sourceTree = "<group>"; };
 		1D441E6D20726F22005E2ADD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1D441E6E20726F22005E2ADD /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		1D441E6F20726F22005E2ADD /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
@@ -217,7 +213,6 @@
 				1D441E5920726F22005E2ADD /* DictionaryController */,
 				1D441E6220726F22005E2ADD /* Extensions */,
 				1D441EAF20727BD9005E2ADD /* BasePopUpController */,
-				1D441E6820726F22005E2ADD /* LanguageController */,
 				1D441E7020726F22005E2ADD /* ListController */,
 				1D441E7720726F22005E2ADD /* Views */,
 			);
@@ -245,7 +240,8 @@
 				1D441E5A20726F22005E2ADD /* DictionaryController+Actions.swift */,
 				1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */,
 				1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */,
-				1D441E5E20726F22005E2ADD /* DictionaryController+LanguageSelectionDelegate.swift */,
+				1D23B956209855A400121E8F /* DictionaryController+LanguagePicker.swift */,
+				1D441E6920726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift */,
 				1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */,
 				1D441E6120726F22005E2ADD /* PopUpDelegate.swift */,
 			);
@@ -262,16 +258,6 @@
 				1D441E6720726F22005E2ADD /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		1D441E6820726F22005E2ADD /* LanguageController */ = {
-			isa = PBXGroup;
-			children = (
-				1D441E6A20726F22005E2ADD /* LanguageController.swift */,
-				1D441E6920726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift */,
-				1D441E6B20726F22005E2ADD /* LanguageSelectionDelegate.swift */,
-			);
-			path = LanguageController;
 			sourceTree = "<group>";
 		};
 		1D441E6C20726F22005E2ADD /* Model */ = {
@@ -350,7 +336,6 @@
 				1D441E2420726EFE005E2ADD /* Sources */,
 				1D441E2520726EFE005E2ADD /* Frameworks */,
 				1D441E2620726EFE005E2ADD /* Resources */,
-				D43CE6E1A2858778A4E3599A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -442,24 +427,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D43CE6E1A2858778A4E3599A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LanguageTranslationAR/Pods-LanguageTranslationAR-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LanguageTranslationAR/Pods-LanguageTranslationAR-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -469,14 +436,13 @@
 			files = (
 				1D441EAA20726F22005E2ADD /* DictionaryView.swift in Sources */,
 				1D441EA220726F22005E2ADD /* Item.swift in Sources */,
-				1D441EA120726F22005E2ADD /* LanguageSelectionDelegate.swift in Sources */,
+				1D23B957209855A400121E8F /* DictionaryController+LanguagePicker.swift in Sources */,
 				1D441EA820726F22005E2ADD /* ListTableViewCell.swift in Sources */,
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
 				1D329F0B207A6AB20046877F /* DictionaryEntry.swift in Sources */,
-				1D441E9620726F22005E2ADD /* DictionaryController+LanguageSelectionDelegate.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
 				1D441E9F20726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift in Sources */,
 				1D441EA620726F22005E2ADD /* ListController+Views.swift in Sources */,
@@ -488,7 +454,6 @@
 				1D441EAC20726F22005E2ADD /* TopView.swift in Sources */,
 				1D441EA520726F22005E2ADD /* ListController+TableView.swift in Sources */,
 				1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */,
-				1D441EA020726F22005E2ADD /* LanguageController.swift in Sources */,
 				1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */,
 				1D441EA420726F22005E2ADD /* Languages.swift in Sources */,
 				1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */,

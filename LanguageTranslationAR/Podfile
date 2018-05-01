@@ -3,6 +3,5 @@
 
 target 'LanguageTranslationAR' do
   use_frameworks!
-  pod 'Alamofire', '~> 4.7'
   # Pods for LanguageTranslationAR
 end

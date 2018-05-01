@@ -14,19 +14,16 @@ import AVFoundation
 
 @available(iOS 11.0, *)
 public class DictionaryController: TopController, PopUpDelegate {
+
+    // MARK: - Languages
+    var languages = [Language]()
     
     var selectedLanguage: Language? {
         didSet {
             topView.selectedLanguage = selectedLanguage
         }
     }
-    
-    lazy var translationPopoverContent: LanguageController = {
-        let vc = LanguageController()
-        vc.delegate = self
-        return vc
-    }()
-    
+        
 	var timer = Timer()
     var planesDetectionTimer = Timer()
 	
@@ -88,6 +85,15 @@ public class DictionaryController: TopController, PopUpDelegate {
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
         label.font = UIFont(name: "CircularStd-Book", size: 30)
         return label
+    }()
+    
+    lazy var pickerView: UIPickerView = {
+        let pv = UIPickerView()
+        pv.delegate = self
+        pv.dataSource = self
+        pv.translatesAutoresizingMaskIntoConstraints = false
+        pv.isUserInteractionEnabled = true
+        return pv
     }()
     
     lazy var popUpView: PopUpView = {

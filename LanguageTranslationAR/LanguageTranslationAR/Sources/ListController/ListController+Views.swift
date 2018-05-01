@@ -17,7 +17,7 @@ extension ListController {
     private func setupEmptyStateLabel() {
         view.addSubview(emptyStateLabel)
         emptyStateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -32).isActive = true
+        emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
         emptyStateLabel.font = UIFont(name: "CircularStd-Book", size: 20)

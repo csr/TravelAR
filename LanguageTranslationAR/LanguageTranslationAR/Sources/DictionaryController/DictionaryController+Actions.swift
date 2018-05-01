@@ -29,7 +29,7 @@ extension DictionaryController {
     }
     
     @objc internal func didTapOKTapToAdd() {
-        //popUpView.shouldShowImageWalkthrough = false
+        popUpView.shouldShowImageWalkthrough = false
     }
     
     @objc func handleTapOnBookmarks() {
@@ -57,18 +57,8 @@ extension DictionaryController {
     }
     
     @objc func handleTapOnLanguageSelection() {
-        SystemSoundID.playFileNamed(fileName: "button-click-garageband", withExtenstion: "wav")
-        hintHandView.isHidden = true
-        
-        let nav = UINavigationController(rootViewController: translationPopoverContent)
-        nav.modalPresentationStyle = UIModalPresentationStyle.popover
-        let popover = nav.popoverPresentationController
-        popover?.permittedArrowDirections = .up
-        navigationController?.popoverPresentationController?.backgroundColor = #colorLiteral(red: 0.2769357264, green: 0.7137418389, blue: 0.9510393739, alpha: 1)
-        translationPopoverContent.preferredContentSize = CGSize(width: 350, height: 300)
-        popover?.sourceView = self.view
-        popover?.sourceRect = topView.translationButton.frame
-        self.present(nav, animated: true, completion: nil)
+        loadLanguages()
+        showPickerController()
     }
     
     @objc func updateLabel() {
@@ -107,11 +97,10 @@ extension DictionaryController {
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
         print("handletap")
-        /*
+        
         if popUpView.frame.width > 0 {
             return
         }
- */
         
         if let coords = detectWorldCoordinates() {
             print("didtapsceneview")

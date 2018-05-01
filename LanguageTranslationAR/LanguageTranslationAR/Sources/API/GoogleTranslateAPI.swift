@@ -9,9 +9,9 @@
 import Foundation
 
 class GoogleTranslateAPI {
-    class func getLanguages(target_language: String, completion: @escaping ([Language]) -> Void) {
+    class func getLanguages(targetLanguage: String, completion: @escaping ([Language]) -> Void) {
         let session = URLSession(configuration: .default)
-        guard let url = URL(string: "https://translation.googleapis.com/language/translate/v2/languages?target=\(target_language)&key=\(Keys.googleAPIKey)") else { return }
+        guard let url = URL(string: "https://translation.googleapis.com/language/translate/v2/languages?target=\(targetLanguage)&key=\(Keys.googleAPIKey)") else { return }
         let request = URLRequest(url: url)
         session.dataTask(with: request) { (data, response, error) in
             if let error = error {

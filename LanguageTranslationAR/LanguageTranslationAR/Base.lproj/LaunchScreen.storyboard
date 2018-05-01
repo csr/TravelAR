@@ -16,7 +16,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="h1X-Lv-m1u">
+                                <rect key="frame" x="137" y="293.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="6LF-A4-tu3"/>
+                                    <constraint firstAttribute="width" constant="100" id="ngi-MM-Q6q"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.29019607843137257" green="0.57647058823529407" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="h1X-Lv-m1u" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EOY-gP-Q5x"/>
+                            <constraint firstItem="h1X-Lv-m1u" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="TM0-04-upY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -25,4 +38,7 @@
             <point key="canvasLocation" x="-268" y="439"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="277" height="300"/>
+    </resources>
 </document>

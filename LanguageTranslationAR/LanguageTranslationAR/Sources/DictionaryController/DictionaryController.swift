@@ -89,7 +89,8 @@ public class DictionaryController: TopController, PopUpDelegate {
     
     let lookAroundLabel: UILabel = {
         let label = UILabel()
-        label.text = "Move your \(getDeviceName()) around to detect planes."
+        let format = NSLocalizedString("Move device", comment: "Move device to scan environment")
+        label.text = String.localizedStringWithFormat(format, getDeviceName())
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.textAlignment = .center
@@ -120,7 +121,8 @@ public class DictionaryController: TopController, PopUpDelegate {
     let clearButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Clear", for: .normal)
+        let title = NSLocalizedString("Clear", comment: "Clear")
+        button.setTitle(title, for: .normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 20
         button.backgroundColor = .white
@@ -158,13 +160,18 @@ public class DictionaryController: TopController, PopUpDelegate {
         
         switch cameraAuthorizationStatus {
         case .denied:
-            popUpView.present(title: "Ooops!", subtitle: "It looks like we don't have camera permissions.", buttonAction: "Enable camera in settings", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+            let title = NSLocalizedString("Camera permissions", comment: "Camera permissions")
+            let buttonActionTitle = NSLocalizedString("Enable camera", comment: "Enable camera settings")
+            popUpView.present(title: "Ooops!", subtitle: title, buttonAction: buttonActionTitle, imageName: "welcome", completionHandler: #selector(detectingPlanesState))
         case .authorized:
                 detectingPlanesState()
-        //popUpView.present(title: "Welcome!", subtitle: "To start learning a new language, we'll need camera permissions.", buttonAction: "Turn on camera", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
-        case .restricted: break
+        case .restricted:
+            break
         case .notDetermined:
-            popUpView.present(title: "Welcome!", subtitle: "To start learning a new language, we'll need camera permissions.", buttonAction: "Turn on camera", imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+            let title = NSLocalizedString("Welcome", comment: "Welcome")
+            let subtitle = NSLocalizedString("Ask camera permission", comment: "Ask camera permission")
+            let buttonActionTitle = NSLocalizedString("Turn on camera", comment: "Turn on camera")
+            popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonActionTitle, imageName: "welcome", completionHandler: #selector(detectingPlanesState))
         }
     }
             
@@ -233,7 +240,12 @@ public class DictionaryController: TopController, PopUpDelegate {
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true)
         planesDetectionTimer.invalidate()
         
-        popUpView.present(title: "Good job!", subtitle: "Point your \(getDeviceName()) at an object and tap the screen when a suggestion pops up.", buttonAction: "OK, let's try!", imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
+        let title = NSLocalizedString("Good job", comment: "Good job")
+        let format = NSLocalizedString("Point device", comment: "Point device at object")
+        let subtitle = String.localizedStringWithFormat(format, getDeviceName())
+        let buttonTitle = NSLocalizedString("Let's try", comment: "OK, let's try!")
+        
+        popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonTitle, imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
         popUpView.shouldShowImageWalkthrough = true
     }    
 }

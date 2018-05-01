@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  LanguageTranslationAR
+
+  Created by Cesare de Cal on 01/05/2018.
+  Copyright © 2018 Cesare de Cal. All rights reserved.
+*/
+
+"Scanning" = "Scanning...";
+"Move device" = "Move your %@ around to detect planes.";
+"Good job" = "Good job!";
+"Point device" = "Point your %@ at an object and tap the screen when a suggestion pops up.";
+"Let's try" = "OK, let's try!";
+"Nothing found" = "Nothing found...";
+"Translations" = "Translations";
+"Clear" = "Clear";
+"Tap to play" = "Tap to play";
+"New words" = "New words";
+"No items" = "Nothing on the list yet.\nScan an object get started!";
+"Select" = "Select";
+"Cancel" = "Cancel";
+"Translation language" = "This language will be used to translate the things you scan.";
+"Camera permissions" = "It looks like you don't have camera permissions enabled.";
+"Enable camera" = "Enable camera settings";
+"Welcome" = "Welcome!";
+"Ask camera permission" = "To start learning a new language, we'll need camera permissions.";
+"Turn on camera" = "Turn on camera";

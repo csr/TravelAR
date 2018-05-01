@@ -20,7 +20,7 @@ class ListController: BasePopUpController {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.text = "Nothing on the list yet.\nScan an object get started!"
+        label.text = NSLocalizedString("No items", comment: "No items")
         label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -28,7 +28,7 @@ class ListController: BasePopUpController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = list.isEmpty ? "New Words" : "Tap Item to Play"
+        title = list.isEmpty ? NSLocalizedString("New words", comment: "New words") : NSLocalizedString("Tap to play", comment: "Tap item to play")
     }
     
     override func viewDidLoad() {

@@ -74,13 +74,13 @@ extension DictionaryController {
             return
         }
         
-        if (text == "Nothing found..." || text == "Scanning...") && mlPrediction == nil {
+        if text.contains("...") && mlPrediction == nil {
             imageViewWalkthrough.layer.removeAllAnimations()
             return
         }
         
         topView.identifierLabel.alpha = mlPrediction != nil ? 1 : 0.5
-        topView.identifierLabel.text = mlPrediction != nil ? mlPrediction : "Nothing found..."
+        topView.identifierLabel.text = mlPrediction != nil ? mlPrediction : NSLocalizedString("Nothing found", comment: "Nothing found")
         animateImageWalkthrough(shouldBeHidden: mlPrediction == nil)
         
         if mlPrediction != nil {

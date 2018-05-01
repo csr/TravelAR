@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  LanguageTranslationAR
+
+  Created by Cesare de Cal on 01/05/2018.
+  Copyright © 2018 Cesare de Cal. All rights reserved.
+*/
+
+"Scanning" = "Scansionando...";
+"Move device" = "Guarda i dintorni con il tuo %@ per trovare superfici.";
+"Good job" = "Bravo!";
+"Point device" = "Punta il tuo %@ verso un oggetto e tocca appena vedi un suggerimento.";
+"Let's try" = "OK, proviamo!";
+"Nothing found" = "Nulla qui...";
+"Translations" = "Traduzioni";
+"Clear" = "Pulisci";
+"Tap to play" = "Tocca per ascoltare";
+"New words" = "Nuove parole";
+"No items" = "Niente da vedere qui.\nScansiona il primo oggetto per iniziare!";
+"Select" = "Seleziona";
+"Cancel" = "Annulla";
+"Translation language" = "La lingua selezionata verrà usata per tradurre gli oggetti che scansioni.";
+"Camera permissions" = "Sembra che l'app non riesca ad accedere alla fotocamera.";
+"Enable camera" = "Abilita permessi fotocamera";
+"Welcome" = "Benvenuto!";
+"Ask camera permission" = "Per iniziare a tradurre, abbiamo bisogno dei permessi fotocamera.";
+"Turn on camera" = "Abilita permessi fotocamera";

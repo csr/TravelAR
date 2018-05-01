@@ -10,7 +10,8 @@ import UIKit
 
 extension DictionaryController {
     internal func showPickerController() {
-        let alertController = UIAlertController(title: "Translation Language", message: nil, preferredStyle: .actionSheet)
+        let title = NSLocalizedString("Translation language", comment: "Translation language")
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         let customView = UIView()
         alertController.view.addSubview(customView)
         customView.translatesAutoresizingMaskIntoConstraints = false
@@ -27,11 +28,13 @@ extension DictionaryController {
         
         alertController.view.translatesAutoresizingMaskIntoConstraints = false
         alertController.view.heightAnchor.constraint(equalToConstant: 430).isActive = true
-        let selectAction = UIAlertAction(title: "Select", style: .default) { (action) in
+        let selectionTitle = NSLocalizedString("Select", comment: "Select")
+        let selectAction = UIAlertAction(title: selectionTitle, style: .default) { (action) in
             self.didSelectLanguage()
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelTitle = NSLocalizedString("Cancel", comment: "Cancel")
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: nil)
         alertController.addAction(selectAction)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)

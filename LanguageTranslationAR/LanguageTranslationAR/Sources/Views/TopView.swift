@@ -22,7 +22,7 @@ public class TopView: UIView {
 		label.font = UIFont(name: "CircularStd-Book", size: 24)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.numberOfLines = 0
-        label.text = "Scanning..."
+        label.text = NSLocalizedString("Scanning", comment: "Scanning environment")
 		return label
 	}()
     
@@ -105,7 +105,7 @@ public class TopView: UIView {
         
         let label = UILabel()
         addSubview(label)
-        label.text = "Translations"
+        label.text = NSLocalizedString("Translations", comment: "")
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0

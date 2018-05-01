@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  LanguageTranslationAR
+
+  Created by Cesare de Cal on 01/05/2018.
+  Copyright © 2018 Cesare de Cal. All rights reserved.
+*/
+
+"Privacy - Camera Usage Description" = "Abbiamo bisogno di questi permessi per permetterti di scansionare l'ambiente che ti circonda.";

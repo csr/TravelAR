@@ -18,10 +18,36 @@ public class DictionaryController: TopController, PopUpDelegate {
     // MARK: - Languages
     var languages = [Language]()
     
-    var selectedLanguage: Language? {
-        didSet {
-            topView.selectedLanguage = selectedLanguage
+    var selectedLanguage: Language {
+        get {
+            return getSelectedLanguage()
         }
+        
+        set {
+            DispatchQueue.main.async {
+                self.setSelectedLanguage(language: newValue)
+            }
+        }
+    }
+    
+    func getSelectedLanguage() -> Language {
+        let defaults = UserDefaults.standard
+        if let code = defaults.string(forKey: "languageCode"), let name = defaults.string(forKey: "languageName") {
+            return Language(name: name, languageCode: code)
+        } else {
+            return Language(name: "Spanish", languageCode: "es")
+        }
+    }
+    
+    func setSelectedLanguage(language: Language) {
+        //selectedLanguage = language
+        let defaults = UserDefaults.standard
+        print("Saving languageName:", language.name)
+        defaults.set("languageName", forKey: language.name)
+        defaults.set("languageCode", forKey: language.languageCode)
+        defaults.synchronize()
+        print("Should MATCH:", defaults.string(forKey: "languageName"))
+        self.topView.selectedLanguage = language
     }
         
 	var timer = Timer()
@@ -49,6 +75,7 @@ public class DictionaryController: TopController, PopUpDelegate {
         imageView.image = UIImage(named: "draw-sign")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isHidden = true
         return imageView
     }()
     
@@ -134,12 +161,9 @@ public class DictionaryController: TopController, PopUpDelegate {
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
         checkCameraPermissions()
-        setInitialSelectedLanguage()
+        
+        topView.selectedLanguage = selectedLanguage
 	}
-    
-    private func setInitialSelectedLanguage() {
-        selectedLanguage = Language(name: "Spanish", languageCode: "es")
-    }
     
     private func checkCameraPermissions() {
         let cameraMediaType = AVMediaType.video
@@ -176,9 +200,11 @@ public class DictionaryController: TopController, PopUpDelegate {
         
         if !latestPrediction.isEmpty {
             getTranslations(text: latestPrediction) { (translations) in
-                if let firstTranslation = translations.first {
-                    self.addNode(title: latestPrediction, subtitle: firstTranslation.translatedText, coords: coords)
-                    self.handleIncomingTranslation(translation: firstTranslation)
+                DispatchQueue.main.async {
+                    if let firstTranslation = translations.first {
+                        self.addNode(title: latestPrediction, subtitle: firstTranslation.translatedText, coords: coords)
+                        self.handleIncomingTranslation(translation: firstTranslation)
+                    }
                 }
             }
         } else {
@@ -188,18 +214,16 @@ public class DictionaryController: TopController, PopUpDelegate {
     }
     
     func handleIncomingTranslation(translation: Translation) {
-        DispatchQueue.main.async {
-            self.animateDictionaryView(item: translation)
-            TextToSpeech.speak(item: translation)
+        self.animateDictionaryView(item: translation)
+        TextToSpeech.speak(item: translation)
+        
+        if !self.bookmarksPopoverContent.list.contains(translation) {
+            self.bookmarksPopoverContent.list.append(translation)
+            self.topView.bookmarksButton.boingAnimation()
+            self.clearButton.isHidden = false
             
-            if !self.bookmarksPopoverContent.list.contains(translation) {
-                self.bookmarksPopoverContent.list.append(translation)
-                self.topView.bookmarksButton.boingAnimation()
-                self.clearButton.isHidden = false
-                
-                if self.bookmarksPopoverContent.list.count == 1 {
-                    self.setupImageViewHint()
-                }
+            if self.bookmarksPopoverContent.list.count == 1 {
+                self.setupImageViewHint()
             }
         }
     }

@@ -6,6 +6,7 @@ public class DictionaryView: UIView {
         didSet {
             if let item = item {
                 mainLabel.text = item.translatedText
+                descriptionLabel.text = item.originalText
             }
         }
     }
@@ -47,7 +48,7 @@ public class DictionaryView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         layer.borderWidth = 3
-        layer.borderColor = #colorLiteral(red: 0.2769357264, green: 0.7137418389, blue: 0.9510393739, alpha: 1).cgColor
+        layer.borderColor = UIColor.deepBlue.cgColor
 	}
 	
 	private func setupView() {

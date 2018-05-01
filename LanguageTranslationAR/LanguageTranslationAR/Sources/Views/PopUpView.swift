@@ -36,7 +36,7 @@ class PopUpView: UIView {
     
     private let topBarView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.2769357264, green: 0.7137418389, blue: 0.9510393739, alpha: 1)
+        view.backgroundColor = .deepBlue
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -75,7 +75,7 @@ class PopUpView: UIView {
     
     private let confirmButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = #colorLiteral(red: 0.2769357264, green: 0.7137418389, blue: 0.9510393739, alpha: 1)
+        button.backgroundColor = .deepBlue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("OK", for: .normal)
         button.layer.masksToBounds = true
@@ -203,7 +203,7 @@ class PopUpView: UIView {
         layoutIfNeeded()
         
         alpha = 1
-        transform = CGAffineTransform(scaleX: 0.3, y: 2)
+        transform = CGAffineTransform(scaleX: 0.2, y: 1.5)
         SystemSoundID.playFileNamed(fileName: "pop_drip", withExtenstion: "wav")
         
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [.allowUserInteraction], animations: {

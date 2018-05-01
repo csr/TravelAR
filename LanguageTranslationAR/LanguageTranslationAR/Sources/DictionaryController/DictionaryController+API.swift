@@ -12,7 +12,7 @@ extension DictionaryController {
     internal func getTranslations(text: String, completion: @escaping ([Translation]) -> Void) {
         print("Sent translation request...")
 
-        GoogleTranslateAPI.getTranslations(for: text, sourceLanguage: getSourceLanguageCode(), targetLanguage: selectedLanguage?.languageCode ?? "es") { (translations) in
+        GoogleTranslateAPI.getTranslations(for: text, sourceLanguage: getSourceLanguageCode(), targetLanguage: selectedLanguage.languageCode) { (translations) in
             print("Got translations #:", translations.count)
             completion(translations)
         }

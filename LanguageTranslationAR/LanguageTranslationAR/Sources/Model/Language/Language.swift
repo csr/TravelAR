@@ -9,11 +9,11 @@
 import Foundation
 
 struct Language: Codable, Equatable {
-    var name: String?
-    var languageCode: String?
+    var name: String
+    var languageCode: String
     
     static func ==(lhs: Language, rhs: Language) -> Bool {
-        return lhs.name == rhs.name
+        return lhs.languageCode == rhs.languageCode
     }
     
     private enum CodingKeys: String, CodingKey {

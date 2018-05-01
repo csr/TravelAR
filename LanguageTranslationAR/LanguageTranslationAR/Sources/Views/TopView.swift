@@ -7,7 +7,10 @@ public class TopView: UIView {
     var selectedLanguage: Language? {
         didSet {
             if let language = selectedLanguage {
+                print("language name:", language.name)
                 translationLabel.text = language.name
+            } else {
+                print("Selected language is nil")
             }
         }
     }
@@ -30,6 +33,7 @@ public class TopView: UIView {
         stackView.alignment = .center
         stackView.axis = .vertical
         stackView.spacing = 2
+        stackView.alpha = 0
         return stackView
     }()
     
@@ -51,6 +55,7 @@ public class TopView: UIView {
         stackView.alignment = .center
         stackView.axis = .vertical
         stackView.spacing = 2
+        stackView.alpha = 0
         return stackView
     }()
     
@@ -58,7 +63,6 @@ public class TopView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "icon-bookmarks"), for: .normal)
-        button.alpha = 0
         return button
     }()
     
@@ -66,7 +70,6 @@ public class TopView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "icon-translation"), for: .normal)
-        button.alpha = 0
         return button
     }()
     
@@ -125,8 +128,8 @@ public class TopView: UIView {
     
     public func showRightIcons() {
         UIView.animate(withDuration: 1) {
-            self.bookmarksButton.alpha = 1
-            self.translationButton.alpha = 1
+            self.bookmarksStackView.alpha = 1
+            self.translateStackView.alpha = 1
         }
     }
     
@@ -136,7 +139,7 @@ public class TopView: UIView {
 	
 	private func setupView() {
 		translatesAutoresizingMaskIntoConstraints = false
-		backgroundColor = #colorLiteral(red: 0.2769357264, green: 0.7137418389, blue: 0.9510393739, alpha: 1)
+		backgroundColor = .deepBlue
         layer.shadowOpacity = 0.2 // opacity, 20%
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 2 // HALF of blur

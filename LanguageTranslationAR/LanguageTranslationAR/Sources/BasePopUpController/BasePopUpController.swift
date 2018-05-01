@@ -29,7 +29,7 @@ class BasePopUpController: UIViewController {
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
         let font = UIFont(name: "CircularStd-Book", size: 20)
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2769357264, green: 0.7137418389, blue: 0.9510393739, alpha: 1)
+        navigationController?.navigationBar.barTintColor = .deepBlue
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: font!]
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleTapOnDone))
         navigationController?.navigationBar.tintColor = .white

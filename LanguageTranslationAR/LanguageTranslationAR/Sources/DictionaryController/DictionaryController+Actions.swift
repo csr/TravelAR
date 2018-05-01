@@ -43,7 +43,7 @@ extension DictionaryController {
         nav.modalPresentationStyle = UIModalPresentationStyle.popover
         let popover = nav.popoverPresentationController
         popover?.permittedArrowDirections = .up
-        navigationController?.popoverPresentationController?.backgroundColor = #colorLiteral(red: 0.2769357264, green: 0.7137418389, blue: 0.9510393739, alpha: 1)
+        navigationController?.popoverPresentationController?.backgroundColor = .deepBlue
         
         if bookmarksPopoverContent.list.isEmpty {
             bookmarksPopoverContent.preferredContentSize = CGSize(width: 400, height: 150)

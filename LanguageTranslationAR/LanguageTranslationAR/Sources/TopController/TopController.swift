@@ -2,7 +2,7 @@ import UIKit
 
 public class TopController: UIViewController {
     
-    let kTopViewHeight: CGFloat = 85
+    let kTopViewHeight: CGFloat = 95
     
     var topViewTopAnchor: NSLayoutConstraint?
     

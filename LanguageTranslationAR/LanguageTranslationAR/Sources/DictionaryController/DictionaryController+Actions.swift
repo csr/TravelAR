@@ -59,6 +59,10 @@ extension DictionaryController {
     @objc func handleTapOnLanguageSelection() {
         loadLanguages()
         showPickerController()
+        
+        UIView.animate(withDuration: 0.3) {
+            self.hintHandView.alpha = 0
+        }
     }
     
     @objc func updateLabel() {

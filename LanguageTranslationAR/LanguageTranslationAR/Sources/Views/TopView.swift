@@ -6,17 +6,9 @@ public class TopView: UIView {
     
     var selectedLanguage: Language? {
         didSet {
-            guard let language = selectedLanguage else { return }
-            
-            /*
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                languageLabel.text = language.getDescription()
-            } else {
-                if let emoji = language.emoji {
-                    languageLabel.text = String(emoji)
-                }
+            if let language = selectedLanguage {
+                translationLabel.text = language.name
             }
- */
         }
     }
     
@@ -32,15 +24,34 @@ public class TopView: UIView {
 		return label
 	}()
     
-    var languageLabel: UILabel = {
+    let translateStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .center
+        stackView.axis = .vertical
+        stackView.spacing = 2
+        return stackView
+    }()
+    
+    let translationLabel: UILabel = {
         let label = UILabel()
+        label.text = "Languages"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        label.font = UIFont(name: "CircularStd-Book", size: 24)
-        label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.alpha = 0
+        label.font = UIFont(name: "CircularStd-Book", size: 13)
         return label
+    }()
+    
+    let bookmarksStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .center
+        stackView.axis = .vertical
+        stackView.spacing = 2
+        return stackView
     }()
     
     let bookmarksButton: UIButton = {
@@ -59,39 +70,63 @@ public class TopView: UIView {
         return button
     }()
     
+    let leftStackView: UIStackView = {
+        let stackView = UIStackView()
+        return stackView
+    }()
+    
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupView()
 		setupDescriptionLabel()
         setupBookmarksButton()
         setupTranslationButton()
+        setupStackViews()
 	}
+    
+    private func setupStackViews() {
+        let rightStackView = UIStackView()
+        rightStackView.spacing = 15
+        rightStackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(rightStackView)
+        rightStackView.addArrangedSubview(translateStackView)
+        rightStackView.addArrangedSubview(bookmarksStackView)
+        rightStackView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: verticalOffset).isActive = true
+        rightStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -15).isActive = true
+    }
 	
     private func setupBookmarksButton() {
-        addSubview(bookmarksButton)
-        bookmarksButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: verticalOffset).isActive = true
-        bookmarksButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
+        addSubview(bookmarksStackView)
+        bookmarksStackView.addArrangedSubview(bookmarksButton)
         bookmarksButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
         bookmarksButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        
+        let label = UILabel()
+        addSubview(label)
+        label.text = "Bookmarks"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
+        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
+        label.font = UIFont(name: "CircularStd-Book", size: 13)
+        addSubview(label)
+        bookmarksStackView.addArrangedSubview(label)
     }
     
     private func setupTranslationButton() {
-        addSubview(translationButton)
-        translationButton.centerYAnchor.constraint(equalTo: identifierLabel.centerYAnchor).isActive = true
-        translationButton.rightAnchor.constraint(equalTo: bookmarksButton.leftAnchor, constant: -16.5).isActive = true
+        addSubview(translateStackView)
+        translateStackView.addArrangedSubview(translationButton)
         translationButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
         translationButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        
-        addSubview(languageLabel)
-        languageLabel.centerYAnchor.constraint(equalTo: identifierLabel.centerYAnchor).isActive = true
-        languageLabel.rightAnchor.constraint(equalTo: translationButton.leftAnchor, constant: -20).isActive = true
+        translateStackView.addArrangedSubview(translationLabel)
     }
+    
     
     public func showRightIcons() {
         UIView.animate(withDuration: 1) {
             self.bookmarksButton.alpha = 1
             self.translationButton.alpha = 1
-            self.languageLabel.alpha = 1
         }
     }
     

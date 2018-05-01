@@ -134,7 +134,12 @@ public class DictionaryController: TopController, PopUpDelegate {
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
         checkCameraPermissions()
+        setInitialSelectedLanguage()
 	}
+    
+    private func setInitialSelectedLanguage() {
+        selectedLanguage = Language(name: "Spanish", languageCode: "es")
+    }
     
     private func checkCameraPermissions() {
         let cameraMediaType = AVMediaType.video

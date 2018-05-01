@@ -68,9 +68,9 @@ extension DictionaryController {
     }
     
     private func setupTopViewActions() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnLanguageSelection))
-        topView.languageLabel.isUserInteractionEnabled = true
-        topView.languageLabel.addGestureRecognizer(tapRecognizer)
+        //let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnLanguageSelection))
+        //topView.languageLabel.isUserInteractionEnabled = true
+        //topView.languageLabel.addGestureRecognizer(tapRecognizer)
         topView.translationButton.addTarget(self, action: #selector(handleTapOnLanguageSelection), for: .touchUpInside)
         topView.bookmarksButton.addTarget(self, action: #selector(handleTapOnBookmarks), for: .touchUpInside)
     }

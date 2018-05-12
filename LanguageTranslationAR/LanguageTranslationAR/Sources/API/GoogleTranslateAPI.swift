@@ -22,7 +22,6 @@ class GoogleTranslateAPI {
         
         let request = URLRequest(url: url)
         session.dataTask(with: request) { (data, response, error) in
-            
             if let error = error {
                 print(error.localizedDescription)
             }
@@ -58,7 +57,6 @@ class GoogleTranslateAPI {
             } else {
                 print("Could not parse data")
             }
-
         }.resume()
     }
 }

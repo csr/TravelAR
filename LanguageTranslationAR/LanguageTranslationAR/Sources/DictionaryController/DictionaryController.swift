@@ -143,6 +143,11 @@ public class DictionaryController: TopController, PopUpDelegate {
     let bookmarksPopoverContent = ListController()
     var visionRequests = [VNRequest]()
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkCameraPermissions()
+    }
+    
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
@@ -150,9 +155,9 @@ public class DictionaryController: TopController, PopUpDelegate {
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
         topView.selectedLanguage = selectedLanguage
-        checkCameraPermissions()
+        //checkCameraPermissions()
 	}
-        
+    
     private func checkCameraPermissions() {
         let cameraMediaType = AVMediaType.video
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
@@ -165,6 +170,7 @@ public class DictionaryController: TopController, PopUpDelegate {
         case .authorized:
                 detectingPlanesState()
         case .restricted:
+            print("Camera restricted?")
             break
         case .notDetermined:
             let title = NSLocalizedString("Welcome", comment: "Welcome")

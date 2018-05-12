@@ -19,9 +19,9 @@
 "No items" = "Niente da vedere qui.\nScansiona il primo oggetto per iniziare!";
 "Select" = "Seleziona";
 "Cancel" = "Annulla";
-"Translation language" = "La lingua selezionata verrà usata per tradurre gli oggetti che scansioni.";
+"Translation language" = "Seleziona la lingua che verrà usata per tradurre gli oggetti intorno a te.";
 "Camera permissions" = "Sembra che l'app non riesca ad accedere alla fotocamera.";
 "Enable camera" = "Vai alle impostazioni";
 "Welcome" = "Benvenuto!";
 "Ask camera permission" = "Per iniziare a tradurre, abbiamo bisogno dei permessi fotocamera.";
-"Turn on camera" = "Abilita permessi fotocamera";
+"Turn on camera" = "Abilita fotocamera";

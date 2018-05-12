@@ -225,7 +225,10 @@ public class DictionaryController: TopController, PopUpDelegate {
     }
     
     internal func planesDetectedState() {
+        planesDetectionTimer.invalidate()
         topView.showRightIcons()
+        presentAppInstructionAlert()
+
         sceneView.debugOptions = []
         UIView.animate(withDuration: 0.5) {
             self.sceneView.alpha = 1
@@ -234,7 +237,5 @@ public class DictionaryController: TopController, PopUpDelegate {
             self.cameraOverlayView.alpha = 1
         }
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true)
-        planesDetectionTimer.invalidate()
-        presentAppInstructionAlert()
     }
 }

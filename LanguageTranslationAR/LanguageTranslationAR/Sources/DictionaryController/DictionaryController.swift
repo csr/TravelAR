@@ -114,7 +114,6 @@ public class DictionaryController: TopController, PopUpDelegate {
     lazy var popUpView: PopUpView = {
         let view = PopUpView()
         view.delegate = self
-        view.parent = self
         return view
     }()
 	
@@ -143,11 +142,6 @@ public class DictionaryController: TopController, PopUpDelegate {
     let bookmarksPopoverContent = ListController()
     var visionRequests = [VNRequest]()
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        checkCameraPermissions()
-    }
-    
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
@@ -155,28 +149,20 @@ public class DictionaryController: TopController, PopUpDelegate {
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
         topView.selectedLanguage = selectedLanguage
-        //checkCameraPermissions()
 	}
     
-    private func checkCameraPermissions() {
+    internal func checkCameraPermissions() {
         let cameraMediaType = AVMediaType.video
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
-        
         switch cameraAuthorizationStatus {
         case .denied:
-            let title = NSLocalizedString("Camera permissions", comment: "Camera permissions")
-            let buttonActionTitle = NSLocalizedString("Enable camera", comment: "Enable camera settings")
-            popUpView.present(title: "Ooops!", subtitle: title, buttonAction: buttonActionTitle, imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+            presentDeniedCameraPermissionsAlert()
         case .authorized:
-                detectingPlanesState()
+            detectingPlanesState()
         case .restricted:
-            print("Camera restricted?")
             break
         case .notDetermined:
-            let title = NSLocalizedString("Welcome", comment: "Welcome")
-            let subtitle = NSLocalizedString("Ask camera permission", comment: "Ask camera permission")
-            let buttonActionTitle = NSLocalizedString("Turn on camera", comment: "Turn on camera")
-            popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonActionTitle, imageName: "welcome", completionHandler: #selector(openCameraSettings))
+            presentWelcomeAlert()
         }
     }
     
@@ -238,7 +224,6 @@ public class DictionaryController: TopController, PopUpDelegate {
         performSelector(onMainThread: selector, with: nil, waitUntilDone: true)
     }
     
-    
     internal func planesDetectedState() {
         topView.showRightIcons()
         sceneView.debugOptions = []
@@ -250,13 +235,6 @@ public class DictionaryController: TopController, PopUpDelegate {
         }
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true)
         planesDetectionTimer.invalidate()
-        
-        let title = NSLocalizedString("Good job", comment: "Good job")
-        let format = NSLocalizedString("Point device", comment: "Point device at object")
-        let subtitle = String.localizedStringWithFormat(format, getDeviceName())
-        let buttonTitle = NSLocalizedString("Let's try", comment: "OK, let's try!")
-        
-        popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonTitle, imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
-        popUpView.shouldShowImageWalkthrough = true
-    }    
+        presentAppInstructionAlert()
+    }
 }

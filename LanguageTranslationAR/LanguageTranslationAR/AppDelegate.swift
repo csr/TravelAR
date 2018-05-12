@@ -19,11 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = DictionaryController()
         return true
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        guard let vc = self.window?.rootViewController as? DictionaryController else { return }
+        vc.checkCameraPermissions()
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {}
     func applicationDidEnterBackground(_ application: UIApplication) {}
     func applicationWillEnterForeground(_ application: UIApplication) {}
-    func applicationDidBecomeActive(_ application: UIApplication) {}
     func applicationWillTerminate(_ application: UIApplication) {}
 }
 

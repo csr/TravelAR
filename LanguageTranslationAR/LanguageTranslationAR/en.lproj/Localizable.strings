@@ -21,7 +21,7 @@
 "Cancel" = "Cancel";
 "Translation language" = "This language will be used to translate the things you scan.";
 "Camera permissions" = "It looks like you don't have camera permissions enabled.";
-"Enable camera" = "Enable camera settings";
+"Enable camera" = "Go to settings";
 "Welcome" = "Welcome!";
 "Ask camera permission" = "To start learning a new language, we'll need camera permissions.";
 "Turn on camera" = "Turn on camera";

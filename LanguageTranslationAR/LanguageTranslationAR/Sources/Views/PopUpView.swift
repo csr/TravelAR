@@ -12,12 +12,6 @@ import AVFoundation
 @available(iOS 11.0, *)
 class PopUpView: UIView {
     
-    let viewHeight: CGFloat = 400
-    
-    var parent: DictionaryController?
-    var heightConstraint: NSLayoutConstraint?
-    var widthConstraint: NSLayoutConstraint?
-    
     var shouldShowImageWalkthrough: Bool = false {
         didSet {
             imageWalkthroughView.alpha = shouldShowImageWalkthrough ? 1 : 0
@@ -26,7 +20,6 @@ class PopUpView: UIView {
     
     var completionHandler: Selector?
     var delegate: PopUpDelegate?
-    
     
     private let shadowView: UIView = {
         let view = UIView()
@@ -148,20 +141,18 @@ class PopUpView: UIView {
     }
     
     func present(title: String, subtitle: String, buttonAction: String, imageName: String, completionHandler: Selector) {
-        shouldShow()
+        show()
         self.completionHandler = completionHandler
         titleLabel.text = title
         descriptionLabel.text = subtitle
         setConfirmButtonText(text: buttonAction)
         imageView.image = UIImage(named: imageName)
-        heightConstraint?.constant = imageName.isEmpty ? viewHeight / 1.4 : viewHeight
+        //heightConstraint?.constant = imageName.isEmpty ? 400 / 1.4 : 400
     }
     
     private func setupView() {
-        heightConstraint = heightAnchor.constraint(equalToConstant: viewHeight)
-        heightConstraint?.isActive = true
-        widthConstraint = widthAnchor.constraint(equalToConstant: viewHeight)
-        widthConstraint?.isActive = true
+        heightAnchor.constraint(equalToConstant: 400).isActive = true
+        widthAnchor.constraint(equalToConstant: 370).isActive = true
         layer.shadowOpacity = 0.2 // opacity, 20%
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 2 // HALF of blur
@@ -193,13 +184,12 @@ class PopUpView: UIView {
     
     @objc private func buttonTapHandler() {
         SystemSoundID.playFileNamed(fileName: "button-click-garageband", withExtenstion: "wav")
-        shouldHide()
+        hide()
         guard let selector = completionHandler else { return }
         delegate?.didTapButton(selector: selector)
     }
     
-    func shouldShow() {
-        parent?.popUpCenterYAnchor?.constant = -1000
+    func show() {
         layoutIfNeeded()
         
         alpha = 1
@@ -209,21 +199,13 @@ class PopUpView: UIView {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [.allowUserInteraction], animations: {
             self.transform = .identity
             self.alpha = 1
-            self.heightConstraint?.constant = 400
-            self.widthConstraint?.constant = 370
-            self.parent?.popUpCenterYAnchor?.constant = 0
-            self.layoutIfNeeded()
         }, completion: nil)
         
         layoutIfNeeded()
     }
     
-    func shouldHide() {
-        layoutIfNeeded()
+    func hide() {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.65, initialSpringVelocity: 0, options: [.allowUserInteraction], animations: {
-            self.heightConstraint?.constant = 0
-            self.widthConstraint?.constant = 0
-            self.layoutIfNeeded()
             self.alpha = 0
         }, completion: nil)
     }

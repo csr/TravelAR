@@ -66,6 +66,7 @@
 		1D441EAB20726F22005E2ADD /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7920726F22005E2ADD /* PopUpView.swift */; };
 		1D441EAC20726F22005E2ADD /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7A20726F22005E2ADD /* TopView.swift */; };
 		1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */; };
+		1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,7 @@
 		1D441E7920726F22005E2ADD /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		1D441E7A20726F22005E2ADD /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopUpController.swift; sourceTree = "<group>"; };
+		1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Alerts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				1D441E6020726F22005E2ADD /* DictionaryController.swift */,
+				1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */,
 				1D23B95A20986D1100121E8F /* DictionaryController+API.swift */,
 				1D441E5D20726F22005E2ADD /* DictionaryController+JSON.swift */,
 				1D441E5A20726F22005E2ADD /* DictionaryController+Actions.swift */,
@@ -445,6 +448,7 @@
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
 				1D441E9F20726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift in Sources */,
 				1D441EA620726F22005E2ADD /* ListController+Views.swift in Sources */,
+				1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */,
 				1D441E8020726F22005E2ADD /* exampleModelFP16.mlmodel in Sources */,
 				1D441E9920726F22005E2ADD /* PopUpDelegate.swift in Sources */,
 				1D23B95920986BB700121E8F /* Translation.swift in Sources */,
@@ -629,7 +633,10 @@
 				DEVELOPMENT_TEAM = G99G8858YN;
 				INFOPLIST_FILE = LanguageTranslationAR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cesaredecal.LanguageTranslationAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -645,7 +652,10 @@
 				DEVELOPMENT_TEAM = G99G8858YN;
 				INFOPLIST_FILE = LanguageTranslationAR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cesaredecal.LanguageTranslationAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -86,22 +86,7 @@ public class DictionaryController: TopController, PopUpDelegate {
         imageView.alpha = 0
 		return imageView
 	}()
-    
-    let lookAroundLabel: UILabel = {
-        let label = UILabel()
-        let format = NSLocalizedString("Move device", comment: "Move device to scan environment")
-        label.text = String.localizedStringWithFormat(format, getDeviceName())
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
-        label.textAlignment = .center
-        label.alpha = 0
-        label.numberOfLines = 0
-        let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
-        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        label.font = UIFont(name: "CircularStd-Book", size: 30)
-        return label
-    }()
-    
+        
     lazy var pickerView: UIPickerView = {
         let pv = UIPickerView()
         pv.delegate = self
@@ -133,6 +118,12 @@ public class DictionaryController: TopController, PopUpDelegate {
         button.titleLabel?.font = font
         button.isHidden = true
         return button
+    }()
+    
+    let planesDetectedView: PlaneDetectionView = {
+        let view = PlaneDetectionView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     var popUpCenterYAnchor: NSLayoutConstraint?
@@ -249,9 +240,7 @@ public class DictionaryController: TopController, PopUpDelegate {
         presentAppInstructionAlert()
         UIView.animate(withDuration: 0.5) {
             self.sceneView.alpha = 1
-            self.lookAroundLabel.alpha = 0
-            self.imageViewWalkthrough.alpha = 1
-            self.cameraOverlayView.alpha = 1
+            self.planesDetectedView.alpha = 0
         }
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true)
     }

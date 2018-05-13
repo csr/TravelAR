@@ -13,8 +13,7 @@ import AVKit
 extension DictionaryController {
     @objc func detectingPlanesState() {
         sceneView.alpha = 1
-        lookAroundLabel.alpha = 1
-        lookAroundLabel.blink()
+        planesDetectedView.alpha = 1
         setupTimers()
         shouldShowTopView = true
         topView.alpha = 1
@@ -31,6 +30,10 @@ extension DictionaryController {
     @objc internal func didTapOKTapToAdd() {
         topView.showRightIcons()
         popUpView.shouldShowImageWalkthrough = false
+        UIView.animate(withDuration: 0.5) {
+            self.imageViewWalkthrough.alpha = 1
+            self.cameraOverlayView.alpha = 1
+        }
     }
     
     @objc func handleTapOnBookmarks() {

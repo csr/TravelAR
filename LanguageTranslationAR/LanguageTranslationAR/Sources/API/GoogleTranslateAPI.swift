@@ -10,10 +10,8 @@ import Foundation
 
 class GoogleTranslateAPI {
     class func getTranslation(for text: String, sourceLanguage: String, targetLanguage: String, completion: @escaping(Translation?) -> Void) {
-        print("Processing translation request...")
         let session = URLSession(configuration: .default)
         let urlStr = "https://translation.googleapis.com/language/translate/v2?q=\(text)&target=\(targetLanguage)&key=\(Keys.googleAPIKey)"
-        print("url str", urlStr)
         guard let escapedString = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: escapedString) else {
             print("Error: invalid url while getting translation")
             completion(nil)
@@ -29,6 +27,7 @@ class GoogleTranslateAPI {
             if let data = data {
                 if let languageData = try? JSONDecoder().decode(TranslationData.self, from: data), let translation = languageData.data.translations.first {
                     var transl = translation
+                    transl.targetLanguage = targetLanguage
                     transl.originalText = text
                     completion(transl)
                 } else {

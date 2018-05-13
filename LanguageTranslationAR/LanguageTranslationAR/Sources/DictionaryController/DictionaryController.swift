@@ -43,7 +43,6 @@ public class DictionaryController: TopController, PopUpDelegate {
 	lazy var sceneView: ARSCNView = {
 		let sv = ARSCNView()
 		sv.delegate = self
-        sv.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         sv.alpha = 0.5
 		sv.translatesAutoresizingMaskIntoConstraints = false
 		return sv
@@ -247,10 +246,7 @@ public class DictionaryController: TopController, PopUpDelegate {
     
     internal func planesDetectedState() {
         planesDetectionTimer.invalidate()
-        topView.showRightIcons()
         presentAppInstructionAlert()
-
-        sceneView.debugOptions = []
         UIView.animate(withDuration: 0.5) {
             self.sceneView.alpha = 1
             self.lookAroundLabel.alpha = 0

@@ -10,12 +10,13 @@ import Foundation
 
 struct Translation: Codable, Equatable {
     var originalText: String?
+    var targetLanguage: String?
     var translatedText: String
-    var detectedSourceLanguage: String
+    var sourceLanguage: String
     
     private enum CodingKeys: String, CodingKey {
         case translatedText
-        case detectedSourceLanguage
+        case sourceLanguage = "detectedSourceLanguage"
     }
 }
 

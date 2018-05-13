@@ -29,6 +29,7 @@ extension DictionaryController {
     }
     
     @objc internal func didTapOKTapToAdd() {
+        topView.showRightIcons()
         popUpView.shouldShowImageWalkthrough = false
     }
     

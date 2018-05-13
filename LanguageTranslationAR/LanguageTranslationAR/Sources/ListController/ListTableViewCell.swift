@@ -15,8 +15,8 @@ class ListTableViewCell: UITableViewCell {
     var item: Translation? {
         didSet {
             guard let item = item else { return }
-            let wordToDisplay = item.translatedText
-            textLabel?.text = wordToDisplay
+            textLabel?.text = item.translatedText
+            detailTextLabel?.text = item.originalText
         }
     }
     

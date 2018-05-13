@@ -66,6 +66,8 @@
 		1D441EAB20726F22005E2ADD /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7920726F22005E2ADD /* PopUpView.swift */; };
 		1D441EAC20726F22005E2ADD /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7A20726F22005E2ADD /* TopView.swift */; };
 		1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */; };
+		1D4F76B320A820D200B684A6 /* DictionaryController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */; };
+		1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B420A820EE00B684A6 /* SoundNames.swift */; };
 		1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +136,8 @@
 		1D441E7920726F22005E2ADD /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		1D441E7A20726F22005E2ADD /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopUpController.swift; sourceTree = "<group>"; };
+		1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Audio.swift"; sourceTree = "<group>"; };
+		1D4F76B420A820EE00B684A6 /* SoundNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNames.swift; sourceTree = "<group>"; };
 		1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Alerts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,6 +282,7 @@
 				1D23B956209855A400121E8F /* DictionaryController+LanguagePicker.swift */,
 				1D441E6920726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift */,
 				1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */,
+				1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */,
 				1D441E6120726F22005E2ADD /* PopUpDelegate.swift */,
 			);
 			path = DictionaryController;
@@ -303,6 +308,7 @@
 				1D23B95E2098945100121E8F /* Translation */,
 				1D23B9512097C58E00121E8F /* Language */,
 				1D329F0A207A6AB20046877F /* DictionaryEntry.swift */,
+				1D4F76B420A820EE00B684A6 /* SoundNames.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 				1D23B95B20986D1100121E8F /* DictionaryController+API.swift in Sources */,
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
+				1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */,
 				1D329F0B207A6AB20046877F /* DictionaryEntry.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
 				1D441E9F20726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift in Sources */,
@@ -466,6 +473,7 @@
 				1D441EAB20726F22005E2ADD /* PopUpView.swift in Sources */,
 				1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */,
 				1D441E9C20726F22005E2ADD /* SystemSoundIDExtensions.swift in Sources */,
+				1D4F76B320A820D200B684A6 /* DictionaryController+Audio.swift in Sources */,
 				1D441EA920726F22005E2ADD /* TopController.swift in Sources */,
 				1D441E9320726F22005E2ADD /* DictionaryController+ARKit.swift in Sources */,
 				1D441E9820726F22005E2ADD /* DictionaryController.swift in Sources */,

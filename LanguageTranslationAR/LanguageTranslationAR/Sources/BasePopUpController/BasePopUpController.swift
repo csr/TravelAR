@@ -21,7 +21,6 @@ class BasePopUpController: UIViewController {
     }
     
     @objc func handleTapOnDone() {
-        SystemSoundID.playFileNamed(fileName: "button-click-garageband", withExtenstion: "wav")
         dismiss(animated: true, completion: nil)
     }
     

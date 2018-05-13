@@ -12,11 +12,12 @@ import Vision
 import ARKit
 import AVFoundation
 
-@available(iOS 11.0, *)
+@available(iOS 11.0, *) 
 public class DictionaryController: TopController, PopUpDelegate {
 
     // MARK: - Languages
     var languages = [Language]()
+    var player: AVAudioPlayer?
     
     var selectedLanguage: Language {
         get {
@@ -137,10 +138,30 @@ public class DictionaryController: TopController, PopUpDelegate {
     
     var popUpCenterYAnchor: NSLayoutConstraint?
     var hintViewCenterXAnchor: NSLayoutConstraint?
-    var mlPrediction: String?
     var translationDict = [String: [String: String]]()
     let bookmarksPopoverContent = ListController()
     var visionRequests = [VNRequest]()
+    
+    var mlPrediction: String?
+    
+    var identifier: String? {
+        didSet {
+            if identifier == oldValue {
+                return
+            }
+            topView.identifierLabel.alpha = mlPrediction != nil ? 1 : 0.5
+            topView.identifierLabel.text = mlPrediction != nil ? mlPrediction : NSLocalizedString("Nothing found", comment: "Nothing found")
+            animateImageWalkthrough(shouldBeHidden: mlPrediction == nil)
+            if mlPrediction != nil {
+                playWavSound(soundName: SoundNames.pop.rawValue)
+                imageViewWalkthrough.boingAnimation()
+            } else {
+                playWavSound(soundName: SoundNames.popReverse.rawValue)
+            }
+            topView.identifierLabel.pushTransition(0.3)
+        }
+    }
+    
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
@@ -190,11 +211,11 @@ public class DictionaryController: TopController, PopUpDelegate {
         }
         
         if !latestPrediction.isEmpty {
-            getTranslations(text: latestPrediction) { (translations) in
+            getTranslation(text: latestPrediction) { (translation) in
                 DispatchQueue.main.async {
-                    if let firstTranslation = translations.first {
-                        self.addNode(title: latestPrediction, subtitle: firstTranslation.translatedText, coords: coords)
-                        self.handleIncomingTranslation(translation: firstTranslation)
+                    if let translation = translation {
+                        self.addNode(title: latestPrediction, subtitle: translation.translatedText, coords: coords)
+                        self.handleIncomingTranslation(translation: translation)
                     }
                 }
             }
@@ -220,7 +241,7 @@ public class DictionaryController: TopController, PopUpDelegate {
     }
     
     func didTapButton(selector: Selector) {
-        SystemSoundID.playFileNamed(fileName: "pop_drip-reverse", withExtenstion: "wav")
+        playWavSound(soundName: SoundNames.popReverse.rawValue)
         performSelector(onMainThread: selector, with: nil, waitUntilDone: true)
     }
     

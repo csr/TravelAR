@@ -22,7 +22,7 @@ extension DictionaryController {
     }
     
     @objc internal func didTapClearScene() {
-        SystemSoundID.playFileNamed(fileName: "button-click-garageband", withExtenstion: "wav")
+        playWavSound(soundName: SoundNames.click.rawValue)
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
             node.removeFromParentNode()
         }
@@ -33,8 +33,7 @@ extension DictionaryController {
     }
     
     @objc func handleTapOnBookmarks() {
-        SystemSoundID.playFileNamed(fileName: "button-click-garageband", withExtenstion: "wav")
-        
+        playWavSound(soundName: SoundNames.click.rawValue)
         if let constant = hintViewCenterXAnchor?.constant {
             hintViewCenterXAnchor?.constant = constant - 60
         }
@@ -57,6 +56,7 @@ extension DictionaryController {
     }
     
     @objc func handleTapOnLanguageSelection() {
+        playWavSound(soundName: SoundNames.click.rawValue)
         loadLanguages()
         showPickerController()
         
@@ -66,31 +66,7 @@ extension DictionaryController {
     }
     
     @objc func updateLabel() {
-        guard let text = topView.identifierLabel.text else {
-            return
-        }
-        
-        if (text == mlPrediction) {
-            return
-        }
-        
-        if text.contains("...") && mlPrediction == nil {
-            imageViewWalkthrough.layer.removeAllAnimations()
-            return
-        }
-        
-        topView.identifierLabel.alpha = mlPrediction != nil ? 1 : 0.5
-        topView.identifierLabel.text = mlPrediction != nil ? mlPrediction : NSLocalizedString("Nothing found", comment: "Nothing found")
-        animateImageWalkthrough(shouldBeHidden: mlPrediction == nil)
-        
-        if mlPrediction != nil {
-            SystemSoundID.playFileNamed(fileName: "pop_drip", withExtenstion: "wav")
-            imageViewWalkthrough.boingAnimation()
-        } else {
-            SystemSoundID.playFileNamed(fileName: "pop_drip-reverse", withExtenstion: "wav")
-        }
-        
-        topView.identifierLabel.pushTransition(0.3)
+        identifier = mlPrediction        
     }
     
     @objc func detectPlanes() {
@@ -100,10 +76,6 @@ extension DictionaryController {
     }
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
-        if popUpView.frame.width > 0 {
-            return
-        }
-        
         if let coords = detectWorldCoordinates() {
             didTapSceneView(coords: coords)
         } else {

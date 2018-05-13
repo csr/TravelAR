@@ -183,25 +183,18 @@ class PopUpView: UIView {
     }
     
     @objc private func buttonTapHandler() {
-        SystemSoundID.playFileNamed(fileName: "button-click-garageband", withExtenstion: "wav")
         hide()
         guard let selector = completionHandler else { return }
         delegate?.didTapButton(selector: selector)
     }
     
     func show() {
-        layoutIfNeeded()
-        
         alpha = 1
         transform = CGAffineTransform(scaleX: 0.2, y: 1.5)
-        SystemSoundID.playFileNamed(fileName: "pop_drip", withExtenstion: "wav")
-        
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [.allowUserInteraction], animations: {
             self.transform = .identity
             self.alpha = 1
         }, completion: nil)
-        
-        layoutIfNeeded()
     }
     
     func hide() {

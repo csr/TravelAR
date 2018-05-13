@@ -8,6 +8,7 @@
 
 import AudioToolbox
 
+/*
 extension SystemSoundID {
 	static func playFileNamed(fileName: String, withExtenstion fileExtension: String) {
 		var sound: SystemSoundID = 0
@@ -17,3 +18,4 @@ extension SystemSoundID {
 		}
 	}
 }
+*/

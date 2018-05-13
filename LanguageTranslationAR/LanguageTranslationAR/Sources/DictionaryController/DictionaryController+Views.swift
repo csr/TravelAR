@@ -29,33 +29,10 @@ extension DictionaryController {
         clearButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -18.5).isActive = true
         clearButton.addTarget(self, action: #selector(didTapClearScene), for: .touchUpInside)
     }
-    
-    internal func setupImageViewHint() {
-        view.addSubview(hintHandView)
-        hintViewCenterXAnchor = hintHandView.centerXAnchor.constraint(equalTo: topView.bookmarksButton.centerXAnchor, constant: 4)
-        hintViewCenterXAnchor?.isActive = true
         
-        hintHandView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: -10).isActive = true
-        hintHandView.widthAnchor.constraint(equalToConstant: 57).isActive = true
-        hintHandView.heightAnchor.constraint(equalToConstant: 57).isActive = true
-        view.bringSubview(toFront: hintHandView)
-        hintHandView.layer.zPosition = topView.layer.zPosition + 1
-        hintHandView.alpha = 1
-        
-        let origin = hintHandView.center
-        let bounce = CABasicAnimation(keyPath: "position.y")
-        bounce.duration = 0.5
-        bounce.fromValue = origin.y+95
-        bounce.toValue = origin.y+80
-        bounce.repeatCount = .greatestFiniteMagnitude
-        bounce.autoreverses = true
-        hintHandView.layer.add(bounce, forKey: "position")
-    }
-    
     private func setupPopView() {
         view.addSubview(popUpView)
-        popUpCenterYAnchor = popUpView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        popUpCenterYAnchor?.isActive = true
+        popUpView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         popUpView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         popUpView.layer.zPosition = 500
     }
@@ -121,8 +98,6 @@ extension DictionaryController {
         
 		view.layoutIfNeeded()
         
-        dictionaryView.transform = CGAffineTransform(scaleX: 0.3, y: 2)
-
         UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: .curveEaseIn, animations: {
 			self.view.layoutIfNeeded()
 			dictionaryViewBottomAnchor.constant = -80

@@ -38,20 +38,18 @@ extension DictionaryController {
     
     @objc func handleTapOnBookmarks() {
         playWavSound(soundName: SoundNames.click.rawValue)
-        if let constant = hintViewCenterXAnchor?.constant {
-            hintViewCenterXAnchor?.constant = constant - 60
-        }
-        view.layoutIfNeeded()
-        let nav = UINavigationController(rootViewController: bookmarksPopoverContent)
+        let vc = ListController()
+        vc.list = items
+        let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = UIModalPresentationStyle.popover
         let popover = nav.popoverPresentationController
         popover?.permittedArrowDirections = .up
         navigationController?.popoverPresentationController?.backgroundColor = .deepBlue
         
-        if bookmarksPopoverContent.list.isEmpty {
-            bookmarksPopoverContent.preferredContentSize = CGSize(width: 400, height: 150)
+        if items.isEmpty {
+            vc.preferredContentSize = CGSize(width: 400, height: 150)
         } else {
-            bookmarksPopoverContent.preferredContentSize = CGSize(width: 400, height: 370)
+            vc.preferredContentSize = CGSize(width: 400, height: 370)
         }
         
         popover?.sourceView = self.view
@@ -62,11 +60,7 @@ extension DictionaryController {
     @objc func handleTapOnLanguageSelection() {
         playWavSound(soundName: SoundNames.click.rawValue)
         loadLanguages()
-        showPickerController()
-        
-        UIView.animate(withDuration: 0.3) {
-            self.hintHandView.alpha = 0
-        }
+        showPickerController()        
     }
     
     @objc func updateLabel() {

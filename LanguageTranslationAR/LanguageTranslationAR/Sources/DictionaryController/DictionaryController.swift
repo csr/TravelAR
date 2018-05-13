@@ -17,6 +17,7 @@ public class DictionaryController: TopController, PopUpDelegate {
 
     // MARK: - Languages
     var languages = [Language]()
+    var items = [Translation]()
     var player: AVAudioPlayer?
     
     var selectedLanguage: Language {
@@ -37,7 +38,27 @@ public class DictionaryController: TopController, PopUpDelegate {
         }
     }
     
-	var timer = Timer()
+    var visionRequests = [VNRequest]()
+    var mlPrediction: String?
+    
+    var identifier: String? {
+        didSet {
+            if identifier == oldValue {
+                return
+            }
+            topView.identifierLabel.alpha = mlPrediction != nil ? 1 : 0.5
+            topView.identifierLabel.text = mlPrediction != nil ? mlPrediction : NSLocalizedString("Nothing found", comment: "Nothing found")
+            animateImageWalkthrough(shouldBeHidden: mlPrediction == nil)
+            if mlPrediction != nil {
+                playWavSound(soundName: SoundNames.pop.rawValue)
+                imageViewWalkthrough.boingAnimation()
+            } else {
+                playWavSound(soundName: SoundNames.popReverse.rawValue)
+            }
+            topView.identifierLabel.pushTransition(0.3)
+        }
+    }
+    
     var planesDetectionTimer = Timer()
 	
 	lazy var sceneView: ARSCNView = {
@@ -56,16 +77,7 @@ public class DictionaryController: TopController, PopUpDelegate {
         imageView.alpha = 0
         return imageView
     }()
-    
-    let hintHandView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "draw-sign")
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.isHidden = true
-        return imageView
-    }()
-    
+        
 	let centerButton: UIButton = {
 		let button = UIButton(type: .contactAdd)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -125,33 +137,6 @@ public class DictionaryController: TopController, PopUpDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    var popUpCenterYAnchor: NSLayoutConstraint?
-    var hintViewCenterXAnchor: NSLayoutConstraint?
-    var translationDict = [String: [String: String]]()
-    let bookmarksPopoverContent = ListController()
-    var visionRequests = [VNRequest]()
-    
-    var mlPrediction: String?
-    
-    var identifier: String? {
-        didSet {
-            if identifier == oldValue {
-                return
-            }
-            topView.identifierLabel.alpha = mlPrediction != nil ? 1 : 0.5
-            topView.identifierLabel.text = mlPrediction != nil ? mlPrediction : NSLocalizedString("Nothing found", comment: "Nothing found")
-            animateImageWalkthrough(shouldBeHidden: mlPrediction == nil)
-            if mlPrediction != nil {
-                playWavSound(soundName: SoundNames.pop.rawValue)
-                imageViewWalkthrough.boingAnimation()
-            } else {
-                playWavSound(soundName: SoundNames.popReverse.rawValue)
-            }
-            topView.identifierLabel.pushTransition(0.3)
-        }
-    }
-    
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
@@ -219,14 +204,10 @@ public class DictionaryController: TopController, PopUpDelegate {
         self.animateDictionaryView(item: translation)
         TextToSpeech.speak(item: translation)
         
-        if !self.bookmarksPopoverContent.list.contains(translation) {
-            self.bookmarksPopoverContent.list.append(translation)
+        if !items.contains(translation) {
+            items.append(translation)
             self.topView.bookmarksButton.boingAnimation()
             self.clearButton.isHidden = false
-            
-            if self.bookmarksPopoverContent.list.count == 1 {
-                self.setupImageViewHint()
-            }
         }
     }
     
@@ -242,6 +223,6 @@ public class DictionaryController: TopController, PopUpDelegate {
             self.sceneView.alpha = 1
             self.planesDetectedView.alpha = 0
         }
-        timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
     }
 }

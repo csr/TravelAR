@@ -11,7 +11,7 @@ import UIKit
 extension ListController {
     internal func setupViews() {
         setupTableView()
-        setupEmptyStateLabel()
+        //setupEmptyStateLabel()
     }
     
     private func setupEmptyStateLabel() {

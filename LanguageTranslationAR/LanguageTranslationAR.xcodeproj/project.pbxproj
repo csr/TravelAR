@@ -44,7 +44,6 @@
 		1D441E9220726F22005E2ADD /* DictionaryController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5A20726F22005E2ADD /* DictionaryController+Actions.swift */; };
 		1D441E9320726F22005E2ADD /* DictionaryController+ARKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */; };
 		1D441E9420726F22005E2ADD /* DictionaryController+CoreML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */; };
-		1D441E9520726F22005E2ADD /* DictionaryController+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5D20726F22005E2ADD /* DictionaryController+JSON.swift */; };
 		1D441E9720726F22005E2ADD /* DictionaryController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */; };
 		1D441E9820726F22005E2ADD /* DictionaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6020726F22005E2ADD /* DictionaryController.swift */; };
 		1D441E9920726F22005E2ADD /* PopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6120726F22005E2ADD /* PopUpDelegate.swift */; };
@@ -113,7 +112,6 @@
 		1D441E5A20726F22005E2ADD /* DictionaryController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Actions.swift"; sourceTree = "<group>"; };
 		1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+ARKit.swift"; sourceTree = "<group>"; };
 		1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+CoreML.swift"; sourceTree = "<group>"; };
-		1D441E5D20726F22005E2ADD /* DictionaryController+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+JSON.swift"; sourceTree = "<group>"; };
 		1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Views.swift"; sourceTree = "<group>"; };
 		1D441E6020726F22005E2ADD /* DictionaryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryController.swift; sourceTree = "<group>"; };
 		1D441E6120726F22005E2ADD /* PopUpDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpDelegate.swift; sourceTree = "<group>"; };
@@ -274,7 +272,6 @@
 				1D441E6020726F22005E2ADD /* DictionaryController.swift */,
 				1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */,
 				1D23B95A20986D1100121E8F /* DictionaryController+API.swift */,
-				1D441E5D20726F22005E2ADD /* DictionaryController+JSON.swift */,
 				1D441E5A20726F22005E2ADD /* DictionaryController+Actions.swift */,
 				1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */,
 				1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */,
@@ -465,7 +462,6 @@
 				1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,
 				1D441E9420726F22005E2ADD /* DictionaryController+CoreML.swift in Sources */,
-				1D441E9520726F22005E2ADD /* DictionaryController+JSON.swift in Sources */,
 				1D441EAC20726F22005E2ADD /* TopView.swift in Sources */,
 				1D441EA520726F22005E2ADD /* ListController+TableView.swift in Sources */,
 				1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */,

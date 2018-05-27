@@ -19,6 +19,7 @@ public class DictionaryController: TopController, PopUpDelegate {
     var languages = [Language]()
     var items = [Translation]()
     var player: AVAudioPlayer?
+    var didShowIntro = false
     
     var selectedLanguage: Language {
         get {
@@ -59,8 +60,6 @@ public class DictionaryController: TopController, PopUpDelegate {
         }
     }
     
-    var planesDetectionTimer = Timer()
-	
 	lazy var sceneView: ARSCNView = {
 		let sv = ARSCNView()
 		sv.delegate = self
@@ -141,11 +140,17 @@ public class DictionaryController: TopController, PopUpDelegate {
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
+        setupAR()
         setupCoreML()
 		setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
         topView.selectedLanguage = selectedLanguage
 	}
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        sceneView.session.pause()
+    }
     
     internal func checkCameraPermissions() {
         let cameraMediaType = AVMediaType.video
@@ -173,11 +178,7 @@ public class DictionaryController: TopController, PopUpDelegate {
             self.imageViewWalkthrough.alpha = shouldBeHidden ? 0.2 : 1
         }
     }
-	
-	func setupTimers() {
-        planesDetectionTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.detectPlanes), userInfo: nil, repeats: true)
-	}
-    	
+    
     func didTapSceneView(coords: SCNVector3) {
         guard let latestPrediction = mlPrediction else {
             imageViewWalkthrough.shake()
@@ -217,7 +218,6 @@ public class DictionaryController: TopController, PopUpDelegate {
     }
     
     internal func planesDetectedState() {
-        planesDetectionTimer.invalidate()
         presentAppInstructionAlert()
         UIView.animate(withDuration: 0.5) {
             self.sceneView.alpha = 1

@@ -14,10 +14,8 @@ extension DictionaryController {
     @objc func detectingPlanesState() {
         sceneView.alpha = 1
         planesDetectedView.alpha = 1
-        setupTimers()
         shouldShowTopView = true
         topView.alpha = 1
-        setupAR()
     }
     
     @objc internal func didTapClearScene() {
@@ -66,13 +64,7 @@ extension DictionaryController {
     @objc func updateLabel() {
         identifier = mlPrediction        
     }
-    
-    @objc func detectPlanes() {
-        if detectWorldCoordinates() != nil {
-            planesDetectedState()
-        }
-    }
-    
+        
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
         if let coords = detectWorldCoordinates() {
             didTapSceneView(coords: coords)

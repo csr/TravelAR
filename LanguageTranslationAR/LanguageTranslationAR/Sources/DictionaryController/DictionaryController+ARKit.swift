@@ -11,13 +11,24 @@ import ARKit
 
 @available(iOS 11.0, *)
 extension DictionaryController: ARSCNViewDelegate {
+    
 	internal func setupAR() {
-		let scene = SCNScene()
-		sceneView.scene = scene
+        sceneView.delegate = self
+        sceneView.scene = SCNScene()
+        
 		let configuration = ARWorldTrackingConfiguration()
 		configuration.planeDetection = [.horizontal]
 		sceneView.session.run(configuration)
 	}
+    
+    public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if !didShowIntro {
+            didShowIntro = true
+            DispatchQueue.main.async {
+                self.planesDetectedState()
+            }
+        }
+    }
     
     internal func detectWorldCoordinates() -> SCNVector3? {
         let screenCentre = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)

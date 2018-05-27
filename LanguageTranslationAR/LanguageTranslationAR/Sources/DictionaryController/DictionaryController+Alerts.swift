@@ -13,7 +13,11 @@ extension DictionaryController {
         let title = NSLocalizedString("Welcome", comment: "Welcome")
         let subtitle = NSLocalizedString("Ask camera permission", comment: "Ask camera permission")
         let buttonActionTitle = NSLocalizedString("Turn on camera", comment: "Turn on camera")
-        popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonActionTitle, imageName: "welcome", completionHandler: #selector(detectingPlanesState))
+        popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonActionTitle, imageName: "welcome", completionHandler: #selector(requestCameraAccess))
+    }
+    
+    @objc func doNothing() {
+        
     }
     
     internal func presentDeniedCameraPermissionsAlert() {

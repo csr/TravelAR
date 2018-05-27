@@ -16,7 +16,6 @@ extension DictionaryController {
 		setupSceneView()
 		setupCameraOverlayView()
         setupTopViewActions()
-        setupPlaneDetectionView()
         setupPopView()
         setupClearButton()
 	}
@@ -35,13 +34,6 @@ extension DictionaryController {
         popUpView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         popUpView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         popUpView.layer.zPosition = 500
-    }
- 
-    private func setupPlaneDetectionView() {
-        view.addSubview(planesDetectedView)
-        planesDetectedView.centerXAnchor.constraint(equalTo: sceneView.centerXAnchor).isActive = true
-        planesDetectedView.centerYAnchor.constraint(equalTo: sceneView.centerYAnchor).isActive = true
-        planesDetectedView.widthAnchor.constraint(equalTo: sceneView.widthAnchor, multiplier: 0.8).isActive = true
     }
     
     private func setupTopViewActions() {

@@ -19,7 +19,6 @@ public class DictionaryController: TopController, PopUpDelegate {
     var languages = [Language]()
     var items = [Translation]()
     var player: AVAudioPlayer?
-    var didShowIntro = false
     
     var selectedLanguage: Language {
         get {
@@ -63,7 +62,6 @@ public class DictionaryController: TopController, PopUpDelegate {
 	lazy var sceneView: ARSCNView = {
 		let sv = ARSCNView()
 		sv.delegate = self
-        sv.alpha = 0.5
 		sv.translatesAutoresizingMaskIntoConstraints = false
 		return sv
 	}()
@@ -131,18 +129,15 @@ public class DictionaryController: TopController, PopUpDelegate {
         return button
     }()
     
-    let planesDetectedView: PlaneDetectionView = {
-        let view = PlaneDetectionView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkCameraPermissions()
+    }
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
-        setupAR()
-        setupCoreML()
-		setupTapGestureRecognizer()
+        setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
         topView.selectedLanguage = selectedLanguage
 	}
@@ -150,79 +145,5 @@ public class DictionaryController: TopController, PopUpDelegate {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
-    }
-    
-    internal func checkCameraPermissions() {
-        let cameraMediaType = AVMediaType.video
-        let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
-        switch cameraAuthorizationStatus {
-        case .denied:
-            presentDeniedCameraPermissionsAlert()
-        case .authorized:
-            detectingPlanesState()
-        case .restricted:
-            break
-        case .notDetermined:
-            presentWelcomeAlert()
-        }
-    }
-    
-    @objc func openCameraSettings() {
-        if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
-            UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
-        }
-    }
-            
-    internal func animateImageWalkthrough(shouldBeHidden: Bool) {
-        UIView.animate(withDuration: 0.5) {
-            self.imageViewWalkthrough.alpha = shouldBeHidden ? 0.2 : 1
-        }
-    }
-    
-    func didTapSceneView(coords: SCNVector3) {
-        guard let latestPrediction = mlPrediction else {
-            imageViewWalkthrough.shake()
-            topView.identifierLabel.shake()
-            return
-        }
-        
-        if !latestPrediction.isEmpty {
-            getTranslation(text: latestPrediction) { (translation) in
-                DispatchQueue.main.async {
-                    if let translation = translation {
-                        self.addNode(title: latestPrediction, subtitle: translation.translatedText, coords: coords)
-                        self.handleIncomingTranslation(translation: translation)
-                    }
-                }
-            }
-        } else {
-            imageViewWalkthrough.shake()
-            return
-        }
-    }
-    
-    func handleIncomingTranslation(translation: Translation) {
-        self.animateDictionaryView(item: translation)
-        TextToSpeech.speak(item: translation)
-        
-        if !items.contains(translation) {
-            items.append(translation)
-            self.topView.bookmarksButton.boingAnimation()
-            self.clearButton.isHidden = false
-        }
-    }
-    
-    func didTapButton(selector: Selector) {
-        playWavSound(soundName: SoundNames.popReverse.rawValue)
-        performSelector(onMainThread: selector, with: nil, waitUntilDone: true)
-    }
-    
-    internal func planesDetectedState() {
-        presentAppInstructionAlert()
-        UIView.animate(withDuration: 0.5) {
-            self.sceneView.alpha = 1
-            self.planesDetectedView.alpha = 0
-        }
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
-    }
+    }    
 }

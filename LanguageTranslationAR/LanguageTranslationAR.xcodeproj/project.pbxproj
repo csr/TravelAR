@@ -20,6 +20,7 @@
 		1D23B9672098F58800121E8F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9662098F58800121E8F /* Helpers.swift */; };
 		1D23B96C2098FEDD00121E8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B96E2098FEDD00121E8F /* Localizable.strings */; };
 		1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B97420990AA000121E8F /* InfoPlist.strings */; };
+		1D4412FF20BB215400E608B8 /* DictionaryController+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4412FE20BB215400E608B8 /* DictionaryController+Camera.swift */; };
 		1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E2B20726EFE005E2ADD /* AppDelegate.swift */; };
 		1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3220726F00005E2ADD /* Assets.xcassets */; };
 		1D441E3620726F00005E2ADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3420726F00005E2ADD /* LaunchScreen.storyboard */; };
@@ -65,7 +66,6 @@
 		1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */; };
 		1D4F76B320A820D200B684A6 /* DictionaryController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */; };
 		1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B420A820EE00B684A6 /* SoundNames.swift */; };
-		1D4F76B720A836D000B684A6 /* PlaneDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B620A836D000B684A6 /* PlaneDetectionView.swift */; };
 		1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +86,7 @@
 		1D23B96F2098FEDF00121E8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1D23B97320990AA000121E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D23B97520990AA200121E8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1D4412FE20BB215400E608B8 /* DictionaryController+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Camera.swift"; sourceTree = "<group>"; };
 		1D441E2820726EFE005E2ADD /* LanguageTranslationAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageTranslationAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D441E2B20726EFE005E2ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D441E3220726F00005E2ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,7 +134,6 @@
 		1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopUpController.swift; sourceTree = "<group>"; };
 		1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Audio.swift"; sourceTree = "<group>"; };
 		1D4F76B420A820EE00B684A6 /* SoundNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNames.swift; sourceTree = "<group>"; };
-		1D4F76B620A836D000B684A6 /* PlaneDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetectionView.swift; sourceTree = "<group>"; };
 		1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Alerts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				1D441E6020726F22005E2ADD /* DictionaryController.swift */,
+				1D4412FE20BB215400E608B8 /* DictionaryController+Camera.swift */,
 				1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */,
 				1D23B95A20986D1100121E8F /* DictionaryController+API.swift */,
 				1D441E5A20726F22005E2ADD /* DictionaryController+Actions.swift */,
@@ -331,7 +332,6 @@
 				1D441E7820726F22005E2ADD /* DictionaryView.swift */,
 				1D441E7920726F22005E2ADD /* PopUpView.swift */,
 				1D441E7A20726F22005E2ADD /* TopView.swift */,
-				1D4F76B620A836D000B684A6 /* PlaneDetectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,6 +447,7 @@
 				1D23B957209855A400121E8F /* DictionaryController+LanguagePicker.swift in Sources */,
 				1D441EA820726F22005E2ADD /* ListTableViewCell.swift in Sources */,
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
+				1D4412FF20BB215400E608B8 /* DictionaryController+Camera.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
 				1D23B95B20986D1100121E8F /* DictionaryController+API.swift in Sources */,
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
@@ -478,7 +479,6 @@
 				1D441E9820726F22005E2ADD /* DictionaryController.swift in Sources */,
 				1D441E9720726F22005E2ADD /* DictionaryController+Views.swift in Sources */,
 				1D441E9220726F22005E2ADD /* DictionaryController+Actions.swift in Sources */,
-				1D4F76B720A836D000B684A6 /* PlaneDetectionView.swift in Sources */,
 				1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */,
 				1D441EA720726F22005E2ADD /* ListController.swift in Sources */,
 			);

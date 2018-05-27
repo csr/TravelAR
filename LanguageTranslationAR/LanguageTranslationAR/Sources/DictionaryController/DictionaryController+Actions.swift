@@ -8,14 +8,52 @@
 
 import UIKit
 import AVKit
+import ARKit
 
 @available(iOS 11.0, *)
-extension DictionaryController {
-    @objc func detectingPlanesState() {
-        sceneView.alpha = 1
-        planesDetectedView.alpha = 1
-        shouldShowTopView = true
-        topView.alpha = 1
+extension DictionaryController {    
+    internal func animateImageWalkthrough(shouldBeHidden: Bool) {
+        UIView.animate(withDuration: 0.5) {
+            self.imageViewWalkthrough.alpha = shouldBeHidden ? 0.2 : 1
+        }
+    }
+    
+    func didTapSceneView(coords: SCNVector3) {
+        guard let latestPrediction = mlPrediction else {
+            imageViewWalkthrough.shake()
+            topView.identifierLabel.shake()
+            return
+        }
+        
+        if !latestPrediction.isEmpty {
+            getTranslation(text: latestPrediction) { (translation) in
+                DispatchQueue.main.async {
+                    if let translation = translation {
+                        self.addNode(title: latestPrediction, subtitle: translation.translatedText, coords: coords)
+                        self.handleIncomingTranslation(translation: translation)
+                    }
+                }
+            }
+        } else {
+            imageViewWalkthrough.shake()
+            return
+        }
+    }
+    
+    func handleIncomingTranslation(translation: Translation) {
+        self.animateDictionaryView(item: translation)
+        TextToSpeech.speak(item: translation)
+        
+        if !items.contains(translation) {
+            items.append(translation)
+            self.topView.bookmarksButton.boingAnimation()
+            self.clearButton.isHidden = false
+        }
+    }
+    
+    func didTapButton(selector: Selector) {
+        playWavSound(soundName: SoundNames.popReverse.rawValue)
+        performSelector(onMainThread: selector, with: nil, waitUntilDone: true)
     }
     
     @objc internal func didTapClearScene() {

@@ -128,18 +128,14 @@ public class DictionaryController: TopController, PopUpDelegate {
         button.isHidden = true
         return button
     }()
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        checkCameraPermissions()
-    }
-    
+        
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
         setupTapGestureRecognizer()
 		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
         topView.selectedLanguage = selectedLanguage
+        checkCameraPermissions()
 	}
     
     public override func viewWillDisappear(_ animated: Bool) {

@@ -19,10 +19,7 @@ public class TopController: UIViewController {
         }
     }
     
-    let topView: TopView = {
-        let view = TopView()
-        return view
-    }()
+    let topView = TopView()
 			
     public override func viewDidLoad() {
         super.viewDidLoad()

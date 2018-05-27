@@ -89,7 +89,7 @@ extension DictionaryController {
         }
         
         popover?.sourceView = self.view
-        popover?.sourceRect = topView.bookmarksButton.frame
+        popover?.sourceRect = CGRect(x: view.frame.width, y: topView.frame.height, width: 0, height: 0)
         self.present(nav, animated: true, completion: nil)
     }
     

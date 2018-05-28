@@ -8,9 +8,9 @@
 
 "Scanning" = "Scanning...";
 "Move device" = "Move your %@ around to detect planes.";
-"Good job" = "Good job!";
-"Point device" = "Point your %@ at an object and tap the screen when a suggestion pops up.";
-"Let's try" = "OK, let's try!";
+"How to use" = "Point and tap";
+"Point device" = "Look around and tap to translate what's in front of you.";
+"OK" = "OK";
 "Nothing found" = "Nothing found...";
 "Translations" = "Translations";
 "Clear" = "Clear";
@@ -22,6 +22,5 @@
 "Translation language" = "Select a language that will be used to translate the things around you.";
 "Camera permissions" = "It looks like you don't have camera permissions enabled.";
 "Enable camera" = "Go to Settings";
-"Welcome" = "Welcome!";
-"Ask camera permission" = "To start learning a new language, we'll need camera permissions.";
+"Ask camera permission" = "To translate what's around you Beeply will need camera permissions.";
 "Turn on camera" = "Enable Camera";

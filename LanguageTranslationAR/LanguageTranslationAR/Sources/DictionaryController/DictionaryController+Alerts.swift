@@ -10,10 +10,10 @@ import Foundation
 
 extension DictionaryController {
     internal func presentWelcomeAlert() {
-        let title = NSLocalizedString("Welcome", comment: "Welcome")
+        let title = NSLocalizedString("Turn on camera", comment: "Turn on camera")
         let subtitle = NSLocalizedString("Ask camera permission", comment: "Ask camera permission")
-        let buttonActionTitle = NSLocalizedString("Turn on camera", comment: "Turn on camera")
-        popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonActionTitle, imageName: "welcome", completionHandler: #selector(requestCameraAccess))
+        let buttonActionTitle = NSLocalizedString("OK", comment: "OK")
+        popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonActionTitle, completionHandler: #selector(requestCameraAccess))
     }
         
     internal func presentDeniedCameraPermissionsAlert() {
@@ -23,10 +23,10 @@ extension DictionaryController {
     }
     
     internal func presentAppInstructionAlert() {
-        let title = NSLocalizedString("Good job", comment: "Good job")
+        let title = NSLocalizedString("How to use", comment: "How to use")
         let format = NSLocalizedString("Point device", comment: "Point device at object")
         let subtitle = String.localizedStringWithFormat(format, getDeviceName())
-        let buttonTitle = NSLocalizedString("Let's try", comment: "OK, let's try!")
+        let buttonTitle = NSLocalizedString("OK", comment: "OK, let's try!")
         popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonTitle, imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
         popUpView.shouldShowImageWalkthrough = true
     }

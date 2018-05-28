@@ -8,9 +8,9 @@
 
 "Scanning" = "Scansionando...";
 "Move device" = "Guarda i dintorni con il tuo %@ per trovare superfici.";
-"Good job" = "Bravo!";
-"Point device" = "Punta il tuo %@ verso un oggetto e tocca appena vedi un suggerimento.";
-"Let's try" = "OK, proviamo!";
+"Good job" = "Punta e tocca";
+"Point device" = "Guardati in giro e tocca per tradurre quello che hai davanti.";
+"OK" = "OK";
 "Nothing found" = "Cercando...";
 "Translations" = "Traduzioni";
 "Clear" = "Pulisci";
@@ -22,6 +22,5 @@
 "Translation language" = "Seleziona la lingua che verrà usata per tradurre gli oggetti intorno a te.";
 "Camera permissions" = "Sembra che l'app non riesca ad accedere alla fotocamera.";
 "Enable camera" = "Vai alle impostazioni";
-"Welcome" = "Benvenuto!";
 "Ask camera permission" = "Per iniziare a tradurre, abbiamo bisogno dei permessi fotocamera.";
 "Turn on camera" = "Abilita fotocamera";

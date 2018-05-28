@@ -28,10 +28,26 @@ class ListTableViewCell: UITableViewCell {
         return iv
     }()
     
+    let objectImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.backgroundColor = .red
+        return iv
+    }()
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: ListTableViewCell.identifier)
         setupLabels()
         setupImageView()
+        setupObjectImageView()
+    }
+    
+    private func setupObjectImageView() {
+        addSubview(objectImageView)
+        objectImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        objectImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        objectImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        objectImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
     }
     
     private func setupLabels() {

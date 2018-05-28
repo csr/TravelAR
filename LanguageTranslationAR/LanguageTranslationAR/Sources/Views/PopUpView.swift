@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 
-@available(iOS 11.0, *)
 class PopUpView: UIView {
     
     var shouldShowImageWalkthrough: Bool = false {
@@ -79,10 +78,9 @@ class PopUpView: UIView {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 10
-        imageView.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
         return imageView
     }()
     
@@ -91,8 +89,8 @@ class PopUpView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .fill
         stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 25
+        stackView.spacing = 20
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -140,18 +138,28 @@ class PopUpView: UIView {
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
     }
     
-    func present(title: String, subtitle: String, buttonAction: String, imageName: String, completionHandler: Selector) {
+    func present(title: String, subtitle: String, buttonAction: String, imageName: String? = nil, completionHandler: Selector) {
         show()
         self.completionHandler = completionHandler
         titleLabel.text = title
         descriptionLabel.text = subtitle
         setConfirmButtonText(text: buttonAction)
-        imageView.image = UIImage(named: imageName)
-        //heightConstraint?.constant = imageName.isEmpty ? 400 / 1.4 : 400
+        
+        if let imageName = imageName, let image = UIImage(named: imageName) {
+            imageView.image = image
+            
+            print("image size:", image.size)
+            let aspectRatio = image.size.height / image.size.width
+            print("aspect ratio:", aspectRatio)
+            var newHeight: CGFloat = aspectRatio * 330
+            print("new height:", newHeight)
+                   
+            imageView.heightAnchor.constraint(equalToConstant: newHeight).isActive = true
+            layoutIfNeeded()
+        }
     }
     
     private func setupView() {
-        heightAnchor.constraint(equalToConstant: 400).isActive = true
         widthAnchor.constraint(equalToConstant: 370).isActive = true
         layer.shadowOpacity = 0.2 // opacity, 20%
         layer.shadowColor = UIColor.black.cgColor

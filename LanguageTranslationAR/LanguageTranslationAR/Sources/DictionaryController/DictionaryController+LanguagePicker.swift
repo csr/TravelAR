@@ -39,9 +39,9 @@ extension DictionaryController {
         alertController.addAction(cancelAction)
         
         if let popoverController = alertController.popoverPresentationController {
-            popoverController.sourceView = view
-            popoverController.sourceRect = CGRect(x: view.frame.width, y: topView.frame.height, width: 0, height: 0)
-            print("frame of topView bookmarks button:", topView.bookmarksStackView.frame)
+            popoverController.sourceView = self.view
+            //popoverController.sourceRect = CGRect(x: view.frame.width, y: topView.frame.height, width: 0, height: 0)
+            //print("frame of topView bookmarks button:", topView.bookmarksStackView.frame)
         }
         
         self.present(alertController, animated: true, completion: nil)

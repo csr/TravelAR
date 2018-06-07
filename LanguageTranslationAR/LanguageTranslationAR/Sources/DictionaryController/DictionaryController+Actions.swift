@@ -11,17 +11,10 @@ import AVKit
 import ARKit
 
 @available(iOS 11.0, *)
-extension DictionaryController {    
-    internal func animateImageWalkthrough(shouldBeHidden: Bool) {
-        UIView.animate(withDuration: 0.5) {
-            self.imageViewWalkthrough.alpha = shouldBeHidden ? 0.2 : 1
-        }
-    }
-    
+extension DictionaryController {        
     func didTapSceneView(coords: SCNVector3) {
         guard let latestPrediction = mlPrediction else {
-            imageViewWalkthrough.shake()
-            topView.identifierLabel.shake()
+            //topView.identifierLabel.shake()
             return
         }
         
@@ -34,21 +27,12 @@ extension DictionaryController {
                     }
                 }
             }
-        } else {
-            imageViewWalkthrough.shake()
-            return
         }
     }
     
     func handleIncomingTranslation(translation: Translation) {
         self.animateDictionaryView(item: translation)
-        TextToSpeech.speak(item: translation)
-        
-        if !items.contains(translation) {
-            items.append(translation)
-            self.topView.bookmarksButton.boingAnimation()
-            self.clearButton.isHidden = false
-        }
+        TextToSpeech.speak(item: translation)        
     }
     
     func didTapButton(selector: Selector) {
@@ -64,10 +48,9 @@ extension DictionaryController {
     }
     
     @objc internal func didTapOKTapToAdd() {
-        topView.showRightIcons()
+        //topView.showRightIcons()
         popUpView.shouldShowImageWalkthrough = false
         UIView.animate(withDuration: 0.5) {
-            self.imageViewWalkthrough.alpha = 1
             self.cameraOverlayView.alpha = 1
         }
     }
@@ -88,8 +71,7 @@ extension DictionaryController {
             vc.preferredContentSize = CGSize(width: 400, height: 370)
         }
         
-        popover?.sourceView = self.view
-        popover?.sourceRect = CGRect(x: view.frame.width, y: topView.frame.height, width: 0, height: 0)
+        popover?.barButtonItem = navigationItem.rightBarButtonItem
         self.present(nav, animated: true, completion: nil)
     }
     
@@ -102,13 +84,10 @@ extension DictionaryController {
     @objc func updateLabel() {
         identifier = mlPrediction        
     }
-        
+
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
         if let coords = detectWorldCoordinates() {
             didTapSceneView(coords: coords)
-        } else {
-            imageViewWalkthrough.shake()
-            topView.identifierLabel.shake()
         }
     }
 }

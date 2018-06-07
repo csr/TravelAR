@@ -12,23 +12,21 @@ import UIKit
 extension DictionaryController {
 	internal func setupViews() {
         view.backgroundColor = .black
-        topView.alpha = 0
 		setupSceneView()
 		setupCameraOverlayView()
-        setupTopViewActions()
         setupPopView()
-        setupClearButton()
+        setupNavigationBar()
 	}
     
-    internal func setupClearButton() {
-        view.addSubview(clearButton)
-        clearButton.widthAnchor.constraint(equalToConstant: 110).isActive = true
-        clearButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        clearButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        clearButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -18.5).isActive = true
-        clearButton.addTarget(self, action: #selector(didTapClearScene), for: .touchUpInside)
+    internal func setupNavigationBar() {
+        title = "Capture"
+        let clearString = NSLocalizedString("Clear", comment: "Clear")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: clearString, style: .plain, target: self, action: #selector(didTapClearScene))
+        let historyButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(handleTapOnBookmarks))
+        let buttonItems = [historyButton]
+        navigationItem.rightBarButtonItems = buttonItems
     }
-        
+    
     private func setupPopView() {
         view.addSubview(popUpView)
         popUpView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -36,18 +34,12 @@ extension DictionaryController {
         popUpView.layer.zPosition = 500
     }
     
-    private func setupTopViewActions() {
-        topView.translationButton.addTarget(self, action: #selector(handleTapOnLanguageSelection), for: .touchUpInside)
-        topView.bookmarksButton.addTarget(self, action: #selector(handleTapOnBookmarks), for: .touchUpInside)
-    }
-	
 	private func setupSceneView() {
 		view.addSubview(sceneView)
 		sceneView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
 		sceneView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 		sceneView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
 		sceneView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-		view.bringSubview(toFront: topView)
 	}
 	
 	private func setupCameraOverlayView() {
@@ -62,13 +54,7 @@ extension DictionaryController {
 		
 		view.addSubview(centerButton)
 		centerButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-		centerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		
-		view.addSubview(imageViewWalkthrough)
-		imageViewWalkthrough.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-		imageViewWalkthrough.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		imageViewWalkthrough.heightAnchor.constraint(equalToConstant: 89).isActive = true
-		imageViewWalkthrough.widthAnchor.constraint(equalToConstant: 52).isActive = true
+		centerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true		
 	}
 	
 	internal func setupTapGestureRecognizer() {
@@ -90,14 +76,14 @@ extension DictionaryController {
         
 		view.layoutIfNeeded()
         
-        UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: UIView.AnimationOptions.curveEaseIn, animations: {
 			self.view.layoutIfNeeded()
 			dictionaryViewBottomAnchor.constant = -80
             dictionaryView.transform = .identity
 			self.view.layoutIfNeeded()
             dictionaryView.alpha = 1
 		}) { (bool) in
-			UIView.animate(withDuration: 2, delay: 3.5, usingSpringWithDamping: 10, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
+			UIView.animate(withDuration: 2, delay: 3.5, usingSpringWithDamping: 10, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
 				self.view.layoutIfNeeded()
 				dictionaryViewBottomAnchor.constant = 500
 				self.view.layoutIfNeeded()

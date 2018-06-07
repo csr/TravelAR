@@ -1,23 +1,11 @@
 import UIKit
 
+/*
 public class TopController: UIViewController {
     
     let kTopViewHeight: CGFloat = 95
     
     var topViewTopAnchor: NSLayoutConstraint?
-    
-    var shouldShowTopView = false {
-        didSet {
-            if shouldShowTopView {
-                topView.alpha = 1
-                self.view.layoutIfNeeded()
-                UIView.animate(withDuration: 0.4, delay: 0, options: [.allowUserInteraction], animations: {
-                    self.topViewTopAnchor?.constant = 0
-                    self.view.layoutIfNeeded()
-                }, completion: nil)
-            }
-        }
-    }
     
     let topView = TopView()
 			
@@ -40,3 +28,4 @@ public class TopController: UIViewController {
 		return .lightContent
 	}
 }
+*/

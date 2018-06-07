@@ -1,4 +1,4 @@
-//
+ //
 //  File.swift
 //  WWDC-App
 //
@@ -13,7 +13,7 @@ import ARKit
 import AVFoundation
 
 @available(iOS 11.0, *) 
-public class DictionaryController: TopController, PopUpDelegate {
+public class DictionaryController: UIViewController, PopUpDelegate {
 
     // MARK: - Languages
     var languages = [Language]()
@@ -34,7 +34,6 @@ public class DictionaryController: TopController, PopUpDelegate {
             let defaults = UserDefaults.standard
             defaults.set(newValue.name, forKey: "languageName")
             defaults.set(newValue.languageCode, forKey: "languageCode")
-            self.topView.selectedLanguage = newValue
         }
     }
     
@@ -46,16 +45,11 @@ public class DictionaryController: TopController, PopUpDelegate {
             if identifier == oldValue {
                 return
             }
-            topView.identifierLabel.alpha = mlPrediction != nil ? 1 : 0.5
-            topView.identifierLabel.text = mlPrediction != nil ? mlPrediction : NSLocalizedString("Nothing found", comment: "Nothing found")
-            animateImageWalkthrough(shouldBeHidden: mlPrediction == nil)
             if mlPrediction != nil {
                 playWavSound(soundName: SoundNames.pop.rawValue)
-                imageViewWalkthrough.boingAnimation()
             } else {
                 playWavSound(soundName: SoundNames.popReverse.rawValue)
             }
-            topView.identifierLabel.pushTransition(0.3)
         }
     }
     
@@ -66,15 +60,6 @@ public class DictionaryController: TopController, PopUpDelegate {
 		return sv
 	}()
     
-    let imageViewWalkthrough: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "draw-sign")
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.alpha = 0
-        return imageView
-    }()
-        
 	let centerButton: UIButton = {
 		let button = UIButton(type: .contactAdd)
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -110,36 +95,16 @@ public class DictionaryController: TopController, PopUpDelegate {
         view.delegate = self
         return view
     }()
-	
-    let clearButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        let title = NSLocalizedString("Clear", comment: "Clear")
-        button.setTitle(title, for: .normal)
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = 20
-        button.backgroundColor = .white
-        button.setTitleColor(UIColor.red, for: .normal)
-        let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
-        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        let font = UIFont(name: "CircularStd-Book", size: 19)
-        button.alpha = 0.9
-        button.titleLabel?.font = font
-        button.isHidden = true
-        return button
-    }()
-        
+	        
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
         setupTapGestureRecognizer()
-		imageViewWalkthrough.boingAnimation(shouldRepeat: false)
-        topView.selectedLanguage = selectedLanguage
         checkCameraPermissions()
 	}
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
-    }    
+    }
 }

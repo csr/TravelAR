@@ -45,7 +45,7 @@ extension DictionaryController: ARSCNViewDelegate {
         let mainWord = SCNText(string: title, extrusionDepth: CGFloat(depth))
         let font = UIFont(name: "Futura", size: 0.15)
         mainWord.font = font
-        mainWord.alignmentMode = kCAAlignmentCenter
+        mainWord.alignmentMode = convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.center)
         mainWord.firstMaterial?.diffuse.contents = UIColor.orange
         mainWord.chamferRadius = CGFloat(depth)
         mainWord.firstMaterial?.specular.contents = UIColor.white
@@ -54,7 +54,7 @@ extension DictionaryController: ARSCNViewDelegate {
         let secondaryBubble = SCNText(string: subtitle, extrusionDepth: CGFloat(depth))
         let secondaryFont = UIFont(name: "Futura", size: 0.10)
         secondaryBubble.font = secondaryFont
-        secondaryBubble.alignmentMode = kCAAlignmentCenter
+        secondaryBubble.alignmentMode = convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.center)
         secondaryBubble.firstMaterial?.isDoubleSided = true
         secondaryBubble.chamferRadius = CGFloat(depth)
         secondaryBubble.firstMaterial?.diffuse.contents = UIColor.blue
@@ -75,4 +75,9 @@ extension DictionaryController: ARSCNViewDelegate {
         bubbleNodeParent.constraints = [billboardConstraint]
         return bubbleNodeParent
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromCATextLayerAlignmentMode(_ input: CATextLayerAlignmentMode) -> String {
+	return input.rawValue
 }

@@ -16,7 +16,7 @@ extension DictionaryController: ARSCNViewDelegate {
         sceneView.delegate = self
         sceneView.scene = SCNScene()
 		let configuration = ARWorldTrackingConfiguration()
-		configuration.planeDetection = [.horizontal]
+		configuration.planeDetection = [.horizontal, .vertical]
 		sceneView.session.run(configuration)
 	}
         

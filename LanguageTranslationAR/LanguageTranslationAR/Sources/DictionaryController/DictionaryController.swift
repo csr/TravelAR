@@ -115,7 +115,7 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = [.horizontal]
+        configuration.planeDetection = [.horizontal, .vertical]
         sceneView.session.run(configuration, options: [])
     }
 }

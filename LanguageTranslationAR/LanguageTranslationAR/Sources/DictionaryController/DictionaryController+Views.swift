@@ -53,7 +53,7 @@ extension DictionaryController {
 	
 	private func setupCameraOverlayView() {
 		view.addSubview(cameraOverlayView)
-		cameraOverlayView.centerYAnchor.constraint(equalTo: sceneView.centerYAnchor).isActive = true
+        cameraOverlayView.centerYAnchor.constraint(equalTo: sceneView.centerYAnchor, constant: 20).isActive = true
 		cameraOverlayView.centerXAnchor.constraint(equalTo: sceneView.centerXAnchor).isActive = true
 		
         let viewHeight: CGFloat = 330

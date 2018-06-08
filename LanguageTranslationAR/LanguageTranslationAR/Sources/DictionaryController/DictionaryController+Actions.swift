@@ -21,6 +21,7 @@ extension DictionaryController {
                     if let translation = translation {
                         self.addNode(title: latestPrediction, subtitle: translation.translatedText, coords: coords)
                         self.handleIncomingTranslation(translation: translation)
+                        self.items.append(translation)
                     }
                 }
             }
@@ -57,9 +58,10 @@ extension DictionaryController {
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = UIModalPresentationStyle.popover
         let popover = nav.popoverPresentationController
-        popover?.permittedArrowDirections = .up
         navigationController?.popoverPresentationController?.backgroundColor = .deepBlue
         
+        popover?.permittedArrowDirections = .up
+
         if items.isEmpty {
             vc.preferredContentSize = CGSize(width: 400, height: 150)
         } else {
@@ -75,7 +77,7 @@ extension DictionaryController {
     
     @objc func handleTapOnLanguageSelection() {
         loadLanguages()
-        showPickerController()        
+        showPickerController()
     }
     
     @objc func updateLabel() {

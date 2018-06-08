@@ -67,6 +67,7 @@
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */; };
 		1D94B76C20C9E8390000B065 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B76B20C9E8390000B065 /* SuggestionView.swift */; };
+		1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +136,7 @@
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Alerts.swift"; sourceTree = "<group>"; };
 		1D94B76B20C9E8390000B065 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
+		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 				1D441E6220726F22005E2ADD /* Extensions */,
 				1D441EAF20727BD9005E2ADD /* BasePopUpController */,
 				1D441E7020726F22005E2ADD /* ListController */,
+				1D94B76D20CB29FF0000B065 /* LanguageController */,
 				1D441E7720726F22005E2ADD /* Views */,
 				1D23B9682098F58D00121E8F /* Helpers */,
 			);
@@ -342,6 +345,14 @@
 				1D4F76B420A820EE00B684A6 /* SoundNames.swift */,
 			);
 			name = Enum;
+			sourceTree = "<group>";
+		};
+		1D94B76D20CB29FF0000B065 /* LanguageController */ = {
+			isa = PBXGroup;
+			children = (
+				1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */,
+			);
+			path = LanguageController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,6 +453,7 @@
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
 				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
 				1D4412FF20BB215400E608B8 /* DictionaryController+Camera.swift in Sources */,
+				1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
 				1D23B95B20986D1100121E8F /* DictionaryController+API.swift in Sources */,
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,

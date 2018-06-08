@@ -31,7 +31,6 @@ class ListTableViewCell: UITableViewCell {
     let objectImageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.backgroundColor = .red
         return iv
     }()
     

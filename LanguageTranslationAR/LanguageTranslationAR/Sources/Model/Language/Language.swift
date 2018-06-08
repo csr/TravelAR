@@ -21,5 +21,3 @@ struct Language: Codable, Equatable {
         case languageCode = "language"
     }
 }
-
-

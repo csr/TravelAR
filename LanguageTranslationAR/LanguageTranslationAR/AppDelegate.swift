@@ -29,9 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = .deepBlue
             UINavigationBar.appearance().tintColor = .white
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
-                          NSAttributedString.Key.font: UIFont(name: "CircularStd-Book", size: 22)]
+                          NSAttributedString.Key.font: UIFont(name: "CircularStd-Book", size: 22)] as [NSAttributedString.Key: Any]
         UINavigationBar.appearance().titleTextAttributes = attributes
-        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .normal)        
+        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .highlighted)
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {}

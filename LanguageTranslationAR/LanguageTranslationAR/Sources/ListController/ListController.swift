@@ -28,7 +28,7 @@ class ListController: BasePopUpController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = list.isEmpty ? NSLocalizedString("New words", comment: "New words") : NSLocalizedString("Tap to play", comment: "Tap item to play")
+        title = list.isEmpty ? NSLocalizedString("History", comment: "New words") : NSLocalizedString("Tap to play", comment: "Tap item to play")
     }
     
     override func viewDidLoad() {

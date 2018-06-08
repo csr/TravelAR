@@ -16,14 +16,23 @@ extension DictionaryController {
 		setupCameraOverlayView()
         setupPopView()
         setupNavigationBar()
+        setupSuggestionView()
 	}
+    
+    internal func setupSuggestionView() {
+        view.addSubview(suggestionView)
+        suggestionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        suggestionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        suggestionView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
     
     internal func setupNavigationBar() {
         title = "Capture"
         let clearString = NSLocalizedString("Clear", comment: "Clear")
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: clearString, style: .plain, target: self, action: #selector(didTapClearScene))
-        let historyButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(handleTapOnBookmarks))
-        let buttonItems = [historyButton]
+        let historyItem = UIBarButtonItem(image: UIImage(named: "history"), style: .plain, target: self, action: #selector(handleTapOnBookmarks))
+        let translateItem = UIBarButtonItem(image: UIImage(named: "translate"), style: .plain, target: self, action: #selector(handleTapOnLanguageSelection))
+        let buttonItems = [historyItem, translateItem]
         navigationItem.rightBarButtonItems = buttonItems
     }
     

@@ -45,16 +45,16 @@ extension DictionaryController: ARSCNViewDelegate {
         let mainWord = SCNText(string: title, extrusionDepth: CGFloat(depth))
         let font = UIFont(name: "Futura", size: 0.15)
         mainWord.font = font
-        mainWord.alignmentMode = convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.center)
+        mainWord.alignmentMode = convertFromCATextLayerAlignmentMode(.center)
         mainWord.firstMaterial?.diffuse.contents = UIColor.orange
         mainWord.chamferRadius = CGFloat(depth)
         mainWord.firstMaterial?.specular.contents = UIColor.white
         mainWord.firstMaterial?.isDoubleSided = true
         
         let secondaryBubble = SCNText(string: subtitle, extrusionDepth: CGFloat(depth))
-        let secondaryFont = UIFont(name: "Futura", size: 0.10)
+        let secondaryFont = UIFont(name: "Helvetica Neue", size: 0.10)
         secondaryBubble.font = secondaryFont
-        secondaryBubble.alignmentMode = convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.center)
+        secondaryBubble.alignmentMode = convertFromCATextLayerAlignmentMode(.center)
         secondaryBubble.firstMaterial?.isDoubleSided = true
         secondaryBubble.chamferRadius = CGFloat(depth)
         secondaryBubble.firstMaterial?.diffuse.contents = UIColor.blue

@@ -58,7 +58,6 @@
 		1D441EA620726F22005E2ADD /* ListController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7220726F22005E2ADD /* ListController+Views.swift */; };
 		1D441EA720726F22005E2ADD /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7320726F22005E2ADD /* ListController.swift */; };
 		1D441EA820726F22005E2ADD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* ListTableViewCell.swift */; };
-		1D441EA920726F22005E2ADD /* TopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7620726F22005E2ADD /* TopController.swift */; };
 		1D441EAA20726F22005E2ADD /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7820726F22005E2ADD /* DictionaryView.swift */; };
 		1D441EAB20726F22005E2ADD /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7920726F22005E2ADD /* PopUpView.swift */; };
 		1D441EAC20726F22005E2ADD /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7A20726F22005E2ADD /* TopView.swift */; };
@@ -67,6 +66,7 @@
 		1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B420A820EE00B684A6 /* SoundNames.swift */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */; };
+		1D94B76C20C9E8390000B065 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B76B20C9E8390000B065 /* SuggestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,7 +126,6 @@
 		1D441E7220726F22005E2ADD /* ListController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListController+Views.swift"; sourceTree = "<group>"; };
 		1D441E7320726F22005E2ADD /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		1D441E7420726F22005E2ADD /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
-		1D441E7620726F22005E2ADD /* TopController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopController.swift; sourceTree = "<group>"; };
 		1D441E7820726F22005E2ADD /* DictionaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
 		1D441E7920726F22005E2ADD /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		1D441E7A20726F22005E2ADD /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -135,6 +134,7 @@
 		1D4F76B420A820EE00B684A6 /* SoundNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNames.swift; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Alerts.swift"; sourceTree = "<group>"; };
+		1D94B76B20C9E8390000B065 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,7 +242,6 @@
 				1D4F76B820A8372800B684A6 /* Enum */,
 				1D441E6C20726F22005E2ADD /* Model */,
 				1D441E5820726F22005E2ADD /* Dictionaries */,
-				1D441E7520726F22005E2ADD /* TopController */,
 				1D441E5920726F22005E2ADD /* DictionaryController */,
 				1D441E6220726F22005E2ADD /* Extensions */,
 				1D441EAF20727BD9005E2ADD /* BasePopUpController */,
@@ -318,20 +317,13 @@
 			path = ListController;
 			sourceTree = "<group>";
 		};
-		1D441E7520726F22005E2ADD /* TopController */ = {
-			isa = PBXGroup;
-			children = (
-				1D441E7620726F22005E2ADD /* TopController.swift */,
-			);
-			path = TopController;
-			sourceTree = "<group>";
-		};
 		1D441E7720726F22005E2ADD /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				1D441E7820726F22005E2ADD /* DictionaryView.swift */,
 				1D441E7920726F22005E2ADD /* PopUpView.swift */,
 				1D441E7A20726F22005E2ADD /* TopView.swift */,
+				1D94B76B20C9E8390000B065 /* SuggestionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,6 +445,7 @@
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
 				1D23B95B20986D1100121E8F /* DictionaryController+API.swift in Sources */,
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
+				1D94B76C20C9E8390000B065 /* SuggestionView.swift in Sources */,
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
 				1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
@@ -475,7 +468,6 @@
 				1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */,
 				1D441E9C20726F22005E2ADD /* SystemSoundIDExtensions.swift in Sources */,
 				1D4F76B320A820D200B684A6 /* DictionaryController+Audio.swift in Sources */,
-				1D441EA920726F22005E2ADD /* TopController.swift in Sources */,
 				1D441E9320726F22005E2ADD /* DictionaryController+ARKit.swift in Sources */,
 				1D441E9820726F22005E2ADD /* DictionaryController.swift in Sources */,
 				1D441E9720726F22005E2ADD /* DictionaryController+Views.swift in Sources */,

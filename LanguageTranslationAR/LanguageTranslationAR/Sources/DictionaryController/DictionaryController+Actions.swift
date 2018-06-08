@@ -13,10 +13,7 @@ import ARKit
 @available(iOS 11.0, *)
 extension DictionaryController {        
     func didTapSceneView(coords: SCNVector3) {
-        guard let latestPrediction = mlPrediction else {
-            //topView.identifierLabel.shake()
-            return
-        }
+        guard let latestPrediction = mlPrediction else { return }
         
         if !latestPrediction.isEmpty {
             getTranslation(text: latestPrediction) { (translation) in
@@ -48,7 +45,6 @@ extension DictionaryController {
     }
     
     @objc internal func didTapOKTapToAdd() {
-        //topView.showRightIcons()
         popUpView.shouldShowImageWalkthrough = false
         UIView.animate(withDuration: 0.5) {
             self.cameraOverlayView.alpha = 1
@@ -56,7 +52,6 @@ extension DictionaryController {
     }
     
     @objc func handleTapOnBookmarks() {
-        playWavSound(soundName: SoundNames.click.rawValue)
         let vc = ListController()
         vc.list = items
         let nav = UINavigationController(rootViewController: vc)
@@ -71,12 +66,14 @@ extension DictionaryController {
             vc.preferredContentSize = CGSize(width: 400, height: 370)
         }
         
-        popover?.barButtonItem = navigationItem.rightBarButtonItem
+        if let items = navigationItem.rightBarButtonItems, let first = items.first {
+            popover?.barButtonItem = first
+        }
+        
         self.present(nav, animated: true, completion: nil)
     }
     
     @objc func handleTapOnLanguageSelection() {
-        playWavSound(soundName: SoundNames.click.rawValue)
         loadLanguages()
         showPickerController()        
     }

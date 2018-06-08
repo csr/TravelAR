@@ -45,6 +45,8 @@ public class DictionaryController: UIViewController, PopUpDelegate {
             if identifier == oldValue {
                 return
             }
+            suggestionView.suggestion = mlPrediction ?? ""
+            
             if mlPrediction != nil {
                 playWavSound(soundName: SoundNames.pop.rawValue)
             } else {
@@ -68,6 +70,8 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         button.isHidden = true
 		return button
 	}()
+    
+    let suggestionView = SuggestionView()
 	
 	let cameraOverlayView: UIImageView = {
 		let imageView = UIImageView()

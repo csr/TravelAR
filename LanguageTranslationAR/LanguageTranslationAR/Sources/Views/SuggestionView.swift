@@ -33,7 +33,7 @@ class SuggestionView: UIVisualEffectView {
     }()
     
     override init(effect: UIVisualEffect?) {
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .dark)
         super.init(effect: blurEffect)
         translatesAutoresizingMaskIntoConstraints = false
         setupLabel()

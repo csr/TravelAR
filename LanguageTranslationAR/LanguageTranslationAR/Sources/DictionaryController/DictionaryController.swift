@@ -111,4 +111,11 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
     }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = [.horizontal]
+        sceneView.session.run(configuration, options: [])
+    }
 }

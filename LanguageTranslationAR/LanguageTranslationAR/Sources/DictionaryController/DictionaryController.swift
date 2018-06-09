@@ -84,15 +84,6 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         imageView.alpha = 0
 		return imageView
 	}()
-        
-    lazy var pickerView: UIPickerView = {
-        let pv = UIPickerView()
-        pv.delegate = self
-        pv.dataSource = self
-        pv.translatesAutoresizingMaskIntoConstraints = false
-        pv.isUserInteractionEnabled = true
-        return pv
-    }()
     
     lazy var popUpView: PopUpView = {
         let view = PopUpView()
@@ -117,5 +108,12 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal, .vertical]
         sceneView.session.run(configuration, options: [])
+    }
+}
+
+ 
+extension DictionaryController: LanguageSelectionDelegate {
+    func didSelectLanguage(language: Language) {
+        
     }
 }

@@ -21,7 +21,7 @@ extension DictionaryController {
     
     internal func setupSuggestionView() {
         view.addSubview(suggestionView)
-        suggestionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
         suggestionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         suggestionView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }

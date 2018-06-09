@@ -19,14 +19,5 @@ extension DictionaryController {
     
     internal func getSourceLanguageCode() -> String {
         return Locale.current.languageCode ?? "en"
-    }
-    
-    internal func loadLanguages() {
-        GoogleTranslateAPI.getLanguages(targetLanguage: getSourceLanguageCode()) { (languages) in
-            self.languages = languages
-            DispatchQueue.main.async {
-                self.pickerView.reloadAllComponents()
-            }
-        }
-    }
+    }    
 }

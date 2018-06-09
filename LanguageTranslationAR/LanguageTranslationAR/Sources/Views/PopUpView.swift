@@ -155,7 +155,7 @@ class PopUpView: UIView {
     }
     
     private func setupView() {
-        widthAnchor.constraint(equalToConstant: 370).isActive = true
+        widthAnchor.constraint(equalToConstant: 330).isActive = true
         layer.shadowOpacity = 0.2 // opacity, 20%
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 2 // HALF of blur

@@ -8,18 +8,29 @@
 
 import UIKit
 
+protocol LanguageSelectionDelegate {
+    func didSelectLanguage(language: Language)
+}
+
 class LanguagesTableViewController: UITableViewController {
 
     let cellId = "reuseIdentifier"
     var languages = [Language]()
+    var delegate: LanguageSelectionDelegate?
     
     var selectedCell: UITableViewCell? {
         willSet{
             selectedCell?.accessoryType = .none
             newValue?.accessoryType = .checkmark
+            if let cell = selectedCell {
+                let index = tableView.indexPath(for: cell)
+                if let row = index?.row {
+                    let language = languages[row]
+                    delegate?.didSelectLanguage(language: language)
+                }
+            }
         }
     }
-
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCell = self.tableView.cellForRow(at: indexPath)
@@ -29,7 +40,7 @@ class LanguagesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        title = "Translate To"
+        title = "Translation Language"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapOnCloseItem))
         getData()
     }
@@ -39,8 +50,13 @@ class LanguagesTableViewController: UITableViewController {
             self.languages = languages
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.storeData()
             }
         }
+    }
+    
+    func storeData() {
+        // Store data in Core Data
     }
     
     @objc func didTapOnCloseItem() {

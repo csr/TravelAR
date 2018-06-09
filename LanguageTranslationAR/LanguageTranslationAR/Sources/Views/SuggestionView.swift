@@ -43,10 +43,10 @@ class SuggestionView: UIVisualEffectView {
     
     internal func setupLabel() {
         contentView.addSubview(label)
-        label.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-        label.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
-        label.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
-        label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        label.topAnchor.constraint(equalTo: topAnchor, constant: 7).isActive = true
+        label.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true
+        label.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
+        label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -7).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

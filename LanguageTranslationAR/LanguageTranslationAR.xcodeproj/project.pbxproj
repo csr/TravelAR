@@ -11,7 +11,6 @@
 		1D23B9502097AC3E00121E8F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94F2097AC3E00121E8F /* Keys.swift */; };
 		1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9522097C59D00121E8F /* LanguageData.swift */; };
 		1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9542097C5AF00121E8F /* LanguagesList.swift */; };
-		1D23B957209855A400121E8F /* DictionaryController+LanguagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B956209855A400121E8F /* DictionaryController+LanguagePicker.swift */; };
 		1D23B95920986BB700121E8F /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95820986BB700121E8F /* Translation.swift */; };
 		1D23B95B20986D1100121E8F /* DictionaryController+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95A20986D1100121E8F /* DictionaryController+API.swift */; };
 		1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95C2098944C00121E8F /* TranslationData.swift */; };
@@ -52,7 +51,6 @@
 		1D441E9C20726F22005E2ADD /* SystemSoundIDExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6520726F22005E2ADD /* SystemSoundIDExtensions.swift */; };
 		1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6620726F22005E2ADD /* TextToSpeech.swift */; };
 		1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6720726F22005E2ADD /* UIViewExtensions.swift */; };
-		1D441E9F20726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6920726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift */; };
 		1D441EA320726F22005E2ADD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6E20726F22005E2ADD /* Language.swift */; };
 		1D441EA520726F22005E2ADD /* ListController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7120726F22005E2ADD /* ListController+TableView.swift */; };
 		1D441EA620726F22005E2ADD /* ListController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7220726F22005E2ADD /* ListController+Views.swift */; };
@@ -75,7 +73,6 @@
 		1D23B94F2097AC3E00121E8F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		1D23B9522097C59D00121E8F /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
 		1D23B9542097C5AF00121E8F /* LanguagesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesList.swift; sourceTree = "<group>"; };
-		1D23B956209855A400121E8F /* DictionaryController+LanguagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+LanguagePicker.swift"; sourceTree = "<group>"; };
 		1D23B95820986BB700121E8F /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		1D23B95A20986D1100121E8F /* DictionaryController+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+API.swift"; sourceTree = "<group>"; };
 		1D23B95C2098944C00121E8F /* TranslationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationData.swift; sourceTree = "<group>"; };
@@ -121,7 +118,6 @@
 		1D441E6520726F22005E2ADD /* SystemSoundIDExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSoundIDExtensions.swift; sourceTree = "<group>"; };
 		1D441E6620726F22005E2ADD /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		1D441E6720726F22005E2ADD /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		1D441E6920726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LanguageController+ UIPickerViewDelegate.swift"; sourceTree = "<group>"; };
 		1D441E6E20726F22005E2ADD /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		1D441E7120726F22005E2ADD /* ListController+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListController+TableView.swift"; sourceTree = "<group>"; };
 		1D441E7220726F22005E2ADD /* ListController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListController+Views.swift"; sourceTree = "<group>"; };
@@ -278,8 +274,6 @@
 				1D441E5A20726F22005E2ADD /* DictionaryController+Actions.swift */,
 				1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */,
 				1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */,
-				1D23B956209855A400121E8F /* DictionaryController+LanguagePicker.swift */,
-				1D441E6920726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift */,
 				1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */,
 				1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */,
 				1D441E6120726F22005E2ADD /* PopUpDelegate.swift */,
@@ -448,7 +442,6 @@
 			files = (
 				1D441EAA20726F22005E2ADD /* DictionaryView.swift in Sources */,
 				1D23B9672098F58800121E8F /* Helpers.swift in Sources */,
-				1D23B957209855A400121E8F /* DictionaryController+LanguagePicker.swift in Sources */,
 				1D441EA820726F22005E2ADD /* ListTableViewCell.swift in Sources */,
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
 				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
@@ -461,7 +454,6 @@
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
 				1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
-				1D441E9F20726F22005E2ADD /* LanguageController+ UIPickerViewDelegate.swift in Sources */,
 				1D441EA620726F22005E2ADD /* ListController+Views.swift in Sources */,
 				1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */,
 				1D441E9920726F22005E2ADD /* PopUpDelegate.swift in Sources */,

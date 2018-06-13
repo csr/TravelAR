@@ -62,6 +62,7 @@
 		1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */; };
 		1D4F76B320A820D200B684A6 /* DictionaryController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */; };
 		1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B420A820EE00B684A6 /* SoundNames.swift */; };
+		1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */; };
 		1D94B76C20C9E8390000B065 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B76B20C9E8390000B065 /* SuggestionView.swift */; };
@@ -129,6 +130,7 @@
 		1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopUpController.swift; sourceTree = "<group>"; };
 		1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Audio.swift"; sourceTree = "<group>"; };
 		1D4F76B420A820EE00B684A6 /* SoundNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNames.swift; sourceTree = "<group>"; };
+		1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageTableViewController+Search.swift"; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Alerts.swift"; sourceTree = "<group>"; };
 		1D94B76B20C9E8390000B065 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */,
+				1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */,
 			);
 			path = LanguageController;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				1D441EAA20726F22005E2ADD /* DictionaryView.swift in Sources */,
 				1D23B9672098F58800121E8F /* Helpers.swift in Sources */,
 				1D441EA820726F22005E2ADD /* ListTableViewCell.swift in Sources */,
+				1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */,
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
 				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
 				1D4412FF20BB215400E608B8 /* DictionaryController+Camera.swift in Sources */,

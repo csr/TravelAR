@@ -15,12 +15,11 @@ protocol LanguageSelectionDelegate {
 class LanguagesTableViewController: UITableViewController {
     
     var tableViewSource = [Character: [Language]]()
+    var filteredSource = [Language]()
     var tableViewHeaders = [Character]()
-    
-    var letterArray = [String]()
-    var sortedLanguages = [String: Language]()
-    
     var delegate: LanguageSelectionDelegate?
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     var selectedLanguage: Language? {
         didSet {
@@ -96,6 +95,14 @@ class LanguagesTableViewController: UITableViewController {
         title = "Translation Language"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapOnCloseItem))
         getData()
+        setupSearchController()
+    }
+    
+    internal func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
     }
     
     func getData() {
@@ -105,10 +112,6 @@ class LanguagesTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
-    }
-    
-    func storeData() {
-        // Store languages data in Core Data
     }
     
     @objc func didTapOnCloseItem() {
@@ -133,20 +136,6 @@ class LanguagesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        /*
-        let section = tableViewSource[indexPath.section]
-        let language = section[indexPath.row]
-        
-        cell.textLabel?.text = language.name
-        
-        
-        if cell == selectedCell {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
-
- */
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let key = tableViewHeaders[indexPath.section]
         let values = tableViewSource[key]

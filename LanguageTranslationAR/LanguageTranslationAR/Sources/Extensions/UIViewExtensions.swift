@@ -30,11 +30,11 @@ extension UIView {
 	func pushTransition(_ duration:CFTimeInterval) {
 		let animation:CATransition = CATransition()
 		animation.timingFunction = CAMediaTimingFunction(name:
-			convertToCAMediaTimingFunctionName(convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeInEaseOut)))
-		animation.type = convertToCATransitionType(convertFromCATransitionType(CATransitionType.push))
-		animation.subtype = convertToOptionalCATransitionSubtype(convertFromCATransitionSubtype(CATransitionSubtype.fromTop))
+			kCAMediaTimingFunctionEaseInEaseOut)
+		animation.type = kCATransitionPush
+		animation.subtype = kCATransitionFromTop
 		animation.duration = duration
-		layer.add(animation, forKey: convertFromCATransitionType(CATransitionType.push))
+		layer.add(animation, forKey: kCATransitionPush)
 	}
 	
 	func boingAnimation(shouldRepeat: Bool = false) {
@@ -43,7 +43,7 @@ extension UIView {
 					   delay: 0,
 					   usingSpringWithDamping: 0.21,
 					   initialSpringVelocity: 6.0,
-					   options: UIView.AnimationOptions.allowUserInteraction,
+					   options: .allowUserInteraction,
 					   animations: { [weak self] in
 						self?.transform = .identity
 			},
@@ -61,37 +61,6 @@ extension UIView {
     
     func blink() {
         self.alpha = 0.2
-        UIView.animate(withDuration: 1, delay: 0.0, options: [UIView.AnimationOptions.curveLinear, UIView.AnimationOptions.repeat, UIView.AnimationOptions.autoreverse], animations: {self.alpha = 1.0}, completion: nil)
+        UIView.animate(withDuration: 1, delay: 0.0, options: [.curveLinear, .repeat, .autoreverse], animations: {self.alpha = 1.0}, completion: nil)
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToCAMediaTimingFunctionName(_ input: String) -> CAMediaTimingFunctionName {
-	return CAMediaTimingFunctionName(rawValue: input)
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromCAMediaTimingFunctionName(_ input: CAMediaTimingFunctionName) -> String {
-	return input.rawValue
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToCATransitionType(_ input: String) -> CATransitionType {
-	return CATransitionType(rawValue: input)
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromCATransitionType(_ input: CATransitionType) -> String {
-	return input.rawValue
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalCATransitionSubtype(_ input: String?) -> CATransitionSubtype? {
-	guard let input = input else { return nil }
-	return CATransitionSubtype(rawValue: input)
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromCATransitionSubtype(_ input: CATransitionSubtype) -> String {
-	return input.rawValue
 }

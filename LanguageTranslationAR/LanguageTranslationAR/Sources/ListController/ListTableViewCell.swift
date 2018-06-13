@@ -33,8 +33,8 @@ class ListTableViewCell: UITableViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: ListTableViewCell.identifier)
         setupLabels()
         setupImageView()

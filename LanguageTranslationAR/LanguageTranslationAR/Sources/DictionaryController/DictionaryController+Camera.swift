@@ -54,13 +54,8 @@ extension DictionaryController {
     }
     
     @objc func openCameraSettings() {
-        if let appSettings = URL(string: UIApplication.openSettingsURLString) {
-            UIApplication.shared.open(appSettings, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+        if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+            UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
         }
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

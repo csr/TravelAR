@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
         window?.makeKeyAndVisible()
         let navController = UINavigationController(rootViewController: DictionaryController())
@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().barTintColor = .deepBlue
             UINavigationBar.appearance().tintColor = .white
-        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
-                          NSAttributedString.Key.font: UIFont(name: "CircularStd-Book", size: 20.5)] as [NSAttributedString.Key: Any]
+        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white,
+                          NSAttributedStringKey.font: UIFont(name: "CircularStd-Book", size: 20.5)] as [NSAttributedStringKey: Any]
         UINavigationBar.appearance().titleTextAttributes = attributes
         UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .normal)
         UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .highlighted)

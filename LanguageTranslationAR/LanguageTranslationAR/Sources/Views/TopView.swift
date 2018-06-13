@@ -61,14 +61,14 @@ public class TopView: UIView {
     let bookmarksButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "icon-bookmarks"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "icon-bookmarks"), for: UIControlState.normal)
         return button
     }()
     
     let translationButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "icon-translation"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "icon-translation"), for: UIControlState.normal)
         return button
     }()
     

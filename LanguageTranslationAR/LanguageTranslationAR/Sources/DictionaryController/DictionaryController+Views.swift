@@ -85,14 +85,14 @@ extension DictionaryController {
         
 		view.layoutIfNeeded()
         
-        UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: UIView.AnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: UIViewAnimationOptions.curveEaseIn, animations: {
 			self.view.layoutIfNeeded()
 			dictionaryViewBottomAnchor.constant = -80
             dictionaryView.transform = .identity
 			self.view.layoutIfNeeded()
             dictionaryView.alpha = 1
 		}) { (bool) in
-			UIView.animate(withDuration: 2, delay: 3.5, usingSpringWithDamping: 10, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+			UIView.animate(withDuration: 2, delay: 3.5, usingSpringWithDamping: 10, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
 				self.view.layoutIfNeeded()
 				dictionaryViewBottomAnchor.constant = 500
 				self.view.layoutIfNeeded()

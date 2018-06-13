@@ -45,9 +45,16 @@ class LanguagesTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .none
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCell = self.tableView.cellForRow(at: indexPath)
-        self.tableView.reloadData()
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .checkmark
+        }
     }
     
     func createTableData(languagesList: [Language]) -> (firstSymbols: [Character], source: [Character : [Language]]) {

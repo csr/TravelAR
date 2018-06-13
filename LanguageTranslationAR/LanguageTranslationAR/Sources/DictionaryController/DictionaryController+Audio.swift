@@ -13,7 +13,7 @@ extension DictionaryController {
     func playWavSound(soundName: String) {
         guard let url = Bundle.main.url(forResource: soundName, withExtension: "wav") else { return }
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
             guard let player = player else { return }
@@ -22,9 +22,4 @@ extension DictionaryController {
             print(error.localizedDescription)
         }
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
-	return input.rawValue
 }

@@ -62,10 +62,10 @@
 		1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */; };
 		1D4F76B320A820D200B684A6 /* DictionaryController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */; };
 		1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B420A820EE00B684A6 /* SoundNames.swift */; };
-		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */; };
 		1D94B76C20C9E8390000B065 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B76B20C9E8390000B065 /* SuggestionView.swift */; };
 		1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */; };
+		1DDE380D20D00AF300266BA3 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE380C20D00AF300266BA3 /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,10 +129,10 @@
 		1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopUpController.swift; sourceTree = "<group>"; };
 		1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Audio.swift"; sourceTree = "<group>"; };
 		1D4F76B420A820EE00B684A6 /* SoundNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNames.swift; sourceTree = "<group>"; };
-		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Alerts.swift"; sourceTree = "<group>"; };
 		1D94B76B20C9E8390000B065 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
 		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
+		1DDE380C20D00AF300266BA3 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,10 +217,10 @@
 		1D441E3D20726F1B005E2ADD /* PrivateResources */ = {
 			isa = PBXGroup;
 			children = (
+				1DDE380C20D00AF300266BA3 /* Inceptionv3.mlmodel */,
 				1D441E3E20726F1B005E2ADD /* button-click-garageband.wav */,
 				1D441E3F20726F1B005E2ADD /* CircularStd-Book.otf */,
 				1D441E4020726F1B005E2ADD /* draw-sign.png */,
-				1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */,
 				1D441E4B20726F1B005E2ADD /* icon-bookmarks.png */,
 				1D441E4C20726F1B005E2ADD /* icon-translation.png */,
 				1D441E4F20726F1B005E2ADD /* phone-sketch.png */,
@@ -444,7 +444,6 @@
 				1D23B9672098F58800121E8F /* Helpers.swift in Sources */,
 				1D441EA820726F22005E2ADD /* ListTableViewCell.swift in Sources */,
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
-				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
 				1D4412FF20BB215400E608B8 /* DictionaryController+Camera.swift in Sources */,
 				1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
@@ -468,6 +467,7 @@
 				1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */,
 				1D23B9642098E50700121E8F /* UIColorExtensions.swift in Sources */,
 				1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */,
+				1DDE380D20D00AF300266BA3 /* Inceptionv3.mlmodel in Sources */,
 				1D441EAB20726F22005E2ADD /* PopUpView.swift in Sources */,
 				1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */,
 				1D441E9C20726F22005E2ADD /* SystemSoundIDExtensions.swift in Sources */,
@@ -644,7 +644,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cesaredecal.LanguageTranslationAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -663,7 +663,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cesaredecal.LanguageTranslationAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

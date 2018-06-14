@@ -21,7 +21,7 @@ class SuggestionView: UIVisualEffectView {
     
     let label: UILabel = {
         let label = UILabel()
-        label.text = "Nothing found..."
+        label.text = NSLocalizedString("Nothing found", comment: "Nothing found")
         label.textColor = .white
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false

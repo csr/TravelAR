@@ -84,7 +84,7 @@ class LanguagesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        title = "Translation Language"
+        title = NSLocalizedString("Translation Language", comment: "Translation Language")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapOnCloseItem))
         tableView.tableFooterView = UIView()
         setupActivityIndicator()
@@ -98,13 +98,18 @@ class LanguagesTableViewController: UITableViewController {
     }
     
     func getData() {
-        GoogleTranslateAPI.getLanguages(targetLanguage: "en") { (languages) in
+        let languageCode = getLocaleLanguageCode() ?? "en"
+        GoogleTranslateAPI.getLanguages(targetLanguage: languageCode) { (languages) in
             DispatchQueue.main.async {
                 self.getTableData(languages: languages)
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func getLocaleLanguageCode() -> String? {
+        return Locale.current.languageCode
     }
     
     @objc func didTapOnCloseItem() {

@@ -6,9 +6,11 @@
   Copyright © 2018 Cesare de Cal. All rights reserved.
 */
 
+"Translation Language" = "Lingua di Traduzione";
+"Capture" = "Cattura";
 "Scanning" = "Scansionando...";
 "Move device" = "Guarda i dintorni con il tuo %@ per trovare superfici.";
-"Good job" = "Punta e tocca";
+"How to use" = "Punta e tocca";
 "Point device" = "Guardati in giro e tocca per tradurre quello che hai davanti.";
 "OK" = "OK";
 "Nothing found" = "Cercando...";
@@ -16,7 +18,7 @@
 "Clear" = "Pulisci";
 "Tap to play" = "Tocca per ascoltare";
 "History" = "Cronologia";
-"No items" = "Niente da vedere qui.\nScansiona il primo oggetto per iniziare!";
+"No items" = "Nulla qui.\nScansiona il primo oggetto per iniziare!";
 "Select" = "Seleziona";
 "Cancel" = "Annulla";
 "Translation language" = "Seleziona la lingua che verrà usata per tradurre gli oggetti intorno a te.";

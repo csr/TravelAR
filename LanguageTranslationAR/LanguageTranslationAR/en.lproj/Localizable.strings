@@ -6,6 +6,7 @@
   Copyright © 2018 Cesare de Cal. All rights reserved.
 */
 
+"Capture" = "Capture";
 "Scanning" = "Scanning...";
 "Move device" = "Move your %@ around to detect planes.";
 "How to use" = "Point and tap";
@@ -19,6 +20,7 @@
 "No items" = "Your first scan will show up here.";
 "Select" = "Select";
 "Cancel" = "Cancel";
+"Translation Language" = "Translation Language";
 "Translation language" = "Select a language that will be used to translate the things around you.";
 "Camera permissions" = "It looks like you don't have camera permissions enabled.";
 "Enable camera" = "Go to Settings";

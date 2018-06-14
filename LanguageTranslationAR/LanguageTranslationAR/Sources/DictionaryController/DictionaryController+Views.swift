@@ -27,7 +27,7 @@ extension DictionaryController {
     }
     
     internal func setupNavigationBar() {
-        title = "Capture"
+        title = NSLocalizedString("Capture", comment: "Capture")
         let clearString = NSLocalizedString("Clear", comment: "Clear")
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: clearString, style: .plain, target: self, action: #selector(didTapClearScene))
         let historyItem = UIBarButtonItem(image: UIImage(named: "history"), style: .plain, target: self, action: #selector(handleTapOnBookmarks))

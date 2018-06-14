@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol LanguageSelectionDelegate {
-    func didSelectLanguage(language: Language)
-}
-
 class LanguagesTableViewController: UITableViewController {
     
     var tableViewSource = [Character: [Language]]()
@@ -19,42 +15,40 @@ class LanguagesTableViewController: UITableViewController {
     var tableViewHeaders = [Character]()
     var delegate: LanguageSelectionDelegate?
     
-    let searchController = UISearchController(searchResultsController: nil)
-    
     var selectedLanguage: Language? {
         didSet {
             
         }
     }
     
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    
     let cellId = "reuseIdentifier"
 
     var selectedCell: UITableViewCell? {
         willSet {
-            /*
             selectedCell?.accessoryType = .none
             newValue?.accessoryType = .checkmark
             if let cell = selectedCell {
                 let index = tableView.indexPath(for: cell)
-                if let row = index?.row {
-                    //let language = languages[row]
-                    //delegate?.didSelectLanguage(language: language)
+                if let section = index?.section, let row = index?.row {
+                    let initialLetter = tableViewHeaders[section]
+                    if let values = tableViewSource[initialLetter] {
+                        let language = values[row]
+                        delegate?.didSelectLanguage(language: language)
+                    }
                 }
             }
- */
+
         }
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .none
-        }
+        selectedCell = nil
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .checkmark
-        }
+        selectedCell = tableView.cellForRow(at: indexPath)
     }
     
     func createTableData(languagesList: [Language]) -> (firstSymbols: [Character], source: [Character : [Language]]) {
@@ -101,21 +95,22 @@ class LanguagesTableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         title = "Translation Language"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapOnCloseItem))
+        tableView.tableFooterView = UIView()
+        setupActivityIndicator()
         getData()
-        setupSearchController()
     }
     
-    internal func setupSearchController() {
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        tableView.tableHeaderView = searchController.searchBar
+    internal func setupActivityIndicator() {
+        tableView.backgroundView = activityIndicator
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
     }
     
     func getData() {
         GoogleTranslateAPI.getLanguages(targetLanguage: "en") { (languages) in
             DispatchQueue.main.async {
                 self.getTableData(languages: languages)
+                self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
             }
         }
@@ -147,6 +142,12 @@ class LanguagesTableViewController: UITableViewController {
         let key = tableViewHeaders[indexPath.section]
         let values = tableViewSource[key]
         let language = values![indexPath.row]
+        if cell == selectedCell {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        
         cell.textLabel?.text = language.name
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)

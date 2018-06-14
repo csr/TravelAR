@@ -37,6 +37,8 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         }
     }
     
+    let languagesTableViewController = LanguagesTableViewController()
+    
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
     

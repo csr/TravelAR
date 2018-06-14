@@ -26,10 +26,7 @@ class BasePopUpController: UIViewController {
         let font = UIFont(name: "CircularStd-Book", size: 20)
         navigationController?.navigationBar.barTintColor = .deepBlue
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: font!]
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleTapOnDone))
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(handleTapOnDone))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleTapOnDone))
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.isTranslucent = false
     }

@@ -76,11 +76,10 @@ extension DictionaryController {
     }
     
     @objc func handleTapOnLanguageSelection() {
-        let vc = LanguagesTableViewController()
-        let nav = UINavigationController(rootViewController: vc)
+        let nav = UINavigationController(rootViewController: languagesTableViewController)
         nav.modalPresentationStyle = UIModalPresentationStyle.popover
-        vc.popoverPresentationController?.permittedArrowDirections = .up
-        vc.preferredContentSize = CGSize(width: 400, height: 400)
+        languagesTableViewController.popoverPresentationController?.permittedArrowDirections = .up
+        languagesTableViewController.preferredContentSize = CGSize(width: 400, height: 400)
         
         if let popoverController = nav.popoverPresentationController, let items = navigationItem.rightBarButtonItems {
             let second = items[1]

@@ -15,40 +15,31 @@ class LanguagesTableViewController: UITableViewController {
     var tableViewHeaders = [Character]()
     var delegate: LanguageSelectionDelegate?
     
-    var selectedLanguage: Language? {
+    var selectedIndexPath: IndexPath? {
         didSet {
-            
+            guard let index = selectedIndexPath else { return }
+            let section = index.section
+            let row = index.row
+            let initialLetter = tableViewHeaders[section]
+            if let values = tableViewSource[initialLetter] {
+                let language = values[row]
+                delegate?.didSelectLanguage(language: language)
+            }
         }
     }
     
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
     let cellId = "reuseIdentifier"
-
-    var selectedCell: UITableViewCell? {
-        willSet {
-            selectedCell?.accessoryType = .none
-            newValue?.accessoryType = .checkmark
-            if let cell = selectedCell {
-                let index = tableView.indexPath(for: cell)
-                if let section = index?.section, let row = index?.row {
-                    let initialLetter = tableViewHeaders[section]
-                    if let values = tableViewSource[initialLetter] {
-                        let language = values[row]
-                        delegate?.didSelectLanguage(language: language)
-                    }
-                }
-            }
-
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        selectedCell = nil
-    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCell = tableView.cellForRow(at: indexPath)
+        selectedIndexPath = indexPath
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .checkmark
+        }
+            
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
     }
     
     func createTableData(languagesList: [Language]) -> (firstSymbols: [Character], source: [Character : [Language]]) {
@@ -142,17 +133,17 @@ class LanguagesTableViewController: UITableViewController {
         let key = tableViewHeaders[indexPath.section]
         let values = tableViewSource[key]
         let language = values![indexPath.row]
-        if cell == selectedCell {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
-        
         cell.textLabel?.text = language.name
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
         let font = UIFont(name: "CircularStd-Book", size: 19)
         cell.textLabel?.font = font
+        
+        if indexPath == selectedIndexPath {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         return cell
     }
     

@@ -79,21 +79,36 @@ class LanguagesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        scrollToUserLanguage()
+    }
+    
+    func scrollToUserLanguage() {
         let userLanguage = LanguagePreferences.getCurrentLanguage()
         print("ok. got default language. it's:", userLanguage.name, userLanguage.languageCode)
-        let initialLetter = userLanguage.name.first ?? " "
-        print("initial letter is", initialLetter)
-
-        if let languagesForGivenInitial = tableViewSource[initialLetter] {
-            for language in languagesForGivenInitial {
-                if language.languageCode == userLanguage.languageCode {
-                    print("FOUND the language!")
-                }
+        
+        print(tableViewSource.values)
+        
+        let nestedArr = Array(tableViewSource.values)
+        let allLangs = nestedArr.reduce([], +)
+        
+        if let index = allLangs.index(of: userLanguage) {
+            let language = allLangs[index]
+            let name = language.name
+            let initialLetter = name.first ?? " "
+            let languagesWithInitial = tableViewSource[initialLetter]
+            if let sectionNumber = tableViewHeaders.index(of: initialLetter), let rowNumber = languagesWithInitial?.index(of: language) {
+                let indexPath = IndexPath(row: rowNumber, section: sectionNumber)
+                print(indexPath)
+                self.tableView.reloadData()
+                tableView.scrollToRow(at: indexPath, at: .middle, animated: false)
+                selectedIndexPath = indexPath
+                print("sectionNumber, rowNumber", sectionNumber, rowNumber)
+            } else {
+                print("something is NIL")
             }
-            print(languagesForGivenInitial)
-        } else {
-            print("languages are NIL")
         }
+        
+        //print("all langs:", allLangs)
     }
     
     override func viewDidLoad() {
@@ -119,6 +134,7 @@ class LanguagesTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.getTableData(languages: languages)
                 self.tableView.reloadData()
+                self.scrollToUserLanguage()
             }
         }
     }

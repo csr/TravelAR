@@ -11,13 +11,9 @@ import Foundation
 extension DictionaryController {
     internal func getTranslation(text: String, completion: @escaping (Translation?) -> Void) {
         print("Sent translation request...")
-
-        GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: getSourceLanguageCode(), targetLanguage: selectedLanguage.languageCode) { (translation) in
+        let userLanguage = LanguagePreferences.getCurrentLanguage()
+        GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: userLanguage.languageCode) { (translation) in
             completion(translation)
         }
     }
-    
-    internal func getSourceLanguageCode() -> String {
-        return Locale.current.languageCode ?? "en"
-    }    
 }

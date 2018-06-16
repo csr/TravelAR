@@ -19,7 +19,7 @@
 		1D23B9672098F58800121E8F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9662098F58800121E8F /* Helpers.swift */; };
 		1D23B96C2098FEDD00121E8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B96E2098FEDD00121E8F /* Localizable.strings */; };
 		1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B97420990AA000121E8F /* InfoPlist.strings */; };
-		1D32524F20D0D53B0061517C /* LanguageSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D32524E20D0D53B0061517C /* LanguageSelectionDelegate.swift */; };
+		1D32525220D57C670061517C /* LanguagePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D32525120D57C670061517C /* LanguagePreferences.swift */; };
 		1D4412FF20BB215400E608B8 /* DictionaryController+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4412FE20BB215400E608B8 /* DictionaryController+Camera.swift */; };
 		1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E2B20726EFE005E2ADD /* AppDelegate.swift */; };
 		1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3220726F00005E2ADD /* Assets.xcassets */; };
@@ -86,7 +86,7 @@
 		1D23B96F2098FEDF00121E8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1D23B97320990AA000121E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D23B97520990AA200121E8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1D32524E20D0D53B0061517C /* LanguageSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionDelegate.swift; sourceTree = "<group>"; };
+		1D32525120D57C670061517C /* LanguagePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePreferences.swift; sourceTree = "<group>"; };
 		1D4412FE20BB215400E608B8 /* DictionaryController+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Camera.swift"; sourceTree = "<group>"; };
 		1D441E2820726EFE005E2ADD /* LanguageTranslationAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageTranslationAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D441E2B20726EFE005E2ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -348,8 +348,8 @@
 		1D94B76D20CB29FF0000B065 /* LanguageController */ = {
 			isa = PBXGroup;
 			children = (
+				1D32525120D57C670061517C /* LanguagePreferences.swift */,
 				1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */,
-				1D32524E20D0D53B0061517C /* LanguageSelectionDelegate.swift */,
 				1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */,
 			);
 			path = LanguageController;
@@ -452,6 +452,7 @@
 				1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */,
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
 				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
+				1D32525220D57C670061517C /* LanguagePreferences.swift in Sources */,
 				1D4412FF20BB215400E608B8 /* DictionaryController+Camera.swift in Sources */,
 				1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
@@ -485,7 +486,6 @@
 				1D441E9220726F22005E2ADD /* DictionaryController+Actions.swift in Sources */,
 				1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */,
 				1D441EA720726F22005E2ADD /* ListController.swift in Sources */,
-				1D32524F20D0D53B0061517C /* LanguageSelectionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

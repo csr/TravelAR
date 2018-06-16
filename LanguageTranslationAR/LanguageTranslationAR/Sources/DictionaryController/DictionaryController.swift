@@ -19,24 +19,6 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     var languages = [Language]()
     var items = [Translation]()
     var player: AVAudioPlayer?
-    
-    var selectedLanguage: Language {
-        get {
-            let defaults = UserDefaults.standard
-            if let code = defaults.string(forKey: "languageCode"), let name = defaults.string(forKey: "languageName") {
-                return Language(name: name, languageCode: code)
-            } else {
-                return Language(name: "Spanish", languageCode: "es")
-            }
-        }
-        
-        set {
-            let defaults = UserDefaults.standard
-            defaults.set(newValue.name, forKey: "languageName")
-            defaults.set(newValue.languageCode, forKey: "languageCode")
-        }
-    }
-    
     let languagesTableViewController = LanguagesTableViewController()
     
     var visionRequests = [VNRequest]()
@@ -110,12 +92,5 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal, .vertical]
         sceneView.session.run(configuration, options: [])
-    }
-}
-
- 
-extension DictionaryController: LanguageSelectionDelegate {
-    func didSelectLanguage(language: Language) {
-        
     }
 }

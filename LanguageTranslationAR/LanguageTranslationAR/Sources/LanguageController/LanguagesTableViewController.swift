@@ -11,24 +11,20 @@ import UIKit
 class LanguagesTableViewController: UITableViewController {
     
     var tableViewSource = [Character: [Language]]()
-    var filteredSource = [Language]()
     var tableViewHeaders = [Character]()
-    var delegate: LanguageSelectionDelegate?
-    
     var selectedIndexPath: IndexPath? {
         didSet {
+            // Save language
             guard let index = selectedIndexPath else { return }
             let section = index.section
             let row = index.row
             let initialLetter = tableViewHeaders[section]
             if let values = tableViewSource[initialLetter] {
                 let language = values[row]
-                delegate?.didSelectLanguage(language: language)
+                LanguagePreferences.saveLanguage(language: language)
             }
         }
     }
-    
-    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
     let cellId = "reuseIdentifier"
     
@@ -81,6 +77,25 @@ class LanguagesTableViewController: UITableViewController {
         tableViewHeaders = createTableData(languagesList: languages).firstSymbols
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let userLanguage = LanguagePreferences.getCurrentLanguage()
+        print("ok. got default language. it's:", userLanguage.name, userLanguage.languageCode)
+        let initialLetter = userLanguage.name.first ?? " "
+        print("initial letter is", initialLetter)
+
+        if let languagesForGivenInitial = tableViewSource[initialLetter] {
+            for language in languagesForGivenInitial {
+                if language.languageCode == userLanguage.languageCode {
+                    print("FOUND the language!")
+                }
+            }
+            print(languagesForGivenInitial)
+        } else {
+            print("languages are NIL")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
@@ -92,24 +107,20 @@ class LanguagesTableViewController: UITableViewController {
     }
     
     internal func setupActivityIndicator() {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         tableView.backgroundView = activityIndicator
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
     }
     
     func getData() {
-        let languageCode = getLocaleLanguageCode() ?? "en"
+        let languageCode = LanguagePreferences.getLocaleLanguageCode()
         GoogleTranslateAPI.getLanguages(targetLanguage: languageCode) { (languages) in
             DispatchQueue.main.async {
                 self.getTableData(languages: languages)
-                self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
             }
         }
-    }
-    
-    func getLocaleLanguageCode() -> String? {
-        return Locale.current.languageCode
     }
     
     @objc func didTapOnCloseItem() {

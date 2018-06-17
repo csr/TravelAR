@@ -33,6 +33,12 @@ extension DictionaryController {
         TextToSpeech.speak(item: translation)        
     }
     
+    @objc func didTapAddButton() {
+        if let coords = detectWorldCoordinates() {
+            didTapSceneView(coords: coords)
+        }
+    }
+    
     func didTapButton(selector: Selector) {
         playWavSound(soundName: SoundNames.popReverse.rawValue)
         performSelector(onMainThread: selector, with: nil, waitUntilDone: true)
@@ -87,11 +93,5 @@ extension DictionaryController {
     
     @objc func updateLabel() {
         identifier = mlPrediction        
-    }
-
-    @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
-        if let coords = detectWorldCoordinates() {
-            didTapSceneView(coords: coords)
-        }
     }
 }

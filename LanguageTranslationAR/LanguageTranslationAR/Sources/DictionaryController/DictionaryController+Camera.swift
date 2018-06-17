@@ -13,14 +13,10 @@ import AVKit
 extension DictionaryController {
     func didAuthorizeCamera() {
         setupAR()
-        presentAppInstructionAlert()
         setupCoreML()
         Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
     }
-    
-    func cameraNotYetAuthorized() {
-    }
-    
+        
     func cameraPermissionDenied() {
         presentDeniedCameraPermissionsAlert()
     }

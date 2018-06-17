@@ -112,7 +112,6 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
-        setupTapGestureRecognizer()
         checkCameraPermissions()
 	}
     

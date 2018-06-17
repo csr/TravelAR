@@ -26,8 +26,8 @@ extension DictionaryController {
         button.setImage(#imageLiteral(resourceName: "add"), for: .normal)
         button.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        button.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
         button.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
     }
     

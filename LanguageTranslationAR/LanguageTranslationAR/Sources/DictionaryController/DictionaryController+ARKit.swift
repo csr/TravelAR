@@ -11,18 +11,43 @@ import ARKit
 
 @available(iOS 11.0, *)
 extension DictionaryController: ARSCNViewDelegate {
+
+    @objc internal func setupAR() {
+        augmentedRealityView.delegate = self
+        augmentedRealityView.scene = SCNScene()
+        configuration.planeDetection = [.horizontal, .vertical]
+        augmentedRealityView.session = augmentedRealitySession
+        augmentedRealitySession.run(configuration)
+    }
     
-	@objc internal func setupAR() {
-        sceneView.delegate = self
-        sceneView.scene = SCNScene()
-		let configuration = ARWorldTrackingConfiguration()
-		configuration.planeDetection = [.horizontal, .vertical]
-		sceneView.session.run(configuration)
-	}
-        
+    public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        DispatchQueue.main.async { self.updateFocusSquare() }
+    }
+    
+    func updateFocusSquare() {
+        if let camera = self.augmentedRealitySession.currentFrame?.camera,
+            case .normal = camera.trackingState,
+            let result = self.augmentedRealityView.smartHitTest(screenCenter) {
+            updateQueue.async {
+                if self.canDisplayFocusSquare{
+                    self.augmentedRealityView.scene.rootNode.addChildNode(self.focusSquare)
+                    self.focusSquare.state = .detecting(hitTestResult: result, camera: camera)
+                }
+            }
+            
+        } else {
+            updateQueue.async {
+                if self.canDisplayFocusSquare{
+                    self.focusSquare.state = .initializing
+                    self.augmentedRealityView.pointOfView?.addChildNode(self.focusSquare)
+                }
+            }
+        }
+    }
+    
     internal func detectWorldCoordinates() -> SCNVector3? {
-        let screenCentre = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
-        let arHitTestResults = sceneView.hitTest(screenCentre, types: [.featurePoint])
+        let screenCentre = CGPoint(x: self.augmentedRealityView.bounds.midX, y: self.augmentedRealityView.bounds.midY)
+        let arHitTestResults = augmentedRealityView.hitTest(screenCentre, types: [.featurePoint])
         if let closestResult = arHitTestResults.first {
             let transform = closestResult.worldTransform
             return SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
@@ -33,7 +58,7 @@ extension DictionaryController: ARSCNViewDelegate {
 	
     internal func addNode(title: String, subtitle: String?, coords: SCNVector3) {
 		let node : SCNNode = self.createWordText(title: title, subtitle: subtitle)
-		self.sceneView.scene.rootNode.addChildNode(node)
+		self.augmentedRealityView.scene.rootNode.addChildNode(node)
 		node.position = coords        
 		cameraOverlayView.isHidden = false
 	}

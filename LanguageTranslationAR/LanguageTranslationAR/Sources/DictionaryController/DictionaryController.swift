@@ -15,15 +15,48 @@ import AVFoundation
 @available(iOS 11.0, *) 
 public class DictionaryController: UIViewController, PopUpDelegate {
 
-    // MARK: - Languages
-    var languages = [Language]()
+    //--------------------
+    //MARK: - Data
+    //--------------------
+    
     var items = [Translation]()
-    var player: AVAudioPlayer?
     let languagesTableViewController = LanguagesTableViewController()
     
+    //--------------------
+    //MARK: - AR Variables
+    //--------------------
+    
+    lazy var augmentedRealityView: ARSCNView = {
+        let sv = ARSCNView()
+        sv.delegate = self
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+    
+    let augmentedRealitySession = ARSession()
+    var configuration = ARWorldTrackingConfiguration()
+    
+    //--------------------------
+    //MARK: - Apple Focus Square
+    //--------------------------
+    
+    var focusSquare = FocusSquare()
+    var canDisplayFocusSquare = true
+    var screenCenter: CGPoint {
+        let bounds = self.augmentedRealityView.bounds
+        return CGPoint(x: bounds.midX, y: bounds.midY)
+    }
+    let updateQueue = DispatchQueue(label: "cesaredecal")
+
+    //--------------------
+    //MARK: - CoreML Vision
+    //--------------------
+
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
-    
+
+    var player: AVAudioPlayer?
+
     var identifier: String? {
         didSet {
             if identifier == oldValue {
@@ -39,12 +72,9 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         }
     }
     
-	lazy var sceneView: ARSCNView = {
-		let sv = ARSCNView()
-		sv.delegate = self
-		sv.translatesAutoresizingMaskIntoConstraints = false
-		return sv
-	}()
+    //--------------------
+    //MARK: - UI
+    //--------------------
     
 	let centerButton: UIButton = {
 		let button = UIButton(type: .contactAdd)
@@ -74,7 +104,11 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         view.delegate = self
         return view
     }()
-	        
+    
+    //------------------------
+    // MARK: - View Life Cycle
+    //------------------------
+    
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
@@ -84,13 +118,11 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        sceneView.session.pause()
+        augmentedRealityView.session.pause()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = [.horizontal, .vertical]
-        sceneView.session.run(configuration, options: [])
+        augmentedRealityView.session.run(configuration, options: [])
     }
 }

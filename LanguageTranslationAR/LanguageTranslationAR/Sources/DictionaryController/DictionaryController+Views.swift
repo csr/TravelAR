@@ -13,7 +13,6 @@ extension DictionaryController {
 	internal func setupViews() {
         view.backgroundColor = .black
 		setupSceneView()
-		setupCameraOverlayView()
         setupPopView()
         setupNavigationBar()
         setupSuggestionView()
@@ -44,26 +43,11 @@ extension DictionaryController {
     }
     
 	private func setupSceneView() {
-		view.addSubview(sceneView)
-		sceneView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-		sceneView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-		sceneView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-		sceneView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-	}
-	
-	private func setupCameraOverlayView() {
-		view.addSubview(cameraOverlayView)
-        cameraOverlayView.centerYAnchor.constraint(equalTo: sceneView.centerYAnchor, constant: 20).isActive = true
-		cameraOverlayView.centerXAnchor.constraint(equalTo: sceneView.centerXAnchor).isActive = true
-		
-        let viewHeight: CGFloat = 330
-		cameraOverlayView.heightAnchor.constraint(equalToConstant: viewHeight).isActive = true
-		cameraOverlayView.widthAnchor.constraint(equalToConstant: viewHeight).isActive = true
-		cameraOverlayView.layer.cornerRadius = viewHeight / 2
-		
-		view.addSubview(centerButton)
-		centerButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-		centerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true		
+		view.addSubview(augmentedRealityView)
+		augmentedRealityView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		augmentedRealityView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+		augmentedRealityView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+		augmentedRealityView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 	}
 	
 	internal func setupTapGestureRecognizer() {

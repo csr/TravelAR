@@ -40,7 +40,7 @@ extension DictionaryController {
     
     @objc internal func didTapClearScene() {
         playWavSound(soundName: SoundNames.click.rawValue)
-        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+        augmentedRealityView.scene.rootNode.enumerateChildNodes { (node, stop) in
             node.removeFromParentNode()
         }
     }
@@ -62,12 +62,8 @@ extension DictionaryController {
         
         popover?.permittedArrowDirections = .up
 
-        if items.isEmpty {
-            vc.preferredContentSize = CGSize(width: 400, height: 150)
-        } else {
-            vc.preferredContentSize = CGSize(width: 400, height: 370)
-        }
-        
+        vc.preferredContentSize = CGSize(width: 400, height: 400)
+
         if let items = navigationItem.rightBarButtonItems, let first = items.first {
             popover?.barButtonItem = first
         }

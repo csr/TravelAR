@@ -36,7 +36,7 @@ extension DictionaryController {
 	}
 	
 	private func updateCoreML() {
-		guard let pixbuff = sceneView.session.currentFrame?.capturedImage else { return }
+		guard let pixbuff = augmentedRealityView.session.currentFrame?.capturedImage else { return }
 		let ciImage = CIImage(cvPixelBuffer: pixbuff)
         let imageRequestHandler = VNImageRequestHandler(ciImage: ciImage, options: [:])
 		do {

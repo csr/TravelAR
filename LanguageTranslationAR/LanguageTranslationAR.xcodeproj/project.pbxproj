@@ -20,6 +20,10 @@
 		1D23B96C2098FEDD00121E8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B96E2098FEDD00121E8F /* Localizable.strings */; };
 		1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B97420990AA000121E8F /* InfoPlist.strings */; };
 		1D32525220D57C670061517C /* LanguagePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D32525120D57C670061517C /* LanguagePreferences.swift */; };
+		1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9720D66D9E006CD60A /* FocusSquareSegment.swift */; };
+		1D412B9D20D66D9F006CD60A /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9820D66D9F006CD60A /* FocusSquare.swift */; };
+		1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9920D66D9F006CD60A /* FocusSquare+Extensions.swift */; };
+		1D412B9F20D66D9F006CD60A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9B20D66D9F006CD60A /* Utilities.swift */; };
 		1D4412FF20BB215400E608B8 /* DictionaryController+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4412FE20BB215400E608B8 /* DictionaryController+Camera.swift */; };
 		1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E2B20726EFE005E2ADD /* AppDelegate.swift */; };
 		1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3220726F00005E2ADD /* Assets.xcassets */; };
@@ -87,6 +91,10 @@
 		1D23B97320990AA000121E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D23B97520990AA200121E8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D32525120D57C670061517C /* LanguagePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePreferences.swift; sourceTree = "<group>"; };
+		1D412B9720D66D9E006CD60A /* FocusSquareSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
+		1D412B9820D66D9F006CD60A /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
+		1D412B9920D66D9F006CD60A /* FocusSquare+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusSquare+Extensions.swift"; sourceTree = "<group>"; };
+		1D412B9B20D66D9F006CD60A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		1D4412FE20BB215400E608B8 /* DictionaryController+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Camera.swift"; sourceTree = "<group>"; };
 		1D441E2820726EFE005E2ADD /* LanguageTranslationAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageTranslationAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D441E2B20726EFE005E2ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +195,25 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		1D412B9620D66D8F006CD60A /* Focus Square */ = {
+			isa = PBXGroup;
+			children = (
+				1D412B9820D66D9F006CD60A /* FocusSquare.swift */,
+				1D412B9920D66D9F006CD60A /* FocusSquare+Extensions.swift */,
+				1D412B9720D66D9E006CD60A /* FocusSquareSegment.swift */,
+				1D412B9A20D66D9F006CD60A /* Utilities */,
+			);
+			path = "Focus Square";
+			sourceTree = "<group>";
+		};
+		1D412B9A20D66D9F006CD60A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1D412B9B20D66D9F006CD60A /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		1D441E1F20726EFE005E2ADD = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +267,7 @@
 		1D441E5720726F22005E2ADD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1D412B9620D66D8F006CD60A /* Focus Square */,
 				1D23B94E2097AB8000121E8F /* API */,
 				1D4F76B820A8372800B684A6 /* Enum */,
 				1D441E6C20726F22005E2ADD /* Model */,
@@ -447,6 +475,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D441EAA20726F22005E2ADD /* DictionaryView.swift in Sources */,
+				1D412B9D20D66D9F006CD60A /* FocusSquare.swift in Sources */,
+				1D412B9F20D66D9F006CD60A /* Utilities.swift in Sources */,
 				1D23B9672098F58800121E8F /* Helpers.swift in Sources */,
 				1D441EA820726F22005E2ADD /* ListTableViewCell.swift in Sources */,
 				1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */,
@@ -460,11 +490,13 @@
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
 				1D94B76C20C9E8390000B065 /* SuggestionView.swift in Sources */,
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
+				1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */,
 				1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
 				1D441EA620726F22005E2ADD /* ListController+Views.swift in Sources */,
 				1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */,
 				1D441E9920726F22005E2ADD /* PopUpDelegate.swift in Sources */,
+				1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */,
 				1D23B95920986BB700121E8F /* Translation.swift in Sources */,
 				1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,

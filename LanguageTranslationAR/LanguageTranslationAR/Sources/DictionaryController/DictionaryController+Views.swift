@@ -24,10 +24,19 @@ extension DictionaryController {
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         button.setImage(#imageLiteral(resourceName: "add"), for: .normal)
-        button.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        button.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 80).isActive = true
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -13).isActive = true
+        } else {
+            button.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            button.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
+        }
+        
         button.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
     }
     
@@ -79,7 +88,7 @@ extension DictionaryController {
         
         UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: UIViewAnimationOptions.curveEaseIn, animations: {
 			self.view.layoutIfNeeded()
-			dictionaryViewBottomAnchor.constant = -80
+			dictionaryViewBottomAnchor.constant = -105
             dictionaryView.transform = .identity
 			self.view.layoutIfNeeded()
             dictionaryView.alpha = 1

@@ -65,15 +65,10 @@ extension DictionaryController {
         nav.modalPresentationStyle = UIModalPresentationStyle.popover
         let popover = nav.popoverPresentationController
         navigationController?.popoverPresentationController?.backgroundColor = .deepBlue
-        
         popover?.permittedArrowDirections = .up
-
         vc.preferredContentSize = CGSize(width: 400, height: 400)
-
-        if let items = navigationItem.rightBarButtonItems, let first = items.first {
-            popover?.barButtonItem = first
-        }
-        
+        popover?.sourceView = translationButton
+        popover?.sourceRect = languagesButton.bounds
         self.present(nav, animated: true, completion: nil)
     }
     
@@ -82,12 +77,8 @@ extension DictionaryController {
         nav.modalPresentationStyle = UIModalPresentationStyle.popover
         languagesTableViewController.popoverPresentationController?.permittedArrowDirections = .up
         languagesTableViewController.preferredContentSize = CGSize(width: 400, height: 400)
-        
-        if let popoverController = nav.popoverPresentationController, let items = navigationItem.rightBarButtonItems {
-            let second = items[1]
-            popoverController.barButtonItem = second
-        }
-        
+        nav.popoverPresentationController?.sourceView = languagesButton
+        nav.popoverPresentationController?.sourceRect = languagesButton.bounds
         self.present(nav, animated: true, completion: nil)
     }
     

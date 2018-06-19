@@ -15,12 +15,8 @@ import AVFoundation
 @available(iOS 11.0, *) 
 public class DictionaryController: UIViewController, PopUpDelegate {
 
-    //--------------------
-    //MARK: - Data
-    //--------------------
-    
-    var items = [Translation]()
-    let languagesTableViewController = LanguagesTableViewController()
+    lazy var items = [Translation]()
+    lazy var languagesTableViewController = LanguagesTableViewController()
     
     //--------------------
     //MARK: - AR Variables
@@ -73,6 +69,13 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     }
     
     //--------------------
+    //MARK: - Constraints
+    //--------------------
+    internal var regularConstraints: [NSLayoutConstraint] = []
+    internal var compactConstraints: [NSLayoutConstraint] = []
+    internal var sharedConstraints: [NSLayoutConstraint] = []
+    
+    //--------------------
     //MARK: - UI
     //--------------------
     
@@ -105,6 +108,27 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         return view
     }()
     
+    let addButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(#imageLiteral(resourceName: "add"), for: .normal)
+        return button
+    }()
+    
+    lazy var languagesButton: ActionButton = {
+        let languagesButton = ActionButton()
+        languagesButton.addTarget(self, action: #selector(handleTapOnLanguageSelection), for: .touchUpInside)
+        languagesButton.setImage(#imageLiteral(resourceName: "translate"), for: .normal)
+        return languagesButton
+    }()
+    
+    let translationButton: ActionButton = {
+        let translationButton = ActionButton()
+        translationButton.addTarget(self, action: #selector(handleTapOnBookmarks), for: .touchUpInside)
+        translationButton.setImage(#imageLiteral(resourceName: "history"), for: .normal)
+        return translationButton
+    }()
+    
     //------------------------
     // MARK: - View Life Cycle
     //------------------------
@@ -123,5 +147,26 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         augmentedRealityView.session.run(configuration, options: [])
+    }
+    
+    // More: https://stackoverflow.com/questions/25685829/programmatically-implementing-two-different-layouts-using-size-classes
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if !sharedConstraints[0].isActive {
+            NSLayoutConstraint.activate(sharedConstraints)
+        }
+        
+        // iPad
+        if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
+            if compactConstraints.count > 0 && compactConstraints[0].isActive {
+                NSLayoutConstraint.deactivate(compactConstraints)
+            }
+            NSLayoutConstraint.activate(regularConstraints)
+        } else {
+            if regularConstraints.count > 0 && regularConstraints[0].isActive {
+                NSLayoutConstraint.deactivate(regularConstraints)
+            }
+            NSLayoutConstraint.activate(compactConstraints)
+        }
     }
 }

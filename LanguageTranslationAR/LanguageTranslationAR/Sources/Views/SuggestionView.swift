@@ -26,8 +26,8 @@ class SuggestionView: UIVisualEffectView {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
-        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        let font = UIFont(name: "CircularStd-Book", size: 19)
+        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)        
+        let font = UIFont(name: "CircularStd-Book", size: 22)
         label.font = font
         return label
     }()

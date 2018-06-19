@@ -17,34 +17,47 @@ extension DictionaryController {
         setupNavigationBar()
         setupSuggestionView()
         setupAddButton()
-	}
+        setupHistoryView()
+    }
     
-    internal func setupAddButton() {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button)
-        button.setImage(#imageLiteral(resourceName: "add"), for: .normal)
+    internal func setupHistoryView() {
         
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            button.widthAnchor.constraint(equalToConstant: 80).isActive = true
-            button.heightAnchor.constraint(equalToConstant: 80).isActive = true
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -13).isActive = true
+    }
+            
+    internal func setupAddButton() {
+        let stackView = UIStackView(arrangedSubviews: [languagesButton, addButton, translationButton])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            stackView.axis = .vertical
         } else {
-            button.widthAnchor.constraint(equalToConstant: 100).isActive = true
-            button.heightAnchor.constraint(equalToConstant: 100).isActive = true
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-            button.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
+            stackView.axis = .horizontal
         }
         
-        button.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
+        view.addSubview(stackView)
+        
+        stackView.alignment = .center
+        stackView.spacing = 25
+        
+        compactConstraints.append(contentsOf: [addButton.widthAnchor.constraint(equalToConstant: 80),
+                                               addButton.heightAnchor.constraint(equalToConstant: 80),
+                                               stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                               stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)])
+        
+        regularConstraints.append(contentsOf: [addButton.widthAnchor.constraint(equalToConstant: 100),
+                                               addButton.heightAnchor.constraint(equalToConstant: 100),
+                                               stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                                               stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30)])
+
+        addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
     }
     
     internal func setupSuggestionView() {
         view.addSubview(suggestionView)
-        suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
-        suggestionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        suggestionView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        sharedConstraints.append(contentsOf: [suggestionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                              suggestionView.heightAnchor.constraint(equalToConstant: 55)])
+        regularConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
+        compactConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
     }
     
     internal func setupNavigationBar() {
@@ -59,17 +72,17 @@ extension DictionaryController {
     
     private func setupPopView() {
         view.addSubview(popUpView)
-        popUpView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        popUpView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        sharedConstraints.append(contentsOf: [popUpView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                                              popUpView.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
         popUpView.layer.zPosition = 500
     }
     
 	private func setupSceneView() {
 		view.addSubview(augmentedRealityView)
-		augmentedRealityView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-		augmentedRealityView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-		augmentedRealityView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-		augmentedRealityView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        sharedConstraints.append(contentsOf: [augmentedRealityView.topAnchor.constraint(equalTo: view.topAnchor),
+                                              augmentedRealityView.rightAnchor.constraint(equalTo: view.rightAnchor),
+                                              augmentedRealityView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                                              augmentedRealityView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
 	}
 	
     internal func animateDictionaryView(item: Translation) {
@@ -88,7 +101,12 @@ extension DictionaryController {
         
         UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: UIViewAnimationOptions.curveEaseIn, animations: {
 			self.view.layoutIfNeeded()
-			dictionaryViewBottomAnchor.constant = -105
+            
+            if self.view.traitCollection.horizontalSizeClass == .regular {
+                dictionaryViewBottomAnchor.constant = -30
+            } else {
+                dictionaryViewBottomAnchor.constant = -115
+            }
             dictionaryView.transform = .identity
 			self.view.layoutIfNeeded()
             dictionaryView.alpha = 1

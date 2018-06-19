@@ -84,9 +84,6 @@ class LanguagesTableViewController: UITableViewController {
     
     func scrollToUserLanguage() {
         let userLanguage = LanguagePreferences.getCurrentLanguage()
-        print("ok. got default language. it's:", userLanguage.name, userLanguage.languageCode)
-        
-        print(tableViewSource.values)
         
         let nestedArr = Array(tableViewSource.values)
         let allLangs = nestedArr.reduce([], +)
@@ -98,17 +95,11 @@ class LanguagesTableViewController: UITableViewController {
             let languagesWithInitial = tableViewSource[initialLetter]
             if let sectionNumber = tableViewHeaders.index(of: initialLetter), let rowNumber = languagesWithInitial?.index(of: language) {
                 let indexPath = IndexPath(row: rowNumber, section: sectionNumber)
-                print(indexPath)
                 self.tableView.reloadData()
                 tableView.scrollToRow(at: indexPath, at: .middle, animated: false)
                 selectedIndexPath = indexPath
-                print("sectionNumber, rowNumber", sectionNumber, rowNumber)
-            } else {
-                print("something is NIL")
             }
         }
-        
-        //print("all langs:", allLangs)
     }
     
     override func viewDidLoad() {

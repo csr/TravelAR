@@ -16,8 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
         window?.makeKeyAndVisible()
-        let navController = UINavigationController(rootViewController: DictionaryController())
-        window?.rootViewController = navController
+        window?.rootViewController = DictionaryController()
         setupNavigationAppearance()
         return true
     }
@@ -25,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     internal func setupNavigationAppearance() {
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        
         UINavigationBar.appearance().barTintColor = .deepBlue
             UINavigationBar.appearance().tintColor = .white
         let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white,

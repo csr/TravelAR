@@ -9,6 +9,9 @@
 import Foundation
 
 class LanguagePreferences {
+    
+    static var languages = [Language]()
+    
     class func getCurrentLanguage() -> Language {
         let defaults = UserDefaults.standard
         if let code = defaults.string(forKey: "languageCode"), let name = defaults.string(forKey: "languageName") {

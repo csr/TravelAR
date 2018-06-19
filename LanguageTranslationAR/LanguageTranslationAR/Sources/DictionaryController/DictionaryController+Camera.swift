@@ -34,7 +34,6 @@ extension DictionaryController {
     }
     
     @objc internal func checkCameraPermissions() {
-        print("check camera permissions...")
         let cameraMediaType = AVMediaType.video
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
         switch cameraAuthorizationStatus {

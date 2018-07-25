@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -267,7 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				1D412B9620D66D8F006CD60A /* Focus Square */,
-				1D23B94E2097AB8000121E8F /* API */,
 				1D4F76B820A8372800B684A6 /* Enum */,
 				1D441E6C20726F22005E2ADD /* Model */,
 				1D441E5820726F22005E2ADD /* Dictionaries */,
@@ -367,6 +366,7 @@
 		1D4F76B820A8372800B684A6 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				1D23B94E2097AB8000121E8F /* API */,
 				1D4F76B420A820EE00B684A6 /* SoundNames.swift */,
 			);
 			name = Enum;
@@ -601,6 +601,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;

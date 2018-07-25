@@ -146,7 +146,7 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        augmentedRealityView.session.run(configuration, options: [])
+        //augmentedRealityView.session.run(configuration, options: [])
     }
     
     // More: https://stackoverflow.com/questions/25685829/programmatically-implementing-two-different-layouts-using-size-classes

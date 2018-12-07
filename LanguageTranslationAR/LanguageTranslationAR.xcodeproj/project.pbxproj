@@ -59,7 +59,6 @@
 		1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6620726F22005E2ADD /* TextToSpeech.swift */; };
 		1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6720726F22005E2ADD /* UIViewExtensions.swift */; };
 		1D441EA320726F22005E2ADD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6E20726F22005E2ADD /* Language.swift */; };
-		1D441EA520726F22005E2ADD /* HistoryController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7120726F22005E2ADD /* HistoryController+TableView.swift */; };
 		1D441EA620726F22005E2ADD /* HistoryController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7220726F22005E2ADD /* HistoryController+Views.swift */; };
 		1D441EA720726F22005E2ADD /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7320726F22005E2ADD /* HistoryController.swift */; };
 		1D441EA820726F22005E2ADD /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* HistoryTableViewCell.swift */; };
@@ -134,7 +133,6 @@
 		1D441E6620726F22005E2ADD /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		1D441E6720726F22005E2ADD /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		1D441E6E20726F22005E2ADD /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		1D441E7120726F22005E2ADD /* HistoryController+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HistoryController+TableView.swift"; sourceTree = "<group>"; };
 		1D441E7220726F22005E2ADD /* HistoryController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HistoryController+Views.swift"; sourceTree = "<group>"; };
 		1D441E7320726F22005E2ADD /* HistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
 		1D441E7420726F22005E2ADD /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -355,7 +353,6 @@
 			children = (
 				1D441E7320726F22005E2ADD /* HistoryController.swift */,
 				1D441E7220726F22005E2ADD /* HistoryController+Views.swift */,
-				1D441E7120726F22005E2ADD /* HistoryController+TableView.swift */,
 				1D441E7420726F22005E2ADD /* HistoryTableViewCell.swift */,
 			);
 			path = ListController;
@@ -442,7 +439,7 @@
 				TargetAttributes = {
 					1D441E2720726EFE005E2ADD = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = "";
 					};
 				};
 			};
@@ -532,7 +529,6 @@
 				1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,
 				1D441E9420726F22005E2ADD /* DictionaryController+CoreML.swift in Sources */,
-				1D441EA520726F22005E2ADD /* HistoryController+TableView.swift in Sources */,
 				1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */,

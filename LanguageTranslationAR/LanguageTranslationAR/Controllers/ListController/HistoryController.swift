@@ -9,20 +9,18 @@
 import UIKit
 
 class HistoryController: BaseViewController {
+    //internal let functionalData = FunctionalTableData()
+    internal var items: [String] = [] {
+        didSet {
+            render()
+        }
+    }
     
-    lazy var tableView: UITableView = {
+    var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    
-    var list = [Translation]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
     
     let emptyStateLabel: UILabel = {
         let label = UILabel()
@@ -34,14 +32,14 @@ class HistoryController: BaseViewController {
         return label
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        title = list.isEmpty ? NSLocalizedString("History", comment: "New words") : NSLocalizedString("Tap to play", comment: "Tap item to play")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = items.isEmpty ? NSLocalizedString("History", comment: "New words") : NSLocalizedString("Tap to play", comment: "Tap item to play")
     }
 }
 

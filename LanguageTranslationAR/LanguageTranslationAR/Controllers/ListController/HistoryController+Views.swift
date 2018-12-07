@@ -33,8 +33,29 @@ extension HistoryController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        
-        tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.identifier)
+//        tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.identifier)
         tableView.tableFooterView = UIView()
+    }
+    
+    internal func render() {
+//        let rows: [CellConfigType] = items.enumerated().map { index, item in
+//            return HistoryTableViewCell(
+//                key: "id-\(index)",
+//                actions: CellActions(
+//                    selectionAction: { _ in
+//                        print("\(item) selected")
+//                        return .selected
+//                },
+//                    deselectionAction: { _ in
+//                        print("\(item) deselected")
+//                        return .deselected
+//                }),
+//                state: LabelState(text: item),
+//                cellUpdater: LabelState.updateView)
+//        }
+//        
+//        functionalData.renderAndDiff([
+//            TableSection(key: "section", rows: rows)
+//            ])
     }
 }

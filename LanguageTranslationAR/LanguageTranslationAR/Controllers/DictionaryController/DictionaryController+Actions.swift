@@ -68,7 +68,7 @@ extension DictionaryController {
         popover?.permittedArrowDirections = .up
         vc.preferredContentSize = CGSize(width: 400, height: 400)
         popover?.sourceView = translationButton
-        popover?.sourceRect = languagesButton.bounds
+//        popover?.sourceRect = languagesButton.bounds
         self.present(nav, animated: true, completion: nil)
     }
     
@@ -77,8 +77,8 @@ extension DictionaryController {
         nav.modalPresentationStyle = UIModalPresentationStyle.popover
         languagesTableViewController.popoverPresentationController?.permittedArrowDirections = .up
         languagesTableViewController.preferredContentSize = CGSize(width: 400, height: 400)
-        nav.popoverPresentationController?.sourceView = languagesButton
-        nav.popoverPresentationController?.sourceRect = languagesButton.bounds
+//        nav.popoverPresentationController?.sourceView = languagesButton
+//        nav.popoverPresentationController?.sourceRect = languagesButton.bounds
         self.present(nav, animated: true, completion: nil)
     }
     

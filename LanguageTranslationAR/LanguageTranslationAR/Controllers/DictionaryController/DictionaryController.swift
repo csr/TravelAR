@@ -79,14 +79,14 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     //MARK: - UI
     //--------------------
     
-	let centerButton: UIButton = {
-		let button = UIButton(type: .contactAdd)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		button.isUserInteractionEnabled = false
-		button.tintColor = .white
-        button.isHidden = true
-		return button
-	}()
+//    let centerButton: UIButton = {
+//        let button = UIButton(type: .contactAdd)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.isUserInteractionEnabled = false
+//        button.tintColor = .white
+//        button.isHidden = true
+//        return button
+//    }()
     
     let suggestionView = SuggestionView()
 	
@@ -114,13 +114,13 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         button.setImage(#imageLiteral(resourceName: "add"), for: .normal)
         return button
     }()
-    
-    lazy var languagesButton: ActionButton = {
-        let languagesButton = ActionButton()
-        languagesButton.addTarget(self, action: #selector(handleTapOnLanguageSelection), for: .touchUpInside)
-        languagesButton.setImage(#imageLiteral(resourceName: "translate"), for: .normal)
-        return languagesButton
-    }()
+//
+//    lazy var languagesButton: ActionButton = {
+//        let languagesButton = ActionButton()
+//        languagesButton.addTarget(self, action: #selector(handleTapOnLanguageSelection), for: .touchUpInside)
+//        languagesButton.setImage(#imageLiteral(resourceName: "translate"), for: .normal)
+//        return languagesButton
+//    }()
     
     let translationButton: ActionButton = {
         let translationButton = ActionButton()
@@ -146,7 +146,7 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //augmentedRealityView.session.run(configuration, options: [])
+        augmentedRealityView.session.run(configuration, options: [])
     }
     
     // More: https://stackoverflow.com/questions/25685829/programmatically-implementing-two-different-layouts-using-size-classes

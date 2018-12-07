@@ -25,7 +25,7 @@ extension DictionaryController {
     }
             
     internal func setupAddButton() {
-        let stackView = UIStackView(arrangedSubviews: [languagesButton, addButton, translationButton])
+        let stackView = UIStackView(arrangedSubviews: [addButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -42,7 +42,7 @@ extension DictionaryController {
         compactConstraints.append(contentsOf: [addButton.widthAnchor.constraint(equalToConstant: 80),
                                                addButton.heightAnchor.constraint(equalToConstant: 80),
                                                stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                               stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)])
+                                               stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)])
         
         regularConstraints.append(contentsOf: [addButton.widthAnchor.constraint(equalToConstant: 100),
                                                addButton.heightAnchor.constraint(equalToConstant: 100),

@@ -1,6 +1,14 @@
+//
+//  HistoryController.swift
+//  LanguageTranslationAR
+//
+//  Created by Cesare de Cal on 07/12/2018.
+//  Copyright © 2018 Cesare de Cal. All rights reserved.
+//
+
 import UIKit
 
-class ListController: BasePopUpController {
+class HistoryController: BaseViewController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()

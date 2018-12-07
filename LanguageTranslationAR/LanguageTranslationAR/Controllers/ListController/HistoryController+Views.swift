@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension ListController {
+extension HistoryController {
     internal func setupViews() {
         setupTableView()
         setupEmptyStateLabel()
@@ -16,7 +16,9 @@ extension ListController {
     
     private func setupEmptyStateLabel() {
         view.addSubview(emptyStateLabel)
+        emptyStateLabel.textColor = .white
         emptyStateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        emptyStateLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
         emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
@@ -26,12 +28,13 @@ extension ListController {
     
     private func setupTableView() {
         view.addSubview(tableView)
+        tableView.backgroundColor = .clear
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         
-        tableView.register(ListTableViewCell.self, forCellReuseIdentifier: ListTableViewCell.identifier)
+        tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.identifier)
         tableView.tableFooterView = UIView()
     }
 }

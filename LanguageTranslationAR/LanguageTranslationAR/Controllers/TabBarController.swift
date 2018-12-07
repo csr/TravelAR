@@ -18,9 +18,14 @@ class TabBarController: UITabBarController {
     private func setupTabBar() {
         let dictionaryController = DictionaryController()
         dictionaryController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
-        let secondViewController = ListController()
-        secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
-        let tabBarList = [dictionaryController, secondViewController]
+        
+        let historyNavController = UINavigationController(rootViewController: HistoryController())
+        historyNavController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
+        
+        let settingsNavController = UINavigationController(rootViewController: SettingsController())
+        settingsNavController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "translate"), tag: 2)
+        
+        let tabBarList = [dictionaryController, historyNavController, settingsNavController]
         viewControllers = tabBarList
         
         tabBar.barTintColor = .black

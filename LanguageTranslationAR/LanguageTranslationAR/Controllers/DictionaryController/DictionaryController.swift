@@ -79,15 +79,6 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     //MARK: - UI
     //--------------------
     
-//    let centerButton: UIButton = {
-//        let button = UIButton(type: .contactAdd)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.isUserInteractionEnabled = false
-//        button.tintColor = .white
-//        button.isHidden = true
-//        return button
-//    }()
-    
     let suggestionView = SuggestionView()
 	
 	let cameraOverlayView: UIImageView = {
@@ -122,12 +113,12 @@ public class DictionaryController: UIViewController, PopUpDelegate {
 //        return languagesButton
 //    }()
     
-    let translationButton: ActionButton = {
-        let translationButton = ActionButton()
-        translationButton.addTarget(self, action: #selector(handleTapOnBookmarks), for: .touchUpInside)
-        translationButton.setImage(#imageLiteral(resourceName: "history"), for: .normal)
-        return translationButton
-    }()
+//    let translationButton: ActionButton = {
+//        let translationButton = ActionButton()
+//        translationButton.addTarget(self, action: #selector(handleTapOnBookmarks), for: .touchUpInside)
+//        translationButton.setImage(#imageLiteral(resourceName: "history"), for: .normal)
+//        return translationButton
+//    }()
     
     //------------------------
     // MARK: - View Life Cycle

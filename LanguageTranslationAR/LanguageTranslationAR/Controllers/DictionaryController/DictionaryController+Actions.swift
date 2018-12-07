@@ -58,29 +58,29 @@ extension DictionaryController {
         }
     }
     
-    @objc func handleTapOnBookmarks() {
-        let vc = ListController()
-        vc.list = items
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = UIModalPresentationStyle.popover
-        let popover = nav.popoverPresentationController
-        navigationController?.popoverPresentationController?.backgroundColor = .deepBlue
-        popover?.permittedArrowDirections = .up
-        vc.preferredContentSize = CGSize(width: 400, height: 400)
-        popover?.sourceView = translationButton
-//        popover?.sourceRect = languagesButton.bounds
-        self.present(nav, animated: true, completion: nil)
-    }
+//    @objc func handleTapOnBookmarks() {
+//        let vc = ListController()
+//        vc.list = items
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = UIModalPresentationStyle.popover
+//        let popover = nav.popoverPresentationController
+//        navigationController?.popoverPresentationController?.backgroundColor = .deepBlue
+//        popover?.permittedArrowDirections = .up
+//        vc.preferredContentSize = CGSize(width: 400, height: 400)
+//        popover?.sourceView = translationButton
+////        popover?.sourceRect = languagesButton.bounds
+//        self.present(nav, animated: true, completion: nil)
+//    }
     
-    @objc func handleTapOnLanguageSelection() {
-        let nav = UINavigationController(rootViewController: languagesTableViewController)
-        nav.modalPresentationStyle = UIModalPresentationStyle.popover
-        languagesTableViewController.popoverPresentationController?.permittedArrowDirections = .up
-        languagesTableViewController.preferredContentSize = CGSize(width: 400, height: 400)
-//        nav.popoverPresentationController?.sourceView = languagesButton
-//        nav.popoverPresentationController?.sourceRect = languagesButton.bounds
-        self.present(nav, animated: true, completion: nil)
-    }
+//    @objc func handleTapOnLanguageSelection() {
+//        let nav = UINavigationController(rootViewController: languagesTableViewController)
+//        nav.modalPresentationStyle = UIModalPresentationStyle.popover
+//        languagesTableViewController.popoverPresentationController?.permittedArrowDirections = .up
+//        languagesTableViewController.preferredContentSize = CGSize(width: 400, height: 400)
+////        nav.popoverPresentationController?.sourceView = languagesButton
+////        nav.popoverPresentationController?.sourceRect = languagesButton.bounds
+//        self.present(nav, animated: true, completion: nil)
+//    }
     
     @objc func updateLabel() {
         identifier = mlPrediction        

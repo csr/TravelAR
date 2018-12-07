@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension ListController: UITableViewDelegate, UITableViewDataSource {
+extension HistoryController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         emptyStateLabel.isHidden = list.count > 0
         if list.count > 0 {
@@ -29,7 +29,7 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.identifier, for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as? HistoryTableViewCell else { return UITableViewCell() }
         let item = list[indexPath.row]
         cell.item = item
         return cell

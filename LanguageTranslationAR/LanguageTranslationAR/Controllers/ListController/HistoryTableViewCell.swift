@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListTableViewCell: UITableViewCell {
+class HistoryTableViewCell: UITableViewCell {
 
     static let identifier = "PopoverTableViewCell"
     
@@ -35,7 +35,7 @@ class ListTableViewCell: UITableViewCell {
     }()
         
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: ListTableViewCell.identifier)
+        super.init(style: .subtitle, reuseIdentifier: HistoryTableViewCell.identifier)
         setupLabels()
         setupImageView()
         setupObjectImageView()

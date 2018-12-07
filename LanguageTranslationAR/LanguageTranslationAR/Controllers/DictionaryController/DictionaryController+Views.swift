@@ -14,7 +14,7 @@ extension DictionaryController {
         view.backgroundColor = .black
 		setupSceneView()
         setupPopView()
-        setupNavigationBar()
+//        setupNavigationBar()
         setupSuggestionView()
         setupAddButton()
         setupHistoryView()
@@ -60,15 +60,15 @@ extension DictionaryController {
         compactConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
     }
     
-    internal func setupNavigationBar() {
-        title = NSLocalizedString("Capture", comment: "Capture")
-        let clearString = NSLocalizedString("Clear", comment: "Clear")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: clearString, style: .plain, target: self, action: #selector(didTapClearScene))
-        let historyItem = UIBarButtonItem(image: UIImage(named: "history"), style: .plain, target: self, action: #selector(handleTapOnBookmarks))
-        let translateItem = UIBarButtonItem(image: UIImage(named: "translate"), style: .plain, target: self, action: #selector(handleTapOnLanguageSelection))
-        let buttonItems = [historyItem, translateItem]
-        navigationItem.rightBarButtonItems = buttonItems
-    }
+//    internal func setupNavigationBar() {
+//        title = NSLocalizedString("Capture", comment: "Capture")
+//        let clearString = NSLocalizedString("Clear", comment: "Clear")
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: clearString, style: .plain, target: self, action: #selector(didTapClearScene))
+//        let historyItem = UIBarButtonItem(image: UIImage(named: "history"), style: .plain, target: self, action: #selector(handleTapOnBookmarks))
+//        let translateItem = UIBarButtonItem(image: UIImage(named: "translate"), style: .plain, target: self, action: #selector(handleTapOnLanguageSelection))
+//        let buttonItems = [historyItem, translateItem]
+//        navigationItem.rightBarButtonItems = buttonItems
+//    }
     
     private func setupPopView() {
         view.addSubview(popUpView)

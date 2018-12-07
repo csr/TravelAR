@@ -24,13 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     internal func setupNavigationAppearance() {
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        UINavigationBar.appearance().barTintColor = .deepBlue
-            UINavigationBar.appearance().tintColor = .white
-        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white,
-                          NSAttributedStringKey.font: UIFont(name: "CircularStd-Book", size: 20.5)] as [NSAttributedStringKey: Any]
-        UINavigationBar.appearance().titleTextAttributes = attributes
-        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .normal)
-        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .highlighted)
+//        UINavigationBar.appearance().barTintColor = .deepBlue
+//            UINavigationBar.appearance().tintColor = .white
+//        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white,
+//                          NSAttributedStringKey.font: UIFont(name: "CircularStd-Book", size: 20.5)] as [NSAttributedStringKey: Any]
+//        UINavigationBar.appearance().titleTextAttributes = attributes
+//        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .normal)
+//        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .highlighted)
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {}

@@ -54,7 +54,7 @@ extension DictionaryController {
     @objc internal func didTapOKTapToAdd() {
         popUpView.shouldShowImageWalkthrough = false
         UIView.animate(withDuration: 0.5) {
-            self.cameraOverlayView.alpha = 1
+//            self.cameraOverlayView.alpha = 1
         }
     }
     

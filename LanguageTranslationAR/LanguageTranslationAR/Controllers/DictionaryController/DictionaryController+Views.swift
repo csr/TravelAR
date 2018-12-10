@@ -28,26 +28,29 @@ extension DictionaryController {
     }
     
     internal func setupSuggestionView() {
-        view.addSubview(suggestionView)
-        sharedConstraints.append(contentsOf: [suggestionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                              suggestionView.heightAnchor.constraint(equalToConstant: 55)])
-        regularConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
-        compactConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
+//        view.addSubview(suggestionView)
+//
+//        let
+//        sharedConstraints.append(contentsOf: [suggestionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//                                              suggestionView.heightAnchor.constraint(equalToConstant: 55)])
+//        regularConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
+//        compactConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
     }
         
     private func setupPopView() {
         view.addSubview(popUpView)
-        sharedConstraints.append(contentsOf: [popUpView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                                              popUpView.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
-        popUpView.layer.zPosition = 500
+//        sharedConstraints.append(contentsOf: [popUpView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//                                              popUpView.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
+//        popUpView.layer.zPosition = 500
     }
     
 	private func setupSceneView() {
 		view.addSubview(augmentedRealityView)
-        sharedConstraints.append(contentsOf: [augmentedRealityView.topAnchor.constraint(equalTo: view.topAnchor),
+        let constraints = [augmentedRealityView.topAnchor.constraint(equalTo: view.topAnchor),
                                               augmentedRealityView.rightAnchor.constraint(equalTo: view.rightAnchor),
                                               augmentedRealityView.leftAnchor.constraint(equalTo: view.leftAnchor),
-                                              augmentedRealityView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+                                              augmentedRealityView.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
+        NSLayoutConstraint.activate(constraints)
 	}
 	
     internal func animateDictionaryView(item: Translation) {

@@ -15,8 +15,11 @@ import AVFoundation
 @available(iOS 11.0, *) 
 public class DictionaryController: UIViewController, PopUpDelegate {
 
-    lazy var items = [Translation]()
-    lazy var languagesTableViewController = LanguagesTableViewController()
+    internal var items: [Translation] = [] {
+        didSet {
+            updateData()
+        }
+    }
     
     //--------------------
     //MARK: - AR Variables
@@ -69,30 +72,11 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     }
     
     //--------------------
-    //MARK: - Constraints
-    //--------------------
-    internal var regularConstraints: [NSLayoutConstraint] = []
-    internal var compactConstraints: [NSLayoutConstraint] = []
-    internal var sharedConstraints: [NSLayoutConstraint] = []
-    
-    //--------------------
     //MARK: - UI
     //--------------------
     
     let suggestionView = SuggestionView()
 	
-	let cameraOverlayView: UIImageView = {
-		let imageView = UIImageView()
-		imageView.backgroundColor = #colorLiteral(red: 0.2769357264, green: 0.7137418389, blue: 0.9510393739, alpha: 0.2)
-		imageView.contentMode = .scaleAspectFit
-		imageView.clipsToBounds = true
-		imageView.layer.borderWidth = 3
-		imageView.layer.borderColor = UIColor.white.cgColor
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.alpha = 0
-		return imageView
-	}()
-    
     lazy var popUpView: PopUpView = {
         let view = PopUpView()
         view.delegate = self
@@ -106,44 +90,15 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         return button
     }()
     
-    //------------------------
-    // MARK: - View Life Cycle
-    //------------------------
-    
     public override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
         checkCameraPermissions()
 	}
     
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //augmentedRealityView.session.pause()
-    }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //augmentedRealityView.session.run(configuration, options: [])
-    }
-    
-    // More: https://stackoverflow.com/questions/25685829/programmatically-implementing-two-different-layouts-using-size-classes
-    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        if !sharedConstraints[0].isActive {
-            NSLayoutConstraint.activate(sharedConstraints)
-        }
-        
-        // iPad
-        if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
-            if compactConstraints.count > 0 && compactConstraints[0].isActive {
-                NSLayoutConstraint.deactivate(compactConstraints)
-            }
-            NSLayoutConstraint.activate(regularConstraints)
-        } else {
-            if regularConstraints.count > 0 && regularConstraints[0].isActive {
-                NSLayoutConstraint.deactivate(regularConstraints)
-            }
-            NSLayoutConstraint.activate(compactConstraints)
+    private func updateData() {
+        if let secondTab = tabBarController?.viewControllers?[1] as? HistoryController {
+            secondTab.items = items
         }
     }
-}
+ }

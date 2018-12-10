@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8621BF09DF000396C5 /* ApplicationTab.swift */; };
 		1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8821BF0ADA000396C5 /* String+Localization.swift */; };
+		1D104C8B21BF12C1000396C5 /* DictionaryController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8A21BF12C1000396C5 /* DictionaryController+Alerts.swift */; };
 		1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */; };
 		1D23B9502097AC3E00121E8F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94F2097AC3E00121E8F /* Keys.swift */; };
 		1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9522097C59D00121E8F /* LanguageData.swift */; };
@@ -70,7 +71,6 @@
 		1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */; };
 		1D5F1B3220D98AF70016D7BD /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F1B3120D98AF70016D7BD /* ActionButton.swift */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
-		1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */; };
 		1D94B76C20C9E8390000B065 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B76B20C9E8390000B065 /* SuggestionView.swift */; };
 		1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */; };
 		1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE6F2E21BB1363006D3830 /* SettingsController.swift */; };
@@ -95,6 +95,7 @@
 /* Begin PBXFileReference section */
 		1D104C8621BF09DF000396C5 /* ApplicationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTab.swift; sourceTree = "<group>"; };
 		1D104C8821BF0ADA000396C5 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		1D104C8A21BF12C1000396C5 /* DictionaryController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Alerts.swift"; sourceTree = "<group>"; };
 		1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
 		1D23B94F2097AC3E00121E8F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		1D23B9522097C59D00121E8F /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
@@ -160,7 +161,6 @@
 		1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageTableViewController+Search.swift"; sourceTree = "<group>"; };
 		1D5F1B3120D98AF70016D7BD /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
-		1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Alerts.swift"; sourceTree = "<group>"; };
 		1D94B76B20C9E8390000B065 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
 		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
 		1DEE6F2E21BB1363006D3830 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -332,8 +332,8 @@
 			children = (
 				1D441E6020726F22005E2ADD /* DictionaryController.swift */,
 				1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */,
+				1D104C8A21BF12C1000396C5 /* DictionaryController+Alerts.swift */,
 				1D4412FE20BB215400E608B8 /* DictionaryController+Camera.swift */,
-				1D80B90220A78296006F2761 /* DictionaryController+Alerts.swift */,
 				1D23B95A20986D1100121E8F /* DictionaryController+API.swift */,
 				1D441E5A20726F22005E2ADD /* DictionaryController+Actions.swift */,
 				1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */,
@@ -556,6 +556,7 @@
 				1D23B95B20986D1100121E8F /* DictionaryController+API.swift in Sources */,
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
 				1D5F1B3220D98AF70016D7BD /* ActionButton.swift in Sources */,
+				1D104C8B21BF12C1000396C5 /* DictionaryController+Alerts.swift in Sources */,
 				1D94B76C20C9E8390000B065 /* SuggestionView.swift in Sources */,
 				1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */,
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
@@ -563,7 +564,6 @@
 				1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
 				1D2D630921BA716F00F4FABD /* AppDelegate+Views.swift in Sources */,
-				1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */,
 				1D441E9920726F22005E2ADD /* PopUpDelegate.swift in Sources */,
 				1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */,
 				1D23B95920986BB700121E8F /* Translation.swift in Sources */,

@@ -60,7 +60,7 @@ extension DictionaryController: ARSCNViewDelegate {
 		let node : SCNNode = self.createWordText(title: title, subtitle: subtitle)
 		self.augmentedRealityView.scene.rootNode.addChildNode(node)
 		node.position = coords        
-		cameraOverlayView.isHidden = false
+//        cameraOverlayView.isHidden = false
 	}
         
     internal func createWordText(title: String, subtitle: String?) -> SCNNode {

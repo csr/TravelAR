@@ -8,14 +8,14 @@
 
 import UIKit
 
-class SettingsController: BaseViewController {
+class SettingsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
         setupNavigationBar()
     }
     
     internal func setupNavigationBar() {
-        title = "Settings"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

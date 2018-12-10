@@ -14,41 +14,16 @@ extension DictionaryController {
         view.backgroundColor = .black
 		setupSceneView()
         setupPopView()
-//        setupNavigationBar()
         setupSuggestionView()
         setupAddButton()
-        setupHistoryView()
     }
     
-    internal func setupHistoryView() {
-        
-    }
-            
     internal func setupAddButton() {
-        let stackView = UIStackView(arrangedSubviews: [addButton])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            stackView.axis = .vertical
-        } else {
-            stackView.axis = .horizontal
-        }
-        
-        view.addSubview(stackView)
-        
-        stackView.alignment = .center
-        stackView.spacing = 25
-        
-        compactConstraints.append(contentsOf: [addButton.widthAnchor.constraint(equalToConstant: 80),
-                                               addButton.heightAnchor.constraint(equalToConstant: 80),
-                                               stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                               stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)])
-        
-        regularConstraints.append(contentsOf: [addButton.widthAnchor.constraint(equalToConstant: 100),
-                                               addButton.heightAnchor.constraint(equalToConstant: 100),
-                                               stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                                               stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30)])
-
+        view.addSubview(addButton)        
+        addButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        addButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
         addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
     }
     
@@ -59,17 +34,7 @@ extension DictionaryController {
         regularConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
         compactConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
     }
-    
-//    internal func setupNavigationBar() {
-//        title = NSLocalizedString("Capture", comment: "Capture")
-//        let clearString = NSLocalizedString("Clear", comment: "Clear")
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: clearString, style: .plain, target: self, action: #selector(didTapClearScene))
-//        let historyItem = UIBarButtonItem(image: UIImage(named: "history"), style: .plain, target: self, action: #selector(handleTapOnBookmarks))
-//        let translateItem = UIBarButtonItem(image: UIImage(named: "translate"), style: .plain, target: self, action: #selector(handleTapOnLanguageSelection))
-//        let buttonItems = [historyItem, translateItem]
-//        navigationItem.rightBarButtonItems = buttonItems
-//    }
-    
+        
     private func setupPopView() {
         view.addSubview(popUpView)
         sharedConstraints.append(contentsOf: [popUpView.centerYAnchor.constraint(equalTo: view.centerYAnchor),

@@ -11,7 +11,7 @@ import FunctionalTableData
 
 class HistoryController: UITableViewController {
     internal let functionalData = FunctionalTableData()
-    internal var items: [String] = [] {
+    internal var items: [Translation] = [] {
         didSet {
             render()
         }
@@ -35,7 +35,8 @@ class HistoryController: UITableViewController {
     }
     
     @objc func didTapAddButton() {
-        items.append(Date().description)
+        let translation = Translation(originalText: "backpack", targetLanguage: "es", translatedText: "mochila", sourceLanguage: "en")
+        items.append(translation)        
     }
     
     private func render() {
@@ -51,7 +52,7 @@ class HistoryController: UITableViewController {
                         print("\(item) deselected")
                         return .deselected
                 }),
-                state: HistoryState(text: item),
+                state: HistoryState(translationItem: item),
                 cellUpdater: HistoryState.updateView)
         }
         

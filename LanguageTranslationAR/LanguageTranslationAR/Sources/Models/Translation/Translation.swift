@@ -8,11 +8,18 @@
 
 import Foundation
 
-struct Translation: Codable, Equatable {
+public struct Translation: Codable, Equatable {
     var originalText: String?
     var targetLanguage: String?
     var translatedText: String
     var sourceLanguage: String
+    
+    init(originalText: String? = nil, targetLanguage: String? = nil, translatedText: String, sourceLanguage: String) {
+        self.originalText = originalText
+        self.targetLanguage = targetLanguage
+        self.translatedText = translatedText
+        self.sourceLanguage = sourceLanguage
+    }
     
     private enum CodingKeys: String, CodingKey {
         case translatedText

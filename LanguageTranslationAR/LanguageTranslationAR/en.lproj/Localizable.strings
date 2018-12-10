@@ -6,6 +6,10 @@
   Copyright © 2018 Cesare de Cal. All rights reserved.
 */
 
+"TITLE_TAB_TRANSLATE" = "Translate";
+"TITLE_TAB_HISTORY" = "History";
+"TITLE_TAB_SETTINGS" = "Settings";
+
 "Capture" = "Capture";
 "Scanning" = "Scanning...";
 "Move device" = "Move your %@ around to detect planes.";

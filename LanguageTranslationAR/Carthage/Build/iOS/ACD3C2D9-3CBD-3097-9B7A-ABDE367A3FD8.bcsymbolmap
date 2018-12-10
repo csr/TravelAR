@@ -1,0 +1,155 @@
+BCSymbolMap Version: 2.0
+_$S7FlagKitMXM
+_$S7FlagKitAACML
+_$S7FlagKitAACMf
+_symbolic ____ 7FlagKitAAC
+_$S7FlagKitAACMF
+__swift_FORCE_LOAD_$_swiftUIKit_$_FlagKit
+__swift_FORCE_LOAD_$_swiftFoundation_$_FlagKit
+__swift_FORCE_LOAD_$_swiftDarwin_$_FlagKit
+__swift_FORCE_LOAD_$_swiftObjectiveC_$_FlagKit
+__swift_FORCE_LOAD_$_swiftCoreFoundation_$_FlagKit
+__swift_FORCE_LOAD_$_swiftDispatch_$_FlagKit
+__swift_FORCE_LOAD_$_swiftCoreGraphics_$_FlagKit
+__swift_FORCE_LOAD_$_swiftCoreImage_$_FlagKit
+__swift_FORCE_LOAD_$_swiftMetal_$_FlagKit
+__swift_FORCE_LOAD_$_swiftQuartzCore_$_FlagKit
+___swift_reflection_version
+_objc_classes
+Apple LLVM version 10.0.0 (clang-1000.11.45.1)
+-emit-bc /Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit/FlagKit.swift /Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit/Flag.swift /Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit/FlagStyle.swift /Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit/NSImage.swift /Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit/UIImage.swift -supplementary-output-file-map <temporary-file> -target armv7-apple-ios10.0 -enable-objc-interop -sdk /Users/cesaredecal/Downloads/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk -I /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/BuildProductsPath/Release-iphoneos -F /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/BuildProductsPath/Release-iphoneos -g -import-underlying-module -module-cache-path /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/ModuleCache.noindex -swift-version 3 -O -serialize-debugging-options -Xcc -I/Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/FlagKit-generated-files.hmap -Xcc -I/Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/FlagKit-own-target-headers.hmap -Xcc -I/Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/FlagKit-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/FlagKit-project-headers.hmap -Xcc -I/Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/BuildProductsPath/Release-iphoneos/include -Xcc -I/Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/DerivedSources/armv7 -Xcc -I/Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/DerivedSources -Xcc -ivfsoverlay -Xcc /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/unextended-module-overlay.yaml -Xcc -working-directory/Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift -module-name FlagKit -num-threads 4 -o /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/Objects-normal/armv7/FlagKit.bc -o /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/Objects-normal/armv7/Flag.bc -o /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/Objects-normal/armv7/FlagStyle.bc -o /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/Objects-normal/armv7/NSImage.bc -o /Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/Objects-normal/armv7/UIImage.bc -resource-dir /Users/cesaredecal/Downloads/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
+<swift-imported-modules>
+/Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift
+Apple Swift version 4.2.1 effective-3.4.1 (swiftlang-1000.11.42 clang-1000.11.45.1)
+/Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit/FlagKit.swift
+deinit
+FlagKit.swift
+/Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit
+$S7FlagKitAACMa
+<compiler-generated>
+assetBundle.get
+init
+_$S7FlagKit0A0C11countryCodeSSvgTo
+_$Ss13_StringObjectV8_VariantOWOy
+_$Ss13_StringObjectV8_VariantOWOe
+_$S7FlagKit0A0C13originalImageSo7UIImageCvgTo
+_$S7FlagKit0A0C11countryCodeACSgSS_tcfcTo
+_$S7FlagKit0A0C5image5styleSo7UIImageCAA0A5StyleO_tFySo30UIGraphicsImageRendererContextCXEfU_
+_$SSo30UIGraphicsImageRendererContextCIgg_ABIegg_TR
+_$SSo30UIGraphicsImageRendererContextCIegg_ABIyBy_TR
+_$S7FlagKit0A0C5image5styleSo7UIImageCAA0A5StyleO_tFTo
+_$S7FlagKit0A0CACycfcTo
+_$S7FlagKit0A0CfETo
+_$S7FlagKit0A0C11countryCodeACSgSS_tcfcTf4xn_n
+_$S7FlagKit0A0C5image5styleSo7UIImageCAA0A5StyleO_tFySo30UIGraphicsImageRendererContextCXEfU_TA
+_$SSo30UIGraphicsImageRendererContextCIgg_ABIegg_TRTA
+_block_copy_helper
+_block_destroy_helper
+_symbolic 7FlagKit0A5StyleO
+_symbolic So30UIGraphicsImageRendererContextCIgg_
+_block_descriptor
+_$S7FlagKit0A0CML
+_$S7FlagKit0A0CMf
+_symbolic ____ 7FlagKit0A0C
+_symbolic So8NSObjectC
+_symbolic SS
+_symbolic So7UIImageC
+_$S7FlagKit0A0CMF
+_symbolic So30UIGraphicsImageRendererContextC
+_symbolic So25UIGraphicsRendererContextC
+_$SSo30UIGraphicsImageRendererContextCMF
+_$SSo7UIImageCMF
+/Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit/Flag.swift
+block_destroy_helper
+block_copy_helper
+$SSo30UIGraphicsImageRendererContextCIgg_ABIegg_TRTA
+$SSo30UIGraphicsImageRendererContextCIgg_ABIegg_TR
+objectdestroy.2
+$S7FlagKit0A0C5image5styleSo7UIImageCAA0A5StyleO_tFySo30UIGraphicsImageRendererContextCXEfU_TA
+objectdestroy
+Flag.swift
+$S7FlagKit0A0CMa
+$Ss12StaticStringV14withUTF8BufferyxxSRys5UInt8VGXElFyt_Tgq5
+$SSRys5UInt8VGIgy_ACytIegyr_TR
+$Ss25_unimplementedInitializer9className04initD04file4line6columns5NeverOs12StaticStringV_A2JS2utFySRys5UInt8VGXEfU0_
+$Ss25_unimplementedInitializer9className04initD04file4line6columns5NeverOs12StaticStringV_A2JS2utFySRys5UInt8VGXEfU0_yAMXEfU_
+image
+$SSo30UIGraphicsImageRendererContextCIegg_ABIyBy_TR
+$S7FlagKit0A0C5image5styleSo7UIImageCAA0A5StyleO_tFySo30UIGraphicsImageRendererContextCXEfU_
+size.get
+FlagStyle.swift
+originalImage.get
+$S7FlagKit0A0C13originalImageSo7UIImageCvgTo
+countryCode.get
+$S7FlagKit0A0C11countryCodeSSvgTo
+_$S7FlagKit0A5StyleOSQAASQ2eeoiySbx_xtFZTW
+_$S7FlagKit0A5StyleOSHAASH9hashValueSivgTW
+_$S7FlagKit0A5StyleOSHAASH4hash4intoys6HasherVz_tFTW
+_$S7FlagKit0A5StyleOSYAASY8rawValuexSg03RawE0Qz_tcfCTW
+_$S7FlagKit0A5StyleOSYAASY8rawValue03RawE0QzvgTW
+_$S7FlagKit0A5StyleOSHAAWI
+___swift_memcpy4_4
+___swift_noop_void_return
+_$S7FlagKit0A5StyleOwet
+_$S7FlagKit0A5StyleOwst
+_$S7FlagKit0A5StyleOwug
+_$S7FlagKit0A5StyleOwup
+_$S7FlagKit0A5StyleOwui
+_$S7FlagKit0A5StyleOSQAAWp
+_$S7FlagKit0A5StyleOSQAAWG
+_$S7FlagKit0A5StyleOSQAAWr
+_$S7FlagKit0A5StyleOSHAAWp
+_$S7FlagKit0A5StyleOSHAAWG
+_$S7FlagKit0A5StyleOACSQAAWL
+_$S7FlagKit0A5StyleOSHAAWr
+_$S7FlagKit0A5StyleOSYAAWp
+_$S7FlagKit0A5StyleOSYAAWG
+_$S7FlagKit0A5StyleOSYAAWr
+_$S7FlagKit0A5StyleOWV
+_$S7FlagKit0A5StyleOMf
+_symbolic ____ 7FlagKit0A5StyleO
+_$S7FlagKit0A5StyleOMB
+_symbolic $Ss16RawRepresentableP
+_symbolic Si
+_$S7FlagKit0A5StyleOSYAAMA
+/Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit/FlagStyle.swift
+$S7FlagKit0A5StyleOMa
+$S7FlagKit0A5StyleOwui
+$S7FlagKit0A5StyleOwup
+$S7FlagKit0A5StyleOwug
+$S7FlagKit0A5StyleOwst
+$S7FlagKit0A5StyleOwet
+__swift_noop_void_return
+__swift_memcpy4_4
+$S7FlagKit0A5StyleOSYAAWa
+$S7FlagKit0A5StyleOSHAAWI
+$S7FlagKit0A5StyleOACSQAAWl
+$S7FlagKit0A5StyleOSQAAWa
+$S7FlagKit0A5StyleOSHAAWa
+rawValue.get
+hash
+combine
+$SSiSHsSH4hash4intoys6HasherVz_tFTW
+hashValue.get
+==
+$SSiSQsSQ2eeoiySbx_xtFZTW
+_hashValue
+/Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit/NSImage.swift
+_$SSo7UIImageC7FlagKitE24flagImageWithCountryCodeABSgSS_tcfcTo
+_$SSo7UIImageC7FlagKitE15rendereredImage4size6actionABSo6CGSizeV_ySo010UIGraphicsE15RendererContextCXEtF
+_$SSo7UIImageC7FlagKitE15rendereredImage4size6actionABSo6CGSizeV_ySo010UIGraphicsE15RendererContextCXEtFyAJXEfU_
+_$SSo7UIImageC7FlagKitE15rendereredImage4size6actionABSo6CGSizeV_ySo010UIGraphicsE15RendererContextCXEtFTo
+_$SSo30UIGraphicsImageRendererContextCIyBy_ABIegg_TRTA
+_$SSo7UIImageC7FlagKitE15rendereredImage4size6actionABSo6CGSizeV_ySo010UIGraphicsE15RendererContextCXEtFyAJXEfU_TA
+_symbolic So30UIGraphicsImageRendererContextCIyBy_
+_objc_categories
+/Users/cesaredecal/Documents/TravelAR/LanguageTranslationAR/Carthage/Checkouts/FlagKit/Sources/Swift/FlagKit/UIImage.swift
+objectdestroy.5
+$SSo7UIImageC7FlagKitE15rendereredImage4size6actionABSo6CGSizeV_ySo010UIGraphicsE15RendererContextCXEtFyAJXEfU_TA
+$SSo30UIGraphicsImageRendererContextCIyBy_ABIegg_TRTA
+$SSo30UIGraphicsImageRendererContextCIyBy_ABIegg_TR
+rendereredImage
+$SSo7UIImageC7FlagKitE15rendereredImage4size6actionABSo6CGSizeV_ySo010UIGraphicsE15RendererContextCXEtFyAJXEfU_
+UIImage.swift
+Apple LLVM version 10.0.0 (clang-1000.11.45.5)
+/Users/cesaredecal/Library/Caches/org.carthage.CarthageKit/DerivedData/10.1_10B61/FlagKit/v2.0.1/Build/Intermediates.noindex/ArchiveIntermediates/FlagKit/IntermediateBuildFilesPath/FlagKit.build/Release-iphoneos/FlagKit.build/DerivedSources/FlagKit_vers.c

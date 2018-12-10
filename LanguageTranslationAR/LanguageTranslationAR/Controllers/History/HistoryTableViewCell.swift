@@ -12,23 +12,21 @@ import FunctionalTableData
 public typealias HistoryTableViewCell = HostCell<HistoryView, HistoryState, LayoutMarginsTableItemLayout>
 
 public struct HistoryState: Equatable {
-    public let text: String
-    public let font: UIFont
-    public let color: UIColor
     
-    public init(text: String, font: UIFont = UIFont.systemFont(ofSize: 17), color: UIColor = .black) {
-        self.text = text
-        self.font = font
-        self.color = color
+    public let translationItem: Translation
+    
+    public init(translationItem: Translation) {
+        self.translationItem = translationItem
     }
     
     public static func updateView(_ view: HistoryView, state: HistoryState?) {
         guard let state = state else {
-//            view.text = nil
-//            view.font = UIFont.systemFont(ofSize: 17)
-//            view.textColor = .black
             return
         }
+        
+        view.textLabel.text = state.translationItem.translatedText
+        
+        //view.imageView
         
 //        view.text = state.text
 //        view.font = state.font
@@ -36,7 +34,7 @@ public struct HistoryState: Equatable {
     }
     
     public static func ==(lhs: HistoryState, rhs: HistoryState) -> Bool {
-        return lhs.text == rhs.text && lhs.font == rhs.font && lhs.color == rhs.color
+        return lhs.translationItem == rhs.translationItem
     }
 }
 
@@ -47,6 +45,7 @@ public class HistoryView: UIView {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.textColor = .white
         textLabel.text = "Test"
+        textLabel.font = UIFont.preferredFont(forTextStyle: .body)
         return textLabel
     }()
     
@@ -59,29 +58,36 @@ public class HistoryView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        backgroundColor = .black
     }
     
     private func setupView() {
-        heightAnchor.constraint(equalToConstant: 200).isActive = true
+        heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         let stackView = UIStackView()
         stackView.axis = .horizontal
+        
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        stackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        //stackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        stackView.spacing = 15
         
         imageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         imageView.backgroundColor = .red
-        stackView.addSubview(imageView)
+        
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(textLabel)
 
+        // Audio image view
+//        let soundImageView = UIImageView()
+//        soundImageView.image = #imageLiteral(resourceName: "scanning-my-sketch.png")
 //        soundImageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
 //        soundImageView.heightAnchor.constraint(equalToConstant: 13).isActive = true
-//        soundImageView.centerYAnchor.constraint(equalTo: label.centerYAnchor, constant: 2).isActive = true
-//        soundImageView.leftAnchor.constraint(equalTo: label.rightAnchor, constant: 3).isActive = true
+//
+//        stackView.addArrangedSubview(soundImageView)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -16,17 +16,17 @@ class TabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
-        let dictionaryController = DictionaryController()
-        dictionaryController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
+        let vc = [DictionaryController(), HistoryController(), SettingsController()]
+
+        let navControllers = ApplicationTab.allCases.enumerated().map { (index, tab) -> UINavigationController in
+            let viewController = vc[index]
+            viewController.title = tab.title
+            let navController = UINavigationController(rootViewController: viewController)
+            navController.tabBarItem = tab.tabBarItem
+            return navController
+        }
         
-        let historyNavController = UINavigationController(rootViewController: HistoryController())
-        historyNavController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "history"), tag: 1)
-        
-        let settingsNavController = UINavigationController(rootViewController: SettingsController())
-        settingsNavController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "history"), tag: 2)
-        
-        let tabBarList = [dictionaryController, historyNavController, settingsNavController]
-        viewControllers = tabBarList
+        viewControllers = navControllers
         
         tabBar.barTintColor = .black
         tabBar.tintColor = .white

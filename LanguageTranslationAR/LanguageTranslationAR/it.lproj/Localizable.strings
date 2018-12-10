@@ -6,6 +6,11 @@
   Copyright © 2018 Cesare de Cal. All rights reserved.
 */
 
+
+"TITLE_TAB_TRANSLATE" = "Traduci";
+"TITLE_TAB_HISTORY" = "Cronologia";
+"TITLE_TAB_SETTINGS" = "Impostazioni";
+
 "Translation Language" = "Lingua di Traduzione";
 "Capture" = "Cattura";
 "Scanning" = "Scansionando...";

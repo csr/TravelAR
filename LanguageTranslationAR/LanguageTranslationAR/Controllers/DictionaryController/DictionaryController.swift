@@ -105,20 +105,6 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         button.setImage(#imageLiteral(resourceName: "add"), for: .normal)
         return button
     }()
-//
-//    lazy var languagesButton: ActionButton = {
-//        let languagesButton = ActionButton()
-//        languagesButton.addTarget(self, action: #selector(handleTapOnLanguageSelection), for: .touchUpInside)
-//        languagesButton.setImage(#imageLiteral(resourceName: "translate"), for: .normal)
-//        return languagesButton
-//    }()
-    
-//    let translationButton: ActionButton = {
-//        let translationButton = ActionButton()
-//        translationButton.addTarget(self, action: #selector(handleTapOnBookmarks), for: .touchUpInside)
-//        translationButton.setImage(#imageLiteral(resourceName: "history"), for: .normal)
-//        return translationButton
-//    }()
     
     //------------------------
     // MARK: - View Life Cycle
@@ -132,12 +118,12 @@ public class DictionaryController: UIViewController, PopUpDelegate {
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        augmentedRealityView.session.pause()
+        //augmentedRealityView.session.pause()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        augmentedRealityView.session.run(configuration, options: [])
+        //augmentedRealityView.session.run(configuration, options: [])
     }
     
     // More: https://stackoverflow.com/questions/25685829/programmatically-implementing-two-different-layouts-using-size-classes

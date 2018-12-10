@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8621BF09DF000396C5 /* ApplicationTab.swift */; };
+		1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8821BF0ADA000396C5 /* String+Localization.swift */; };
 		1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */; };
 		1D23B9502097AC3E00121E8F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94F2097AC3E00121E8F /* Keys.swift */; };
 		1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9522097C59D00121E8F /* LanguageData.swift */; };
@@ -63,7 +65,6 @@
 		1D441EA820726F22005E2ADD /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* HistoryTableViewCell.swift */; };
 		1D441EAA20726F22005E2ADD /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7820726F22005E2ADD /* DictionaryView.swift */; };
 		1D441EAB20726F22005E2ADD /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7920726F22005E2ADD /* PopUpView.swift */; };
-		1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */; };
 		1D4F76B320A820D200B684A6 /* DictionaryController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */; };
 		1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B420A820EE00B684A6 /* SoundNames.swift */; };
 		1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */; };
@@ -92,6 +93,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D104C8621BF09DF000396C5 /* ApplicationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTab.swift; sourceTree = "<group>"; };
+		1D104C8821BF0ADA000396C5 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
 		1D23B94F2097AC3E00121E8F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		1D23B9522097C59D00121E8F /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
@@ -152,7 +155,6 @@
 		1D441E7420726F22005E2ADD /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		1D441E7820726F22005E2ADD /* DictionaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
 		1D441E7920726F22005E2ADD /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
-		1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopUpController.swift; sourceTree = "<group>"; };
 		1D4F76B220A820D200B684A6 /* DictionaryController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Audio.swift"; sourceTree = "<group>"; };
 		1D4F76B420A820EE00B684A6 /* SoundNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNames.swift; sourceTree = "<group>"; };
 		1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageTableViewController+Search.swift"; sourceTree = "<group>"; };
@@ -221,9 +223,9 @@
 		1D2D630321BA6A9500F4FABD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1D441EAF20727BD9005E2ADD /* TabBarController */,
-				1D441E7020726F22005E2ADD /* History */,
+				1D441EAF20727BD9005E2ADD /* TabBar */,
 				1D441E5920726F22005E2ADD /* DictionaryController */,
+				1D441E7020726F22005E2ADD /* History */,
 				1D94B76D20CB29FF0000B065 /* LanguageController */,
 				1DEE6F3021BB14FA006D3830 /* Settings */,
 			);
@@ -351,6 +353,7 @@
 				1D441E6520726F22005E2ADD /* SystemSoundIDExtensions.swift */,
 				1D441E6620726F22005E2ADD /* TextToSpeech.swift */,
 				1D441E6720726F22005E2ADD /* UIViewExtensions.swift */,
+				1D104C8821BF0ADA000396C5 /* String+Localization.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -386,13 +389,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1D441EAF20727BD9005E2ADD /* TabBarController */ = {
+		1D441EAF20727BD9005E2ADD /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				1D104C8621BF09DF000396C5 /* ApplicationTab.swift */,
 				1D2D630621BA6FC700F4FABD /* TabBarController.swift */,
-				1D441EAD20727BD2005E2ADD /* BasePopUpController.swift */,
 			);
-			path = TabBarController;
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		1D4F76B820A8372800B684A6 /* Enum */ = {
@@ -569,13 +572,14 @@
 				1D441E9420726F22005E2ADD /* DictionaryController+CoreML.swift in Sources */,
 				1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
-				1D441EAE20727BD2005E2ADD /* BasePopUpController.swift in Sources */,
 				1D23B9642098E50700121E8F /* UIColorExtensions.swift in Sources */,
 				1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */,
 				1D441EAB20726F22005E2ADD /* PopUpView.swift in Sources */,
+				1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */,
 				1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */,
 				1D441E9C20726F22005E2ADD /* SystemSoundIDExtensions.swift in Sources */,
 				1D4F76B320A820D200B684A6 /* DictionaryController+Audio.swift in Sources */,
+				1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */,
 				1D441E9320726F22005E2ADD /* DictionaryController+ARKit.swift in Sources */,
 				1D441E9820726F22005E2ADD /* DictionaryController.swift in Sources */,
 				1D441E9720726F22005E2ADD /* DictionaryController+Views.swift in Sources */,

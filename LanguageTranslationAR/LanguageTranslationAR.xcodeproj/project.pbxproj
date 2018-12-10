@@ -59,7 +59,6 @@
 		1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6620726F22005E2ADD /* TextToSpeech.swift */; };
 		1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6720726F22005E2ADD /* UIViewExtensions.swift */; };
 		1D441EA320726F22005E2ADD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6E20726F22005E2ADD /* Language.swift */; };
-		1D441EA620726F22005E2ADD /* HistoryController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7220726F22005E2ADD /* HistoryController+Views.swift */; };
 		1D441EA720726F22005E2ADD /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7320726F22005E2ADD /* HistoryController.swift */; };
 		1D441EA820726F22005E2ADD /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* HistoryTableViewCell.swift */; };
 		1D441EAA20726F22005E2ADD /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7820726F22005E2ADD /* DictionaryView.swift */; };
@@ -149,7 +148,6 @@
 		1D441E6620726F22005E2ADD /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		1D441E6720726F22005E2ADD /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		1D441E6E20726F22005E2ADD /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		1D441E7220726F22005E2ADD /* HistoryController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HistoryController+Views.swift"; sourceTree = "<group>"; };
 		1D441E7320726F22005E2ADD /* HistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
 		1D441E7420726F22005E2ADD /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		1D441E7820726F22005E2ADD /* DictionaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
@@ -224,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				1D441EAF20727BD9005E2ADD /* TabBarController */,
-				1D441E7020726F22005E2ADD /* ListController */,
+				1D441E7020726F22005E2ADD /* History */,
 				1D441E5920726F22005E2ADD /* DictionaryController */,
 				1D94B76D20CB29FF0000B065 /* LanguageController */,
 				1DEE6F3021BB14FA006D3830 /* Settings */,
@@ -281,7 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				1D2D630A21BA717300F4FABD /* App Delegate */,
-				1D441E3220726F00005E2ADD /* Assets.xcassets */,
 				1D441E3720726F01005E2ADD /* Info.plist */,
 				1D2D630321BA6A9500F4FABD /* Controllers */,
 				1D441E6C20726F22005E2ADD /* Models */,
@@ -290,6 +287,7 @@
 				1D441E3D20726F1B005E2ADD /* PrivateResources */,
 				1D23B96E2098FEDD00121E8F /* Localizable.strings */,
 				1D23B97420990AA000121E8F /* InfoPlist.strings */,
+				1D441E3220726F00005E2ADD /* Assets.xcassets */,
 				1D2D630421BA6D5200F4FABD /* Initial Screen.storyboard */,
 			);
 			path = LanguageTranslationAR;
@@ -367,14 +365,13 @@
 			path = Sources/Models;
 			sourceTree = "<group>";
 		};
-		1D441E7020726F22005E2ADD /* ListController */ = {
+		1D441E7020726F22005E2ADD /* History */ = {
 			isa = PBXGroup;
 			children = (
 				1D441E7320726F22005E2ADD /* HistoryController.swift */,
-				1D441E7220726F22005E2ADD /* HistoryController+Views.swift */,
 				1D441E7420726F22005E2ADD /* HistoryTableViewCell.swift */,
 			);
-			path = ListController;
+			path = History;
 			sourceTree = "<group>";
 		};
 		1D441E7720726F22005E2ADD /* Views */ = {
@@ -563,7 +560,6 @@
 				1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
 				1D2D630921BA716F00F4FABD /* AppDelegate+Views.swift in Sources */,
-				1D441EA620726F22005E2ADD /* HistoryController+Views.swift in Sources */,
 				1D80B90320A78296006F2761 /* DictionaryController+Alerts.swift in Sources */,
 				1D441E9920726F22005E2ADD /* PopUpDelegate.swift in Sources */,
 				1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */,

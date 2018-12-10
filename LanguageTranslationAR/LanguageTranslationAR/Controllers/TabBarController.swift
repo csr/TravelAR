@@ -20,10 +20,10 @@ class TabBarController: UITabBarController {
         dictionaryController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
         
         let historyNavController = UINavigationController(rootViewController: HistoryController())
-        historyNavController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
+        historyNavController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "history"), tag: 1)
         
         let settingsNavController = UINavigationController(rootViewController: SettingsController())
-        settingsNavController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "translate"), tag: 2)
+        settingsNavController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "history"), tag: 2)
         
         let tabBarList = [dictionaryController, historyNavController, settingsNavController]
         viewControllers = tabBarList

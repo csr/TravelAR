@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FunctionalTableData Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/FunctionalTableData" class="dashAnchor"></a>
+    <a title="FunctionalTableData Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a></p>
+        <p class="header-right"><a href="https://github.com/shopify/FunctionalTableData"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FunctionalTableData Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FunctionalCollectionData.html">FunctionalCollectionData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FunctionalCollectionData/KeyPath.html">– KeyPath</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FunctionalTableData.html">FunctionalTableData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FunctionalTableData.html#/s:19FunctionalTableDataAAC9ExceptionV">– Exception</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FunctionalTableData/KeyPath.html">– KeyPath</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FunctionalTableData.html#/s:19FunctionalTableDataAAC0B10AnimationsV">– TableAnimations</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Separator.html">Separator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Separator.html#/s:19FunctionalTableData9SeparatorC5StyleO">– Style</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Separator.html#/s:19FunctionalTableData9SeparatorC3TagO">– Tag</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UICollectionView.html">UICollectionView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UITableView.html">UITableView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIView.html">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CellConfigType.html">CellConfigType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FunctionalTableDataExceptionHandler.html">FunctionalTableDataExceptionHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Reusable.html">Reusable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TableSectionType.html">TableSectionType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/CellActions.html">CellActions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CellActions.html#/s:19FunctionalTableData11CellActionsV14SelectionStateO">– SelectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CellStyle.html">CellStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HostCell.html">HostCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TableSection.html">TableSection</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FunctionalTableData</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FunctionalTableData</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>A renderer for <code>UITableView</code>.</p>
+
+<p>By providing a complete description of your view state using an array of <code><a href="../Structs/TableSection.html">TableSection</a></code>. <code>FunctionalTableData</code> compares it with the previous render call to insert, update, and remove everything that have changed. This massively simplifies state management of complex UI.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC9ExceptionV"></a>
+                    <a name="//apple_ref/swift/Struct/Exception" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC9ExceptionV">Exception</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A type that provides the information about an exception.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Exception</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L26-L34">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC16exceptionHandlerAA0abc9ExceptionE0_pSgvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/exceptionHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC16exceptionHandlerAA0abc9ExceptionE0_pSgvpZ">exceptionHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies the desired exception handling behaviour.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">exceptionHandler</span><span class="p">:</span> <span class="kt"><a href="../Protocols/FunctionalTableDataExceptionHandler.html">FunctionalTableDataExceptionHandler</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L37">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC7KeyPathV"></a>
+                    <a name="//apple_ref/swift/Struct/KeyPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC7KeyPathV">KeyPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the unique path to a given item in the <code><a href="../Classes/FunctionalTableData.html">FunctionalTableData</a></code>.</p>
+
+<p>Think of it as a readable implementation of <code>IndexPath</code>, that can be used to locate a given cell
+or <code><a href="../Structs/TableSection.html">TableSection</a></code> in the data set.</p>
+
+                        <a href="../Classes/FunctionalTableData/KeyPath.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">KeyPath</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L43-L53">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC9tableViewSo07UITableE0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/tableView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC9tableViewSo07UITableE0CSgvp">tableView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enclosing <code>UITableView</code> that presents all the <code><a href="../Structs/TableSection.html">TableSection</a></code> data.</p>
+
+<p><code>FunctionalTableData</code> will take care of setting its own <code>UITableViewDelegate</code> and
+<code>UITableViewDataSource</code> and manage all the internals of the <code>UITableView</code> on its own.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L72-L81">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC19scrollViewDidScrollySo08UIScrollE0CcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewDidScroll" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC19scrollViewDidScrollySo08UIScrollE0CcSgvp">scrollViewDidScroll</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>See UIScrollView&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619392-scrollviewdidscroll">documentation</a> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollViewDidScroll</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIScrollView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L88">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC27scrollViewWillBeginDraggingySo08UIScrollE0CcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewWillBeginDragging" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC27scrollViewWillBeginDraggingySo08UIScrollE0CcSgvp">scrollViewWillBeginDragging</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>See UIScrollView&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619394-scrollviewwillbegindragging">documentation</a> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollViewWillBeginDragging</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIScrollView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L90">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC25scrollViewWillEndDraggingySo08UIScrollE0C_SC7CGPointVSpyAGGtcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewWillEndDragging" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC25scrollViewWillEndDraggingySo08UIScrollE0C_SC7CGPointVSpyAGGtcSgvp">scrollViewWillEndDragging</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>See UIScrollView&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619385-scrollviewwillenddragging">documentation</a> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollViewWillEndDragging</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIScrollView</span><span class="p">,</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CGPoint</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L92">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC24scrollViewDidEndDraggingySo08UIScrollE0C_SbtcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewDidEndDragging" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC24scrollViewDidEndDraggingySo08UIScrollE0C_SbtcSgvp">scrollViewDidEndDragging</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>See UIScrollView&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619436-scrollviewdidenddragging">documentation</a> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollViewDidEndDragging</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIScrollView</span><span class="p">,</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L94">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC31scrollViewWillBeginDeceleratingySo08UIScrollE0CcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewWillBeginDecelerating" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC31scrollViewWillBeginDeceleratingySo08UIScrollE0CcSgvp">scrollViewWillBeginDecelerating</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>See UIScrollView&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619386-scrollviewwillbegindecelerating">documentation</a> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollViewWillBeginDecelerating</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIScrollView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L96">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC28scrollViewDidEndDeceleratingySo08UIScrollE0CcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewDidEndDecelerating" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC28scrollViewDidEndDeceleratingySo08UIScrollE0CcSgvp">scrollViewDidEndDecelerating</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>See UIScrollView&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619417-scrollviewdidenddecelerating">documentation</a> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollViewDidEndDecelerating</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIScrollView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L98">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC30scrollViewDidChangeContentSizeySo08UIScrollE0CcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewDidChangeContentSize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC30scrollViewDidChangeContentSizeySo08UIScrollE0CcSgvp">scrollViewDidChangeContentSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tells the delegate that the scroll view has changed its content size.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollViewDidChangeContentSize</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIScrollView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L100">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC34scrollViewDidEndScrollingAnimationySo08UIScrollE0CcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewDidEndScrollingAnimation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC34scrollViewDidEndScrollingAnimationySo08UIScrollE0CcSgvp">scrollViewDidEndScrollingAnimation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>See UIScrollView&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619379-scrollviewdidendscrollinganimati">documentation</a> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollViewDidEndScrollingAnimation</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIScrollView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L102">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC27scrollViewShouldScrollToTopSbSo08UIScrollE0CcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewShouldScrollToTop" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC27scrollViewShouldScrollToTopSbSo08UIScrollE0CcSgvp">scrollViewShouldScrollToTop</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>See UIScrollView&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619378-scrollviewshouldscrolltotop">documentation</a> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollViewShouldScrollToTop</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIScrollView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L104">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC24scrollViewDidScrollToTopySo08UIScrollE0CcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/scrollViewDidScrollToTop" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC24scrollViewDidScrollToTopySo08UIScrollE0CcSgvp">scrollViewDidScrollToTop</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>See UIScrollView&rsquo;s <a href="https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619382-scrollviewdidscrolltotop">documentation</a> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scrollViewDidScrollToTop</span><span class="p">:</span> <span class="p">((</span><span class="kt">UIScrollView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L106">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC0B10AnimationsV"></a>
+                    <a name="//apple_ref/swift/Struct/TableAnimations" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC0B10AnimationsV">TableAnimations</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of animation when rows and sections are inserted or deleted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TableAnimations</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L109-L132">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC11isRenderingSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isRendering" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC11isRenderingSbvp">isRendering</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value that returns <code>true</code> when a <code>renderAndDiff</code> pass is currently running.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isRendering</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L137-L139">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAACABSSSg4name_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(name:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAACABSSSg4name_tcfc">init(name:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a FunctionalTableData. To configure its view, provide a UITableView after initialization.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String identifying this instance of FunctionalTableData, useful when several instances are displayed on the same screen. This value also names the queue doing all the rendering work, useful for debugging.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L144-L150">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC13rowForKeyPathAA14CellConfigType_pSgAB0fG0VF"></a>
+                    <a name="//apple_ref/swift/Method/rowForKeyPath(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC13rowForKeyPathAA14CellConfigType_pSgAB0fG0VF">rowForKeyPath(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the cell identified by a key path.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">rowForKeyPath</span><span class="p">(</span><span class="n">_</span> <span class="nv">keyPath</span><span class="p">:</span> <span class="kt"><a href="../Classes/FunctionalTableData/KeyPath.html">KeyPath</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/CellConfigType.html">CellConfigType</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A key path identifying the cell to look up.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Protocols/CellConfigType.html">CellConfigType</a></code> instance corresponding to the key path or <code>nil</code> if the key path is invalid.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L160-L166">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC16keyPathForRowKeyAB0hE0VSgSSF"></a>
+                    <a name="//apple_ref/swift/Method/keyPathForRowKey(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC16keyPathForRowKeyAB0hE0VSgSSF">keyPathForRowKey(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the key path specified by its string presentation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">keyPathForRowKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FunctionalTableData/KeyPath.html">KeyPath</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String identifier to lookup.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/FunctionalTableData/KeyPath.html">KeyPath</a></code> that matches the key or <code>nil</code> if there is no match.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L172-L182">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC015keyPathForIndexE0AB03KeyE0V10Foundation0gE0V05indexE0_tF"></a>
+                    <a name="//apple_ref/swift/Method/keyPathForIndexPath(indexPath:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC015keyPathForIndexE0AB03KeyE0V10Foundation0gE0V05indexE0_tF">keyPathForIndexPath(indexPath:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the key path of the cell in a given <code>IndexPath</code> location.</p>
+
+<p><strong>Note:</strong> This method performs an unsafe lookup, make sure that the <code>IndexPath</code> exists
+before trying to transform it into a <code><a href="../Classes/FunctionalTableData/KeyPath.html">KeyPath</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">keyPathForIndexPath</span><span class="p">(</span><span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FunctionalTableData/KeyPath.html">KeyPath</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>indexPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A key path identifying where the key path is located.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The key representation of the supplied <code>IndexPath</code>.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L190-L194">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC14rectForKeyPathSC6CGRectVSgAB0fG0VF"></a>
+                    <a name="//apple_ref/swift/Method/rectForKeyPath(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC14rectForKeyPathSC6CGRectVSgAB0fG0VF">rectForKeyPath(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the drawing area for a row identified by key path.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">rectForKeyPath</span><span class="p">(</span><span class="n">_</span> <span class="nv">keyPath</span><span class="p">:</span> <span class="kt"><a href="../Classes/FunctionalTableData/KeyPath.html">KeyPath</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGRect</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A key path identifying the cell to look up.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A rectangle defining the area in which the table view draws the row or <code>nil</code> if the key path is invalid.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L200-L203">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC13renderAndDiffySayAA0B7SectionVG_AB7KeyPathVSg03keyI0Sb8animatedAB0B10AnimationsV10animationsyycSg10completiontF"></a>
+                    <a name="//apple_ref/swift/Method/renderAndDiff(_:keyPath:animated:animations:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC13renderAndDiffySayAA0B7SectionVG_AB7KeyPathVSg03keyI0Sb8animatedAB0B10AnimationsV10animationsyycSg10completiontF">renderAndDiff(_:keyPath:animated:animations:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Populates the table with the specified sections, and asynchronously updates the table view to reflect the cells and sections that have changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, message: "Call `scroll(to:animated:scrollPosition:﹚` in the completion handler instead.")</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">renderAndDiff</span><span class="p">(</span><span class="n">_</span> <span class="nv">newSections</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/TableSection.html">TableSection</a></span><span class="p">],</span> <span class="nv">keyPath</span><span class="p">:</span> <span class="kt"><a href="../Classes/FunctionalTableData/KeyPath.html">KeyPath</a></span><span class="p">?,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">animations</span><span class="p">:</span> <span class="kt"><a href="../Classes/FunctionalTableData.html#/s:19FunctionalTableDataAAC0B10AnimationsV">TableAnimations</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newSections</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of TableSection instances to populate the table with. These will replace the previous sections and update any cells that have changed between the old and new sections.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key path identifying which cell to scroll into view after the render occurs.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> to animate the changes to the table cells, or <code>false</code> if the <code>UITableView</code> should be updated with no animation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animations</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Type of animation to perform. See <code><a href="../Classes/FunctionalTableData.html#/s:19FunctionalTableDataAAC0B10AnimationsV">FunctionalTableData.TableAnimations</a></code> for more info.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called on the main thread once the <code>UITableView</code> has finished updating and animating any changes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L229-L236">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC13renderAndDiffySayAA0B7SectionVG_Sb8animatedAB0B10AnimationsV10animationsyycSg10completiontF"></a>
+                    <a name="//apple_ref/swift/Method/renderAndDiff(_:animated:animations:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC13renderAndDiffySayAA0B7SectionVG_Sb8animatedAB0B10AnimationsV10animationsyycSg10completiontF">renderAndDiff(_:animated:animations:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Populates the table with the specified sections, and asynchronously updates the table view to reflect the cells and sections that have changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">renderAndDiff</span><span class="p">(</span><span class="n">_</span> <span class="nv">newSections</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/TableSection.html">TableSection</a></span><span class="p">],</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">animations</span><span class="p">:</span> <span class="kt"><a href="../Classes/FunctionalTableData.html#/s:19FunctionalTableDataAAC0B10AnimationsV">TableAnimations</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newSections</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of TableSection instances to populate the table with. These will replace the previous sections and update any cells that have changed between the old and new sections.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> to animate the changes to the table cells, or <code>false</code> if the <code>UITableView</code> should be updated with no animation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animations</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Type of animation to perform. See <code><a href="../Classes/FunctionalTableData.html#/s:19FunctionalTableDataAAC0B10AnimationsV">FunctionalTableData.TableAnimations</a></code> for more info.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called on the main thread once the <code>UITableView</code> has finished updating and animating any changes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L245-L292">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC6selectyAB7KeyPathV03keyF0_Sb8animatedSC25UITableViewScrollPositionO06scrollL0Sb15triggerDelegatetF"></a>
+                    <a name="//apple_ref/swift/Method/select(keyPath:animated:scrollPosition:triggerDelegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC6selectyAB7KeyPathV03keyF0_Sb8animatedSC25UITableViewScrollPositionO06scrollL0Sb15triggerDelegatetF">select(keyPath:animated:scrollPosition:triggerDelegate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Selects a row in the table view identified by a key path.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">select</span><span class="p">(</span><span class="nv">keyPath</span><span class="p">:</span> <span class="kt"><a href="../Classes/FunctionalTableData/KeyPath.html">KeyPath</a></span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">scrollPosition</span><span class="p">:</span> <span class="kt">UITableViewScrollPosition</span> <span class="o">=</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">triggerDelegate</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A key path identifying a row in the table view.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> if you want to animate the selection, and <code>false</code> if the change should be immediate.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>triggerDelegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> to trigger the <code>tableView:didSelectRowAt:</code> delegate from <code>UITableView</code> or <code>false</code> to skip it. Skipping it is the default <code>UITableView</code> behavior.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L441-L449">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC6scrollyAB7KeyPathV2to_Sb8animatedSC25UITableViewScrollPositionO0dL0tF"></a>
+                    <a name="//apple_ref/swift/Method/scroll(to:animated:scrollPosition:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC6scrollyAB7KeyPathV2to_Sb8animatedSC25UITableViewScrollPositionO0dL0tF">scroll(to:animated:scrollPosition:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Scrolls to the item at the specified key path.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">scroll</span><span class="p">(</span><span class="n">to</span> <span class="nv">keyPath</span><span class="p">:</span> <span class="kt"><a href="../Classes/FunctionalTableData/KeyPath.html">KeyPath</a></span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">scrollPosition</span><span class="p">:</span> <span class="kt">UITableViewScrollPosition</span> <span class="o">=</span> <span class="o">.</span><span class="n">bottom</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A key path identifying a row in the table view.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> to animate to the new scroll position, or <code>false</code> to scroll immediately.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scrollPosition</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Specifies where the item specified by <code>keyPath</code> should be positioned once scrolling finishes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L457-L460">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:19FunctionalTableDataAAC7keyPathAB03KeyE0VSgSC7CGPointV2at_tF"></a>
+                    <a name="//apple_ref/swift/Method/keyPath(at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:19FunctionalTableDataAAC7keyPathAB03KeyE0VSgSC7CGPointV2at_tF">keyPath(at:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">keyPath</span><span class="p">(</span><span class="n">at</span> <span class="nv">point</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FunctionalTableData/KeyPath.html">KeyPath</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>point</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The point in the collection view’s bounds that you want to test.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the keypath of the item at the specified point, or <code>nil</code> if no item was found at that point.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L464-L470">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UIScrollViewDelegate"></a>
+                <a name="//apple_ref/swift/Section/UIScrollViewDelegate" class="dashAnchor"></a>
+                <a href="#/UIScrollViewDelegate">
+                  <h3 class="section-name">UIScrollViewDelegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@FunctionalTableData@objc(cs)FunctionalTableData(im)scrollViewDidChangeContentSize:"></a>
+                    <a name="//apple_ref/swift/Method/scrollViewDidChangeContentSize(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@FunctionalTableData@objc(cs)FunctionalTableData(im)scrollViewDidChangeContentSize:">scrollViewDidChangeContentSize(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is an undocumented optional <code>UIScrollViewDelegate</code> method that is not exposed by the public protocol
+but will still get called on delegates that implement it. Because it is not publicly exposed,
+the Swift 4 compiler will not automatically annotate it as @objc, requiring this manual annotation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">scrollViewDidChangeContentSize</span><span class="p">(</span><span class="n">_</span> <span class="nv">scrollView</span><span class="p">:</span> <span class="kt">UIScrollView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/shopify/FunctionalTableData/tree/master/FunctionalTableData/TableView/FunctionalTableData.swift#L761-L763">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-05-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

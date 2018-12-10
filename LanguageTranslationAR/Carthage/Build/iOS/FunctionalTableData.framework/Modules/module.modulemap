@@ -1,0 +1,11 @@
+framework module FunctionalTableData {
+  umbrella header "FunctionalTableData.h"
+
+  export *
+  module * { export * }
+}
+
+module FunctionalTableData.Swift {
+    header "FunctionalTableData-Swift.h"
+    requires objc
+}

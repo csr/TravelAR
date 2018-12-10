@@ -44,7 +44,7 @@ class ActionButton: UIButton {
         customBgView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         if let imageView = imageView {
-            bringSubview(toFront: imageView)
+            bringSubviewToFront(imageView)
         }
     }
 }

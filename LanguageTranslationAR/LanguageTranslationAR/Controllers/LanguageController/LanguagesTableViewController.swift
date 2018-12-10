@@ -113,7 +113,7 @@ class LanguagesTableViewController: UITableViewController {
     }
     
     internal func setupActivityIndicator() {
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         tableView.backgroundView = activityIndicator
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true

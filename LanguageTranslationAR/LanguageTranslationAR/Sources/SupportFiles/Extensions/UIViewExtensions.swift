@@ -30,11 +30,11 @@ extension UIView {
 	func pushTransition(_ duration:CFTimeInterval) {
 		let animation:CATransition = CATransition()
 		animation.timingFunction = CAMediaTimingFunction(name:
-			kCAMediaTimingFunctionEaseInEaseOut)
-		animation.type = kCATransitionPush
-		animation.subtype = kCATransitionFromTop
+			CAMediaTimingFunctionName.easeInEaseOut)
+		animation.type = CATransitionType.push
+		animation.subtype = CATransitionSubtype.fromTop
 		animation.duration = duration
-		layer.add(animation, forKey: kCATransitionPush)
+		layer.add(animation, forKey: convertFromCATransitionType(CATransitionType.push))
 	}
 	
 	func boingAnimation(shouldRepeat: Bool = false) {
@@ -63,4 +63,9 @@ extension UIView {
         self.alpha = 0.2
         UIView.animate(withDuration: 1, delay: 0.0, options: [.curveLinear, .repeat, .autoreverse], animations: {self.alpha = 1.0}, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromCATransitionType(_ input: CATransitionType) -> String {
+	return input.rawValue
 }

@@ -69,7 +69,7 @@ class PopUpView: UIView {
         let button = UIButton()
         button.backgroundColor = .deepBlue
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("OK", for: UIControlState.normal)
+        button.setTitle("OK", for: UIControl.State.normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 8
         return button
@@ -167,10 +167,10 @@ class PopUpView: UIView {
         let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
         CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
         
-        let attributes: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: UIFont(name: "CircularStd-Book", size: 21)!,
-                                                         NSAttributedStringKey.foregroundColor: UIColor.white]
+        let attributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: UIFont(name: "CircularStd-Book", size: 21)!,
+                                                         NSAttributedString.Key.foregroundColor: UIColor.white]
         let attrString = NSAttributedString(string: text, attributes: attributes)
-        confirmButton.setAttributedTitle(attrString, for: UIControlState.normal)
+        confirmButton.setAttributedTitle(attrString, for: UIControl.State.normal)
     }
     
     private func setupTopBar() {
@@ -193,13 +193,13 @@ class PopUpView: UIView {
     
     func show() {
         alpha = 0
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [UIViewAnimationOptions.allowUserInteraction], animations: {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [UIView.AnimationOptions.allowUserInteraction], animations: {
             self.alpha = 1
         }, completion: nil)
     }
     
     func hide() {
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.65, initialSpringVelocity: 0, options: [UIViewAnimationOptions.allowUserInteraction], animations: {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.65, initialSpringVelocity: 0, options: [UIView.AnimationOptions.allowUserInteraction], animations: {
             self.alpha = 0
         }, completion: nil)
     }

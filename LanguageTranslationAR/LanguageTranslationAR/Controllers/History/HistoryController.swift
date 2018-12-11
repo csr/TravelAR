@@ -39,7 +39,9 @@ class HistoryController: UITableViewController, ItemsDelegate {
     
     @objc func didTapAddButton() {
         let translation = Translation(originalText: "backpack", targetLanguage: "es", translatedText: "mochila", sourceLanguage: "en")
-        items.append(translation)        
+        items.append(translation)
+        let selection = UISelectionFeedbackGenerator()
+        selection.selectionChanged()
     }
     
     private func render() {        

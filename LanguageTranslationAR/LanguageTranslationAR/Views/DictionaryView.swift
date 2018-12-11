@@ -24,9 +24,6 @@ public class DictionaryView: UIView {
 		let label = UILabel()
 		label.textColor = .black
 		label.text = "Title"
-        let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
-        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-		label.font = UIFont(name: "CircularStd-Book", size: 25)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
@@ -34,7 +31,6 @@ public class DictionaryView: UIView {
 	let descriptionLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = .black
-		label.font = UIFont(name: "CircularStd-Book", size: 16)
 		label.translatesAutoresizingMaskIntoConstraints	= false
 		label.textAlignment = .center
 		label.numberOfLines = 0

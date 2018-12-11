@@ -47,9 +47,6 @@ class PopUpView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.textAlignment = .center
-        let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
-        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        label.font = UIFont(name: "CircularStd-Book", size: 22)
         return label
     }()
     
@@ -58,9 +55,6 @@ class PopUpView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkGray
         label.textAlignment = .center
-        let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
-        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        label.font = UIFont(name: "CircularStd-Book", size: 23)
         label.numberOfLines = 0
         return label
     }()
@@ -143,7 +137,6 @@ class PopUpView: UIView {
         self.completionHandler = completionHandler
         titleLabel.text = title
         descriptionLabel.text = subtitle
-        setConfirmButtonText(text: buttonAction)
         
         if let imageName = imageName, let image = UIImage(named: imageName) {
             imageView.image = image
@@ -161,16 +154,6 @@ class PopUpView: UIView {
         layer.shadowRadius = 2 // HALF of blur
         layer.shadowOffset = CGSize(width: 0, height: 2) // Spread x, y
         translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setConfirmButtonText(text: String) {
-        let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
-        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        
-        let attributes: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: UIFont(name: "CircularStd-Book", size: 21)!,
-                                                         NSAttributedString.Key.foregroundColor: UIColor.white]
-        let attrString = NSAttributedString(string: text, attributes: attributes)
-        confirmButton.setAttributedTitle(attrString, for: UIControl.State.normal)
     }
     
     private func setupTopBar() {

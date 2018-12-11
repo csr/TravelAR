@@ -18,7 +18,7 @@ extension DictionaryController {
     }
         
     func cameraPermissionDenied() {
-        presentDeniedCameraPermissionsAlert()
+//        presentDeniedCameraPermissionsAlert()
     }
     
     @objc func requestCameraAccess() {
@@ -44,7 +44,8 @@ extension DictionaryController {
         case .restricted:
             break
         case .notDetermined:
-            presentWelcomeAlert()
+            return
+//            presentWelcomeAlert()
         }
     }
     

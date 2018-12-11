@@ -7,4 +7,4 @@
   Copyright © 2018 Cesare de Cal. All rights reserved.
 */
 
-"NSCameraUsageDescription" = "We need to access the camera to let you scan and translate things around you.";
+"NSCameraUsageDescription" = "We need to access the camera to let you translate things around you.";

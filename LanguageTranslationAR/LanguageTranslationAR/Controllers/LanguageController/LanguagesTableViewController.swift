@@ -157,10 +157,6 @@ class LanguagesTableViewController: UITableViewController {
         let values = tableViewSource[key]
         let language = values![indexPath.row]
         cell.textLabel?.text = language.name
-        let cfURL = Bundle.main.url(forResource: "CircularStd-Book", withExtension: "otf")! as CFURL
-        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        let font = UIFont(name: "CircularStd-Book", size: 19)
-        cell.textLabel?.font = font
         
         if indexPath == selectedIndexPath {
             cell.accessoryType = .checkmark

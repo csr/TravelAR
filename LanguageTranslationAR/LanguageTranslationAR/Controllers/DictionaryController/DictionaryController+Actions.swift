@@ -34,6 +34,9 @@ extension DictionaryController {
     }
     
     @objc func didTapAddButton() {
+        let selection = UISelectionFeedbackGenerator()
+        selection.selectionChanged()
+        
         if let coords = detectWorldCoordinates() {
             didTapSceneView(coords: coords)
         }
@@ -49,6 +52,9 @@ extension DictionaryController {
         augmentedRealityView.scene.rootNode.enumerateChildNodes { (node, stop) in
             node.removeFromParentNode()
         }
+        
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
     }
     
     @objc func updateLabel() {

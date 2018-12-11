@@ -20,6 +20,7 @@ class HistoryController: UITableViewController, ItemsDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        items = TranslationItems.shared.array
         setupView()
         setupNavigationBar()
         TranslationItems.shared.delegate = self

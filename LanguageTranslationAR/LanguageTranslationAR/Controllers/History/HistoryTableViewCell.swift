@@ -8,6 +8,7 @@
 
 import UIKit
 import FunctionalTableData
+import FlagKit
 
 public typealias HistoryTableViewCell = HostCell<HistoryView, HistoryState, LayoutMarginsTableItemLayout>
 
@@ -19,18 +20,19 @@ public struct HistoryState: Equatable {
         self.translationItem = translationItem
     }
     
+    /// Update the view with the contents of the state.
+    ///
+    /// - Parameters:
+    ///   - view: `UIView` that responds to this state.
+    ///   - state: data to update the view with. If `nil` the view is being reused by the tableview.
     public static func updateView(_ view: HistoryView, state: HistoryState?) {
         guard let state = state else {
             return
         }
         
         view.textLabel.text = state.translationItem.translatedText
-        
-        //view.imageView
-        
-//        view.text = state.text
-//        view.font = state.font
-//        view.textColor = state.color
+        view.detailTextLabel.text = state.translationItem.originalText
+        view.setFlag(for: state.translationItem.targetLanguage)
     }
     
     public static func ==(lhs: HistoryState, rhs: HistoryState) -> Bool {
@@ -45,10 +47,19 @@ public class HistoryView: UIView {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.textColor = .white
         textLabel.text = "Test"
-        textLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        textLabel.font = UIFont.preferredFont(forTextStyle: .title3)
         return textLabel
     }()
     
+    var detailTextLabel: UILabel = {
+        let textLabel = UILabel()
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        textLabel.textColor = .white
+        textLabel.text = "Test"
+        textLabel.font = UIFont.preferredFont(forTextStyle: .callout)
+        return textLabel
+    }()
+
     let imageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -66,28 +77,38 @@ public class HistoryView: UIView {
         
         let stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fill
         
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        //stackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         stackView.spacing = 15
         
-        imageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        imageView.backgroundColor = .red
+        imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(setupLabelsStackView())
+    }
+    
+    private func setupLabelsStackView() -> UIStackView {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        textLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         stackView.addArrangedSubview(textLabel)
-
-        // Audio image view
-//        let soundImageView = UIImageView()
-//        soundImageView.image = #imageLiteral(resourceName: "scanning-my-sketch.png")
-//        soundImageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
-//        soundImageView.heightAnchor.constraint(equalToConstant: 13).isActive = true
-//
-//        stackView.addArrangedSubview(soundImageView)
+        stackView.addArrangedSubview(detailTextLabel)
+        stackView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        stackView.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        return stackView
+    }
+    
+    func setFlag(for countryCode: String?) {
+        guard let countryCode = countryCode?.uppercased(), let flag = Flag(countryCode: countryCode) else { return }
+        let styledImage = flag.image(style: .circle)
+        imageView.image = styledImage
     }
     
     required init?(coder aDecoder: NSCoder) {

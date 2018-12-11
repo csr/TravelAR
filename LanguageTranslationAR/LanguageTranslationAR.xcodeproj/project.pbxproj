@@ -10,6 +10,9 @@
 		1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8621BF09DF000396C5 /* ApplicationTab.swift */; };
 		1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8821BF0ADA000396C5 /* String+Localization.swift */; };
 		1D104C8B21BF12C1000396C5 /* DictionaryController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8A21BF12C1000396C5 /* DictionaryController+Alerts.swift */; };
+		1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8C21BF91A5000396C5 /* TranslationItems.swift */; };
+		1D104C8F21BF954E000396C5 /* FlagKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D104C8E21BF954E000396C5 /* FlagKit.framework */; };
+		1D104C9021BF9565000396C5 /* FlagKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D104C8E21BF954E000396C5 /* FlagKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */; };
 		1D23B9502097AC3E00121E8F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94F2097AC3E00121E8F /* Keys.swift */; };
 		1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9522097C59D00121E8F /* LanguageData.swift */; };
@@ -85,6 +88,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1D104C9021BF9565000396C5 /* FlagKit.framework in Embed Frameworks */,
 				1DEE705E21BEB21B006D3830 /* FunctionalTableData.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -96,6 +100,8 @@
 		1D104C8621BF09DF000396C5 /* ApplicationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTab.swift; sourceTree = "<group>"; };
 		1D104C8821BF0ADA000396C5 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		1D104C8A21BF12C1000396C5 /* DictionaryController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Alerts.swift"; sourceTree = "<group>"; };
+		1D104C8C21BF91A5000396C5 /* TranslationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItems.swift; sourceTree = "<group>"; };
+		1D104C8E21BF954E000396C5 /* FlagKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlagKit.framework; path = Carthage/Build/iOS/FlagKit.framework; sourceTree = "<group>"; };
 		1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
 		1D23B94F2097AC3E00121E8F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		1D23B9522097C59D00121E8F /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DEE705D21BEB21B006D3830 /* FunctionalTableData.framework in Frameworks */,
+				1D104C8F21BF954E000396C5 /* FlagKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +211,7 @@
 				1D23B95820986BB700121E8F /* Translation.swift */,
 				1D23B95C2098944C00121E8F /* TranslationData.swift */,
 				1D23B95F2098945D00121E8F /* TranslationList.swift */,
+				1D104C8C21BF91A5000396C5 /* TranslationItems.swift */,
 			);
 			path = Translation;
 			sourceTree = "<group>";
@@ -264,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */,
+				1D104C8E21BF954E000396C5 /* FlagKit.framework */,
 				1D441E2A20726EFE005E2ADD /* LanguageTranslationAR */,
 				1D441E2920726EFE005E2ADD /* Products */,
 			);
@@ -282,8 +291,8 @@
 			children = (
 				1D2D630A21BA717300F4FABD /* App Delegate */,
 				1D441E3720726F01005E2ADD /* Info.plist */,
-				1D2D630321BA6A9500F4FABD /* Controllers */,
 				1D441E6C20726F22005E2ADD /* Models */,
+				1D2D630321BA6A9500F4FABD /* Controllers */,
 				1D441E7720726F22005E2ADD /* Views */,
 				1D23B9682098F58D00121E8F /* SupportFiles */,
 				1D441E3D20726F1B005E2ADD /* PrivateResources */,
@@ -524,6 +533,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/FunctionalTableData.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FlagKit.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -570,6 +580,7 @@
 				1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,
 				1D441E9420726F22005E2ADD /* DictionaryController+CoreML.swift in Sources */,
+				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
 				1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D23B9642098E50700121E8F /* UIColorExtensions.swift in Sources */,

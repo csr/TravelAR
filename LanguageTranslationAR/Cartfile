@@ -1,2 +1,2 @@
-github "madebybowtie/FlagKit"
 github "Shopify/FunctionalTableData"
+github "cruisediary/Flags" ~> 0.4.0

@@ -1,0 +1,11 @@
+framework module Flags {
+  umbrella header "Flags.h"
+
+  export *
+  module * { export * }
+}
+
+module Flags.Swift {
+    header "Flags-Swift.h"
+    requires objc
+}

@@ -23,6 +23,11 @@ class HistoryController: UITableViewController {
         setupNavigationBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        items = TranslationItems.sharedInstance.array
+    }
+    
     private func setupView() {
         view.backgroundColor = .black
         functionalData.tableView = tableView
@@ -40,9 +45,14 @@ class HistoryController: UITableViewController {
     }
     
     private func render() {
+        //let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, highlight: true, accessoryType: .none, selectionColor: .gray, backgroundColor: .black)
+        
+        let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, highlight: false, accessoryType: .none, selectionColor: .gray, backgroundColor: .black, backgroundView: nil, tintColor: nil)
+        
         let rows: [CellConfigType] = items.enumerated().map { index, item in
             return HistoryTableViewCell(
                 key: "id-\(index)",
+                style: cellStyle,
                 actions: CellActions(
                     selectionAction: { _ in
                         print("\(item) selected")

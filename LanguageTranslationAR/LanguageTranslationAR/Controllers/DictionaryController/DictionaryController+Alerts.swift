@@ -27,7 +27,7 @@ extension DictionaryController {
         let format = NSLocalizedString("Point device", comment: "Point device at object")
         let subtitle = String.localizedStringWithFormat(format, getDeviceName())
         let buttonTitle = NSLocalizedString("OK", comment: "OK, let's try!")
-        popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonTitle, imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
+//        popUpView.present(title: title, subtitle: subtitle, buttonAction: buttonTitle, imageName: "phone-sketch", completionHandler: #selector(didTapOKTapToAdd))
         popUpView.shouldShowImageWalkthrough = true
     }
 }

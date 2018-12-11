@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "0.4.0",
+  "iOS" : [
+    {
+      "name" : "Flags",
+      "hash" : "82cb25645e82caade6cf5e89602ad683471904e213d333bd849d9159f22fd4f0"
+    }
+  ]
+}

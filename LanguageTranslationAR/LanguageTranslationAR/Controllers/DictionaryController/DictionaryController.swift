@@ -15,11 +15,7 @@ import AVFoundation
 @available(iOS 11.0, *) 
 public class DictionaryController: UIViewController, PopUpDelegate {
 
-    internal var items: [Translation] = [] {
-        didSet {
-            updateData()
-        }
-    }
+    internal var items: [Translation] = []
     
     //--------------------
     //MARK: - AR Variables
@@ -95,10 +91,4 @@ public class DictionaryController: UIViewController, PopUpDelegate {
 		setupViews()
         checkCameraPermissions()
 	}
-    
-    private func updateData() {
-        if let secondTab = tabBarController?.viewControllers?[1] as? HistoryController {
-            secondTab.items = items
-        }
-    }
  }

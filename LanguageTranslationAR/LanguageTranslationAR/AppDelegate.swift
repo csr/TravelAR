@@ -14,9 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupRootViewController()
-        setupNavigationAppearance()
+        setupWindow()
         return true
+    }
+    
+    internal func setupWindow() {
+        window = UIWindow()
+        window?.tintColor = .orange
+        window?.makeKeyAndVisible()
+        window?.rootViewController = TabBarController()
+        UINavigationBar.appearance().barStyle = .black
     }
         
     func applicationDidBecomeActive(_ application: UIApplication) {}

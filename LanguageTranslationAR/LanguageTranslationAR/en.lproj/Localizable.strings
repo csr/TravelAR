@@ -9,6 +9,7 @@
 "TITLE_TAB_TRANSLATE" = "Translate";
 "TITLE_TAB_HISTORY" = "History";
 "TITLE_TAB_SETTINGS" = "Settings";
+"NAV_BAR_CLEAR" = "Clear";
 
 "Capture" = "Capture";
 "Scanning" = "Scanning...";

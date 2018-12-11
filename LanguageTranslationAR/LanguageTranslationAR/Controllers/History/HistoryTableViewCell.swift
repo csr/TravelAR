@@ -73,7 +73,7 @@ public class HistoryView: UIView {
     }
     
     private func setupView() {
-        heightAnchor.constraint(equalToConstant: 100).isActive = true
+        heightAnchor.constraint(equalToConstant: 77).isActive = true
         
         let stackView = UIStackView()
         stackView.axis = .horizontal

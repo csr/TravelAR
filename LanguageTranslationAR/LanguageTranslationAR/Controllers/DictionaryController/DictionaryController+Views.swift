@@ -19,6 +19,7 @@ extension DictionaryController {
         setupPopView()
         setupSuggestionView()
         setupAddButton()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "NAV_BAR_CLEAR".localized(), style: .plain, target: self, action: #selector(didTapClearScene))
     }
     
     internal func setupAddButton() {

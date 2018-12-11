@@ -25,7 +25,6 @@
 		1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B97420990AA000121E8F /* InfoPlist.strings */; };
 		1D2D630521BA6D5200F4FABD /* Initial Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2D630421BA6D5200F4FABD /* Initial Screen.storyboard */; };
 		1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D630621BA6FC700F4FABD /* TabBarController.swift */; };
-		1D2D630921BA716F00F4FABD /* AppDelegate+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D630821BA716F00F4FABD /* AppDelegate+Views.swift */; };
 		1D32525220D57C670061517C /* LanguagePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D32525120D57C670061517C /* LanguagePreferences.swift */; };
 		1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9720D66D9E006CD60A /* FocusSquareSegment.swift */; };
 		1D412B9D20D66D9F006CD60A /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9820D66D9F006CD60A /* FocusSquare.swift */; };
@@ -115,7 +114,6 @@
 		1D23B97520990AA200121E8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D2D630421BA6D5200F4FABD /* Initial Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Initial Screen.storyboard"; sourceTree = "<group>"; };
 		1D2D630621BA6FC700F4FABD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = LanguageTranslationAR/Controllers/TabBarController.swift; sourceTree = SOURCE_ROOT; };
-		1D2D630821BA716F00F4FABD /* AppDelegate+Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Views.swift"; sourceTree = "<group>"; };
 		1D32525120D57C670061517C /* LanguagePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePreferences.swift; sourceTree = "<group>"; };
 		1D412B9720D66D9E006CD60A /* FocusSquareSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
 		1D412B9820D66D9F006CD60A /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
@@ -238,15 +236,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		1D2D630A21BA717300F4FABD /* App Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				1D441E2B20726EFE005E2ADD /* AppDelegate.swift */,
-				1D2D630821BA716F00F4FABD /* AppDelegate+Views.swift */,
-			);
-			path = "App Delegate";
-			sourceTree = "<group>";
-		};
 		1D412B9620D66D8F006CD60A /* Focus Square */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,7 +276,7 @@
 		1D441E2A20726EFE005E2ADD /* LanguageTranslationAR */ = {
 			isa = PBXGroup;
 			children = (
-				1D2D630A21BA717300F4FABD /* App Delegate */,
+				1D441E2B20726EFE005E2ADD /* AppDelegate.swift */,
 				1D441E3720726F01005E2ADD /* Info.plist */,
 				1D441E6C20726F22005E2ADD /* Models */,
 				1D2D630321BA6A9500F4FABD /* Controllers */,
@@ -571,7 +560,6 @@
 				1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */,
 				1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
-				1D2D630921BA716F00F4FABD /* AppDelegate+Views.swift in Sources */,
 				1D441E9920726F22005E2ADD /* PopUpDelegate.swift in Sources */,
 				1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */,
 				1D23B95920986BB700121E8F /* Translation.swift in Sources */,

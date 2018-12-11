@@ -9,7 +9,8 @@
 import UIKit
 import FunctionalTableData
 
-class HistoryController: UITableViewController {
+class HistoryController: UITableViewController, ItemsDelegate {
+    
     internal let functionalData = FunctionalTableData()
     internal var items: [Translation] = [] {
         didSet {
@@ -21,13 +22,9 @@ class HistoryController: UITableViewController {
         super.viewDidLoad()
         setupView()
         setupNavigationBar()
+        TranslationItems.shared.delegate = self
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        items = TranslationItems.sharedInstance.array
-    }
-    
+        
     private func setupView() {
         view.backgroundColor = .black
         functionalData.tableView = tableView
@@ -44,9 +41,7 @@ class HistoryController: UITableViewController {
         items.append(translation)        
     }
     
-    private func render() {
-        //let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, highlight: true, accessoryType: .none, selectionColor: .gray, backgroundColor: .black)
-        
+    private func render() {        
         let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, highlight: false, accessoryType: .none, selectionColor: .gray, backgroundColor: .black, backgroundView: nil, tintColor: nil)
         
         let rows: [CellConfigType] = items.enumerated().map { index, item in
@@ -70,6 +65,9 @@ class HistoryController: UITableViewController {
             TableSection(key: "section", rows: rows)
             ])
     }
-
+    
+    func newItemAdded() {
+        items = TranslationItems.shared.array
+    }
 }
 

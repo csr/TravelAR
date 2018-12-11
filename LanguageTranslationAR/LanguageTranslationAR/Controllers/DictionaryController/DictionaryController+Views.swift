@@ -10,6 +10,9 @@ import UIKit
 
 @available(iOS 11.0, *)
 extension DictionaryController {
+    
+    // Add a Clear navigation right item
+    
 	internal func setupViews() {
         view.backgroundColor = .black
 		setupSceneView()
@@ -23,7 +26,7 @@ extension DictionaryController {
         addButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
         addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
     }
     

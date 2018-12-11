@@ -21,7 +21,7 @@ extension DictionaryController {
                     if let translation = translation {
                         self.addNode(title: latestPrediction, subtitle: translation.translatedText, coords: coords)
                         self.handleIncomingTranslation(translation: translation)
-                        TranslationItems.sharedInstance.array.append(translation)
+                        TranslationItems.shared.array.append(translation)
                     }
                 }
             }

@@ -8,7 +8,17 @@
 
 import Foundation
 
+protocol ItemsDelegate {
+    func newItemAdded()
+}
+
 class TranslationItems {
-    static let sharedInstance = TranslationItems()
-    var array = [Translation]()
+    var delegate: ItemsDelegate?
+    
+    static let shared = TranslationItems()
+    var array = [Translation]() {
+        didSet {
+            delegate?.newItemAdded()
+        }
+    }
 }

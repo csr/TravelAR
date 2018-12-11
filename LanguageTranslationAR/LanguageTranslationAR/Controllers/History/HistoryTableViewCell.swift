@@ -8,7 +8,7 @@
 
 import UIKit
 import FunctionalTableData
-import FlagKit
+import Flags
 
 public typealias HistoryTableViewCell = HostCell<HistoryView, HistoryState, LayoutMarginsTableItemLayout>
 
@@ -47,7 +47,7 @@ public class HistoryView: UIView {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.textColor = .white
         textLabel.text = "Test"
-        textLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        textLabel.font = UIFont.preferredFont(forTextStyle: .title2)
         return textLabel
     }()
     
@@ -56,7 +56,7 @@ public class HistoryView: UIView {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.textColor = .white
         textLabel.text = "Test"
-        textLabel.font = UIFont.preferredFont(forTextStyle: .callout)
+        textLabel.font = UIFont.preferredFont(forTextStyle: .body)
         return textLabel
     }()
 
@@ -84,7 +84,7 @@ public class HistoryView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        stackView.spacing = 15
+        stackView.spacing = 20
         
         imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
@@ -96,7 +96,7 @@ public class HistoryView: UIView {
     private func setupLabelsStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = 5
         textLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         stackView.addArrangedSubview(textLabel)
         stackView.addArrangedSubview(detailTextLabel)
@@ -107,11 +107,22 @@ public class HistoryView: UIView {
     
     func setFlag(for countryCode: String?) {
         guard let countryCode = countryCode?.uppercased(), let flag = Flag(countryCode: countryCode) else { return }
-        let styledImage = flag.image(style: .circle)
-        imageView.image = styledImage
+        imageView.image = flag.image(size: CGSize(width: 50, height: 50), color: .black)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+public extension Flag {
+    public func image(size: CGSize, color: UIColor = UIColor.white) -> UIImage? {
+        defer { UIGraphicsEndImageContext() }
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.set()
+        let rect = CGRect(origin: .zero, size: size)
+        UIRectFill(CGRect(origin: .zero, size: size))
+        emoji.draw(in: rect, withAttributes: [.font: UIFont.systemFont(ofSize: size.height)])
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }

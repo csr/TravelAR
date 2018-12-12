@@ -52,6 +52,9 @@ class HistoryController: UITableViewController, ItemsDelegate {
                 key: item.key,
                 style: cellStyle,
                 actions: CellActions(rowActions: [UITableViewRowAction(style: .destructive, title: "Delete", handler: ({ (rowAction, indexPath) in
+                    let impact = UIImpactFeedbackGenerator()
+                    impact.impactOccurred()
+
                     self.items.remove(at: indexPath.row)
                 }))]),
                 state: HistoryState(translationItem: item),

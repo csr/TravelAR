@@ -7,57 +7,23 @@
 //
 
 import UIKit
-import FunctionalTableData
-import Eureka
 
-class SettingsController: FormViewController {
+class SettingsController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .clear
         view.backgroundColor = .black
-        navigationController?.navigationBar.prefersLargeTitles = true
-        setupForm()
+        tableView.tableFooterView = UIView()
     }
     
-    private func setupForm() {
-        form +++
-            Section()
-        <<< PushRow<String>() {
-            $0.title = "Translate to"
-            $0.options = ["Spanish", "Italian", "Norwegian", "English"]
-            $0.value = "Spanish"
-            $0.selectorTitle = "Translate to"
-            $0.cell.backgroundColor = .black
-            }
-            .onPresent { from, to in
-                to.selectableRowSetup = { row in
-                    row.cellProvider = CellProvider<ListCheckCell<String>>(nibName: "SettingsCell", bundle: Bundle.main)
-                }
-                to.selectableRowCellUpdate = { cell, row in
-                    
-                    
-                    
-                    var detailText: String?
-//                    switch row.selectableValue {
-//                    case 💁🏻, 👦🏼: detailText = "Person"
-//                    case 🐗, 🐼, 🐻: detailText = "Animal"
-//                    case 🍐: detailText = "Food"
-//                    default: detailText = ""
-//                    }
-                    cell.detailTextLabel?.text = detailText
-                }
-            }.cellUpdate({ (cell, row) in
-                cell.textLabel?.textColor = .white
-                cell.backgroundColor = .black
-                //https://github.com/xmartlabs/Eureka/issues/537
-            }).onPresent({ (_, presentingVC) in
-                presentingVC.view.backgroundColor = .black
-                presentingVC.selectableRowCellUpdate = { cell, row in
-                    cell.contentView.backgroundColor = .black
-                    cell.textLabel?.textColor = .white
-                }
-            })
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let languagesController = LanguagesTableViewController()
+        navigationController?.pushViewController(languagesController, animated: true)
+    }    
 }
-
-class SettingsCell: ListCheckCell<String> {}

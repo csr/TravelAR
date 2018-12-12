@@ -13,8 +13,10 @@ class LanguagesTableViewController: UITableViewController {
     let activityIndicatorView = UIActivityIndicatorView()
     var tableViewSource = [Character: [Language]]()
     var tableViewHeaders = [Character]()
+    
+    var didUpdateLanguageDelegate: DidUpdateLanguage?
+    
     var selectedIndexPath: IndexPath? {
-        
         didSet {
             // Save language
             guard let index = selectedIndexPath else { return }
@@ -31,7 +33,13 @@ class LanguagesTableViewController: UITableViewController {
     let cellId = "reuseIdentifier"
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Deselect cell at previous index path
+        if let previousIndexPath = selectedIndexPath {
+            tableView.cellForRow(at: previousIndexPath)?.accessoryType = .none
+        }
+        
         selectedIndexPath = indexPath
+        //selectedCell?.accessoryType = .none
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .checkmark
         }
@@ -40,7 +48,7 @@ class LanguagesTableViewController: UITableViewController {
         selection.selectionChanged()
         
         tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadData()
+        //tableView.reloadData()
     }
     
     func createTableData(languagesList: [Language]) -> (firstSymbols: [Character], source: [Character : [Language]]) {

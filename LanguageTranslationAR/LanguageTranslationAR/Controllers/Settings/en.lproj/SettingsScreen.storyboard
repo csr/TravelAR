@@ -20,7 +20,7 @@
                         <sections>
                             <tableViewSection id="uRu-ra-Fvj">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="y6G-Fp-RbJ" detailTextLabel="JIV-Ni-vSb" imageView="yEo-lu-RlI" rowHeight="56" style="IBUITableViewCellStyleValue1" id="RGL-IH-uge">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellId" textLabel="y6G-Fp-RbJ" detailTextLabel="JIV-Ni-vSb" imageView="yEo-lu-RlI" rowHeight="56" style="IBUITableViewCellStyleValue1" id="RGL-IH-uge" customClass="SettingCell" customModule="LanguageTranslationAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RGL-IH-uge" id="YRU-WD-akC">

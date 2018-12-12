@@ -66,6 +66,7 @@
 		1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE6F2E21BB1363006D3830 /* SettingsController.swift */; };
 		1DEE705D21BEB21B006D3830 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */; };
 		1DEE705E21BEB21B006D3830 /* FunctionalTableData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1DF2BCE321C14AD800D5E29B /* CustomLanguagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCE221C14AD800D5E29B /* CustomLanguagesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -145,6 +146,7 @@
 		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
 		1DEE6F2E21BB1363006D3830 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalTableData.framework; path = Carthage/Build/iOS/FunctionalTableData.framework; sourceTree = "<group>"; };
+		1DF2BCE221C14AD800D5E29B /* CustomLanguagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLanguagesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				1DEE6F2E21BB1363006D3830 /* SettingsController.swift */,
+				1DF2BCE221C14AD800D5E29B /* CustomLanguagesController.swift */,
 				1D56276821C0E17E00979C1A /* SettingsCell.xib */,
 			);
 			path = Settings;
@@ -540,6 +543,7 @@
 				1D441E9720726F22005E2ADD /* DictionaryController+Views.swift in Sources */,
 				1D441E9220726F22005E2ADD /* DictionaryController+Actions.swift in Sources */,
 				1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */,
+				1DF2BCE321C14AD800D5E29B /* CustomLanguagesController.swift in Sources */,
 				1D441EA720726F22005E2ADD /* HistoryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

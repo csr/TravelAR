@@ -34,6 +34,9 @@ class SettingsController: FormViewController {
                     row.cellProvider = CellProvider<ListCheckCell<String>>(nibName: "SettingsCell", bundle: Bundle.main)
                 }
                 to.selectableRowCellUpdate = { cell, row in
+                    
+                    
+                    
                     var detailText: String?
 //                    switch row.selectableValue {
 //                    case 💁🏻, 👦🏼: detailText = "Person"
@@ -47,7 +50,12 @@ class SettingsController: FormViewController {
                 cell.textLabel?.textColor = .white
                 cell.backgroundColor = .black
                 //https://github.com/xmartlabs/Eureka/issues/537
-                //implement your own 
+            }).onPresent({ (_, presentingVC) in
+                presentingVC.view.backgroundColor = .black
+                presentingVC.selectableRowCellUpdate = { cell, row in
+                    cell.contentView.backgroundColor = .black
+                    cell.textLabel?.textColor = .white
+                }
             })
     }
 }

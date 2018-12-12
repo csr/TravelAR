@@ -9,12 +9,14 @@
 import Foundation
 
 public struct Translation: Codable, Equatable {
+    var key: String
     var originalText: String?
     var targetLanguage: String?
     var translatedText: String
     var sourceLanguage: String
     
     init(originalText: String? = nil, targetLanguage: String? = nil, translatedText: String, sourceLanguage: String) {
+        self.key = NSUUID().uuidString
         self.originalText = originalText
         self.targetLanguage = targetLanguage
         self.translatedText = translatedText
@@ -22,6 +24,7 @@ public struct Translation: Codable, Equatable {
     }
     
     private enum CodingKeys: String, CodingKey {
+        case key
         case translatedText
         case sourceLanguage = "detectedSourceLanguage"
     }

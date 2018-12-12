@@ -29,6 +29,7 @@ class GoogleTranslateAPI {
                     var transl = translation
                     transl.targetLanguage = targetLanguage
                     transl.originalText = text
+//                    transl.key = NSUUID().uuidString // random string
                     completion(transl)
                 } else {
                     print("Error while decoding translation data")

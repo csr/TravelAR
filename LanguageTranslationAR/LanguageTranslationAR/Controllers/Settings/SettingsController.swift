@@ -19,14 +19,22 @@ class SettingCell: UITableViewCell {
 class SettingsController: UITableViewController, DidUpdateLanguage {
 
     var chosenLanguage: String?
+    var languages: [Language] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         didUpdateLanguage()
+        getLanguages()
         tableView.backgroundColor = .clear
         view.backgroundColor = .black
         tableView.tableFooterView = UIView()
-//        tableView.register(SettingCell.self, forCellReuseIdentifier: "cellId")
+    }
+    
+    func getLanguages() {
+        let languageCode = LanguagePreferences.getLocaleLanguageCode()
+        GoogleTranslateAPI.getLanguages(targetLanguage: languageCode) { (languages) in
+            self.languages = languages
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,17 +42,10 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath
-//        cell.backgroundColor = .black
-//        cell.textLabel?.textColor = .white
-//        cell.detailTextLabel?.text = chosenLanguage
-//        return cell
-//    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let languagesController = LanguagesTableViewController()
         languagesController.didUpdateLanguageDelegate = self
+        languagesController.getTableData(languages: languages)
         navigationController?.pushViewController(languagesController, animated: true)
     }
     

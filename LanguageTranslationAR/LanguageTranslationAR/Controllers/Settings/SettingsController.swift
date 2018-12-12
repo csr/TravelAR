@@ -45,6 +45,9 @@ class SettingsController: FormViewController {
                 }
             }.cellUpdate({ (cell, row) in
                 cell.textLabel?.textColor = .white
+                cell.backgroundColor = .black
+                //https://github.com/xmartlabs/Eureka/issues/537
+                //implement your own 
             })
     }
 }

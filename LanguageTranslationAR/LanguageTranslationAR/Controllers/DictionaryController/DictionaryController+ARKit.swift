@@ -29,7 +29,7 @@ extension DictionaryController: ARSCNViewDelegate {
             case .normal = camera.trackingState,
             let result = self.augmentedRealityView.smartHitTest(screenCenter) {
             updateQueue.async {
-                if self.canDisplayFocusSquare{
+                if self.canDisplayFocusSquare {
                     self.augmentedRealityView.scene.rootNode.addChildNode(self.focusSquare)
                     self.focusSquare.state = .detecting(hitTestResult: result, camera: camera)
                 }
@@ -37,7 +37,7 @@ extension DictionaryController: ARSCNViewDelegate {
             
         } else {
             updateQueue.async {
-                if self.canDisplayFocusSquare{
+                if self.canDisplayFocusSquare {
                     self.focusSquare.state = .initializing
                     self.augmentedRealityView.pointOfView?.addChildNode(self.focusSquare)
                 }
@@ -60,7 +60,6 @@ extension DictionaryController: ARSCNViewDelegate {
 		let node : SCNNode = self.createWordText(title: title, subtitle: subtitle)
 		self.augmentedRealityView.scene.rootNode.addChildNode(node)
 		node.position = coords        
-//        cameraOverlayView.isHidden = false
 	}
         
     internal func createWordText(title: String, subtitle: String?) -> SCNNode {

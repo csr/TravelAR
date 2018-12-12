@@ -41,12 +41,7 @@ extension DictionaryController {
             didTapSceneView(coords: coords)
         }
     }
-    
-    func didTapButton(selector: Selector) {
-        playWavSound(soundName: SoundNames.popReverse.rawValue)
-        performSelector(onMainThread: selector, with: nil, waitUntilDone: true)
-    }
-    
+        
     @objc internal func didTapClearScene() {
         playWavSound(soundName: SoundNames.click.rawValue)
         augmentedRealityView.scene.rootNode.enumerateChildNodes { (node, stop) in

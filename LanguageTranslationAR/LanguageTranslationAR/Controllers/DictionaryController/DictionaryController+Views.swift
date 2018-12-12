@@ -16,8 +16,6 @@ extension DictionaryController {
 	internal func setupViews() {
         view.backgroundColor = .black
 		setupSceneView()
-        setupPopView()
-        setupSuggestionView()
         setupAddButton()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "NAV_BAR_CLEAR".localized(), style: .plain, target: self, action: #selector(didTapClearScene))
     }
@@ -29,23 +27,6 @@ extension DictionaryController {
         addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
-    }
-    
-    internal func setupSuggestionView() {
-//        view.addSubview(suggestionView)
-//
-//        let
-//        sharedConstraints.append(contentsOf: [suggestionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//                                              suggestionView.heightAnchor.constraint(equalToConstant: 55)])
-//        regularConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
-//        compactConstraints.append(contentsOf: [suggestionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)])
-    }
-        
-    private func setupPopView() {
-        view.addSubview(popUpView)
-//        sharedConstraints.append(contentsOf: [popUpView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//                                              popUpView.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
-//        popUpView.layer.zPosition = 500
     }
     
 	private func setupSceneView() {

@@ -26,9 +26,7 @@ class TabBarController: UITabBarController {
             return navController
         }
         
-        viewControllers = navControllers
-        
+        viewControllers = navControllers        
         tabBar.barTintColor = .black
-        tabBar.tintColor = .white
     }
 }

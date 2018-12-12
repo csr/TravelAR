@@ -13,7 +13,7 @@ import ARKit
 import AVFoundation
 
 @available(iOS 11.0, *) 
-public class DictionaryController: UIViewController, PopUpDelegate {
+public class DictionaryController: UIViewController {
 
     internal var items: [Translation] = []
     
@@ -56,28 +56,9 @@ public class DictionaryController: UIViewController, PopUpDelegate {
         didSet {
             if identifier == oldValue {
                 return
-            }
-            suggestionView.suggestion = mlPrediction ?? ""
-            
-            if mlPrediction != nil {
-                playWavSound(soundName: SoundNames.pop.rawValue)
-            } else {
-                playWavSound(soundName: SoundNames.popReverse.rawValue)
-            }
+            }            
         }
     }
-    
-    //--------------------
-    //MARK: - UI
-    //--------------------
-    
-    let suggestionView = SuggestionView()
-	
-    lazy var popUpView: PopUpView = {
-        let view = PopUpView()
-        view.delegate = self
-        return view
-    }()
     
     let addButton: UIButton = {
         let button = UIButton()

@@ -16,8 +16,7 @@ class TabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
-        guard let settingsController = UIStoryboard(name: "SettingsScreen", bundle: .main).instantiateViewController(withIdentifier: "Settings") as? SettingsController else { return }
-        let vc = [DictionaryController(), HistoryController(), settingsController]
+        let vc = [DictionaryController(), HistoryController(), SettingsController()]
 
         let navControllers = ApplicationTab.allCases.enumerated().map { (index, tab) -> UINavigationController in
             let viewController = vc[index]

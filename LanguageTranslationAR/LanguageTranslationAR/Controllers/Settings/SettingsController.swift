@@ -7,27 +7,35 @@
 //
 
 import UIKit
+import FunctionalTableData
 
 protocol DidUpdateLanguage {
     func didUpdateLanguage()
 }
 
-class SettingCell: UITableViewCell {
-    
-}
-
 class SettingsController: UITableViewController, DidUpdateLanguage {
-
+    
+    private let functionalData = FunctionalTableData()
+    private var items: [String] = [] {
+        didSet {
+            render()
+        }
+    }
+    
     var chosenLanguage: String?
     var languages: [Language] = []
-    
+    var myDictionary: [Int: [String: String]]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        items.append("Translate to")
+        
         didUpdateLanguage()
         getLanguages()
         tableView.backgroundColor = .clear
         view.backgroundColor = .black
         tableView.tableFooterView = UIView()
+        functionalData.tableView = tableView
     }
     
     func getLanguages() {
@@ -53,5 +61,27 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         let language = LanguagePreferences.getCurrentLanguage()
         chosenLanguage = language.name
         tableView.reloadData()
+    }
+    
+    private func render() {
+        let rows: [CellConfigType] = items.enumerated().map { index, item in
+            return LabelCell(
+                key: "id-\(index)",
+                actions: CellActions(
+                    selectionAction: { _ in
+                        print("\(item) selected")
+                        return .selected
+                },
+                    deselectionAction: { _ in
+                        print("\(item) deselected")
+                        return .deselected
+                }),
+                state: LabelState(text: item),
+                cellUpdater: LabelState.updateView)
+        }
+        
+        functionalData.renderAndDiff([
+            TableSection(key: "section", rows: rows)
+            ])
     }
 }

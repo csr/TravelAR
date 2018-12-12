@@ -65,8 +65,8 @@
 		1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE6F2E21BB1363006D3830 /* SettingsController.swift */; };
 		1DEE705D21BEB21B006D3830 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */; };
 		1DEE705E21BEB21B006D3830 /* FunctionalTableData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1DF2BCE621C17F9000D5E29B /* SettingsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DF2BCE821C17F9000D5E29B /* SettingsScreen.storyboard */; };
 		1DF2BCF021C1A7DC00D5E29B /* LanguagesTableView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCEF21C1A7DC00D5E29B /* LanguagesTableView+TableView.swift */; };
+		1DF2BCF221C1AA1C00D5E29B /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -145,9 +145,8 @@
 		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
 		1DEE6F2E21BB1363006D3830 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalTableData.framework; path = Carthage/Build/iOS/FunctionalTableData.framework; sourceTree = "<group>"; };
-		1DF2BCE721C17F9000D5E29B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/SettingsScreen.storyboard; sourceTree = "<group>"; };
-		1DF2BCEE21C180E500D5E29B /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/SettingsScreen.strings; sourceTree = "<group>"; };
 		1DF2BCEF21C1A7DC00D5E29B /* LanguagesTableView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesTableView+TableView.swift"; sourceTree = "<group>"; };
+		1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,7 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				1DEE6F2E21BB1363006D3830 /* SettingsController.swift */,
-				1DF2BCE821C17F9000D5E29B /* SettingsScreen.storyboard */,
+				1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -457,7 +456,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D441E8B20726F22005E2ADD /* pop_drip-reverse.wav in Resources */,
-				1DF2BCE621C17F9000D5E29B /* SettingsScreen.storyboard in Resources */,
 				1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */,
 				1D441E8C20726F22005E2ADD /* pop_drip.wav in Resources */,
 				1D441E8920726F22005E2ADD /* ms.json in Resources */,
@@ -519,6 +517,7 @@
 				1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
 				1D23B95B20986D1100121E8F /* DictionaryController+API.swift in Sources */,
+				1DF2BCF221C1AA1C00D5E29B /* SettingsCell.swift in Sources */,
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
 				1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */,
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
@@ -568,15 +567,6 @@
 				1D23B97520990AA200121E8F /* it */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1DF2BCE821C17F9000D5E29B /* SettingsScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DF2BCE721C17F9000D5E29B /* en */,
-				1DF2BCEE21C180E500D5E29B /* it */,
-			);
-			name = SettingsScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -20,6 +20,8 @@ extension LanguagesTableViewController {
             cell.accessoryType = .checkmark
         }
         
+        didUpdateLanguageDelegate?.didUpdateLanguage()
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

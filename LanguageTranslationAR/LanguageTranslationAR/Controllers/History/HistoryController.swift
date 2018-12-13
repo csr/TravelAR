@@ -45,6 +45,12 @@ class HistoryController: UITableViewController, ItemsDelegate {
         selection.selectionChanged()
     }
     
+    private func didTapDeleteOnRow(indexPath: IndexPath) {
+        let impact = UIImpactFeedbackGenerator()
+        impact.impactOccurred()
+        self.items.remove(at: indexPath.row)
+    }
+    
     private func render() {        
         let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, backgroundColor: .black)
         let rows: [CellConfigType] = items.enumerated().map { index, item in
@@ -52,10 +58,7 @@ class HistoryController: UITableViewController, ItemsDelegate {
                 key: item.key,
                 style: cellStyle,
                 actions: CellActions(rowActions: [UITableViewRowAction(style: .destructive, title: "Delete", handler: ({ (rowAction, indexPath) in
-                    let impact = UIImpactFeedbackGenerator()
-                    impact.impactOccurred()
-
-                    self.items.remove(at: indexPath.row)
+                    self.didTapDeleteOnRow(indexPath: indexPath)
                 }))]),
                 state: HistoryState(translationItem: item),
                 cellUpdater: HistoryState.updateView)

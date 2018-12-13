@@ -13,23 +13,17 @@ public typealias LabelCell = HostCell<SettingsView, LabelState, LayoutMarginsTab
 
 /// A very simple state for a `UILabel` allowing a quick configuration of its text, font, and color values.
 public struct LabelState: Equatable {
-    public let text: String
+    public let descriptionText: String
     public let detailText: String
     
-    public init(dict: [String : String]?, font: UIFont = UIFont.systemFont(ofSize: 17), color: UIColor = .black) {
-        if let dict = dict, let text = dict["text"] {
-            self.text = text
-        } else {
-            self.text = "nil"
-        }
-        
-        
-        if let dict = dict, let detailText = dict["detailText"] {
-            self.detailText = detailText
-        } else {
+    public init(dict: [String : String]?) {
+        guard let dict = dict else {
+            self.descriptionText = "nil"
             self.detailText = "Select"
+            return
         }
-        
+        self.descriptionText = dict["text"] ?? "nil"
+        self.detailText = dict["detailText"] ?? "Select"
     }
     
     /// Update the view with the contents of the state.
@@ -41,13 +35,12 @@ public struct LabelState: Equatable {
         guard let state = state else {
             return
         }
-        
+        view.textLabel.text = state.descriptionText
         view.detailTextLabel.text = state.detailText
-        view.textLabel.text = state.text
     }
     
     public static func ==(lhs: LabelState, rhs: LabelState) -> Bool {
-        return lhs.text == rhs.text
+        return lhs.descriptionText == rhs.descriptionText && lhs.detailText == rhs.detailText
     }
 }
 

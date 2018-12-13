@@ -17,7 +17,6 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     
     private let functionalData = FunctionalTableData()
     
-    var chosenLanguage: String?
     var languages: [Language] = []
     
     var items: [Int: [String: String]] = [:] {
@@ -28,7 +27,8 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupForm()
+        functionalData.tableView = tableView
+        updateForm()
         didUpdateLanguage()
         getLanguages()
         tableView.backgroundColor = .clear
@@ -36,12 +36,11 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         tableView.tableFooterView = UIView()
     }
     
-    private func setupForm() {
+    private func updateForm() {
         let currentLanguage = LanguagePreferences.getCurrentLanguage()
         items[0] = ["text": "SETTINGS_TRANSLATE_TO".localized(),
                     "detailText": currentLanguage.name]
-
-        functionalData.tableView = tableView
+        render()
     }
     
     func getLanguages() {
@@ -54,9 +53,10 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        updateForm()
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    private func didSelectTranslationLanguage() {
         let languagesController = LanguagesTableViewController()
         languagesController.didUpdateLanguageDelegate = self
         languagesController.getTableData(languages: languages)
@@ -64,27 +64,23 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     }
     
     func didUpdateLanguage() {
-        let language = LanguagePreferences.getCurrentLanguage()
-        chosenLanguage = language.name
-        tableView.reloadData()
+        updateForm()
     }
     
     private func render() {
-        let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, backgroundColor: .black)
+        let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, highlight: true, accessoryType: .disclosureIndicator, selectionColor: #colorLiteral(red: 0.2941176471, green: 0.2980392157, blue: 0.3019607843, alpha: 1), backgroundColor: .black, backgroundView: nil, tintColor: nil, layoutMargins: nil, cornerRadius: 0)
         
         let rows: [CellConfigType] = items.enumerated().map { index, item in
             let dict = items[index]
-            
             return LabelCell(
-                key: "id-\(index)",
+                key: "id-\(item.key)",
                 style: cellStyle,
                 actions: CellActions(
                     selectionAction: { _ in
-                        print("\(item) selected")
+                        self.didSelectTranslationLanguage()
                         return .selected
                 },
                     deselectionAction: { _ in
-                        print("\(item) deselected")
                         return .deselected
                 }),
                 state: LabelState(dict: dict),

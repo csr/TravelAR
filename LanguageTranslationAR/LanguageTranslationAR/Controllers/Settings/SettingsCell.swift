@@ -14,13 +14,22 @@ public typealias LabelCell = HostCell<SettingsView, LabelState, LayoutMarginsTab
 /// A very simple state for a `UILabel` allowing a quick configuration of its text, font, and color values.
 public struct LabelState: Equatable {
     public let text: String
-    public let font: UIFont
-    public let color: UIColor
+    public let detailText: String
     
-    public init(text: String, font: UIFont = UIFont.systemFont(ofSize: 17), color: UIColor = .black) {
-        self.text = text
-        self.font = font
-        self.color = color
+    public init(dict: [String : String]?, font: UIFont = UIFont.systemFont(ofSize: 17), color: UIColor = .black) {
+        if let dict = dict, let text = dict["text"] {
+            self.text = text
+        } else {
+            self.text = "nil"
+        }
+        
+        
+        if let dict = dict, let detailText = dict["detailText"] {
+            self.detailText = detailText
+        } else {
+            self.detailText = "Select"
+        }
+        
     }
     
     /// Update the view with the contents of the state.
@@ -33,11 +42,12 @@ public struct LabelState: Equatable {
             return
         }
         
+        view.detailTextLabel.text = state.detailText
         view.textLabel.text = state.text
     }
     
     public static func ==(lhs: LabelState, rhs: LabelState) -> Bool {
-        return lhs.text == rhs.text && lhs.font == rhs.font && lhs.color == rhs.color
+        return lhs.text == rhs.text
     }
 }
 
@@ -45,16 +55,28 @@ public class SettingsView: UIView {
     
     let textLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.textColor = .white
         return label
     }()
+    
+    let detailTextLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.text = "Test"
+        label.textColor = .gray
+        return label
+    }()
+
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .red
-        
+        backgroundColor = .black
+
         let stackView = UIStackView()
         addSubview(stackView)
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
         stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -62,9 +84,10 @@ public class SettingsView: UIView {
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         stackView.addArrangedSubview(textLabel)
-        heightAnchor.constraint(equalToConstant: 56).isActive = true
+        stackView.addArrangedSubview(detailTextLabel)
+        heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

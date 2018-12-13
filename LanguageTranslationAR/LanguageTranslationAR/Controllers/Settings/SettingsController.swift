@@ -16,25 +16,31 @@ protocol DidUpdateLanguage {
 class SettingsController: UITableViewController, DidUpdateLanguage {
     
     private let functionalData = FunctionalTableData()
-    private var items: [String] = [] {
+    
+    var chosenLanguage: String?
+    var languages: [Language] = []
+    
+    var items: [Int: [String: String]] = [:] {
         didSet {
             render()
         }
     }
-    
-    var chosenLanguage: String?
-    var languages: [Language] = []
-    var myDictionary: [Int: [String: String]]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        items.append("Translate to")
-        
+        setupForm()
         didUpdateLanguage()
         getLanguages()
         tableView.backgroundColor = .clear
         view.backgroundColor = .black
         tableView.tableFooterView = UIView()
+    }
+    
+    private func setupForm() {
+        let currentLanguage = LanguagePreferences.getCurrentLanguage()
+        items[0] = ["text": "SETTINGS_TRANSLATE_TO".localized(),
+                    "detailText": currentLanguage.name]
+
         functionalData.tableView = tableView
     }
     
@@ -64,9 +70,14 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     }
     
     private func render() {
+        let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, backgroundColor: .black)
+        
         let rows: [CellConfigType] = items.enumerated().map { index, item in
+            let dict = items[index]
+            
             return LabelCell(
                 key: "id-\(index)",
+                style: cellStyle,
                 actions: CellActions(
                     selectionAction: { _ in
                         print("\(item) selected")
@@ -76,7 +87,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
                         print("\(item) deselected")
                         return .deselected
                 }),
-                state: LabelState(text: item),
+                state: LabelState(dict: dict),
                 cellUpdater: LabelState.updateView)
         }
         

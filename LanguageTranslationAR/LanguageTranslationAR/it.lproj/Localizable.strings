@@ -12,7 +12,7 @@
 "NAV_BAR_CLEAR" = "Pulisci";
 "SETTINGS_TRANSLATE_TO" = "Traduci in";
 "EMPTY_STATE_TITLE" = "Nessuna traduzione";
-"EMPTY_STATE_DESCRIPTION" = "Sembra che non ci siano traduzioni per il momento.";
+"EMPTY_STATE_DESCRIPTION" = "Scansiona un oggetto per iniziare.";
 
 
 "Translation Language" = "Lingua di Traduzione";

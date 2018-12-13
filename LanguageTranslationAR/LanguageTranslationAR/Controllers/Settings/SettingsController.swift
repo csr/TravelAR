@@ -61,6 +61,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         languagesController.didUpdateLanguageDelegate = self
         languagesController.getTableData(languages: languages)
         navigationController?.pushViewController(languagesController, animated: true)
+        
     }
     
     func didUpdateLanguage() {
@@ -68,7 +69,8 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     }
     
     private func render() {
-        let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, highlight: true, accessoryType: .disclosureIndicator, selectionColor: #colorLiteral(red: 0.2941176471, green: 0.2980392157, blue: 0.3019607843, alpha: 1), backgroundColor: .black, backgroundView: nil, tintColor: nil, layoutMargins: nil, cornerRadius: 0)
+        
+        let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, highlight: false, accessoryType: .disclosureIndicator, selectionColor: #colorLiteral(red: 0.2941176471, green: 0.2980392157, blue: 0.3019607843, alpha: 1), backgroundColor: .black, backgroundView: nil, tintColor: nil, layoutMargins: nil, cornerRadius: 0)
         
         let rows: [CellConfigType] = items.enumerated().map { index, item in
             let dict = items[index]
@@ -78,7 +80,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
                 actions: CellActions(
                     selectionAction: { _ in
                         self.didSelectTranslationLanguage()
-                        return .selected
+                        return .deselected
                 },
                     deselectionAction: { _ in
                         return .deselected

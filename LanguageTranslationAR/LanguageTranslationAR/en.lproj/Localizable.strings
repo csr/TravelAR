@@ -12,7 +12,7 @@
 "NAV_BAR_CLEAR" = "Clear";
 "SETTINGS_TRANSLATE_TO" = "Translate to";
 "EMPTY_STATE_TITLE" = "No translations yet";
-"EMPTY_STATE_DESCRIPTION" = "It seems there are no translations yet.";
+"EMPTY_STATE_DESCRIPTION" = "Translate an object to get started.";
 
 "Capture" = "Capture";
 "Scanning" = "Scanning...";

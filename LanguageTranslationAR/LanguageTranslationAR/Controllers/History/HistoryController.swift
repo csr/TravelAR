@@ -56,7 +56,16 @@ class HistoryController: UITableViewController, ItemsDelegate {
     
     private func didSelectCell(translation: Translation) {
         TextToSpeech.speak(item: translation)
-        render()
+        
+        // Deselect row
+        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+            
+            // Fixes bug in UIKit which causes separator line to hide for a second
+            // After deselection
+            self.tableView.separatorStyle = .none
+            self.tableView.separatorStyle = .singleLine
+        }
     }
     
     private func render() {

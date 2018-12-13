@@ -8,6 +8,7 @@
 
 import UIKit
 import FunctionalTableData
+import TBEmptyDataSet
 
 class HistoryController: UITableViewController, ItemsDelegate {
     
@@ -30,6 +31,9 @@ class HistoryController: UITableViewController, ItemsDelegate {
     private func setupView() {
         view.backgroundColor = .black
         functionalData.tableView = tableView
+    
+        tableView.emptyDataSetDataSource = self
+        tableView.emptyDataSetDelegate = self
     }
     
     private func setupNavigationBar() {
@@ -74,3 +78,22 @@ class HistoryController: UITableViewController, ItemsDelegate {
     }
 }
 
+extension HistoryController: TBEmptyDataSetDelegate, TBEmptyDataSetDataSource {
+    func titleForEmptyDataSet(in scrollView: UIScrollView) -> NSAttributedString? {
+        let attributedString = NSAttributedString(string: "EMPTY_STATE_TITLE".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        return attributedString
+    }
+    
+    func descriptionForEmptyDataSet(in scrollView: UIScrollView) -> NSAttributedString? {
+        let attributedString = NSAttributedString(string: "EMPTY_STATE_DESCRIPTION".localized(), attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        return attributedString
+    }
+    
+    func imageForEmptyDataSet(in scrollView: UIScrollView) -> UIImage? {
+        return #imageLiteral(resourceName: "empty-state-image")
+    }
+    
+    func verticalOffsetForEmptyDataSet(in scrollView: UIScrollView) -> CGFloat {
+        return -100
+    }
+}

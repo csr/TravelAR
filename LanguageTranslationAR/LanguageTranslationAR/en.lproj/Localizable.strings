@@ -11,6 +11,8 @@
 "TITLE_TAB_SETTINGS" = "Settings";
 "NAV_BAR_CLEAR" = "Clear";
 "SETTINGS_TRANSLATE_TO" = "Translate to";
+"EMPTY_STATE_TITLE" = "No translations yet";
+"EMPTY_STATE_DESCRIPTION" = "It seems there are no translations yet.";
 
 "Capture" = "Capture";
 "Scanning" = "Scanning...";

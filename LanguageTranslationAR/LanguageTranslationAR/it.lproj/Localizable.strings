@@ -11,6 +11,9 @@
 "TITLE_TAB_SETTINGS" = "Preferenze";
 "NAV_BAR_CLEAR" = "Pulisci";
 "SETTINGS_TRANSLATE_TO" = "Traduci in";
+"EMPTY_STATE_TITLE" = "Nessuna traduzione";
+"EMPTY_STATE_DESCRIPTION" = "Sembra che non ci siano traduzioni per il momento.";
+
 
 "Translation Language" = "Lingua di Traduzione";
 "Capture" = "Cattura";

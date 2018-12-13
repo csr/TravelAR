@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kbE-4i-otZ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Empty Data Demo Table View Controller-->
+        <scene sceneID="5qx-c9-kQh">
+            <objects>
+                <tableViewController id="Lch-ZU-4Kb" customClass="EmptyDataDemoTableViewController" customModule="TBEmptyDataSetExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qN0-9C-fAP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Lch-ZU-4Kb" id="7Ht-DJ-jpu"/>
+                            <outlet property="delegate" destination="Lch-ZU-4Kb" id="Ehn-JM-S7A"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ScQ-bM-CdO"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="p9X-og-oGO">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LQ9-uv-mnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2372" y="220"/>
+        </scene>
+        <!--Empty Data Demo Collection View Controller-->
+        <scene sceneID="OLg-ZA-g8n">
+            <objects>
+                <collectionViewController id="FIk-rG-V0x" customClass="EmptyDataDemoCollectionViewController" customModule="TBEmptyDataSetExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="WoI-bx-7tf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AN4-8s-pSk">
+                            <size key="itemSize" width="160" height="118"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="hIW-pB-eH7">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="118"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click to delete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEj-6c-73Q">
+                                            <rect key="frame" x="25.5" y="48" width="109.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" red="0.86611149850000002" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="BEj-6c-73Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hIW-pB-eH7" secondAttribute="leading" id="JOd-4d-wJP"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BEj-6c-73Q" secondAttribute="trailing" id="dv6-Kt-w7I"/>
+                                    <constraint firstItem="BEj-6c-73Q" firstAttribute="centerY" secondItem="hIW-pB-eH7" secondAttribute="centerY" id="qrx-KL-dJl"/>
+                                    <constraint firstItem="BEj-6c-73Q" firstAttribute="centerX" secondItem="hIW-pB-eH7" secondAttribute="centerX" id="uh9-Xc-Hvo"/>
+                                </constraints>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="FIk-rG-V0x" id="Ie5-4i-wFd"/>
+                            <outlet property="delegate" destination="FIk-rG-V0x" id="p57-cM-0vu"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CUf-YB-2wt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2372" y="969"/>
+        </scene>
+        <!--Demo View Controller-->
+        <scene sceneID="KuL-DV-c3x">
+            <objects>
+                <tableViewController id="0UU-b8-JN0" customClass="DemoViewController" customModule="TBEmptyDataSetExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6n3-iw-5uM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="0UU-b8-JN0" id="kMW-9Q-Sq7"/>
+                            <outlet property="delegate" destination="0UU-b8-JN0" id="QxC-zl-gDt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="XiQ-GK-l0D"/>
+                    <connections>
+                        <segue destination="Lch-ZU-4Kb" kind="show" identifier="ShowEmptyDataDemoTableView" id="roH-Lu-khf"/>
+                        <segue destination="FIk-rG-V0x" kind="show" identifier="ShowEmptyDataDemoCollectionView" id="pHA-i3-d8D"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4v7-ty-bFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533" y="562"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Dg0-w9-0qB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kbE-4i-otZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aL2-C2-A5C">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0UU-b8-JN0" kind="relationship" relationship="rootViewController" id="FIc-3B-1LF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tDd-z5-ifx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721" y="562"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,4 @@
+framework module TBEmptyDataSet {
+  header "TBEmptyDataSet-Swift.h"
+  requires objc
+}

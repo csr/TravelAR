@@ -11,7 +11,6 @@ import FunctionalTableData
 import TBEmptyDataSet
 
 class HistoryController: UITableViewController, ItemsDelegate {
-    
     internal let functionalData = FunctionalTableData()
     
     internal var items: [Translation] = [] {
@@ -115,5 +114,4 @@ extension HistoryController: TBEmptyDataSetDelegate, TBEmptyDataSetDataSource {
     func verticalOffsetForEmptyDataSet(in scrollView: UIScrollView) -> CGFloat {
         return -100
     }
-
 }

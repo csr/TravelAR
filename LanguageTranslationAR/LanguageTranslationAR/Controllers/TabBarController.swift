@@ -28,5 +28,6 @@ class TabBarController: UITabBarController {
         
         viewControllers = navControllers        
         tabBar.barTintColor = .black
+        tabBar.isTranslucent = false
     }
 }

@@ -55,15 +55,34 @@ class HistoryController: UITableViewController, ItemsDelegate {
         self.items.remove(at: indexPath.row)
     }
     
-    private func render() {        
-        let cellStyle = CellStyle(bottomSeparator: .inset, separatorColor: .gray, backgroundColor: .black)
+    private func didSelectCell(translation: Translation) {
+        TextToSpeech.speak(item: translation)
+        render()
+    }
+    
+    private func render() {
+        let deleteRowAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: ({ (rowAction, indexPath) in
+            self.didTapDeleteOnRow(indexPath: indexPath)
+        }))
+        
+        let cellStyle = CellStyle(bottomSeparator: .inset,
+                                  separatorColor: .gray,
+                                  highlight: true,
+                                  selectionColor: UIColor(named: "selectedCell"),
+                                  backgroundColor: .black)
+        
         let rows: [CellConfigType] = items.enumerated().map { index, item in
             return HistoryCell(
                 key: item.key,
                 style: cellStyle,
-                actions: CellActions(rowActions: [UITableViewRowAction(style: .destructive, title: "Delete", handler: ({ (rowAction, indexPath) in
-                    self.didTapDeleteOnRow(indexPath: indexPath)
-                }))]),
+                actions: CellActions(
+                    selectionAction: { _ in
+                        self.didSelectCell(translation: item)
+                        return .selected
+                },
+                    deselectionAction: { _ in
+                        return .deselected
+                }, rowActions: [deleteRowAction]),
                 state: HistoryState(translationItem: item),
                 cellUpdater: HistoryState.updateView)
         }
@@ -90,10 +109,11 @@ extension HistoryController: TBEmptyDataSetDelegate, TBEmptyDataSetDataSource {
     }
     
     func imageForEmptyDataSet(in scrollView: UIScrollView) -> UIImage? {
-        return #imageLiteral(resourceName: "empty-state-image")
+        return #imageLiteral(resourceName: "empty-state-view")
     }
     
     func verticalOffsetForEmptyDataSet(in scrollView: UIScrollView) -> CGFloat {
         return -100
     }
+
 }

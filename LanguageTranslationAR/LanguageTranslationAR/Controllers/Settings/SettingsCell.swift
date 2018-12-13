@@ -61,11 +61,12 @@ public class SettingsView: UIView {
         return label
     }()
 
-
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
-
+        setupLabels()
+    }
+    
+    private func setupLabels() {
         let stackView = UIStackView()
         addSubview(stackView)
         stackView.axis = .horizontal

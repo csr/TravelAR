@@ -67,6 +67,7 @@
 		1DF2BCF021C1A7DC00D5E29B /* LanguagesTableView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCEF21C1A7DC00D5E29B /* LanguagesTableView+TableView.swift */; };
 		1DF2BCF221C1AA1C00D5E29B /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */; };
 		1DF2BCFB21C2A93600D5E29B /* TBEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF2BCFA21C2A93500D5E29B /* TBEmptyDataSet.framework */; };
+		1DF2BCFD21C2BC5300D5E29B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF2BCFC21C2BC5300D5E29B /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -147,6 +148,7 @@
 		1DF2BCEF21C1A7DC00D5E29B /* LanguagesTableView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesTableView+TableView.swift"; sourceTree = "<group>"; };
 		1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		1DF2BCFA21C2A93500D5E29B /* TBEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TBEmptyDataSet.framework; path = Carthage/Build/iOS/TBEmptyDataSet.framework; sourceTree = "<group>"; };
+		1DF2BCFC21C2BC5300D5E29B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 				1D23B96E2098FEDD00121E8F /* Localizable.strings */,
 				1D23B97420990AA000121E8F /* InfoPlist.strings */,
 				1D441E3220726F00005E2ADD /* Assets.xcassets */,
+				1DF2BCFC21C2BC5300D5E29B /* Colors.xcassets */,
 			);
 			path = LanguageTranslationAR;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF2BCFD21C2BC5300D5E29B /* Colors.xcassets in Resources */,
 				1D441E8B20726F22005E2ADD /* pop_drip-reverse.wav in Resources */,
 				1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */,
 				1D441E8C20726F22005E2ADD /* pop_drip.wav in Resources */,

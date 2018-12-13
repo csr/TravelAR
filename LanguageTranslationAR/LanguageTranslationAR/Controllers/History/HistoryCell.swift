@@ -98,7 +98,22 @@ public class HistoryView: UIView {
         stackView.axis = .vertical
         stackView.spacing = 5
         textLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
-        stackView.addArrangedSubview(textLabel)
+        
+        let topStackView = UIStackView()
+        topStackView.axis = .horizontal
+        topStackView.addArrangedSubview(textLabel)
+        let audioImageView = UIImageView()
+        audioImageView.translatesAutoresizingMaskIntoConstraints = false
+        audioImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        audioImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
+        audioImageView.image = UIImage(named: "sound")
+        topStackView.addArrangedSubview(audioImageView)
+        topStackView.spacing = 5
+        topStackView.distribution = .fill
+        topStackView.alignment = .center
+        
+        stackView.addArrangedSubview(topStackView)
+        
         stackView.addArrangedSubview(detailTextLabel)
         stackView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         stackView.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
@@ -107,7 +122,7 @@ public class HistoryView: UIView {
     
     func setFlag(for countryCode: String?) {
         guard let countryCode = countryCode?.uppercased(), let flag = Flag(countryCode: countryCode) else { return }
-        imageView.image = flag.image(size: CGSize(width: 50, height: 50), color: .black)
+        imageView.image = flag.image(size: CGSize(width: 50, height: 50), color: .clear)
     }
     
     required init?(coder aDecoder: NSCoder) {

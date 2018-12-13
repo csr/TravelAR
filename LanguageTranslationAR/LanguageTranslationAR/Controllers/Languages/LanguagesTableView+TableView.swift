@@ -56,10 +56,10 @@ extension LanguagesTableViewController {
         let language = values![indexPath.row]
         cell.textLabel?.text = language.name
         cell.textLabel?.textColor = .white
-        cell.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.09019607843, blue: 0.09411764706, alpha: 1)
+        cell.backgroundColor = UIColor(named: "cellBackground")
         
         let bgColorView = UIView()
-        bgColorView.backgroundColor = #colorLiteral(red: 0.2941176471, green: 0.2980392157, blue: 0.3019607843, alpha: 1)
+        bgColorView.backgroundColor = UIColor(named: "selectedCell")
         cell.selectedBackgroundView = bgColorView
         
         if indexPath == selectedIndexPath {

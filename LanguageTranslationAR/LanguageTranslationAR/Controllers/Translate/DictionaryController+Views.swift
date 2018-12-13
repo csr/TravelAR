@@ -26,7 +26,6 @@ extension DictionaryController {
         addButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
         addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-        addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
     }
     
 	private func setupSceneView() {

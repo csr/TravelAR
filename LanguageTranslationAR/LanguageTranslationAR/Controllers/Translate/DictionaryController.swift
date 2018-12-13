@@ -60,11 +60,10 @@ public class DictionaryController: UIViewController {
         }
     }
     
-    let addButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(#imageLiteral(resourceName: "add"), for: .normal)
-        return button
+    let addButton: AddButtonView = {
+        let view = AddButtonView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     public override func viewDidLoad() {

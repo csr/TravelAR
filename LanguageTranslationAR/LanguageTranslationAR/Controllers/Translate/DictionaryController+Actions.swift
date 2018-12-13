@@ -43,9 +43,10 @@ extension DictionaryController {
     }
         
     @objc internal func didTapClearScene() {
-        playWavSound(soundName: SoundNames.click.rawValue)
         augmentedRealityView.scene.rootNode.enumerateChildNodes { (node, stop) in
-            node.removeFromParentNode()
+            if node is FocusSquare {
+                node.removeFromParentNode()
+            }
         }
         
         let notification = UINotificationFeedbackGenerator()

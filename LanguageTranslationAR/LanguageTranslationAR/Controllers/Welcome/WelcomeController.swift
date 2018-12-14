@@ -26,9 +26,6 @@ class WelcomeController: UIViewController {
         stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40).isActive = true
         stackView.spacing = 50
         
-        let testView = UIView()
-        testView.backgroundColor = .red
-        
         let button = getBottomButton()
         button.addTarget(self, action: #selector(didSelectContinueButton), for: .touchUpInside)
         
@@ -40,7 +37,7 @@ class WelcomeController: UIViewController {
     private func getTopLabel() -> UILabel {
         let titleLabel = UILabel()
         titleLabel.textColor = .white
-        let attributedString = NSMutableAttributedString(string: "Welcome to TranslateAR")
+        let attributedString = NSMutableAttributedString(string: "WELCOME_TITLE".localized())
         attributedString.setColor(color: UIColor.orange, forText: "TranslateAR")
         titleLabel.attributedText = attributedString
         titleLabel.font = UIFont.boldSystemFont(ofSize: 33)
@@ -53,7 +50,7 @@ class WelcomeController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("WELCOME_BUTTON_TEXT".localized(), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 60).isActive = true
         button.backgroundColor = .orange
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 8
@@ -65,9 +62,9 @@ class WelcomeController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 15
         
-        let firstItem = getItemStackView(title: "WELCOME_FIRST_ITEM_TITLE".localized(), description: "WELCOME_FIRST_ITEM_DESCRIPTION".localized())
-        let secondItem = getItemStackView(title: "WELCOME_SECOND_ITEM_TITLE".localized(), description: "WELCOME_SECOND_ITEM_DESCRIPTION".localized())
-        let thirdItem = getItemStackView(title: "WELCOME_THIRD_ITEM_TITLE".localized(), description: "WELCOME_THIRD_ITEM_DESCRIPTION".localized())
+        let firstItem = getItemStackView(title: "WELCOME_FIRST_ITEM_TITLE".localized(), description: "WELCOME_FIRST_ITEM_DESCRIPTION".localized(), imageName: "welcome-first")
+        let secondItem = getItemStackView(title: "WELCOME_SECOND_ITEM_TITLE".localized(), description: "WELCOME_SECOND_ITEM_DESCRIPTION".localized(), imageName: "welcome-second")
+        let thirdItem = getItemStackView(title: "WELCOME_THIRD_ITEM_TITLE".localized(), description: "WELCOME_THIRD_ITEM_DESCRIPTION".localized(), imageName: "welcome-third")
         
         stackView.addArrangedSubview(firstItem)
         stackView.addArrangedSubview(secondItem)
@@ -77,7 +74,7 @@ class WelcomeController: UIViewController {
         return stackView
     }
     
-    private func getItemStackView(title: String, description: String) -> UIStackView {
+    private func getItemStackView(title: String, description: String, imageName: String) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fill
@@ -85,10 +82,12 @@ class WelcomeController: UIViewController {
         stackView.alignment = .center
         
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .orange
         
         let labelsStackView = UIStackView()
         labelsStackView.axis = .vertical
@@ -100,6 +99,7 @@ class WelcomeController: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         
         let descriptionLabel = UILabel()
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
         descriptionLabel.textColor = .white
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = description

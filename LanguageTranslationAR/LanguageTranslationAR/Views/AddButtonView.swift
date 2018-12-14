@@ -41,6 +41,7 @@ class AddButtonView: UIView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.animateTo(frame: CGRect(origin: self.frame.origin, size: innerView.frame.size), withDuration: 1)
+    
     }
     
 //    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

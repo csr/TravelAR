@@ -13,6 +13,7 @@
 "SETTINGS_TRANSLATE_TO" = "Translate to";
 "EMPTY_STATE_TITLE" = "No translations yet";
 "EMPTY_STATE_DESCRIPTION" = "Translate an object to get started.";
+"WELCOME_BUTTON_TEXT" = "Continue";
 
 "Capture" = "Capture";
 "Scanning" = "Scanning...";

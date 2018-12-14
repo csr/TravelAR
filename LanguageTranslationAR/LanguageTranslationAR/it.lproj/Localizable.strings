@@ -13,7 +13,7 @@
 "SETTINGS_TRANSLATE_TO" = "Traduci in";
 "EMPTY_STATE_TITLE" = "Nessuna traduzione";
 "EMPTY_STATE_DESCRIPTION" = "Scansiona un oggetto per iniziare.";
-
+"WELCOME_BUTTON_TEXT" = "Continua";
 
 "Translation Language" = "Lingua di Traduzione";
 "Capture" = "Cattura";

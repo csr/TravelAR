@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.tintColor = .orange
         window?.makeKeyAndVisible()
-        window?.rootViewController = WelcomeController() //TabBarController()
+        window?.rootViewController = TabBarController()
         UINavigationBar.appearance().barStyle = .black
     }
         

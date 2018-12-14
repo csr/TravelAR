@@ -70,5 +70,6 @@ public class DictionaryController: UIViewController {
 		super.viewDidLoad()
 		setupViews()
         checkCameraPermissions()
+        present(WelcomeController(), animated: true, completion: nil)
 	}
  }

@@ -14,6 +14,14 @@
 "EMPTY_STATE_TITLE" = "No translations yet";
 "EMPTY_STATE_DESCRIPTION" = "Translate an object to get started.";
 "WELCOME_BUTTON_TEXT" = "Continue";
+"WELCOME_TITLE" = "Welcome to TranslateAR";
+
+"WELCOME_FIRST_ITEM_TITLE" = "Your Camera Got Superpowers";
+"WELCOME_SECOND_ITEM_TITLE" = "Larn New Languages";
+"WELCOME_THIRD_ITEM_TITLE" = "New Flashcards Every Day";
+"WELCOME_FIRST_ITEM_DESCRIPTION" = "Translate between objects and a language of choice.";
+"WELCOME_SECOND_ITEM_DESCRIPTION" = "Learn new words and listen to the spoken audio.";
+"WELCOME_THIRD_ITEM_DESCRIPTION" = "Expand your vocabulary by learning with flashcards.";
 
 "Capture" = "Capture";
 "Scanning" = "Scanning...";

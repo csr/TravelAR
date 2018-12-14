@@ -70,6 +70,7 @@
 		1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCFE21C2CF1D00D5E29B /* AddButtonView.swift */; };
 		1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */; };
 		1DF2BD0721C38C7B00D5E29B /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BD0621C38C7B00D5E29B /* WelcomeController.swift */; };
+		1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BD0821C4500B00D5E29B /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -153,6 +154,7 @@
 		1DF2BCFE21C2CF1D00D5E29B /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 		1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableStringExtensions.swift; sourceTree = "<group>"; };
 		1DF2BD0621C38C7B00D5E29B /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		1DF2BD0821C4500B00D5E29B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				1DF2BD0621C38C7B00D5E29B /* WelcomeController.swift */,
+				1DF2BD0821C4500B00D5E29B /* CustomButton.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				1D441E9420726F22005E2ADD /* DictionaryController+CoreML.swift in Sources */,
 				1DF2BCF021C1A7DC00D5E29B /* LanguagesTableView+TableView.swift in Sources */,
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
+				1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */,
 				1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D23B9642098E50700121E8F /* UIColorExtensions.swift in Sources */,

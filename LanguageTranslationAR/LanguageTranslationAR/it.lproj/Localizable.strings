@@ -14,6 +14,15 @@
 "EMPTY_STATE_TITLE" = "Nessuna traduzione";
 "EMPTY_STATE_DESCRIPTION" = "Scansiona un oggetto per iniziare.";
 "WELCOME_BUTTON_TEXT" = "Continua";
+"WELCOME_TITLE" = "Benvenuto in TraduciAR";
+
+"WELCOME_FIRST_ITEM_TITLE" = "Traduci al Volo";
+"WELCOME_SECOND_ITEM_TITLE" = "Impara Nuove Parole";
+"WELCOME_THIRD_ITEM_TITLE" = "Memorizza con Flashcard";
+"WELCOME_FIRST_ITEM_DESCRIPTION" = "Traduci la realtà in un qualsiasi linguaggio.";
+"WELCOME_SECOND_ITEM_DESCRIPTION" = "Impara nuove parole e ascolta la pronuncia corretta.";
+"WELCOME_THIRD_ITEM_DESCRIPTION" = "Arricchisci il tuo vocabolario con le flashcard.";
+
 
 "Translation Language" = "Lingua di Traduzione";
 "Capture" = "Cattura";

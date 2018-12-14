@@ -18,6 +18,36 @@ extension DictionaryController {
 		setupSceneView()
         setupAddButton()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "NAV_BAR_CLEAR".localized(), style: .plain, target: self, action: #selector(didTapClearScene))
+        setupClearButton()
+    }
+    
+    func setupClearButton() {
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .darkGray
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.text = "NAV_BAR_CLEAR".localized()
+        blurEffectView.contentView.addSubview(label)
+        label.topAnchor.constraint(equalTo: blurEffectView.topAnchor, constant: 11).isActive = true
+        label.rightAnchor.constraint(equalTo: blurEffectView.rightAnchor, constant: -15).isActive = true
+        label.leftAnchor.constraint(equalTo: blurEffectView.leftAnchor, constant: 15).isActive = true
+        label.bottomAnchor.constraint(equalTo: blurEffectView.bottomAnchor, constant: -11).isActive = true
+        
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+        blurEffectView.layer.masksToBounds = true
+        blurEffectView.layer.cornerRadius = 15
+        
+        blurEffectView.topAnchor.constraint(equalTo: view.topAnchor, constant: 7).isActive = true
+        blurEffectView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -7).isActive = true
+        
+        blurEffectView.isUserInteractionEnabled = true
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapClearScene))
+        blurEffectView.addGestureRecognizer(tapRecognizer)
     }
     
     internal func setupAddButton() {

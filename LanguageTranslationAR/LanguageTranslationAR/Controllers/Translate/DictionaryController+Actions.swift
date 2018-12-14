@@ -49,8 +49,8 @@ extension DictionaryController {
             }
         }
         
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
+        let impact = UIImpactFeedbackGenerator()
+        impact.impactOccurred()
     }
     
     @objc func updateLabel() {

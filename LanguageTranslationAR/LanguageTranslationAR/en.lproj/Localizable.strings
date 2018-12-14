@@ -16,10 +16,10 @@
 "WELCOME_BUTTON_TEXT" = "Continue";
 "WELCOME_TITLE" = "Welcome to TranslateAR";
 
-"WELCOME_FIRST_ITEM_TITLE" = "Your Camera Got Superpowers";
+"WELCOME_FIRST_ITEM_TITLE" = "Your Got Superpowers";
 "WELCOME_SECOND_ITEM_TITLE" = "Larn New Languages";
 "WELCOME_THIRD_ITEM_TITLE" = "New Flashcards Every Day";
-"WELCOME_FIRST_ITEM_DESCRIPTION" = "Translate between common objects and a foreign language.";
+"WELCOME_FIRST_ITEM_DESCRIPTION" = "Translate objects into a foreign language.";
 "WELCOME_SECOND_ITEM_DESCRIPTION" = "Learn new words and listen to the spoken audio.";
 "WELCOME_THIRD_ITEM_DESCRIPTION" = "Expand your vocabulary by learning with flashcards.";
 

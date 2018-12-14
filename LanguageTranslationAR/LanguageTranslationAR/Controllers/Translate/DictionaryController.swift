@@ -72,4 +72,8 @@ public class DictionaryController: UIViewController {
         checkCameraPermissions()
         present(WelcomeController(), animated: true, completion: nil)
 	}
+    
+    public override var prefersStatusBarHidden: Bool {
+        return true
+    }
  }

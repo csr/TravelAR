@@ -16,18 +16,32 @@ class TabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
+        viewControllers = getViewControllers()
+        tabBar.barTintColor = .black
+        tabBar.isTranslucent = false
+    }
+    
+    private func getViewControllers() -> [UIViewController] {
         let vc = [DictionaryController(), HistoryController(), SettingsController()]
-
-        let navControllers = ApplicationTab.allCases.enumerated().map { (index, tab) -> UINavigationController in
+        
+        let navControllers = ApplicationTab.allCases.enumerated().map { (index, tab) -> UIViewController in
             let viewController = vc[index]
             viewController.title = tab.title
+            
+            if tab == .translate {
+                viewController.tabBarItem = tab.tabBarItem
+                return viewController
+            }
+            
             let navController = UINavigationController(rootViewController: viewController)
             navController.tabBarItem = tab.tabBarItem
             return navController
         }
-        
-        viewControllers = navControllers        
-        tabBar.barTintColor = .black
-        tabBar.isTranslucent = false
+        return navControllers
+    }
+    
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 }

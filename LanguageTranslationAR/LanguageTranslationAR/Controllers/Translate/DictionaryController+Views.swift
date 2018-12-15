@@ -66,44 +66,6 @@ extension DictionaryController {
                                               augmentedRealityView.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
         NSLayoutConstraint.activate(constraints)
 	}
-	
-    internal func animateDictionaryView(item: Translation) {
-        let dictionaryView = DictionaryView()
-        dictionaryView.layer.zPosition = 10
-        view.addSubview(dictionaryView)
-        let dictionaryViewBottomAnchor = dictionaryView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        dictionaryViewBottomAnchor.isActive = true
-        dictionaryViewBottomAnchor.constant = 200
-        self.view.layoutIfNeeded()
-        dictionaryView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        dictionaryView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        dictionaryView.alpha = 0
-        
-		view.layoutIfNeeded()
-        
-        UIView.animate(withDuration: 1, delay: 0.5, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: UIView.AnimationOptions.curveEaseIn, animations: {
-			self.view.layoutIfNeeded()
-            
-            if self.view.traitCollection.horizontalSizeClass == .regular {
-                dictionaryViewBottomAnchor.constant = -30
-            } else {
-                dictionaryViewBottomAnchor.constant = -115
-            }
-            dictionaryView.transform = .identity
-			self.view.layoutIfNeeded()
-            dictionaryView.alpha = 1
-		}) { (bool) in
-			UIView.animate(withDuration: 2, delay: 3.5, usingSpringWithDamping: 10, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn, animations: {
-				self.view.layoutIfNeeded()
-				dictionaryViewBottomAnchor.constant = 500
-				self.view.layoutIfNeeded()
-                dictionaryView.alpha = 0
-			}) { (bool) in
-			}
-		}
-        
-        dictionaryView.item = item
-	}
 }
 
 class InstructionView: UIVisualEffectView {

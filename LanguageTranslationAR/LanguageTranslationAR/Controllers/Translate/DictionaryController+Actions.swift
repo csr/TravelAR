@@ -29,7 +29,7 @@ extension DictionaryController {
     }
     
     func handleIncomingTranslation(translation: Translation) {
-        self.animateDictionaryView(item: translation)
+        //self.animateDictionaryView(item: translation)
         TextToSpeech.speak(item: translation)        
     }
     

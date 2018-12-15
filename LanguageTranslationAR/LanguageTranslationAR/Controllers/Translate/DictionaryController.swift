@@ -17,9 +17,13 @@ public class DictionaryController: UIViewController {
 
     internal var items: [Translation] = []
     
+    var shouldShouldWelcomeController = true
+    
     //--------------------
     //MARK: - AR Variables
     //--------------------
+    
+    var shouldPresentWelcomeController = true
     
     lazy var augmentedRealityView: ARSCNView = {
         let sv = ARSCNView()
@@ -70,8 +74,15 @@ public class DictionaryController: UIViewController {
 		super.viewDidLoad()
 		setupViews()
         checkCameraPermissions()
-        present(WelcomeController(), animated: true, completion: nil)
 	}
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if shouldShouldWelcomeController {
+            present(WelcomeController(), animated: true, completion: nil)
+        }
+        shouldShouldWelcomeController = false
+    }
     
     public override var prefersStatusBarHidden: Bool {
         return true

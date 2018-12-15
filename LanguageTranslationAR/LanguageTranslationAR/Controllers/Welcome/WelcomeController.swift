@@ -111,7 +111,11 @@ class WelcomeController: UIViewController {
         return stackView
     }
     
-    @objc func didSelectContinueButton() {
+    @objc func didSelectContinueButton() {        
         dismiss(animated: true, completion: nil)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

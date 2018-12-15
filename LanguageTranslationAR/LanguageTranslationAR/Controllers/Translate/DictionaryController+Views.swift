@@ -52,10 +52,10 @@ extension DictionaryController {
     
     internal func setupAddButton() {
         view.addSubview(addButton)        
-        addButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        addButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        addButton.widthAnchor.constraint(equalToConstant: 73).isActive = true
+        addButton.heightAnchor.constraint(equalToConstant: 73).isActive = true
         addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -39).isActive = true
     }
     
 	private func setupSceneView() {

@@ -16,6 +16,7 @@
 "SETTINGS_HELP" = "Help";
 "SETTINGS_FRIENDS" = "Tell a Friend";
 
+"SUPPORT_MESSAGE_TITLE" = "TranslateAR App";
 
 "EMPTY_STATE_TITLE" = "No translations yet";
 "EMPTY_STATE_DESCRIPTION" = "Translate an object to get started.";

@@ -13,7 +13,9 @@
 
 "SETTINGS_TRANSLATE_TO" = "Traduci in";
 "SETTINGS_HELP" = "Aiuto";
-"SETTINGS_FRIEND" = "Dillo a un amico";
+"SETTINGS_FRIENDS" = "Dillo a un amico";
+
+"SUPPORT_MESSAGE_TITLE" = "App TranslateAR";
 
 "EMPTY_STATE_TITLE" = "Nessuna traduzione";
 "EMPTY_STATE_DESCRIPTION" = "Scansiona un oggetto per iniziare.";

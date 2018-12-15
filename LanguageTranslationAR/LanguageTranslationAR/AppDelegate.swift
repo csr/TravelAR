@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.rootViewController = TabBarController()
         UINavigationBar.appearance().barStyle = .black
+        UINavigationBar.appearance().tintColor = .orange
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
     }
         
     func applicationDidBecomeActive(_ application: UIApplication) {}

@@ -18,12 +18,14 @@ public struct LabelState: Equatable {
     public let imageName: String
     public let imageBgColor: UIColor
     public let detailText: String?
+    public let selector: Selector
     
-    public init(text: String, detailText: String? = nil, imageName: String, imageBgColor: UIColor) {
+    public init(text: String, detailText: String? = nil, imageName: String, imageBgColor: UIColor, selector: Selector) {
         self.text = text
         self.detailText = detailText
         self.imageName = imageName
         self.imageBgColor = imageBgColor
+        self.selector = selector
     }
     
     /// Update the view with the contents of the state.
@@ -50,8 +52,8 @@ public struct LabelState: Equatable {
 
 public class SettingsView: UIView {
     
-    let bgImageView: UIView = {
-        let view = UIView()
+    let bgImageView: NeverClearView = {
+        let view = NeverClearView()
         view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true

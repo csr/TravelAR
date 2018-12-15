@@ -70,7 +70,11 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
 
     
     @objc private func didSelectShareRow() {
-        print("share")
+        let text = "SETTINGS_SHARE_TEXT".localized()
+        let textShare = [text]
+        let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     private func deselectRow() {

@@ -36,7 +36,7 @@ class AddButtonView: UIView {
         
         // Center circle
         UIColor.blue.setFill()
-        let centerRect = rect.insetBy(dx: rect.width * 0.55 / 2, dy: rect.height * 0.55 / 2)
+        let centerRect = rect.insetBy(dx: rect.width * 0.45 / 2, dy: rect.height * 0.45 / 2)
         let centerPath = UIBezierPath(ovalIn: centerRect)
         centerPath.fill()
         
@@ -46,9 +46,10 @@ class AddButtonView: UIView {
     let plusButton: UIImageView = {
         let view = UIImageView()
         view.isUserInteractionEnabled = true
-        view.backgroundColor = .white
+        //view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
+        view.image = UIImage(named: "add-button")
         //view.isHidden = true
         return view
     }()

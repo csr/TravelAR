@@ -106,6 +106,8 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
                 cellUpdater: LabelState.updateView)
         }
         
+        //let firstSection = TableSection(key: "primarySection", rows: primaryRows, header: <#T##TableHeaderFooterConfigType?#>, footer: <#T##TableHeaderFooterConfigType?#>, style: <#T##SectionStyle?#>, didMoveRow: <#T##((Int, Int) -> Void)?##((Int, Int) -> Void)?##(Int, Int) -> Void#>)
+        
         functionalData.renderAndDiff([
             TableSection(key: "section", rows: primaryRows), TableSection(key: "section2", rows: secondaryRows)])
     }

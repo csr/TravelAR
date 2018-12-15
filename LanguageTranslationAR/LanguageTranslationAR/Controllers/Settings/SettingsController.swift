@@ -132,13 +132,63 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
                 cellUpdater: LabelState.updateView)
         }
         
-        functionalData.renderAndDiff([
-            TableSection(key: "section", rows: primaryRows), TableSection(key: "section2", rows: secondaryRows)])
+        var headerCellStyle = primaryCellStyle
+        headerCellStyle.bottomSeparator = .none
+        
+        let headerRows: [CellConfigType] = [HeaderCell(key: "key", style: secondaryCellStyle, state: HeaderState(height: 50), cellUpdater: HeaderState.updateView)]
+            
+//
+//                key: "id-3",
+//                style: secondaryCellStyle,
+//                actions: nil,
+//                state: HeaderState(height: 50),
+//                cellUpdater: HeaderState.updateView)
+
+        
+        
+        functionalData.renderAndDiff([TableSection(key: "sectionH", rows: headerRows),
+            TableSection(key: "section", rows: primaryRows), TableSection(key: "sectionH2", rows: headerRows), TableSection(key: "section2", rows: secondaryRows)])
     }
 }
 
 extension SettingsController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+
+public typealias HeaderCell = HostCell<SampleHeader, HeaderState, LayoutMarginsTableItemLayout>
+
+public class SampleHeader: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .clear
+        heightAnchor.constraint(equalToConstant: 15).isActive = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+public struct HeaderState: Equatable {
+    let height: CGFloat
+    
+    public init(height: CGFloat) {
+        self.height = height
+    }
+    
+    /// Update the view with the contents of the state.
+    ///
+    /// - Parameters:
+    ///   - view: `UIView` that responds to this state.
+    ///   - state: data to update the view with. If `nil` the view is being reused by the tableview.
+    public static func updateView(_ view: SampleHeader, state: HeaderState?) {
+    }
+    
+    public static func ==(lhs: HeaderState, rhs: HeaderState) -> Bool {
+        return false
     }
 }

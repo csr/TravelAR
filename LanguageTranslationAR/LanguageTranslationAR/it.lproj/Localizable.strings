@@ -19,7 +19,7 @@
 "SUPPORT_MESSAGE_TITLE" = "App TranslateAR";
 
 "EMPTY_STATE_TITLE" = "Nessuna traduzione";
-"EMPTY_STATE_DESCRIPTION" = "Scansiona un oggetto per iniziare.";
+"EMPTY_STATE_DESCRIPTION" = "Traduci un oggetto per iniziare.";
 "WELCOME_BUTTON_TEXT" = "Continua";
 "WELCOME_TITLE" = "Benvenuto su TranslateAR";
 

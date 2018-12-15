@@ -42,8 +42,8 @@ extension DictionaryController {
         blurEffectView.layer.masksToBounds = true
         blurEffectView.layer.cornerRadius = 15
         
-        blurEffectView.topAnchor.constraint(equalTo: view.topAnchor, constant: 7).isActive = true
-        blurEffectView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -7).isActive = true
+        blurEffectView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 7).isActive = true
+        blurEffectView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -7).isActive = true
         
         blurEffectView.isUserInteractionEnabled = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapClearScene))

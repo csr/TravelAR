@@ -60,7 +60,7 @@ class WelcomeController: UIViewController {
     private func getMiddleStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 15
+        stackView.spacing = 5
         
         let firstItem = getItemStackView(title: "WELCOME_FIRST_ITEM_TITLE".localized(), description: "WELCOME_FIRST_ITEM_DESCRIPTION".localized(), imageName: "welcome-first")
         let secondItem = getItemStackView(title: "WELCOME_SECOND_ITEM_TITLE".localized(), description: "WELCOME_SECOND_ITEM_DESCRIPTION".localized(), imageName: "welcome-second")
@@ -69,7 +69,6 @@ class WelcomeController: UIViewController {
         stackView.addArrangedSubview(firstItem)
         stackView.addArrangedSubview(secondItem)
         stackView.addArrangedSubview(thirdItem)
-        
         stackView.distribution = .equalCentering
         return stackView
     }

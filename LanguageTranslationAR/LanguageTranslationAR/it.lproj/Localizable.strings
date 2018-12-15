@@ -8,9 +8,13 @@
 
 "TITLE_TAB_TRANSLATE" = "Traduci";
 "TITLE_TAB_HISTORY" = "Cronologia";
-"TITLE_TAB_SETTINGS" = "Preferenze";
+"TITLE_TAB_SETTINGS" = "Impostazioni";
 "NAV_BAR_CLEAR" = "Pulisci";
+
 "SETTINGS_TRANSLATE_TO" = "Traduci in";
+"SETTINGS_HELP" = "Aiuto";
+"SETTINGS_FRIEND" = "Dillo a un amico";
+
 "EMPTY_STATE_TITLE" = "Nessuna traduzione";
 "EMPTY_STATE_DESCRIPTION" = "Scansiona un oggetto per iniziare.";
 "WELCOME_BUTTON_TEXT" = "Continua";
@@ -22,7 +26,6 @@
 "WELCOME_FIRST_ITEM_DESCRIPTION" = "Traduci gli oggetti più comuni in un'altra lingua.";
 "WELCOME_SECOND_ITEM_DESCRIPTION" = "Visualizza e ascolta le traduzioni quando vuoi.";
 "WELCOME_THIRD_ITEM_DESCRIPTION" = "Memorizza nuove parole con le flashcard.";
-
 
 "Translation Language" = "Lingua di Traduzione";
 "Capture" = "Cattura";

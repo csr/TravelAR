@@ -13,17 +13,17 @@ public typealias LabelCell = HostCell<SettingsView, LabelState, LayoutMarginsTab
 
 /// A very simple state for a `UILabel` allowing a quick configuration of its text, font, and color values.
 public struct LabelState: Equatable {
-    public let descriptionText: String
-    public let detailText: String
     
-    public init(dict: [String : String]?) {
-        guard let dict = dict else {
-            self.descriptionText = "nil"
-            self.detailText = "Select"
-            return
-        }
-        self.descriptionText = dict["text"] ?? "nil"
-        self.detailText = dict["detailText"] ?? "Select"
+    public let text: String
+    public let imageName: String
+    public let imageBgColor: UIColor
+    public let detailText: String?
+    
+    public init(text: String, detailText: String? = nil, imageName: String, imageBgColor: UIColor) {
+        self.text = text
+        self.detailText = detailText
+        self.imageName = imageName
+        self.imageBgColor = imageBgColor
     }
     
     /// Update the view with the contents of the state.
@@ -35,16 +35,37 @@ public struct LabelState: Equatable {
         guard let state = state else {
             return
         }
-        view.textLabel.text = state.descriptionText
+        
+        view.textLabel.text = state.text
         view.detailTextLabel.text = state.detailText
+        view.imageView.image = UIImage(named: state.imageName)?.withRenderingMode(.alwaysTemplate)
+        view.imageView.tintColor = .white
+        view.bgImageView.backgroundColor = state.imageBgColor
     }
     
     public static func ==(lhs: LabelState, rhs: LabelState) -> Bool {
-        return lhs.descriptionText == rhs.descriptionText && lhs.detailText == rhs.detailText
+        return lhs.text == rhs.text && lhs.imageName == rhs.imageName && lhs.detailText == rhs.detailText && lhs.imageBgColor == rhs.imageBgColor
     }
 }
 
 public class SettingsView: UIView {
+    
+    let bgImageView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 5
+        return view
+    }()
+    
+    let imageView: UIImageView = {
+        let view = UIImageView()
+        view.image = #imageLiteral(resourceName: "translate")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
     
     let textLabel: UILabel = {
         let label = UILabel()
@@ -63,23 +84,47 @@ public class SettingsView: UIView {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLabels()
+        setupImageView()
+        setupView()
     }
     
-    private func setupLabels() {
+    private func setupImageView() {
+        bgImageView.widthAnchor.constraint(equalToConstant: 27).isActive = true
+        bgImageView.heightAnchor.constraint(equalToConstant: 27).isActive = true
+        bgImageView.addSubview(imageView)
+        bgImageView.backgroundColor = .white
+        
+        imageView.centerXAnchor.constraint(equalTo: bgImageView.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: bgImageView.centerYAnchor).isActive = true
+        imageView.widthAnchor.constraint(equalTo: bgImageView.widthAnchor, multiplier: 0.6).isActive = true
+        imageView.heightAnchor.constraint(equalTo: bgImageView.heightAnchor, multiplier: 0.6).isActive = true
+    }
+    
+    private func setupView() {
         let stackView = UIStackView()
         addSubview(stackView)
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
         stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.spacing = 15
+        stackView.addArrangedSubview(bgImageView)
+        stackView.addArrangedSubview(getLabelsStackView())
+    }
+    
+    private func getLabelsStackView() -> UIStackView {
+        let stackView = UIStackView()
+        addSubview(stackView)
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
         stackView.addArrangedSubview(textLabel)
         stackView.addArrangedSubview(detailTextLabel)
         heightAnchor.constraint(equalToConstant: 40).isActive = true
+        return stackView
     }
 
     required init?(coder aDecoder: NSCoder) {

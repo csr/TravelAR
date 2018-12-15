@@ -46,7 +46,7 @@ class AddButtonView: UIView {
     let plusButton: UIImageView = {
         let view = UIImageView()
         view.isUserInteractionEnabled = true
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
         //view.isHidden = true

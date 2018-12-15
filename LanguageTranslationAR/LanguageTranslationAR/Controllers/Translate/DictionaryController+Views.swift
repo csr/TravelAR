@@ -105,3 +105,30 @@ extension DictionaryController {
         dictionaryView.item = item
 	}
 }
+
+class InstructionView: UIVisualEffectView {
+    
+    let label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Test"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 21)
+        return label
+    }()
+    
+    override init(effect: UIVisualEffect?) {
+        let blurEffect = UIBlurEffect(style: .dark)
+        super.init(effect: blurEffect)
+        
+        addSubview(label)
+        label.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
+        label.rightAnchor.constraint(equalTo: rightAnchor, constant: -5).isActive = true
+        label.leftAnchor.constraint(equalTo: leftAnchor, constant: 5).isActive = true
+        label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}

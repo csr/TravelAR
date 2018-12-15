@@ -23,8 +23,6 @@ public class DictionaryController: UIViewController {
     //MARK: - AR Variables
     //--------------------
     
-    var shouldPresentWelcomeController = true
-    
     lazy var augmentedRealityView: ARSCNView = {
         let sv = ARSCNView()
         sv.delegate = self
@@ -78,10 +76,24 @@ public class DictionaryController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if shouldShouldWelcomeController {
+        if shouldPresentWelcomeController() {
             present(WelcomeController(), animated: true, completion: nil)
         }
-        shouldShouldWelcomeController = false
+    }
+    
+    @objc internal func shouldPresentWelcomeController() -> Bool {
+        let cameraMediaType = AVMediaType.video
+        let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
+        switch cameraAuthorizationStatus {
+        case .denied:
+            return true
+        case .authorized:
+            return false
+        case .restricted:
+            return true
+        case .notDetermined:
+            return true
+        }
     }
     
     public override var prefersStatusBarHidden: Bool {

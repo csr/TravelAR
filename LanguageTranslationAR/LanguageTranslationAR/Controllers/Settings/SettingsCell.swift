@@ -125,7 +125,6 @@ public class SettingsView: UIView {
         stackView.distribution = .equalSpacing
         stackView.addArrangedSubview(textLabel)
         stackView.addArrangedSubview(detailTextLabel)
-        //heightAnchor.constraint(equalToConstant: 40).isActive = true
         return stackView
     }
 

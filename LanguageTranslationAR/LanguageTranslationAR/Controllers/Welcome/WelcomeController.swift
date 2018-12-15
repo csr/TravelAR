@@ -111,7 +111,8 @@ class WelcomeController: UIViewController {
     }
     
     @objc func didSelectContinueButton() {        
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        requestCameraAccess()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

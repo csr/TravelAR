@@ -13,11 +13,44 @@ import ARKit
 extension DictionaryController: ARSCNViewDelegate {
 
     @objc internal func setupAR() {
-        augmentedRealityView.delegate = self
-        augmentedRealityView.scene = SCNScene()
-        configuration.planeDetection = [.horizontal, .vertical]
-        augmentedRealityView.session = augmentedRealitySession
-        augmentedRealitySession.run(configuration)
+        sceneView.delegate = self
+        sceneView.scene = SCNScene()
+        sceneView.session = augmentedRealitySession        
+    }
+    
+    public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+//        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+//        if (setUp) {
+//            return
+//        }
+//        
+//        setUp = true
+//        
+//        // Create a SceneKit plane to visualize the plane anchor using its position and extent.
+//        //        let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+//        let plane = SCNPlane(width: 0.03, height: 0.03)
+//        let planeNode = SCNNode(geometry: plane)
+//        planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
+//        
+//        /*
+//         `SCNPlane` is vertically oriented in its local coordinate space, so
+//         rotate the plane to match the horizontal orientation of `ARPlaneAnchor`.
+//         */
+//        planeNode.eulerAngles.x = -.pi / 2
+//        
+//        // Make the plane visualization semitransparent to clearly show real-world placement.
+//        //        planeNode.opacity = 0.1
+//        
+//        plane.firstMaterial?.blendMode = .max
+//        plane.firstMaterial?.diffuse.contents = self.contentController?.view
+//        print("setting transparency mode")
+//        //        plane.firstMaterial?.transparencyMode = SCNTransparencyMode.rgbZero
+//        /*
+//         Add the plane visualization to the ARKit-managed node so that it tracks
+//         changes in the plane anchor as plane estimation continues.
+//         */
+//        
+//        node.addChildNode(planeNode)
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -27,10 +60,10 @@ extension DictionaryController: ARSCNViewDelegate {
     func updateFocusSquare() {
         if let camera = self.augmentedRealitySession.currentFrame?.camera,
             case .normal = camera.trackingState,
-            let result = self.augmentedRealityView.smartHitTest(screenCenter) {
+            let result = self.sceneView.smartHitTest(screenCenter) {
             updateQueue.async {
                 if self.canDisplayFocusSquare {
-                    self.augmentedRealityView.scene.rootNode.addChildNode(self.focusSquare)
+                    self.sceneView.scene.rootNode.addChildNode(self.focusSquare)
                     self.focusSquare.state = .detecting(hitTestResult: result, camera: camera)
                 }
             }
@@ -39,15 +72,15 @@ extension DictionaryController: ARSCNViewDelegate {
             updateQueue.async {
                 if self.canDisplayFocusSquare {
                     self.focusSquare.state = .initializing
-                    self.augmentedRealityView.pointOfView?.addChildNode(self.focusSquare)
+                    self.sceneView.pointOfView?.addChildNode(self.focusSquare)
                 }
             }
         }
     }
     
     internal func detectWorldCoordinates() -> SCNVector3? {
-        let screenCentre = CGPoint(x: self.augmentedRealityView.bounds.midX, y: self.augmentedRealityView.bounds.midY)
-        let arHitTestResults = augmentedRealityView.hitTest(screenCentre, types: [.featurePoint])
+        let screenCentre = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
+        let arHitTestResults = sceneView.hitTest(screenCentre, types: [.featurePoint])
         if let closestResult = arHitTestResults.first {
             let transform = closestResult.worldTransform
             return SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
@@ -57,48 +90,8 @@ extension DictionaryController: ARSCNViewDelegate {
     }
 	
     internal func addNode(title: String, subtitle: String?, coords: SCNVector3) {
-		let node : SCNNode = self.createWordText(title: title, subtitle: subtitle)
-		self.augmentedRealityView.scene.rootNode.addChildNode(node)
-		node.position = coords        
-	}
-        
-    internal func createWordText(title: String, subtitle: String?) -> SCNNode {
-        let depth: Float = 0.01
-        let billboardConstraint = SCNBillboardConstraint()
-        billboardConstraint.freeAxes = SCNBillboardAxis.Y
-        let mainWord = SCNText(string: title, extrusionDepth: CGFloat(depth))
-        let font = UIFont(name: "Futura", size: 0.15)
-        mainWord.font = font
-        mainWord.alignmentMode = convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.center)
-        mainWord.firstMaterial?.diffuse.contents = UIColor.orange
-        mainWord.chamferRadius = CGFloat(depth)
-        mainWord.firstMaterial?.specular.contents = UIColor.white
-        mainWord.firstMaterial?.isDoubleSided = true
-        
-        let secondaryBubble = SCNText(string: subtitle, extrusionDepth: CGFloat(depth))
-        let secondaryFont = UIFont(name: "Futura", size: 0.10)
-        secondaryBubble.font = secondaryFont
-        secondaryBubble.alignmentMode = convertFromCATextLayerAlignmentMode(CATextLayerAlignmentMode.center)
-        secondaryBubble.firstMaterial?.isDoubleSided = true
-        secondaryBubble.chamferRadius = CGFloat(depth)
-        secondaryBubble.firstMaterial?.diffuse.contents = UIColor.blue
-        secondaryBubble.firstMaterial?.specular.contents = UIColor.white
-        let (minBound, maxBound) = mainWord.boundingBox
-        let mainWordNode = SCNNode(geometry: mainWord)
-        mainWordNode.scale = SCNVector3Make(0.2, 0.2, 0.2)
-        mainWordNode.pivot = SCNMatrix4MakeTranslation( (maxBound.x - minBound.x)/2, minBound.y, depth/2)
 
-        let (minBoundSec, maxBoundSec) = secondaryBubble.boundingBox
-        let secondaryWordNode = SCNNode(geometry: secondaryBubble)
-        secondaryWordNode.pivot = SCNMatrix4MakeTranslation( (maxBoundSec.x - minBoundSec.x)/2, maxBoundSec.y, depth/2)
-        secondaryWordNode.scale = SCNVector3Make(0.2, 0.2, 0.2)
-        
-        let bubbleNodeParent = SCNNode()
-        bubbleNodeParent.addChildNode(mainWordNode)
-        bubbleNodeParent.addChildNode(secondaryWordNode)
-        bubbleNodeParent.constraints = [billboardConstraint]
-        return bubbleNodeParent
-    }
+	}
 }
 
 // Helper function inserted by Swift 4.2 migrator.

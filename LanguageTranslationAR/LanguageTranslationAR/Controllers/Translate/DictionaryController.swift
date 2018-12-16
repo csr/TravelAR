@@ -17,17 +17,17 @@ public class DictionaryController: UIViewController {
 
     internal var items: [Translation] = []
     
-    var shouldShouldWelcomeController = true
-    
+    var setUp: Bool = false
+        
     //--------------------
     //MARK: - AR Variables
     //--------------------
     
-    lazy var augmentedRealityView: ARSCNView = {
-        let sv = ARSCNView()
-        sv.delegate = self
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        return sv
+    lazy var sceneView: ARSCNView = {
+        let sceneView = ARSCNView()
+        sceneView.delegate = self
+        sceneView.translatesAutoresizingMaskIntoConstraints = false
+        return sceneView
     }()
     
     let augmentedRealitySession = ARSession()
@@ -40,7 +40,7 @@ public class DictionaryController: UIViewController {
     var focusSquare = FocusSquare()
     var canDisplayFocusSquare = true
     var screenCenter: CGPoint {
-        let bounds = self.augmentedRealityView.bounds
+        let bounds = self.sceneView.bounds
         return CGPoint(x: bounds.midX, y: bounds.midY)
     }
     let updateQueue = DispatchQueue(label: "cesaredecal")
@@ -51,6 +51,8 @@ public class DictionaryController: UIViewController {
 
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
+    
+    var contentController: VRMenuController?
 
     var player: AVAudioPlayer?
 
@@ -70,9 +72,27 @@ public class DictionaryController: UIViewController {
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        contentController = VRMenuController()
+        
 		setupViews()
         checkCameraPermissions()
+        
+        addButton.isUserInteractionEnabled = true
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapAddButton))
+        addButton.addGestureRecognizer(tapRecognizer)
 	}
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configuration.planeDetection = [.horizontal, .vertical]
+        sceneView.session.run(configuration)
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        sceneView.session.pause()
+    }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

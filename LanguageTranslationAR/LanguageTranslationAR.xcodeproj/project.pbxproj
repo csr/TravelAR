@@ -62,6 +62,8 @@
 		1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */; };
 		1DEC7D1421C5771900BBEDD3 /* DidUpdateLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1321C5771900BBEDD3 /* DidUpdateLanguage.swift */; };
 		1DEC7D1621C5AE1600BBEDD3 /* WelcomeController+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1521C5AE1600BBEDD3 /* WelcomeController+Camera.swift */; };
+		1DEC7D1821C6565D00BBEDD3 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1721C6565D00BBEDD3 /* ARView.swift */; };
+		1DEC7D1E21C6776400BBEDD3 /* VRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1D21C6776400BBEDD3 /* VRController.swift */; };
 		1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE6F2E21BB1363006D3830 /* SettingsController.swift */; };
 		1DEE705D21BEB21B006D3830 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */; };
 		1DEE705E21BEB21B006D3830 /* FunctionalTableData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -149,6 +151,8 @@
 		1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverClearView.swift; sourceTree = "<group>"; };
 		1DEC7D1321C5771900BBEDD3 /* DidUpdateLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidUpdateLanguage.swift; sourceTree = "<group>"; };
 		1DEC7D1521C5AE1600BBEDD3 /* WelcomeController+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeController+Camera.swift"; sourceTree = "<group>"; };
+		1DEC7D1721C6565D00BBEDD3 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
+		1DEC7D1D21C6776400BBEDD3 /* VRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRController.swift; sourceTree = "<group>"; };
 		1DEE6F2E21BB1363006D3830 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalTableData.framework; path = Carthage/Build/iOS/FunctionalTableData.framework; sourceTree = "<group>"; };
 		1DF2BCEF21C1A7DC00D5E29B /* LanguagesTableView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesTableView+TableView.swift"; sourceTree = "<group>"; };
@@ -321,6 +325,8 @@
 				1D441E5A20726F22005E2ADD /* DictionaryController+Actions.swift */,
 				1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */,
 				1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */,
+				1DEC7D1D21C6776400BBEDD3 /* VRController.swift */,
+				1DEC7D1721C6565D00BBEDD3 /* ARView.swift */,
 				1D412B9620D66D8F006CD60A /* Focus Square */,
 				1DF2BCFE21C2CF1D00D5E29B /* AddButtonView.swift */,
 			);
@@ -527,6 +533,7 @@
 				1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */,
 				1D23B9672098F58800121E8F /* Helpers.swift in Sources */,
 				1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */,
+				1DEC7D1821C6565D00BBEDD3 /* ARView.swift in Sources */,
 				1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */,
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
@@ -569,6 +576,7 @@
 				1D441E9220726F22005E2ADD /* DictionaryController+Actions.swift in Sources */,
 				1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */,
 				1D441EA720726F22005E2ADD /* HistoryController.swift in Sources */,
+				1DEC7D1E21C6776400BBEDD3 /* VRController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

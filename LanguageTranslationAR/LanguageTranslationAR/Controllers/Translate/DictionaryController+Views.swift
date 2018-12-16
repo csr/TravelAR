@@ -59,11 +59,11 @@ extension DictionaryController {
     }
     
 	private func setupSceneView() {
-		view.addSubview(augmentedRealityView)
-        let constraints = [augmentedRealityView.topAnchor.constraint(equalTo: view.topAnchor),
-                                              augmentedRealityView.rightAnchor.constraint(equalTo: view.rightAnchor),
-                                              augmentedRealityView.leftAnchor.constraint(equalTo: view.leftAnchor),
-                                              augmentedRealityView.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
+		view.addSubview(sceneView)
+        let constraints = [sceneView.topAnchor.constraint(equalTo: view.topAnchor),
+                                              sceneView.rightAnchor.constraint(equalTo: view.rightAnchor),
+                                              sceneView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                                              sceneView.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
         NSLayoutConstraint.activate(constraints)
 	}
 }

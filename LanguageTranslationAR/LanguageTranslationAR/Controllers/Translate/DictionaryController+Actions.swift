@@ -13,8 +13,8 @@ import ARKit
 @available(iOS 11.0, *)
 extension DictionaryController {        
     func didTapSceneView(coords: SCNVector3) {
+        print("didTapSceneView(coords: SCNVector3)")
         guard let latestPrediction = mlPrediction else { return }
-        
         if !latestPrediction.isEmpty {
             getTranslation(text: latestPrediction) { (translation) in
                 DispatchQueue.main.async {
@@ -30,20 +30,25 @@ extension DictionaryController {
     
     func handleIncomingTranslation(translation: Translation) {
         //self.animateDictionaryView(item: translation)
-        TextToSpeech.speak(item: translation)        
+        TextToSpeech.speak(item: translation)
     }
     
     @objc func didTapAddButton() {
+        print("didTapAddButton")
         let selection = UISelectionFeedbackGenerator()
         selection.selectionChanged()
         
         if let coords = detectWorldCoordinates() {
-            didTapSceneView(coords: coords)
+            self.addNode(title: "hello", subtitle: "world", coords: coords)
+            //didTapSceneView(coords: coords)
+            print("adding node...")
+        } else {
+            print("coords are nil")
         }
     }
         
     @objc internal func didTapClearScene() {
-        augmentedRealityView.scene.rootNode.enumerateChildNodes { (node, stop) in
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
             if node is FocusSquare {
                 node.removeFromParentNode()
             }

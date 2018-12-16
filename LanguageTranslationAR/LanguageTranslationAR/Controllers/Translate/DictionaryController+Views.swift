@@ -9,7 +9,11 @@
 import UIKit
 
 @available(iOS 11.0, *)
-extension DictionaryController {
+extension DictionaryController: AddButtonProlocol {
+    
+    func didTapButton() {
+        didTapAddButton()
+    }
     
     // Add a Clear navigation right item
     

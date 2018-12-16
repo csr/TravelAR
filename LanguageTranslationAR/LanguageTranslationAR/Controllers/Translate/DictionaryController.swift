@@ -64,23 +64,18 @@ public class DictionaryController: UIViewController {
         }
     }
     
-    let addButton: AddButtonView = {
+    lazy var addButton: AddButtonView = {
         let view = AddButtonView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.delegate = self
         return view
     }()
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
-        
         contentController = VRMenuController()
-        
 		setupViews()
         checkCameraPermissions()
-        
-        addButton.isUserInteractionEnabled = true
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapAddButton))
-        addButton.addGestureRecognizer(tapRecognizer)
 	}
     
     public override func viewWillAppear(_ animated: Bool) {

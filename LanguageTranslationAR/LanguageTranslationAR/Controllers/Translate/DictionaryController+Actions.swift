@@ -35,11 +35,11 @@ extension DictionaryController {
     
     @objc func didTapAddButton() {
         print("didTapAddButton")
-        let selection = UISelectionFeedbackGenerator()
-        selection.selectionChanged()
+//        let selection = UISelectionFeedbackGenerator()
+//        selection.selectionChanged()
         
         if let coords = detectWorldCoordinates() {
-            self.addNode(title: "hello", subtitle: "world", coords: coords)
+            //self.addNode(title: "hello", subtitle: "world", coords: coords)
             //didTapSceneView(coords: coords)
             print("adding node...")
         } else {

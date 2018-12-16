@@ -6,6 +6,10 @@
   Copyright © 2018 Cesare de Cal. All rights reserved.
 */
 
+"PERMISSION_TITLE" = "TranslateAR Would Like To Access the Camera";
+"PERMISSION_DESCRIPTION" = "Please grant permission to use the Camera so that you can translate things on the fly.";
+"PERMISSION_ACTION_SETTINGS" = "Open Settings";
+
 "TITLE_TAB_TRANSLATE" = "Translate";
 "TITLE_TAB_HISTORY" = "History";
 "TITLE_TAB_SETTINGS" = "Settings";

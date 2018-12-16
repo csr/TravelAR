@@ -6,6 +6,10 @@
   Copyright © 2018 Cesare de Cal. All rights reserved.
 */
 
+"PERMISSION_TITLE" = "TranslateAR Vorrebbe Accedere alla Fotocamera";
+"PERMISSION_DESCRIPTION" = "Per favore consenti l'utilizzo della fotocamera per tradurre gli oggeti al volo.";
+"PERMISSION_ACTION_SETTINGS" = "Apri Impostazioni";
+
 "TITLE_TAB_TRANSLATE" = "Traduci";
 "TITLE_TAB_HISTORY" = "Cronologia";
 "TITLE_TAB_SETTINGS" = "Impostazioni";

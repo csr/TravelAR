@@ -29,16 +29,21 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tabBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6p-RS-0gO">
-                                <rect key="frame" x="134" y="490" width="106" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-button" translatesAutoresizingMaskIntoConstraints="NO" id="O6p-RS-0gO">
+                                <rect key="frame" x="151" y="506" width="73" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="4t7-Ua-Gvw"/>
+                                    <constraint firstAttribute="height" constant="73" id="JIf-Fe-w7J"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gIz-aV-KC6" firstAttribute="bottom" secondItem="Bcu-3y-fUS" secondAttribute="bottom" id="WSF-L9-vgt"/>
                             <constraint firstItem="gIz-aV-KC6" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="cdN-qo-uYm"/>
+                            <constraint firstItem="O6p-RS-0gO" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="nuZ-gc-7zO"/>
                             <constraint firstItem="gIz-aV-KC6" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="sEl-jE-PgQ"/>
+                            <constraint firstItem="gIz-aV-KC6" firstAttribute="top" secondItem="O6p-RS-0gO" secondAttribute="bottom" constant="39" id="xOm-KU-plY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>
@@ -50,6 +55,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-button" width="217" height="217"/>
         <image name="history" width="23" height="23"/>
         <image name="settings" width="25" height="25"/>
         <image name="translate" width="23" height="23"/>

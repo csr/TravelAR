@@ -18,39 +18,27 @@ extension DictionaryController: ARSCNViewDelegate {
         sceneView.session = augmentedRealitySession        
     }
     
+    func createNode() -> SCNNode? {
+        guard let theView = myView else {
+            print("ERROR: failed to load AR detail view")
+            return nil
+        }
+        
+        let box = SCNPlane(width: 0.1, height: 0.1)
+        let imageMaterial = SCNMaterial()
+        imageMaterial.isDoubleSided = true
+        imageMaterial.diffuse.contents = theView.asImage()
+        box.materials = [imageMaterial]
+        
+        let cube = SCNNode(geometry: box)
+        return cube
+    }
+    
     public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-//        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-//        if (setUp) {
-//            return
-//        }
-//        
-//        setUp = true
-//        
-//        // Create a SceneKit plane to visualize the plane anchor using its position and extent.
-//        //        let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
-//        let plane = SCNPlane(width: 0.03, height: 0.03)
-//        let planeNode = SCNNode(geometry: plane)
-//        planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
-//        
-//        /*
-//         `SCNPlane` is vertically oriented in its local coordinate space, so
-//         rotate the plane to match the horizontal orientation of `ARPlaneAnchor`.
-//         */
-//        planeNode.eulerAngles.x = -.pi / 2
-//        
-//        // Make the plane visualization semitransparent to clearly show real-world placement.
-//        //        planeNode.opacity = 0.1
-//        
-//        plane.firstMaterial?.blendMode = .max
-//        plane.firstMaterial?.diffuse.contents = self.contentController?.view
-//        print("setting transparency mode")
-//        //        plane.firstMaterial?.transparencyMode = SCNTransparencyMode.rgbZero
-//        /*
-//         Add the plane visualization to the ARKit-managed node so that it tracks
-//         changes in the plane anchor as plane estimation continues.
-//         */
-//        
-//        node.addChildNode(planeNode)
+        print("did add!")
+        DispatchQueue.main.async {
+//            self.attachCustomNode(to: node)
+        }
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -88,13 +76,79 @@ extension DictionaryController: ARSCNViewDelegate {
             return nil
         }
     }
-	
-    internal func addNode(title: String, subtitle: String?, coords: SCNVector3) {
+    
+    func didTapSceneView(coords: SCNVector3) {
+        print("didTapSceneView(coords: SCNVector3)")
+        guard let latestPrediction = mlPrediction else { return }
+        if !latestPrediction.isEmpty {
+            getTranslation(text: latestPrediction) { (translation) in
+                DispatchQueue.main.async {
+                    if let translation = translation {
+                        //self.addNode(title: latestPrediction, subtitle: translation.translatedText, coords: coords)
+                        self.handleIncomingTranslation(translation: translation)
+                        TranslationItems.shared.array.append(translation)
+                    }
+                }
+            }
+        }
+    }
+    
+    func handleIncomingTranslation(translation: Translation) {
+        //self.animateDictionaryView(item: translation)
+        TextToSpeech.speak(item: translation)
+    }
+    
+    @objc func didTapAddButton() {
+        // HIT TEST : REAL WORLD
+        // Get Screen Centre
+        let screenCentre : CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
+        
+        let arHitTestResults : [ARHitTestResult] = sceneView.hitTest(screenCentre, types: [.featurePoint]) // Alternatively, we could use '.existingPlaneUsingExtent' for more grounded hit-test-points.
+        
+        if let closestResult = arHitTestResults.first {
+            // Get Coordinates of HitTest
+            let transform : matrix_float4x4 = closestResult.worldTransform
+            let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+            
+            // Create 3D Text
+            if let node = createNode() {
+                sceneView.scene.rootNode.addChildNode(node)
+                node.position = worldCoord
+                print("should have added text to scene")
+            } else {
+                print("ERROR! Something wrong here.")
+            }
+        }
+    }
+    
+    @objc internal func didTapClearScene() {
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            if node is FocusSquare {
+                node.removeFromParentNode()
+            }
+        }
+        
+        let impact = UIImpactFeedbackGenerator()
+        impact.impactOccurred()
+    }
+    
+    @objc func updateLabel() {
+        identifier = mlPrediction
+    }
 
-	}
 }
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromCATextLayerAlignmentMode(_ input: CATextLayerAlignmentMode) -> String {
 	return input.rawValue
+}
+
+// this would be outside your controller class, i.e. the top-level of a swift file
+extension UIView {
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
 }

@@ -16,9 +16,11 @@ import AVFoundation
 public class DictionaryController: UIViewController {
 
     internal var items: [Translation] = []
+
+    var myView: UIView?
+    var detectedDataAnchor: ARAnchor?
+
     
-    var setUp: Bool = false
-        
     //--------------------
     //MARK: - AR Variables
     //--------------------
@@ -32,10 +34,6 @@ public class DictionaryController: UIViewController {
     
     let augmentedRealitySession = ARSession()
     var configuration = ARWorldTrackingConfiguration()
-    
-    //--------------------------
-    //MARK: - Apple Focus Square
-    //--------------------------
     
     var focusSquare = FocusSquare()
     var canDisplayFocusSquare = true
@@ -52,8 +50,6 @@ public class DictionaryController: UIViewController {
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
     
-    var contentController: VRMenuController?
-
     var player: AVAudioPlayer?
 
     var identifier: String? {
@@ -73,9 +69,10 @@ public class DictionaryController: UIViewController {
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
-        contentController = VRMenuController()
 		setupViews()
         checkCameraPermissions()
+        
+        myView = Bundle.main.loadNibNamed("ARView", owner: nil, options: nil)?.first as? UIView
 	}
     
     public override func viewWillAppear(_ animated: Bool) {

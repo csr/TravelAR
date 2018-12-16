@@ -18,29 +18,26 @@ extension DictionaryController: ARSCNViewDelegate {
         sceneView.session = augmentedRealitySession        
     }
     
-    func createNode() -> SCNNode? {
+    func createNode(text: String) -> SCNNode? {
         guard let theView = myView else {
             print("ERROR: failed to load AR detail view")
             return nil
         }
         
-        let box = SCNPlane(width: 0.1, height: 0.1)
+        let plane = SCNPlane(width: 0.06, height: 0.06)
         let imageMaterial = SCNMaterial()
         imageMaterial.isDoubleSided = true
         imageMaterial.diffuse.contents = theView.asImage()
-        box.materials = [imageMaterial]
         
-        let cube = SCNNode(geometry: box)
-        return cube
+        plane.materials = [imageMaterial]
+        let node = SCNNode(geometry: plane)
+        let billboardConstraint = SCNBillboardConstraint()
+        billboardConstraint.freeAxes = [.X, .Y, .Z]
+        node.constraints = [billboardConstraint]
+        
+        return node
     }
-    
-    public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        print("did add!")
-        DispatchQueue.main.async {
-//            self.attachCustomNode(to: node)
-        }
-    }
-    
+        
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         DispatchQueue.main.async { self.updateFocusSquare() }
     }
@@ -66,17 +63,6 @@ extension DictionaryController: ARSCNViewDelegate {
         }
     }
     
-    internal func detectWorldCoordinates() -> SCNVector3? {
-        let screenCentre = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
-        let arHitTestResults = sceneView.hitTest(screenCentre, types: [.featurePoint])
-        if let closestResult = arHitTestResults.first {
-            let transform = closestResult.worldTransform
-            return SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-        } else {
-            return nil
-        }
-    }
-    
     func didTapSceneView(coords: SCNVector3) {
         print("didTapSceneView(coords: SCNVector3)")
         guard let latestPrediction = mlPrediction else { return }
@@ -99,22 +85,15 @@ extension DictionaryController: ARSCNViewDelegate {
     }
     
     @objc func didTapAddButton() {
-        // HIT TEST : REAL WORLD
-        // Get Screen Centre
         let screenCentre : CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
-        
         let arHitTestResults : [ARHitTestResult] = sceneView.hitTest(screenCentre, types: [.featurePoint]) // Alternatively, we could use '.existingPlaneUsingExtent' for more grounded hit-test-points.
-        
         if let closestResult = arHitTestResults.first {
-            // Get Coordinates of HitTest
             let transform : matrix_float4x4 = closestResult.worldTransform
             let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-            
-            // Create 3D Text
-            if let node = createNode() {
+            if let node = createNode(text: "Hello") {
                 sceneView.scene.rootNode.addChildNode(node)
                 node.position = worldCoord
-                print("should have added text to scene")
+                print("Everything should be fine")
             } else {
                 print("ERROR! Something wrong here.")
             }

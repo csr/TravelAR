@@ -20,7 +20,6 @@ public class DictionaryController: UIViewController {
     var myView: UIView?
     var detectedDataAnchor: ARAnchor?
 
-    
     //--------------------
     //MARK: - AR Variables
     //--------------------
@@ -110,5 +109,11 @@ public class DictionaryController: UIViewController {
     
     public override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        
     }
  }

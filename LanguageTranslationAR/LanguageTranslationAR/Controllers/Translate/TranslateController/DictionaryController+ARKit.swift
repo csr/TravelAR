@@ -19,15 +19,23 @@ extension DictionaryController: ARSCNViewDelegate {
     }
     
     func createNode(text: String) -> SCNNode? {
-        guard let theView = myView else {
-            print("ERROR: failed to load AR detail view")
-            return nil
-        }
+        customView.textLabel.text = Date().description
+        print("custom view frame width:", customView.frame.width)
+        print("custom view frame height:", customView.frame.height)
+
+        let height: CGFloat = 0.03
+        let aspectRatio = customView.frame.height / customView.frame.width 
+        let width = height * (1 / aspectRatio)
+        print("aspect ratio:", aspectRatio)
+        print("width:", width)
         
-        let plane = SCNPlane(width: 0.06, height: 0.06)
+        let plane = SCNPlane(width: width, height: height)
+        
+        print("final width and height:", width, height)
+        
         let imageMaterial = SCNMaterial()
         imageMaterial.isDoubleSided = true
-        imageMaterial.diffuse.contents = theView.asImage()
+        imageMaterial.diffuse.contents = customView.asImage()
         
         plane.materials = [imageMaterial]
         let node = SCNNode(geometry: plane)

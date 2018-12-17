@@ -17,7 +17,11 @@ public class DictionaryController: UIViewController {
 
     internal var items: [Translation] = []
 
-    var myView: UIView?
+    var customView: CustomView = {
+        let view = CustomView()
+        return view
+    }()
+    
     var detectedDataAnchor: ARAnchor?
 
     //--------------------
@@ -71,14 +75,10 @@ public class DictionaryController: UIViewController {
 		setupViews()
         checkCameraPermissions()
         
-        
-        self.myView = CustomView()
-//        let view: ARView = ARView.fromNib()
-//        self.myView = view
-        //myView = Bundle.main.loadNibNamed("ARView", owner: nil, options: nil)?.first as? UIView
+        view.addSubview(customView)
+        //customView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        //customView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 	}
-    
-    
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

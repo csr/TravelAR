@@ -71,8 +71,14 @@ public class DictionaryController: UIViewController {
 		setupViews()
         checkCameraPermissions()
         
-        myView = Bundle.main.loadNibNamed("ARView", owner: nil, options: nil)?.first as? UIView
+        
+        self.myView = CustomView()
+//        let view: ARView = ARView.fromNib()
+//        self.myView = view
+        //myView = Bundle.main.loadNibNamed("ARView", owner: nil, options: nil)?.first as? UIView
 	}
+    
+    
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -117,3 +123,26 @@ public class DictionaryController: UIViewController {
         
     }
  }
+
+ extension UIView {
+    class func fromNib<T: UIView>() -> T {
+        return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
+    }
+ }
+
+ class Dialog: UIView {
+    @IBOutlet var view: UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.frame = UIScreen.main.bounds
+        Bundle.main.loadNibNamed("ARView", owner: self, options: nil)
+        self.view.frame = UIScreen.main.bounds
+        self.addSubview(self.view)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+ }
+

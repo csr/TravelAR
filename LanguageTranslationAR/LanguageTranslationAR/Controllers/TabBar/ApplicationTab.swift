@@ -11,6 +11,7 @@ import UIKit
 enum ApplicationTab: Int, CaseIterable {
     case translate
     case history
+    case cards
     case settings
     
     var tabBarItem: UITabBarItem {
@@ -23,6 +24,7 @@ enum ApplicationTab: Int, CaseIterable {
         switch self {
         case .translate: return "TITLE_TAB_TRANSLATE".localized()
         case .history: return "TITLE_TAB_HISTORY".localized()
+        case .cards: return "TITLE_TAB_CARDS".localized()
         case .settings: return "TITLE_TAB_SETTINGS".localized()
         }
     }
@@ -32,9 +34,9 @@ enum ApplicationTab: Int, CaseIterable {
         switch self {
         case .translate: image = UIImage(named: "translate")
         case .history: image = UIImage(named: "history")
+        case .cards: image = UIImage(named: "history")
         case .settings: image = UIImage(named: "settings")
         }
-        
         return image!
     }
     

@@ -69,6 +69,7 @@
 		1DEC7D2D21C7A05000BBEDD3 /* CardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2C21C7A05000BBEDD3 /* CardsController.swift */; };
 		1DEC7D3021C7CB7600BBEDD3 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2F21C7CB7600BBEDD3 /* CustomView.xib */; };
 		1DEC7D3221C7CB8900BBEDD3 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D3121C7CB8900BBEDD3 /* CustomView.swift */; };
+		1DEC7D3621C7DC1600BBEDD3 /* ZLSwipeableViewSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEC7D3521C7DC1500BBEDD3 /* ZLSwipeableViewSwift.framework */; };
 		1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE6F2E21BB1363006D3830 /* SettingsController.swift */; };
 		1DEE705D21BEB21B006D3830 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */; };
 		1DEE705E21BEB21B006D3830 /* FunctionalTableData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -163,6 +164,7 @@
 		1DEC7D2C21C7A05000BBEDD3 /* CardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsController.swift; sourceTree = "<group>"; };
 		1DEC7D2F21C7CB7600BBEDD3 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		1DEC7D3121C7CB8900BBEDD3 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		1DEC7D3521C7DC1500BBEDD3 /* ZLSwipeableViewSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZLSwipeableViewSwift.framework; path = Carthage/Build/iOS/ZLSwipeableViewSwift.framework; sourceTree = "<group>"; };
 		1DEE6F2E21BB1363006D3830 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalTableData.framework; path = Carthage/Build/iOS/FunctionalTableData.framework; sourceTree = "<group>"; };
 		1DF2BCEF21C1A7DC00D5E29B /* LanguagesTableView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesTableView+TableView.swift"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DEC7D3621C7DC1600BBEDD3 /* ZLSwipeableViewSwift.framework in Frameworks */,
 				1DF2BCFB21C2A93600D5E29B /* TBEmptyDataSet.framework in Frameworks */,
 				1D56275D21BFD6C000979C1A /* Flags.framework in Frameworks */,
 				1DEE705D21BEB21B006D3830 /* FunctionalTableData.framework in Frameworks */,
@@ -270,6 +273,7 @@
 				1DF2BCFA21C2A93500D5E29B /* TBEmptyDataSet.framework */,
 				1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */,
 				1D56275C21BFD6BF00979C1A /* Flags.framework */,
+				1DEC7D3521C7DC1500BBEDD3 /* ZLSwipeableViewSwift.framework */,
 				1D441E2A20726EFE005E2ADD /* LanguageTranslationAR */,
 				1D441E2920726EFE005E2ADD /* Products */,
 			);
@@ -577,6 +581,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/FunctionalTableData.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Flags.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TBEmptyDataSet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ZLSwipeableViewSwift.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (

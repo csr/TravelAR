@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "0.0.8",
+  "iOS" : [
+    {
+      "name" : "ZLSwipeableViewSwift",
+      "hash" : "48136a7c21ed6b6d739b752f62c4131dc6be879a8cc5b6faec86741d00e739dc"
+    }
+  ]
+}

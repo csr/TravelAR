@@ -34,7 +34,7 @@ enum ApplicationTab: Int, CaseIterable {
         switch self {
         case .translate: image = UIImage(named: "translate")
         case .history: image = UIImage(named: "history")
-        case .cards: image = UIImage(named: "history")
+        case .cards: image = UIImage(named: "cards")
         case .settings: image = UIImage(named: "settings")
         }
         return image!

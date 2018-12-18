@@ -35,6 +35,10 @@
 "WELCOME_SECOND_ITEM_DESCRIPTION" = "Visualizza e ascolta le traduzioni quando vuoi.";
 "WELCOME_THIRD_ITEM_DESCRIPTION" = "Memorizza nuove parole con le flashcard.";
 
+"WARNING_NOTHING_FOUND" = "Contina a muoverti";
+"MENU_ACTION_CLOSE" = "Chiudi";
+"TRANSLATION" = "Traduzione";
+
 "Translation Language" = "Lingua di Traduzione";
 "Capture" = "Cattura";
 "Scanning" = "Scansionando...";
@@ -42,7 +46,6 @@
 "How to use" = "Punta e tocca";
 "Point device" = "Guardati in giro e tocca per tradurre quello che hai davanti.";
 "OK" = "OK";
-"Nothing found" = "Sto cercando...";
 "Translations" = "Traduzioni";
 "Clear" = "Pulisci";
 "Tap to play" = "Tocca per ascoltare";

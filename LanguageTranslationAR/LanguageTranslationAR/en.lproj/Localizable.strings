@@ -35,13 +35,16 @@
 "WELCOME_SECOND_ITEM_DESCRIPTION" = "Learn new words and listen to the spoken audio.";
 "WELCOME_THIRD_ITEM_DESCRIPTION" = "Expand your vocabulary by learning with flashcards.";
 
+"WARNING_NOTHING_FOUND" = "Keep moving";
+"MENU_ACTION_CLOSE" = "Close";
+"TRANSLATION" = "Translation";
+
 "Capture" = "Capture";
 "Scanning" = "Scanning...";
 "Move device" = "Move your %@ around to detect planes.";
 "How to use" = "Point and tap";
 "Point device" = "Look around and tap to translate what's in front of you.";
 "OK" = "OK";
-"Nothing found" = "Nothing found...";
 "Translations" = "Translations";
 "Clear" = "Clear";
 "Tap to play" = "Tap Item to Play";

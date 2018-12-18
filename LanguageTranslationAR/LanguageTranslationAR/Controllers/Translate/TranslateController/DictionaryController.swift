@@ -23,6 +23,12 @@ public class DictionaryController: UIViewController {
         return view
     }()
     
+    let feedbackView: FeedbackView = {
+        let view = FeedbackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var detectedDataAnchor: ARAnchor?
 
     //--------------------
@@ -129,33 +135,14 @@ public class DictionaryController: UIViewController {
         }
         
         let view = ARDetailView(frame: CGRect(x: position.x, y: position.y, width: 100, height: 40))
+        view.translatesAutoresizingMaskIntoConstraints = false
         sceneView.addSubview(view)
         UIView.animate(withDuration: 0.2) {
-            view.frame = CGRect(x: self.sceneView.frame.width/2 - 150, y: self.sceneView.frame.height/2 - 100, width: 300, height: 200)
+            view.centerXAnchor.constraint(equalTo: self.sceneView.centerXAnchor).isActive = true
+            view.centerYAnchor.constraint(equalTo: self.sceneView.centerYAnchor).isActive = true
+            view.widthAnchor.constraint(equalToConstant: 350).isActive = true
+            view.heightAnchor.constraint(equalToConstant: 190).isActive = true
+            self.view.layoutIfNeeded()
         }
-
     }
  }
-
- extension UIView {
-    class func fromNib<T: UIView>() -> T {
-        return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
-    }
- }
-
- class Dialog: UIView {
-    @IBOutlet var view: UIView!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.frame = UIScreen.main.bounds
-        Bundle.main.loadNibNamed("ARView", owner: self, options: nil)
-        self.view.frame = UIScreen.main.bounds
-        self.addSubview(self.view)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
- }
-

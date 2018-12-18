@@ -57,6 +57,7 @@
 		1D56276121C0561B00979C1A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D56276021C0561B00979C1A /* Launch Screen.storyboard */; };
 		1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */; };
 		1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245721C93A1800EB2D5C /* ARDetailView.swift */; };
+		1D65245B21C9417300EB2D5C /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245A21C9417300EB2D5C /* FeedbackView.swift */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */; };
 		1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */; };
@@ -151,6 +152,7 @@
 		1D56276021C0561B00979C1A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageTableViewController+Search.swift"; sourceTree = "<group>"; };
 		1D65245721C93A1800EB2D5C /* ARDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailView.swift; sourceTree = "<group>"; };
+		1D65245A21C9417300EB2D5C /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
 		1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverClearView.swift; sourceTree = "<group>"; };
@@ -401,6 +403,14 @@
 			path = ARDetailView;
 			sourceTree = "<group>";
 		};
+		1D65245C21C944B900EB2D5C /* FeedbackView */ = {
+			isa = PBXGroup;
+			children = (
+				1D65245A21C9417300EB2D5C /* FeedbackView.swift */,
+			);
+			path = FeedbackView;
+			sourceTree = "<group>";
+		};
 		1D94B76D20CB29FF0000B065 /* Languages */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +449,7 @@
 			children = (
 				1DEC7D3321C7CB9000BBEDD3 /* CustomView */,
 				1D65245921C93A1B00EB2D5C /* ARDetailView */,
+				1D65245C21C944B900EB2D5C /* FeedbackView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -632,6 +643,7 @@
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
 				1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */,
 				1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */,
+				1D65245B21C9417300EB2D5C /* FeedbackView.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D23B9642098E50700121E8F /* UIColorExtensions.swift in Sources */,
 				1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */,

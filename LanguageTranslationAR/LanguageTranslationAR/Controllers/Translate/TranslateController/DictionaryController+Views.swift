@@ -21,8 +21,15 @@ extension DictionaryController: AddButtonProlocol {
         view.backgroundColor = .black
 		setupSceneView()
         setupAddButton()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "NAV_BAR_CLEAR".localized(), style: .plain, target: self, action: #selector(didTapClearScene))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "NAV_BAR_CLEAR".localized(), style: .plain, target: self, action: #selector(didTapClearButton))
         setupClearButton()
+        setupFeedbackView()
+    }
+    
+    private func setupFeedbackView() {
+        view.addSubview(feedbackView)
+        feedbackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
+        feedbackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     func setupClearButton() {
@@ -50,7 +57,7 @@ extension DictionaryController: AddButtonProlocol {
         blurEffectView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -7).isActive = true
         
         blurEffectView.isUserInteractionEnabled = true
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapClearScene))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapClearButton))
         blurEffectView.addGestureRecognizer(tapRecognizer)
     }
     
@@ -70,31 +77,4 @@ extension DictionaryController: AddButtonProlocol {
                                               sceneView.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
         NSLayoutConstraint.activate(constraints)
 	}
-}
-
-class InstructionView: UIVisualEffectView {
-    
-    let label: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Test"
-        label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 21)
-        return label
-    }()
-    
-    override init(effect: UIVisualEffect?) {
-        let blurEffect = UIBlurEffect(style: .dark)
-        super.init(effect: blurEffect)
-        
-        addSubview(label)
-        label.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-        label.rightAnchor.constraint(equalTo: rightAnchor, constant: -5).isActive = true
-        label.leftAnchor.constraint(equalTo: leftAnchor, constant: 5).isActive = true
-        label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

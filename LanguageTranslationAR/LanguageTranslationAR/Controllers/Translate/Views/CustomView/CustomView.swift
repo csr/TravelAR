@@ -15,9 +15,8 @@ class CustomView: UIView, NibView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
-        textLabel.text = "Test test test"
-        translatesAutoresizingMaskIntoConstraints = false
-        heightAnchor.constraint(equalToConstant: 70).isActive = true
+        //translatesAutoresizingMaskIntoConstraints = false
+        //heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

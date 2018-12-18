@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol AddButtonProlocol {
-    func didTapButton()
+protocol AddButtonProtocol {
+    func didTapAddButton()
 }

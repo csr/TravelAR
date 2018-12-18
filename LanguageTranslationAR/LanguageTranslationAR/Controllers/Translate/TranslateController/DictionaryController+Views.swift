@@ -9,11 +9,7 @@
 import UIKit
 
 @available(iOS 11.0, *)
-extension DictionaryController: AddButtonProlocol {
-    
-    func didTapButton() {
-        didTapAddButton()
-    }
+extension DictionaryController: AddButtonProtocol {
     
     // Add a Clear navigation right item
     
@@ -24,6 +20,13 @@ extension DictionaryController: AddButtonProlocol {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "NAV_BAR_CLEAR".localized(), style: .plain, target: self, action: #selector(didTapClearButton))
         setupClearButton()
         setupFeedbackView()
+        setupCustomView()
+    }
+    
+    private func setupCustomView() {
+        view.addSubview(customView)
+        customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -100).isActive = true
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
     }
     
     private func setupFeedbackView() {

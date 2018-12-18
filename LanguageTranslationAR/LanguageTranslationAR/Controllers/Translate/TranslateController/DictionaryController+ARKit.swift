@@ -124,8 +124,8 @@ extension DictionaryController: ARSCNViewDelegate {
     }
     
     @objc func updateLabel() {
-        identifier = mlPrediction
-        if let identifier = identifier {
+        if let mlPrediction = mlPrediction {
+            identifier = mlPrediction
             feedbackView.textLabel.text = identifier
             UIView.animate(withDuration: 0.2) {
                 self.addButton.alpha = 1
@@ -135,7 +135,7 @@ extension DictionaryController: ARSCNViewDelegate {
                 self.addButton.alpha = 0.5
             }
             feedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized()
-        }
+        }        
     }
 
 }

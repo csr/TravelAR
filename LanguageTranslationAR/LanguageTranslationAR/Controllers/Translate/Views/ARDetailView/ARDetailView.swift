@@ -17,14 +17,14 @@ class ARDetailView: UIView, NibView {
         super.init(frame: frame)
         xibSetup()
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = 18
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
         buttonClose.setTitle("MENU_ACTION_CLOSE".localized(), for: .normal)
-        labelTitle.text = "TRANSLATION".localized()
+            labelTitle.text = "TRANSLATION".localized()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,6 +33,7 @@ class ARDetailView: UIView, NibView {
     }
     
     @IBAction func didTapCloseButton(_ sender: UIButton) {
+        print("closed tapped!")
         UIView.animate(withDuration: 0.2, animations: {
             self.alpha = 0
         }) { _ in

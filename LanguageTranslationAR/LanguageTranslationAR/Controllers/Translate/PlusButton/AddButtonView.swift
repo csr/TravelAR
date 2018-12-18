@@ -10,7 +10,7 @@ import UIKit
 
 class AddButtonView: UIView {
 
-    var delegate: AddButtonProlocol?
+    var delegate: AddButtonProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -83,7 +83,7 @@ class AddButtonView: UIView {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        delegate?.didTapButton()
+        delegate?.didTapAddButton()
         
         super.touchesBegan(touches, with: event)
         UIView.animate(withDuration: 0.5, delay: 0, options: .allowUserInteraction, animations: {

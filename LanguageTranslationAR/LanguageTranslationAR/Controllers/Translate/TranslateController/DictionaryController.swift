@@ -29,8 +29,6 @@ public class DictionaryController: UIViewController {
         return view
     }()
     
-    var detectedDataAnchor: ARAnchor?
-
     //--------------------
     //MARK: - AR Variables
     //--------------------
@@ -60,8 +58,6 @@ public class DictionaryController: UIViewController {
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
     
-    var player: AVAudioPlayer?
-
     var identifier: String? {
         didSet {
             if identifier == oldValue {
@@ -69,6 +65,8 @@ public class DictionaryController: UIViewController {
             }            
         }
     }
+    
+    var shouldPresentARDetailView = true
     
     lazy var addButton: AddButtonView = {
         let view = AddButtonView()
@@ -79,17 +77,9 @@ public class DictionaryController: UIViewController {
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
-		
         setupAR()
         setupCoreML()
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
-
         setupViews()
-        
-        view.addSubview(customView)
-        customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -100).isActive = true
-        //customView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        //customView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 	}
     
     public override func viewWillAppear(_ animated: Bool) {

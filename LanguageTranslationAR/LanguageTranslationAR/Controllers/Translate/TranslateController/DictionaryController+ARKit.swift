@@ -32,7 +32,7 @@ extension DictionaryController: ARSCNViewDelegate {
         print("custom view frame height:", customView.frame.height)
 
         let height: CGFloat = 0.02
-        let aspectRatio = customView.frame.height / customView.frame.width 
+        let aspectRatio = customView.bounds.height / customView.bounds.width
         let width = height * (1 / aspectRatio)
         print("aspect ratio:", aspectRatio)
         print("width:", width)
@@ -42,7 +42,6 @@ extension DictionaryController: ARSCNViewDelegate {
         print("final width and height:", width, height)
         
         let imageMaterial = SCNMaterial()
-        imageMaterial.isDoubleSided = true
         imageMaterial.diffuse.contents = customView.asImage()
         
         plane.materials = [imageMaterial]
@@ -106,8 +105,8 @@ extension DictionaryController: ARSCNViewDelegate {
             let transform: matrix_float4x4 = closestResult.worldTransform
             let worldCoord: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
             
-            if let node = createNode(text: identifier) {
-                sceneView.scene.rootNode.addChildNode(node)
+            if let node = self.createNode(text: identifier) {
+                self.sceneView.scene.rootNode.addChildNode(node)
                 node.position = worldCoord
             } else {
                 print("ERROR! Something wrong here.")
@@ -146,7 +145,16 @@ fileprivate func convertFromCATextLayerAlignmentMode(_ input: CATextLayerAlignme
 	return input.rawValue
 }
 
-// this would be outside your controller class, i.e. the top-level of a swift file
+//extension UIView {
+//    func asImage() -> UIImage {
+//        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+//        return renderer.image { rendererContext in
+//            layer.render(in: rendererContext.cgContext)
+//        }
+//    }
+//}
+
+
 extension UIView {
     func asImage() -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)

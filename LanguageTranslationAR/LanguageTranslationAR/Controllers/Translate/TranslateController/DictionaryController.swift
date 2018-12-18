@@ -79,8 +79,12 @@ public class DictionaryController: UIViewController {
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
-		setupViews()
-        checkCameraPermissions()
+		
+        setupAR()
+        setupCoreML()
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
+
+        setupViews()
         
         view.addSubview(customView)
         customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -100).isActive = true

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ARDetailView" customModule="LanguageTranslationAR" customModuleProvider="target">
             <connections>
+                <outlet property="buttonClose" destination="iwN-eJ-NVH" id="Khy-Hv-1iC"/>
                 <outlet property="labelTitle" destination="8Az-pU-PYy" id="DTj-9H-iSf"/>
             </connections>
         </placeholder>

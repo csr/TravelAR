@@ -12,7 +12,7 @@ class LanguagePreferences {
     
     static var languages = [Language]()
     
-    class func getCurrentLanguage() -> Language {
+    class func getCurrent() -> Language {
         let defaults = UserDefaults.standard
         if let code = defaults.string(forKey: "languageCode"), let name = defaults.string(forKey: "languageName") {
             return Language(name: name, languageCode: code)
@@ -21,7 +21,7 @@ class LanguagePreferences {
         }        
     }
     
-    class func saveLanguage(language: Language) {
+    class func save(language: Language) {
         let defaults = UserDefaults.standard
         defaults.set(language.name, forKey: "languageName")
         defaults.set(language.languageCode, forKey: "languageCode")

@@ -8,6 +8,7 @@
 
 import UIKit
 import ARKit
+import Flags
 
 @available(iOS 11.0, *)
 extension DictionaryController: ARSCNViewDelegate {
@@ -19,7 +20,14 @@ extension DictionaryController: ARSCNViewDelegate {
     }
     
     func createNode(text: String) -> SCNNode? {
-        customView.textLabel.text = Date().description
+        let currentLanguage = LanguagePreferences.getCurrent()
+        let langCode = currentLanguage.languageCode.uppercased()
+        if let flagEmoji = Flag(countryCode: langCode)?.emoji {
+            customView.textLabel.text = flagEmoji + " " + text
+        } else {
+            customView.textLabel.text = text
+        }
+        
         print("custom view frame width:", customView.frame.width)
         print("custom view frame height:", customView.frame.height)
 
@@ -96,12 +104,11 @@ extension DictionaryController: ARSCNViewDelegate {
         let screenCentre : CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
         let arHitTestResults : [ARHitTestResult] = sceneView.hitTest(screenCentre, types: [.featurePoint]) // Alternatively, we could use '.existingPlaneUsingExtent' for more grounded hit-test-points.
         if let closestResult = arHitTestResults.first {
-            let transform : matrix_float4x4 = closestResult.worldTransform
-            let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-            if let node = createNode(text: "Hello") {
+            let transform: matrix_float4x4 = closestResult.worldTransform
+            let worldCoord: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+            if let node = createNode(text: identifier ?? "nil") {
                 sceneView.scene.rootNode.addChildNode(node)
                 node.position = worldCoord
-                print("Everything should be fine")
             } else {
                 print("ERROR! Something wrong here.")
             }

@@ -56,6 +56,7 @@
 		1D56275D21BFD6C000979C1A /* Flags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D56275C21BFD6BF00979C1A /* Flags.framework */; };
 		1D56276121C0561B00979C1A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D56276021C0561B00979C1A /* Launch Screen.storyboard */; };
 		1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */; };
+		1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245721C93A1800EB2D5C /* ARDetailView.swift */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */; };
 		1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */; };
@@ -149,6 +150,7 @@
 		1D56275C21BFD6BF00979C1A /* Flags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flags.framework; path = Carthage/Build/iOS/Flags.framework; sourceTree = "<group>"; };
 		1D56276021C0561B00979C1A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageTableViewController+Search.swift"; sourceTree = "<group>"; };
+		1D65245721C93A1800EB2D5C /* ARDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailView.swift; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
 		1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverClearView.swift; sourceTree = "<group>"; };
@@ -390,6 +392,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		1D65245921C93A1B00EB2D5C /* ARDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */,
+				1D65245721C93A1800EB2D5C /* ARDetailView.swift */,
+			);
+			path = ARDetailView;
+			sourceTree = "<group>";
+		};
 		1D94B76D20CB29FF0000B065 /* Languages */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,7 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				1DEC7D3321C7CB9000BBEDD3 /* CustomView */,
-				1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */,
+				1D65245921C93A1B00EB2D5C /* ARDetailView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -612,6 +623,7 @@
 				1D23B95920986BB700121E8F /* Translation.swift in Sources */,
 				1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */,
 				1DEC7D2B21C6F40200BBEDD3 /* NibView.swift in Sources */,
+				1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */,
 				1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */,
 				1DEC7D2D21C7A05000BBEDD3 /* CardsController.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,

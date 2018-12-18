@@ -24,7 +24,7 @@ class LanguagesTableViewController: UITableViewController {
             let initialLetter = tableViewHeaders[section]
             if let values = tableViewSource[initialLetter] {
                 let language = values[row]
-                LanguagePreferences.saveLanguage(language: language)
+                LanguagePreferences.save(language: language)
             }
         }
     }
@@ -76,7 +76,7 @@ class LanguagesTableViewController: UITableViewController {
     }
     
     func scrollToUserLanguage() {
-        let userLanguage = LanguagePreferences.getCurrentLanguage()
+        let userLanguage = LanguagePreferences.getCurrent()
         
         let nestedArr = Array(tableViewSource.values)
         let allLangs = nestedArr.reduce([], +)

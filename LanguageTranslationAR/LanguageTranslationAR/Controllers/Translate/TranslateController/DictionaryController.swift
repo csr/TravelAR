@@ -19,6 +19,7 @@ public class DictionaryController: UIViewController {
 
     var customView: CustomView = {
         let view = CustomView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -76,6 +77,7 @@ public class DictionaryController: UIViewController {
         checkCameraPermissions()
         
         view.addSubview(customView)
+        customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -100).isActive = true
         //customView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         //customView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 	}
@@ -119,8 +121,19 @@ public class DictionaryController: UIViewController {
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
+        guard let touch = touches.first else { return }
+        let position = touch.location(in: sceneView)
         
+        guard let _ = sceneView.hitTest(position, options: nil).first else {
+            return
+        }
         
+        let view = ARDetailView(frame: CGRect(x: position.x, y: position.y, width: 100, height: 40))
+        sceneView.addSubview(view)
+        UIView.animate(withDuration: 0.2) {
+            view.frame = CGRect(x: self.sceneView.frame.width/2 - 150, y: self.sceneView.frame.height/2 - 100, width: 300, height: 200)
+        }
+
     }
  }
 

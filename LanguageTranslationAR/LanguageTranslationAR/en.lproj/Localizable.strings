@@ -37,6 +37,10 @@
 
 "CAMERA_PERMISSIONS_BUTTON_TITLE" = "Allow Camera";
 "CAMERA_PERMISSIONS_TITLE" = "Allow Camera Access";
+"CAMERA_PERMISSIONS_DESCRIPTION" = "We need access to the camera to let you translate things around you.";
+"NO_CAMERA_BUTTON_OK" = "OK";
+"NO_CAMERA_BUTTON_ALERT_TITLE" = "Error";
+"NO_CAMERA_BUTTON_ALERT_MESSAGE" = "Your device does not have a camera. This app needs a camera to work properly.";
 
 "WARNING_NOTHING_FOUND" = "Keep moving";
 "MENU_ACTION_CLOSE" = "Close";

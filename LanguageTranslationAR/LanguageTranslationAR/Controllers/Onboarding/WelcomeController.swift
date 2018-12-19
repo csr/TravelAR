@@ -1,14 +1,58 @@
 //
-//  WelcomeController+Views.swift
+//  WelcomeController.swift
 //  LanguageTranslationAR
 //
-//  Created by Cesare de Cal on 12/19/18.
+//  Created by Cesare de Cal on 12/14/18.
 //  Copyright © 2018 Cesare de Cal. All rights reserved.
 //
 
 import UIKit
 
-extension WelcomeController {
+class WelcomeController: UIViewController {
+    
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 50
+        return stackView
+    }()
+    
+    let titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.textColor = .white
+        let attributedString = NSMutableAttributedString(string: "WELCOME_TITLE".localized())
+        attributedString.setColor(color: UIColor.orange, forText: "TranslateAR")
+        titleLabel.attributedText = attributedString
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 33)
+        titleLabel.numberOfLines = 0
+        return titleLabel
+    }()
+    
+    let button: CustomButton = {
+        let button = CustomButton()
+        button.addTarget(self, action: #selector(didSelectContinueButton), for: .touchUpInside)
+        button.setTitle("WELCOME_BUTTON_TEXT".localized(), for: .normal)
+        return button
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
+    
+    @objc func didSelectContinueButton() {
+        let cameraPermissionVC = PermissionsController()
+        navigationController?.pushViewController(cameraPermissionVC, animated: true)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
     
     internal func setupView() {
         setupContentStackView()
@@ -19,21 +63,9 @@ extension WelcomeController {
     private func setupContentStackView() {
         view.addSubview(stackView)
         stackView.fillToSuperview(constant: 40)
-
-        stackView.addArrangedSubview(getTopLabel())
+        stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(getMiddleStackView())
         stackView.addArrangedSubview(button)
-    }
-    
-    private func getTopLabel() -> UILabel {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .white
-        let attributedString = NSMutableAttributedString(string: "WELCOME_TITLE".localized())
-        attributedString.setColor(color: UIColor.orange, forText: "TranslateAR")
-        titleLabel.attributedText = attributedString
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 33)
-        titleLabel.numberOfLines = 0
-        return titleLabel
     }
     
     private func getMiddleStackView() -> UIStackView {

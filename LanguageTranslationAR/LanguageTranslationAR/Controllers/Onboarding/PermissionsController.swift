@@ -14,6 +14,7 @@ class PermissionsController: UIViewController {
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.distribution = .equalCentering
         return stackView
     }()
     
@@ -28,9 +29,25 @@ class PermissionsController: UIViewController {
         return label
     }()
     
+    private let descriptionLabel: UILabel = {
+        let descriptionLabel = UILabel()
+        descriptionLabel.text = "CAMERA_PERMISSIONS_DESCRIPTION".localized()
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        descriptionLabel.textColor = .white
+        descriptionLabel.numberOfLines = 0
+        return descriptionLabel
+    }()
+    
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "camera")
+        return imageView
+    }()
+    
     private let button: CustomButton = {
         let button = CustomButton()
-        button.addTarget(self, action: #selector(requestCameraAccess), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapAllowButton), for: .touchUpInside)
         button.setTitle("CAMERA_PERMISSIONS_BUTTON_TITLE".localized(), for: .normal)
         return button
     }()
@@ -44,7 +61,14 @@ class PermissionsController: UIViewController {
         view.backgroundColor = .black
         view.addSubview(stackView)
         stackView.fillToSuperview(constant: 40)
-        stackView.addArrangedSubview(titleLabel)
+        
+        let titleStackView = UIStackView()
+        titleStackView.axis = .vertical
+        titleStackView.spacing = 10
+        titleStackView.addArrangedSubview(titleLabel)
+        titleStackView.addArrangedSubview(descriptionLabel)
+        stackView.addArrangedSubview(titleStackView)
+        stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(button)
     }
     
@@ -52,10 +76,8 @@ class PermissionsController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func requestCameraAccess() {
-        print("requesting camera access...")
+    @objc func didTapAllowButton() {
         AVCaptureDevice.requestAccess(for: .video) { (granted) in
-            print("was access granted?", granted)
             DispatchQueue.main.async {
                 self.cameraSelected()
             }
@@ -63,28 +85,19 @@ class PermissionsController: UIViewController {
     }
     
     func cameraSelected() {
-        // First we check if the device has a camera (otherwise will crash in Simulator - also, some iPod touch models do not have a camera).
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let authStatus = AVCaptureDevice.authorizationStatus(for: .video)
             switch authStatus {
             case .authorized:
-                print("authorized! dismissing...")
                 self.dismiss(animated: true, completion: nil)
             case .denied:
-                print("denied!!")
                 alertPromptToAllowCameraAccessViaSettings()
-            case .notDetermined:
-                print("not determined")
-            //                permissionPrimeCameraAccess()
             default:
-                print("default")
-                //                permissionPrimeCameraAccess()
+                return
             }
         } else {
-            let alertController = UIAlertController(title: "Error", message: "Device has no camera", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { (alert) in
-                //                Analytics.track(event: .permissionsPrimeCameraNoCamera)
-            })
+            let alertController = UIAlertController(title: "NO_CAMERA_BUTTON_ALERT_TITLE".localized(), message: "NO_CAMERA_BUTTON_ALERT_MESSAGE".localized(), preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "NO_CAMERA_BUTTON_OK".localized(), style: .default, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
         }

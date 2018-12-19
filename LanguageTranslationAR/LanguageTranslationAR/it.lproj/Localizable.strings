@@ -37,6 +37,10 @@
 
 "CAMERA_PERMISSIONS_BUTTON_TITLE" = "Consenti Accesso";
 "CAMERA_PERMISSIONS_TITLE" = "Consenti l'accesso alla fotocamera";
+"CAMERA_PERMISSIONS_DESCRIPTION" = "Ci serve la fotocamera per iniziare a tradurre la realtà.";
+"NO_CAMERA_BUTTON_OK" = "OK";
+"NO_CAMERA_BUTTON_ALERT_TITLE" = "Errore";
+"NO_CAMERA_BUTTON_ALERT_MESSAGE" = "Il tuo dispositivo non ha una fotocamera. Questa app ha bisogno della fotocamera per funzionare.";
 
 "WARNING_NOTHING_FOUND" = "Contina a muoverti";
 "MENU_ACTION_CLOSE" = "Chiudi";

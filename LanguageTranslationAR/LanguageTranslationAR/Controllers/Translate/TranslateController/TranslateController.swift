@@ -90,7 +90,7 @@ import AVFoundation
         
         if isCameraPermissionGranted() {
             let navController = UINavigationController(rootViewController: WelcomeController())
-            present(navController, animated: true, completion: nil)
+            //present(navController, animated: true, completion: nil)
         } else {
             runARSession()
             setupCoreML()

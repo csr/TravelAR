@@ -23,7 +23,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>We need to access the camera to let you scan and translate things around you.</string>
 	<key>UILaunchStoryboardName</key>
-	<string>Launch Screen</string>
+	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>arkit</string>

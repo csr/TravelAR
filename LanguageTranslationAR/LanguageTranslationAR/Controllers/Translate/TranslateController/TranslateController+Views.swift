@@ -9,7 +9,7 @@
 import UIKit
 
 @available(iOS 11.0, *)
-extension DictionaryController: AddButtonProtocol {
+extension TranslateController: AddButtonProtocol {
     
     // Add a Clear navigation right item
     

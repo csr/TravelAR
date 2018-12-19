@@ -10,7 +10,7 @@ import UIKit
 import Vision
 
 @available(iOS 11.0, *)
-extension DictionaryController {
+extension TranslateController {
 	internal func setupCoreML() {
 		guard let mlmodelcFile = Bundle.main.url(forResource: "Inceptionv3", withExtension: "mlmodelc") else {
 			print("error finding model")

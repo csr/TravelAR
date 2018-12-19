@@ -33,7 +33,6 @@ class ARDetailView: UIView, NibView {
     }
     
     @IBAction func didTapCloseButton(_ sender: UIButton) {
-        print("closed tapped!")
         UIView.animate(withDuration: 0.2, animations: {
             self.alpha = 0
         }) { _ in

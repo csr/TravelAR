@@ -12,8 +12,7 @@ import Vision
 import ARKit
 import AVFoundation
 
-@available(iOS 11.0, *) 
-public class TranslateController: UIViewController {
+ public class TranslateController: UIViewController {
 
     internal var items: [Translation] = []
 
@@ -36,6 +35,7 @@ public class TranslateController: UIViewController {
     lazy var sceneView: ARSCNView = {
         let sceneView = ARSCNView()
         sceneView.delegate = self
+        sceneView.scene = SCNScene()
         sceneView.translatesAutoresizingMaskIntoConstraints = false
         return sceneView
     }()
@@ -79,15 +79,7 @@ public class TranslateController: UIViewController {
 		super.viewDidLoad()
         setupViews()
 	}
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-        
-        
-    }
-    
+
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
@@ -95,15 +87,17 @@ public class TranslateController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if areCameraPermissionsGranted() {
-            present(WelcomeController(), animated: true, completion: nil)
+        
+        if isCameraPermissionGranted() {
+            let navController = UINavigationController(rootViewController: WelcomeController())
+            present(navController, animated: true, completion: nil)
         } else {
-            setupAR()
+            runARSession()
             setupCoreML()
         }
     }
     
-    @objc internal func areCameraPermissionsGranted() -> Bool {
+    @objc internal func isCameraPermissionGranted() -> Bool {
         let cameraMediaType = AVMediaType.video
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
         return !(cameraAuthorizationStatus == .authorized)

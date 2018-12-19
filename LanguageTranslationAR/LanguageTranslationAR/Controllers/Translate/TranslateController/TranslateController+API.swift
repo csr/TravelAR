@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension DictionaryController {
+extension TranslateController {
     internal func getTranslation(text: String, completion: @escaping (Translation?) -> Void) {
         print("Sent translation request...")
         let userLanguage = LanguagePreferences.getCurrent()

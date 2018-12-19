@@ -8,12 +8,8 @@
 
 import Foundation
 
-protocol ItemsDelegate {
-    func newItemAdded()
-}
-
 class TranslationItems {
-    var delegate: ItemsDelegate?
+    var delegate: TranslationItemsDelegate?
     
     static let shared = TranslationItems()
     var array = [Translation]() {

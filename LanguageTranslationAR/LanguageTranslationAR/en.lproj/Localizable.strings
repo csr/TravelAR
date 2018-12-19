@@ -35,6 +35,9 @@
 "WELCOME_SECOND_ITEM_DESCRIPTION" = "Learn new words and listen to the spoken audio.";
 "WELCOME_THIRD_ITEM_DESCRIPTION" = "Expand your vocabulary by learning with flashcards.";
 
+"CAMERA_PERMISSIONS_BUTTON_TITLE" = "Allow Camera";
+"CAMERA_PERMISSIONS_TITLE" = "Allow Camera Access";
+
 "WARNING_NOTHING_FOUND" = "Keep moving";
 "MENU_ACTION_CLOSE" = "Close";
 "TRANSLATION" = "Translation";

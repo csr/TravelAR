@@ -15,7 +15,7 @@
 		1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9522097C59D00121E8F /* LanguageData.swift */; };
 		1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9542097C5AF00121E8F /* LanguagesList.swift */; };
 		1D23B95920986BB700121E8F /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95820986BB700121E8F /* Translation.swift */; };
-		1D23B95B20986D1100121E8F /* DictionaryController+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95A20986D1100121E8F /* DictionaryController+API.swift */; };
+		1D23B95B20986D1100121E8F /* TranslateController+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95A20986D1100121E8F /* TranslateController+API.swift */; };
 		1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95C2098944C00121E8F /* TranslationData.swift */; };
 		1D23B9602098945D00121E8F /* TranslationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95F2098945D00121E8F /* TranslationList.swift */; };
 		1D23B9642098E50700121E8F /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9632098E50700121E8F /* UIColorExtensions.swift */; };
@@ -40,10 +40,10 @@
 		1D441E8D20726F22005E2ADD /* pt.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5220726F1B005E2ADD /* pt.json */; };
 		1D441E8E20726F22005E2ADD /* ro.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5320726F1B005E2ADD /* ro.json */; };
 		1D441E9020726F22005E2ADD /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5520726F1B005E2ADD /* sound.png */; };
-		1D441E9320726F22005E2ADD /* DictionaryController+ARKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */; };
-		1D441E9420726F22005E2ADD /* DictionaryController+CoreML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */; };
-		1D441E9720726F22005E2ADD /* DictionaryController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */; };
-		1D441E9820726F22005E2ADD /* DictionaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6020726F22005E2ADD /* DictionaryController.swift */; };
+		1D441E9320726F22005E2ADD /* TranslateController+ARKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */; };
+		1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */; };
+		1D441E9720726F22005E2ADD /* TranslateController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5F20726F22005E2ADD /* TranslateController+Views.swift */; };
+		1D441E9820726F22005E2ADD /* TranslateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6020726F22005E2ADD /* TranslateController.swift */; };
 		1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6320726F22005E2ADD /* ArrayExtensions.swift */; };
 		1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6420726F22005E2ADD /* SKSceneExtensions.swift */; };
 		1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6620726F22005E2ADD /* TextToSpeech.swift */; };
@@ -62,9 +62,12 @@
 		1D65246221CA82D700EB2D5C /* RandomColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65246121CA82D700EB2D5C /* RandomColor.framework */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */; };
+		1D95A9EA21CAC122002EDAF1 /* TranslationItemsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95A9E921CAC122002EDAF1 /* TranslationItemsDelegate.swift */; };
+		1D95A9EC21CAC151002EDAF1 /* WelcomeController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95A9EB21CAC151002EDAF1 /* WelcomeController+Views.swift */; };
+		1D95A9EE21CACCB0002EDAF1 /* PermissionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95A9ED21CACCB0002EDAF1 /* PermissionsController.swift */; };
+		1D95A9F121CAD026002EDAF1 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */; };
 		1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */; };
 		1DEC7D1421C5771900BBEDD3 /* DidUpdateLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1321C5771900BBEDD3 /* DidUpdateLanguage.swift */; };
-		1DEC7D1621C5AE1600BBEDD3 /* WelcomeController+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1521C5AE1600BBEDD3 /* WelcomeController+Camera.swift */; };
 		1DEC7D2121C69C4300BBEDD3 /* AddButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */; };
 		1DEC7D2521C6CFCE00BBEDD3 /* ARDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */; };
 		1DEC7D2B21C6F40200BBEDD3 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */; };
@@ -108,7 +111,7 @@
 		1D23B9522097C59D00121E8F /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
 		1D23B9542097C5AF00121E8F /* LanguagesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesList.swift; sourceTree = "<group>"; };
 		1D23B95820986BB700121E8F /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
-		1D23B95A20986D1100121E8F /* DictionaryController+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryController+API.swift"; sourceTree = "<group>"; };
+		1D23B95A20986D1100121E8F /* TranslateController+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+API.swift"; sourceTree = "<group>"; };
 		1D23B95C2098944C00121E8F /* TranslationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationData.swift; sourceTree = "<group>"; };
 		1D23B95F2098945D00121E8F /* TranslationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationList.swift; sourceTree = "<group>"; };
 		1D23B9632098E50700121E8F /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -137,10 +140,10 @@
 		1D441E5220726F1B005E2ADD /* pt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pt.json; sourceTree = "<group>"; };
 		1D441E5320726F1B005E2ADD /* ro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ro.json; sourceTree = "<group>"; };
 		1D441E5520726F1B005E2ADD /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
-		1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+ARKit.swift"; sourceTree = "<group>"; };
-		1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+CoreML.swift"; sourceTree = "<group>"; };
-		1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DictionaryController+Views.swift"; sourceTree = "<group>"; };
-		1D441E6020726F22005E2ADD /* DictionaryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryController.swift; sourceTree = "<group>"; };
+		1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateController+ARKit.swift"; sourceTree = "<group>"; };
+		1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateController+CoreML.swift"; sourceTree = "<group>"; };
+		1D441E5F20726F22005E2ADD /* TranslateController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateController+Views.swift"; sourceTree = "<group>"; };
+		1D441E6020726F22005E2ADD /* TranslateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateController.swift; sourceTree = "<group>"; };
 		1D441E6320726F22005E2ADD /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		1D441E6420726F22005E2ADD /* SKSceneExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSceneExtensions.swift; sourceTree = "<group>"; };
 		1D441E6620726F22005E2ADD /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
@@ -159,9 +162,12 @@
 		1D65246121CA82D700EB2D5C /* RandomColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RandomColor.framework; path = Carthage/Build/iOS/RandomColor.framework; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
+		1D95A9E921CAC122002EDAF1 /* TranslationItemsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItemsDelegate.swift; sourceTree = "<group>"; };
+		1D95A9EB21CAC151002EDAF1 /* WelcomeController+Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeController+Views.swift"; sourceTree = "<group>"; };
+		1D95A9ED21CACCB0002EDAF1 /* PermissionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsController.swift; sourceTree = "<group>"; };
+		1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverClearView.swift; sourceTree = "<group>"; };
 		1DEC7D1321C5771900BBEDD3 /* DidUpdateLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidUpdateLanguage.swift; sourceTree = "<group>"; };
-		1DEC7D1521C5AE1600BBEDD3 /* WelcomeController+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeController+Camera.swift"; sourceTree = "<group>"; };
 		1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonProtocol.swift; sourceTree = "<group>"; };
 		1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARDetailView.xib; sourceTree = "<group>"; };
 		1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
@@ -223,6 +229,7 @@
 				1D23B95C2098944C00121E8F /* TranslationData.swift */,
 				1D23B95F2098945D00121E8F /* TranslationList.swift */,
 				1D104C8C21BF91A5000396C5 /* TranslationItems.swift */,
+				1D95A9E921CAC122002EDAF1 /* TranslationItemsDelegate.swift */,
 			);
 			path = Translation;
 			sourceTree = "<group>";
@@ -243,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				1DF2BD0521C38C5700D5E29B /* Welcome */,
+				1D95A9EF21CACCBB002EDAF1 /* CameraPermission */,
 				1D441EAF20727BD9005E2ADD /* TabBar */,
 				1D441E5920726F22005E2ADD /* Translate */,
 				1D441E7020726F22005E2ADD /* History */,
@@ -358,6 +366,7 @@
 				1D104C8821BF0ADA000396C5 /* String+Localization.swift */,
 				1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */,
 				1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */,
+				1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -428,6 +437,14 @@
 			path = Languages;
 			sourceTree = "<group>";
 		};
+		1D95A9EF21CACCBB002EDAF1 /* CameraPermission */ = {
+			isa = PBXGroup;
+			children = (
+				1D95A9ED21CACCB0002EDAF1 /* PermissionsController.swift */,
+			);
+			path = CameraPermission;
+			sourceTree = "<group>";
+		};
 		1DEC7D1F21C69C2700BBEDD3 /* PlusButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,11 +457,11 @@
 		1DEC7D2621C6CFD900BBEDD3 /* TranslateController */ = {
 			isa = PBXGroup;
 			children = (
-				1D441E6020726F22005E2ADD /* DictionaryController.swift */,
-				1D441E5F20726F22005E2ADD /* DictionaryController+Views.swift */,
-				1D441E5B20726F22005E2ADD /* DictionaryController+ARKit.swift */,
-				1D23B95A20986D1100121E8F /* DictionaryController+API.swift */,
-				1D441E5C20726F22005E2ADD /* DictionaryController+CoreML.swift */,
+				1D441E6020726F22005E2ADD /* TranslateController.swift */,
+				1D441E5F20726F22005E2ADD /* TranslateController+Views.swift */,
+				1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */,
+				1D23B95A20986D1100121E8F /* TranslateController+API.swift */,
+				1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */,
 			);
 			path = TranslateController;
 			sourceTree = "<group>";
@@ -493,7 +510,7 @@
 			isa = PBXGroup;
 			children = (
 				1DF2BD0621C38C7B00D5E29B /* WelcomeController.swift */,
-				1DEC7D1521C5AE1600BBEDD3 /* WelcomeController+Camera.swift */,
+				1D95A9EB21CAC151002EDAF1 /* WelcomeController+Views.swift */,
 				1DF2BD0821C4500B00D5E29B /* CustomButton.swift */,
 			);
 			path = Welcome;
@@ -621,18 +638,19 @@
 				1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */,
 				1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */,
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
+				1D95A9EA21CAC122002EDAF1 /* TranslationItemsDelegate.swift in Sources */,
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
 				1DEC7D3221C7CB8900BBEDD3 /* CustomView.swift in Sources */,
 				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
 				1D32525220D57C670061517C /* LanguagePreferences.swift in Sources */,
 				1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */,
-				1DEC7D1621C5AE1600BBEDD3 /* WelcomeController+Camera.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
-				1D23B95B20986D1100121E8F /* DictionaryController+API.swift in Sources */,
+				1D23B95B20986D1100121E8F /* TranslateController+API.swift in Sources */,
 				1DF2BCF221C1AA1C00D5E29B /* SettingsCell.swift in Sources */,
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
 				1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */,
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
+				1D95A9EC21CAC151002EDAF1 /* WelcomeController+Views.swift in Sources */,
 				1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */,
 				1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */,
 				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
@@ -644,8 +662,9 @@
 				1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */,
 				1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */,
 				1DEC7D2D21C7A05000BBEDD3 /* CardsController.swift in Sources */,
+				1D95A9F121CAD026002EDAF1 /* UIView+Constraints.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,
-				1D441E9420726F22005E2ADD /* DictionaryController+CoreML.swift in Sources */,
+				1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */,
 				1DF2BCF021C1A7DC00D5E29B /* LanguagesTableView+TableView.swift in Sources */,
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
 				1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */,
@@ -654,16 +673,17 @@
 				1D65245B21C9417300EB2D5C /* FeedbackView.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D23B9642098E50700121E8F /* UIColorExtensions.swift in Sources */,
+				1D95A9EE21CACCB0002EDAF1 /* PermissionsController.swift in Sources */,
 				1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */,
 				1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */,
 				1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */,
 				1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */,
 				1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */,
-				1D441E9320726F22005E2ADD /* DictionaryController+ARKit.swift in Sources */,
+				1D441E9320726F22005E2ADD /* TranslateController+ARKit.swift in Sources */,
 				1DF2BD0721C38C7B00D5E29B /* WelcomeController.swift in Sources */,
 				1D65245E21CA733300EB2D5C /* CardView.swift in Sources */,
-				1D441E9820726F22005E2ADD /* DictionaryController.swift in Sources */,
-				1D441E9720726F22005E2ADD /* DictionaryController+Views.swift in Sources */,
+				1D441E9820726F22005E2ADD /* TranslateController.swift in Sources */,
+				1D441E9720726F22005E2ADD /* TranslateController+Views.swift in Sources */,
 				1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */,
 				1D441EA720726F22005E2ADD /* HistoryController.swift in Sources */,
 				1DEC7D2121C69C4300BBEDD3 /* AddButtonProtocol.swift in Sources */,

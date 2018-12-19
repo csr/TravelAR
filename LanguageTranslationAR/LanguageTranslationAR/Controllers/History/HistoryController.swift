@@ -10,7 +10,7 @@ import UIKit
 import FunctionalTableData
 import TBEmptyDataSet
 
-class HistoryController: UITableViewController, ItemsDelegate {
+class HistoryController: UITableViewController, TranslationItemsDelegate {
     internal let functionalData = FunctionalTableData()
     
     internal var items: [Translation] = [] {

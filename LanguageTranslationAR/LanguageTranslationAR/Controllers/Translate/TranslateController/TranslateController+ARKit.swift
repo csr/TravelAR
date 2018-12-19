@@ -11,12 +11,12 @@ import ARKit
 import Flags
 
 @available(iOS 11.0, *)
-extension DictionaryController: ARSCNViewDelegate {
+extension TranslateController: ARSCNViewDelegate {
 
-    @objc internal func setupAR() {
-        sceneView.delegate = self
-        sceneView.scene = SCNScene()
-        sceneView.session = augmentedRealitySession        
+    @objc internal func runARSession() {
+        configuration.planeDetection = [.horizontal, .vertical]
+        sceneView.session.run(configuration)
+        sceneView.session = augmentedRealitySession
     }
     
     func createNode(text: String) -> SCNNode? {

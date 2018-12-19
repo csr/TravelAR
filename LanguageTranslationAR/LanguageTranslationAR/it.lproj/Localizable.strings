@@ -35,6 +35,9 @@
 "WELCOME_SECOND_ITEM_DESCRIPTION" = "Visualizza e ascolta le traduzioni quando vuoi.";
 "WELCOME_THIRD_ITEM_DESCRIPTION" = "Memorizza nuove parole con le flashcard.";
 
+"CAMERA_PERMISSIONS_BUTTON_TITLE" = "Consenti Accesso";
+"CAMERA_PERMISSIONS_TITLE" = "Consenti l'accesso alla fotocamera";
+
 "WARNING_NOTHING_FOUND" = "Contina a muoverti";
 "MENU_ACTION_CLOSE" = "Chiudi";
 "TRANSLATION" = "Traduzione";

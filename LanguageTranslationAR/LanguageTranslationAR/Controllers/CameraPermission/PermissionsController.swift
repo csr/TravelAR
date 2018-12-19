@@ -1,17 +1,51 @@
 //
-//  WelcomeController+Camera.swift
+//  CameraPermissionController.swift
 //  LanguageTranslationAR
 //
-//  Created by Cesare de Cal on 12/15/18.
+//  Created by Cesare de Cal on 12/19/18.
 //  Copyright © 2018 Cesare de Cal. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 
-extension WelcomeController {
-    func cameraPermissionDenied() {
-        //        presentDeniedCameraPermissionsAlert()
+class PermissionsController: UIViewController {
+
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        return stackView
+    }()
+    
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        let attributedString = NSMutableAttributedString(string: "CAMERA_PERMISSIONS_TITLE".localized())
+        attributedString.setColor(color: UIColor.orange, forText: "TranslateAR")
+        label.attributedText = attributedString
+        label.font = UIFont.boldSystemFont(ofSize: 33)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private let button: CustomButton = {
+        let button = CustomButton()
+        button.addTarget(self, action: #selector(requestCameraAccess), for: .touchUpInside)
+        button.setTitle("CAMERA_PERMISSIONS_BUTTON_TITLE".localized(), for: .normal)
+        return button
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
+    
+    private func setupView() {
+        view.backgroundColor = .black
+        view.addSubview(stackView)
+        stackView.fillToSuperview(constant: 40)
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(button)
     }
     
     internal func didAuthorizeCamera() {
@@ -41,15 +75,15 @@ extension WelcomeController {
                 alertPromptToAllowCameraAccessViaSettings()
             case .notDetermined:
                 print("not determined")
-//                permissionPrimeCameraAccess()
+            //                permissionPrimeCameraAccess()
             default:
                 print("default")
-//                permissionPrimeCameraAccess()
+                //                permissionPrimeCameraAccess()
             }
         } else {
             let alertController = UIAlertController(title: "Error", message: "Device has no camera", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { (alert) in
-//                Analytics.track(event: .permissionsPrimeCameraNoCamera)
+                //                Analytics.track(event: .permissionsPrimeCameraNoCamera)
             })
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
@@ -64,5 +98,9 @@ extension WelcomeController {
             }
         })
         present(alert, animated: true, completion: nil)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

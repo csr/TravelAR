@@ -29,4 +29,3 @@ public struct Translation: Codable, Equatable {
         case sourceLanguage = "detectedSourceLanguage"
     }
 }
-

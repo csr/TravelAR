@@ -57,6 +57,9 @@
 		1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */; };
 		1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245721C93A1800EB2D5C /* ARDetailView.swift */; };
 		1D65245B21C9417300EB2D5C /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245A21C9417300EB2D5C /* FeedbackView.swift */; };
+		1D65245E21CA733300EB2D5C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245D21CA733300EB2D5C /* CardView.swift */; };
+		1D65246021CA735800EB2D5C /* ZLSwipeableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245F21CA735800EB2D5C /* ZLSwipeableViewController.swift */; };
+		1D65246221CA82D700EB2D5C /* RandomColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65246121CA82D700EB2D5C /* RandomColor.framework */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */; };
 		1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */; };
@@ -151,6 +154,9 @@
 		1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageTableViewController+Search.swift"; sourceTree = "<group>"; };
 		1D65245721C93A1800EB2D5C /* ARDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailView.swift; sourceTree = "<group>"; };
 		1D65245A21C9417300EB2D5C /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		1D65245D21CA733300EB2D5C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1D65245F21CA735800EB2D5C /* ZLSwipeableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLSwipeableViewController.swift; sourceTree = "<group>"; };
+		1D65246121CA82D700EB2D5C /* RandomColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RandomColor.framework; path = Carthage/Build/iOS/RandomColor.framework; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
 		1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverClearView.swift; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D65246221CA82D700EB2D5C /* RandomColor.framework in Frameworks */,
 				1DEC7D3621C7DC1600BBEDD3 /* ZLSwipeableViewSwift.framework in Frameworks */,
 				1DF2BCFB21C2A93600D5E29B /* TBEmptyDataSet.framework in Frameworks */,
 				1D56275D21BFD6C000979C1A /* Flags.framework in Frameworks */,
@@ -272,6 +279,7 @@
 				1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */,
 				1D56275C21BFD6BF00979C1A /* Flags.framework */,
 				1DEC7D3521C7DC1500BBEDD3 /* ZLSwipeableViewSwift.framework */,
+				1D65246121CA82D700EB2D5C /* RandomColor.framework */,
 				1D441E2A20726EFE005E2ADD /* LanguageTranslationAR */,
 				1D441E2920726EFE005E2ADD /* Products */,
 			);
@@ -455,6 +463,8 @@
 			isa = PBXGroup;
 			children = (
 				1DEC7D2C21C7A05000BBEDD3 /* CardsController.swift */,
+				1D65245F21CA735800EB2D5C /* ZLSwipeableViewController.swift */,
+				1D65245D21CA733300EB2D5C /* CardView.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -586,6 +596,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Flags.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TBEmptyDataSet.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ZLSwipeableViewSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RandomColor.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -638,6 +649,7 @@
 				1DF2BCF021C1A7DC00D5E29B /* LanguagesTableView+TableView.swift in Sources */,
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
 				1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */,
+				1D65246021CA735800EB2D5C /* ZLSwipeableViewController.swift in Sources */,
 				1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */,
 				1D65245B21C9417300EB2D5C /* FeedbackView.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
@@ -649,6 +661,7 @@
 				1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */,
 				1D441E9320726F22005E2ADD /* DictionaryController+ARKit.swift in Sources */,
 				1DF2BD0721C38C7B00D5E29B /* WelcomeController.swift in Sources */,
+				1D65245E21CA733300EB2D5C /* CardView.swift in Sources */,
 				1D441E9820726F22005E2ADD /* DictionaryController.swift in Sources */,
 				1D441E9720726F22005E2ADD /* DictionaryController+Views.swift in Sources */,
 				1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */,

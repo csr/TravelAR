@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "1.0.0",
+  "iOS" : [
+    {
+      "name" : "RandomColor",
+      "hash" : "03ad2410492a93a0c4630ef30d426048a3835b57201e115a4925965247c29eac"
+    }
+  ]
+}

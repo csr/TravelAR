@@ -25,13 +25,13 @@ extension DictionaryController: AddButtonProtocol {
     
     private func setupCustomView() {
         view.addSubview(customView)
-        customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -100).isActive = true
+        customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
         Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
     }
     
     private func setupFeedbackView() {
         view.addSubview(feedbackView)
-        feedbackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
+        feedbackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 66).isActive = true
         feedbackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     

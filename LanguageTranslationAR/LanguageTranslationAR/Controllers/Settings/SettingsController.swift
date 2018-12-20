@@ -30,7 +30,6 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     // Primary cell states include the "Translate To" row
     private func getPrimaryCellStates() -> [LabelState] {
         let currentLanguage = LanguagePreferences.getCurrent()
-        print("getting current language:", currentLanguage.name)
         let translateCellState = LabelState(text: "SETTINGS_TRANSLATE_TO".localized(), detailText: currentLanguage.name, imageName: "translate", imageBgColor: .red, selector: #selector(didSelectTranslationLanguage))
         return [translateCellState]
     }

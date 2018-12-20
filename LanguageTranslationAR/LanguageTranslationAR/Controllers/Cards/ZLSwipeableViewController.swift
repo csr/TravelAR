@@ -38,21 +38,10 @@ class ZLSwipeableViewController: UIViewController {
         swipeableView.fillToSuperview(constant: 50)
     }
     
-    // MARK: - Actions
-    
-    // MARK: ()
     func nextCardView() -> UIView? {
-        let cardView = CardView()
-        cardView.translatesAutoresizingMaskIntoConstraints = false
-        swipeableView.addSubview(cardView)
-        cardView.heightAnchor.constraint(equalTo: swipeableView.heightAnchor).isActive = true
-        cardView.widthAnchor.constraint(equalTo: swipeableView.widthAnchor).isActive = true
-        cardView.centerXAnchor.constraint(equalTo: swipeableView.centerXAnchor).isActive = true
-        cardView.centerYAnchor.constraint(equalTo: swipeableView.centerYAnchor).isActive = true
-        
+        let cardView = CardView(frame: swipeableView.bounds)
         let hello = randomColor(hue: .random, luminosity: .dark)
         cardView.backgroundColor = hello
-
         return cardView
     }
 }

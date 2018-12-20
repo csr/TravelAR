@@ -87,7 +87,6 @@ import AVFoundation
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         if isCameraPermissionGranted() {
             let navController = UINavigationController(rootViewController: WelcomeController())
             present(navController, animated: true, completion: nil)

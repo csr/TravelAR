@@ -15,8 +15,8 @@ extension TranslateController: ARSCNViewDelegate {
 
     @objc internal func runARSession() {
         configuration.planeDetection = [.horizontal, .vertical]
-        sceneView.session.run(configuration)
         sceneView.session = augmentedRealitySession
+        sceneView.session.run(configuration)
     }
     
     func createNode(text: String) -> SCNNode? {

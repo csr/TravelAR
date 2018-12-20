@@ -28,19 +28,11 @@ extension TranslateController: ARSCNViewDelegate {
             customView.textLabel.text = text
         }
         
-        print("custom view frame width:", customView.frame.width)
-        print("custom view frame height:", customView.frame.height)
-
         let height: CGFloat = 0.02
         let aspectRatio = customView.bounds.height / customView.bounds.width
         let width = height * (1 / aspectRatio)
-        print("aspect ratio:", aspectRatio)
-        print("width:", width)
         
         let plane = SCNPlane(width: width, height: height)
-        
-        print("final width and height:", width, height)
-        
         let imageMaterial = SCNMaterial()
         imageMaterial.diffuse.contents = customView.asImage()
         
@@ -80,7 +72,6 @@ extension TranslateController: ARSCNViewDelegate {
     
     func didTapSceneView(coords: SCNVector3) {
         print("didTapSceneView(coords: SCNVector3)")
-        //guard let latestPrediction = mlPrediction else { return }
         if !identifier.isEmpty {
             getTranslation(text: identifier) { (translation) in
                 DispatchQueue.main.async {
@@ -99,7 +90,6 @@ extension TranslateController: ARSCNViewDelegate {
     }
     
     func handleIncomingTranslation(translation: Translation) {
-        //self.animateDictionaryView(item: translation)
         TextToSpeech.speak(item: translation)
     }
     

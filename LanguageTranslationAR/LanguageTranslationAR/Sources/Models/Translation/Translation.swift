@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Translation: Codable, Equatable {
-    var key: String
+    var key: String?
     var originalText: String?
     var targetLanguage: String?
     var translatedText: String

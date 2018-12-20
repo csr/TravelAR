@@ -81,7 +81,7 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
         
         let rows: [CellConfigType] = items.enumerated().map { index, item in
             return HistoryCell(
-                key: item.key,
+                key: item.key ?? "",
                 style: cellStyle,
                 actions: CellActions(
                     selectionAction: { _ in

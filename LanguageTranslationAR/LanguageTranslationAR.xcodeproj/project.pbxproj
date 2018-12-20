@@ -18,8 +18,6 @@
 		1D23B95B20986D1100121E8F /* TranslateController+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95A20986D1100121E8F /* TranslateController+API.swift */; };
 		1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95C2098944C00121E8F /* TranslationData.swift */; };
 		1D23B9602098945D00121E8F /* TranslationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95F2098945D00121E8F /* TranslationList.swift */; };
-		1D23B9642098E50700121E8F /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9632098E50700121E8F /* UIColorExtensions.swift */; };
-		1D23B9672098F58800121E8F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9662098F58800121E8F /* Helpers.swift */; };
 		1D23B96C2098FEDD00121E8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B96E2098FEDD00121E8F /* Localizable.strings */; };
 		1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B97420990AA000121E8F /* InfoPlist.strings */; };
 		1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D630621BA6FC700F4FABD /* TabBarController.swift */; };
@@ -31,27 +29,17 @@
 		1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E2B20726EFE005E2ADD /* AppDelegate.swift */; };
 		1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3220726F00005E2ADD /* Assets.xcassets */; };
 		1D441E7B20726F22005E2ADD /* button-click-garageband.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3E20726F1B005E2ADD /* button-click-garageband.wav */; };
-		1D441E7E20726F22005E2ADD /* en-US.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E4120726F1B005E2ADD /* en-US.json */; };
-		1D441E7F20726F22005E2ADD /* es.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E4220726F1B005E2ADD /* es.json */; };
-		1D441E8820726F22005E2ADD /* id.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E4D20726F1B005E2ADD /* id.json */; };
-		1D441E8920726F22005E2ADD /* ms.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E4E20726F1B005E2ADD /* ms.json */; };
 		1D441E8B20726F22005E2ADD /* pop_drip-reverse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5020726F1B005E2ADD /* pop_drip-reverse.wav */; };
 		1D441E8C20726F22005E2ADD /* pop_drip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5120726F1B005E2ADD /* pop_drip.wav */; };
-		1D441E8D20726F22005E2ADD /* pt.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5220726F1B005E2ADD /* pt.json */; };
-		1D441E8E20726F22005E2ADD /* ro.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5320726F1B005E2ADD /* ro.json */; };
 		1D441E9020726F22005E2ADD /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5520726F1B005E2ADD /* sound.png */; };
 		1D441E9320726F22005E2ADD /* TranslateController+ARKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */; };
 		1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */; };
 		1D441E9720726F22005E2ADD /* TranslateController+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5F20726F22005E2ADD /* TranslateController+Views.swift */; };
 		1D441E9820726F22005E2ADD /* TranslateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6020726F22005E2ADD /* TranslateController.swift */; };
-		1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6320726F22005E2ADD /* ArrayExtensions.swift */; };
-		1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6420726F22005E2ADD /* SKSceneExtensions.swift */; };
 		1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6620726F22005E2ADD /* TextToSpeech.swift */; };
-		1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6720726F22005E2ADD /* UIViewExtensions.swift */; };
 		1D441EA320726F22005E2ADD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6E20726F22005E2ADD /* Language.swift */; };
 		1D441EA720726F22005E2ADD /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7320726F22005E2ADD /* HistoryController.swift */; };
 		1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* HistoryCell.swift */; };
-		1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F76B420A820EE00B684A6 /* SoundNames.swift */; };
 		1D56275D21BFD6C000979C1A /* Flags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D56275C21BFD6BF00979C1A /* Flags.framework */; };
 		1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */; };
 		1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245721C93A1800EB2D5C /* ARDetailView.swift */; };
@@ -113,8 +101,6 @@
 		1D23B95A20986D1100121E8F /* TranslateController+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+API.swift"; sourceTree = "<group>"; };
 		1D23B95C2098944C00121E8F /* TranslationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationData.swift; sourceTree = "<group>"; };
 		1D23B95F2098945D00121E8F /* TranslationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationList.swift; sourceTree = "<group>"; };
-		1D23B9632098E50700121E8F /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
-		1D23B9662098F58800121E8F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		1D23B96D2098FEDD00121E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1D23B96F2098FEDF00121E8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1D23B97320990AA000121E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -130,27 +116,17 @@
 		1D441E3220726F00005E2ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D441E3720726F01005E2ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D441E3E20726F1B005E2ADD /* button-click-garageband.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-click-garageband.wav"; sourceTree = "<group>"; };
-		1D441E4120726F1B005E2ADD /* en-US.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "en-US.json"; sourceTree = "<group>"; };
-		1D441E4220726F1B005E2ADD /* es.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = es.json; sourceTree = "<group>"; };
-		1D441E4D20726F1B005E2ADD /* id.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = id.json; sourceTree = "<group>"; };
-		1D441E4E20726F1B005E2ADD /* ms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ms.json; sourceTree = "<group>"; };
 		1D441E5020726F1B005E2ADD /* pop_drip-reverse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pop_drip-reverse.wav"; sourceTree = "<group>"; };
 		1D441E5120726F1B005E2ADD /* pop_drip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop_drip.wav; sourceTree = "<group>"; };
-		1D441E5220726F1B005E2ADD /* pt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pt.json; sourceTree = "<group>"; };
-		1D441E5320726F1B005E2ADD /* ro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ro.json; sourceTree = "<group>"; };
 		1D441E5520726F1B005E2ADD /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
 		1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateController+ARKit.swift"; sourceTree = "<group>"; };
 		1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateController+CoreML.swift"; sourceTree = "<group>"; };
 		1D441E5F20726F22005E2ADD /* TranslateController+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateController+Views.swift"; sourceTree = "<group>"; };
 		1D441E6020726F22005E2ADD /* TranslateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateController.swift; sourceTree = "<group>"; };
-		1D441E6320726F22005E2ADD /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
-		1D441E6420726F22005E2ADD /* SKSceneExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKSceneExtensions.swift; sourceTree = "<group>"; };
 		1D441E6620726F22005E2ADD /* TextToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
-		1D441E6720726F22005E2ADD /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		1D441E6E20726F22005E2ADD /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		1D441E7320726F22005E2ADD /* HistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
 		1D441E7420726F22005E2ADD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
-		1D4F76B420A820EE00B684A6 /* SoundNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNames.swift; sourceTree = "<group>"; };
 		1D56275C21BFD6BF00979C1A /* Flags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flags.framework; path = Carthage/Build/iOS/Flags.framework; sourceTree = "<group>"; };
 		1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageTableViewController+Search.swift"; sourceTree = "<group>"; };
 		1D65245721C93A1800EB2D5C /* ARDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailView.swift; sourceTree = "<group>"; };
@@ -232,23 +208,10 @@
 			path = Translation;
 			sourceTree = "<group>";
 		};
-		1D23B9682098F58D00121E8F /* SupportFiles */ = {
-			isa = PBXGroup;
-			children = (
-				1D4F76B820A8372800B684A6 /* Enum */,
-				1D441E5820726F22005E2ADD /* Dictionaries */,
-				1D441E6220726F22005E2ADD /* Extensions */,
-				1D23B9662098F58800121E8F /* Helpers.swift */,
-			);
-			name = SupportFiles;
-			path = Sources/SupportFiles;
-			sourceTree = "<group>";
-		};
 		1D2D630321BA6A9500F4FABD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1DF2BD0521C38C5700D5E29B /* Onboarding */,
-				1D95A9EF21CACCBB002EDAF1 /* CameraPermission */,
 				1D441EAF20727BD9005E2ADD /* TabBar */,
 				1D441E5920726F22005E2ADD /* Translate */,
 				1D441E7020726F22005E2ADD /* History */,
@@ -304,10 +267,11 @@
 			children = (
 				1D441E2B20726EFE005E2ADD /* AppDelegate.swift */,
 				1D441E3720726F01005E2ADD /* Info.plist */,
+				1D23B94E2097AB8000121E8F /* API */,
 				1D441E6C20726F22005E2ADD /* Models */,
 				1D2D630321BA6A9500F4FABD /* Controllers */,
-				1D23B9682098F58D00121E8F /* SupportFiles */,
 				1D95A9F421CAF725002EDAF1 /* LaunchScreen.storyboard */,
+				1D441E6220726F22005E2ADD /* Extensions */,
 				1D441E3D20726F1B005E2ADD /* PrivateResources */,
 				1D23B96E2098FEDD00121E8F /* Localizable.strings */,
 				1D23B97420990AA000121E8F /* InfoPlist.strings */,
@@ -329,19 +293,6 @@
 			path = PrivateResources;
 			sourceTree = "<group>";
 		};
-		1D441E5820726F22005E2ADD /* Dictionaries */ = {
-			isa = PBXGroup;
-			children = (
-				1D441E5220726F1B005E2ADD /* pt.json */,
-				1D441E5320726F1B005E2ADD /* ro.json */,
-				1D441E4D20726F1B005E2ADD /* id.json */,
-				1D441E4E20726F1B005E2ADD /* ms.json */,
-				1D441E4120726F1B005E2ADD /* en-US.json */,
-				1D441E4220726F1B005E2ADD /* es.json */,
-			);
-			path = Dictionaries;
-			sourceTree = "<group>";
-		};
 		1D441E5920726F22005E2ADD /* Translate */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,13 +307,8 @@
 		1D441E6220726F22005E2ADD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1D23B9632098E50700121E8F /* UIColorExtensions.swift */,
-				1D441E6320726F22005E2ADD /* ArrayExtensions.swift */,
-				1D441E6420726F22005E2ADD /* SKSceneExtensions.swift */,
-				1D441E6620726F22005E2ADD /* TextToSpeech.swift */,
-				1D441E6720726F22005E2ADD /* UIViewExtensions.swift */,
-				1D104C8821BF0ADA000396C5 /* String+Localization.swift */,
 				1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */,
+				1D104C8821BF0ADA000396C5 /* String+Localization.swift */,
 				1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */,
 				1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */,
 			);
@@ -397,16 +343,6 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		1D4F76B820A8372800B684A6 /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-				1D23B94E2097AB8000121E8F /* API */,
-				1D4F76B420A820EE00B684A6 /* SoundNames.swift */,
-			);
-			name = Enum;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		1D65245921C93A1B00EB2D5C /* ARDetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,13 +371,6 @@
 			path = Languages;
 			sourceTree = "<group>";
 		};
-		1D95A9EF21CACCBB002EDAF1 /* CameraPermission */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CameraPermission;
-			sourceTree = "<group>";
-		};
 		1DEC7D1F21C69C2700BBEDD3 /* PlusButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +383,7 @@
 		1DEC7D2621C6CFD900BBEDD3 /* TranslateController */ = {
 			isa = PBXGroup;
 			children = (
+				1D441E6620726F22005E2ADD /* TextToSpeech.swift */,
 				1D441E6020726F22005E2ADD /* TranslateController.swift */,
 				1D441E5F20726F22005E2ADD /* TranslateController+Views.swift */,
 				1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */,
@@ -579,19 +509,13 @@
 				1D441E8B20726F22005E2ADD /* pop_drip-reverse.wav in Resources */,
 				1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */,
 				1D441E8C20726F22005E2ADD /* pop_drip.wav in Resources */,
-				1D441E8920726F22005E2ADD /* ms.json in Resources */,
 				1DEC7D3021C7CB7600BBEDD3 /* CustomView.xib in Resources */,
 				1DEC7D2521C6CFCE00BBEDD3 /* ARDetailView.xib in Resources */,
 				1D95A9F521CAF725002EDAF1 /* LaunchScreen.storyboard in Resources */,
 				1D23B96C2098FEDD00121E8F /* Localizable.strings in Resources */,
-				1D441E8D20726F22005E2ADD /* pt.json in Resources */,
 				1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */,
 				1D441E9020726F22005E2ADD /* sound.png in Resources */,
 				1D441E7B20726F22005E2ADD /* button-click-garageband.wav in Resources */,
-				1D441E7E20726F22005E2ADD /* en-US.json in Resources */,
-				1D441E8820726F22005E2ADD /* id.json in Resources */,
-				1D441E8E20726F22005E2ADD /* ro.json in Resources */,
-				1D441E7F20726F22005E2ADD /* es.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,7 +555,6 @@
 				1D412B9D20D66D9F006CD60A /* FocusSquare.swift in Sources */,
 				1D412B9F20D66D9F006CD60A /* Utilities.swift in Sources */,
 				1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */,
-				1D23B9672098F58800121E8F /* Helpers.swift in Sources */,
 				1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */,
 				1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */,
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
@@ -648,8 +571,6 @@
 				1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */,
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
 				1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */,
-				1D4F76B520A820EE00B684A6 /* SoundNames.swift in Sources */,
-				1D441E9B20726F22005E2ADD /* SKSceneExtensions.swift in Sources */,
 				1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */,
 				1DEC7D1421C5771900BBEDD3 /* DidUpdateLanguage.swift in Sources */,
 				1D23B95920986BB700121E8F /* Translation.swift in Sources */,
@@ -665,12 +586,9 @@
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
 				1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */,
 				1D65246021CA735800EB2D5C /* ZLSwipeableViewController.swift in Sources */,
-				1D441E9A20726F22005E2ADD /* ArrayExtensions.swift in Sources */,
 				1D65245B21C9417300EB2D5C /* FeedbackView.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
-				1D23B9642098E50700121E8F /* UIColorExtensions.swift in Sources */,
 				1D95A9EE21CACCB0002EDAF1 /* PermissionsController.swift in Sources */,
-				1D441E9E20726F22005E2ADD /* UIViewExtensions.swift in Sources */,
 				1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */,
 				1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */,
 				1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */,

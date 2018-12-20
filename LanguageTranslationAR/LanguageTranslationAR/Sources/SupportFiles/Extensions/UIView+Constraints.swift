@@ -12,10 +12,10 @@ extension UIView {
     public func fillToSuperview(constant: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
-            let left = leftAnchor.constraint(equalTo: superview.leftAnchor, constant: constant)
-            let right = rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -constant)
-            let top = topAnchor.constraint(equalTo: superview.topAnchor, constant: constant)
-            let bottom = bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -constant)
+            let left = leftAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leftAnchor, constant: constant)
+            let right = rightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.rightAnchor, constant: -constant)
+            let top = topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: constant)
+            let bottom = bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: -constant)
             NSLayoutConstraint.activate([left, right, top, bottom])
         }
     }

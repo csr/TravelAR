@@ -19,7 +19,7 @@ extension TranslateController: ARSCNViewDelegate {
         sceneView.session.run(configuration)
     }
     
-    func createNode(text: String) -> SCNNode? {
+    func addNode(text: String, coords: SCNVector3) {
         let currentLanguage = LanguagePreferences.getCurrent()
         let langCode = currentLanguage.languageCode.uppercased()
         if let flagEmoji = Flag(countryCode: langCode)?.emoji {
@@ -49,8 +49,8 @@ extension TranslateController: ARSCNViewDelegate {
         let billboardConstraint = SCNBillboardConstraint()
         billboardConstraint.freeAxes = [.X, .Y, .Z]
         node.constraints = [billboardConstraint]
-        
-        return node
+        node.position = coords
+        sceneView.scene.rootNode.addChildNode(node)
     }
         
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -80,16 +80,21 @@ extension TranslateController: ARSCNViewDelegate {
     
     func didTapSceneView(coords: SCNVector3) {
         print("didTapSceneView(coords: SCNVector3)")
-        guard let latestPrediction = mlPrediction else { return }
-        if !latestPrediction.isEmpty {
-            getTranslation(text: latestPrediction) { (translation) in
+        //guard let latestPrediction = mlPrediction else { return }
+        if !identifier.isEmpty {
+            getTranslation(text: identifier) { (translation) in
                 DispatchQueue.main.async {
                     if let translation = translation {
+                        self.addNode(text: translation.translatedText, coords: coords)
                         self.handleIncomingTranslation(translation: translation)
                         TranslationItems.shared.array.append(translation)
+                    } else {
+                        print("translation is nil!")
                     }
                 }
             }
+        } else {
+            print("identifier is empty!")
         }
     }
     
@@ -104,13 +109,7 @@ extension TranslateController: ARSCNViewDelegate {
         if let closestResult = arHitTestResults.first {
             let transform: matrix_float4x4 = closestResult.worldTransform
             let worldCoord: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-            
-            if let node = self.createNode(text: identifier) {
-                self.sceneView.scene.rootNode.addChildNode(node)
-                node.position = worldCoord
-            } else {
-                print("ERROR! Something wrong here.")
-            }
+            didTapSceneView(coords: worldCoord)
         }
     }
     
@@ -139,21 +138,6 @@ extension TranslateController: ARSCNViewDelegate {
     }
 
 }
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromCATextLayerAlignmentMode(_ input: CATextLayerAlignmentMode) -> String {
-	return input.rawValue
-}
-
-//extension UIView {
-//    func asImage() -> UIImage {
-//        let renderer = UIGraphicsImageRenderer(bounds: bounds)
-//        return renderer.image { rendererContext in
-//            layer.render(in: rendererContext.cgContext)
-//        }
-//    }
-//}
-
 
 extension UIView {
     func asImage() -> UIImage {

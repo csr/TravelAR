@@ -58,7 +58,7 @@ import AVFoundation
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
     
-    var identifier: String? {
+    var identifier: String = "" {
         didSet {
             if identifier == oldValue {
                 return
@@ -90,7 +90,7 @@ import AVFoundation
         
         if isCameraPermissionGranted() {
             let navController = UINavigationController(rootViewController: WelcomeController())
-            //present(navController, animated: true, completion: nil)
+            present(navController, animated: true, completion: nil)
         } else {
             runARSession()
             setupCoreML()

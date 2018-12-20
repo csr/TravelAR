@@ -98,7 +98,7 @@ class LanguagesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        title = NSLocalizedString("Translation Language", comment: "Translation Language")
+        title = "SETTINGS_TRANSLATE_TO".localized()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .black

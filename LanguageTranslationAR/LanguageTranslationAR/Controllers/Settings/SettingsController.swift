@@ -62,7 +62,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     
     @objc internal func composeSupportEmail() {
         let composeVC = MFMailComposeViewController()
-        composeVC.setToRecipients(["jules_verne@cesare.io"])
+        composeVC.setToRecipients(["help@cesare.io"])
         composeVC.mailComposeDelegate = self
         composeVC.setSubject("SUPPORT_MESSAGE_TITLE".localized())
         present(composeVC, animated: true, completion: nil)

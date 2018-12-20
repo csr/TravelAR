@@ -78,7 +78,7 @@ public class SettingsView: UIView {
     
     let detailTextLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.text = "Test"
         label.textColor = .gray
         return label
@@ -122,8 +122,11 @@ public class SettingsView: UIView {
         let stackView = UIStackView()
         addSubview(stackView)
         stackView.axis = .horizontal
+        stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.addArrangedSubview(textLabel)
+        textLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        
         stackView.addArrangedSubview(detailTextLabel)
         return stackView
     }

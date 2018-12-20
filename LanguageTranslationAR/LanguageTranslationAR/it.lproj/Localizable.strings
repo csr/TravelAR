@@ -17,7 +17,7 @@
 "NAV_BAR_CLEAR" = "Pulisci";
 
 "SETTINGS_TRANSLATE_TO" = "Traduci in";
-"SETTINGS_HELP" = "Aiuto";
+"SETTINGS_HELP" = "Contattaci";
 "SETTINGS_FRIENDS" = "Dillo a un amico";
 "SETTINGS_SHARE_TEXT" = "Scarica questa app da App Store: https://itunes.apple.com/it/app/id1369603445";
 
@@ -31,13 +31,13 @@
 "WELCOME_FIRST_ITEM_TITLE" = "Traduci al Volo";
 "WELCOME_SECOND_ITEM_TITLE" = "Impara Nuove Lingue";
 "WELCOME_THIRD_ITEM_TITLE" = "Divertiti con Flashcard";
-"WELCOME_FIRST_ITEM_DESCRIPTION" = "Traduci gli oggetti più comuni in un'altra lingua.";
+"WELCOME_FIRST_ITEM_DESCRIPTION" = "Traduci gli oggetti in un'altra lingua con la fotocamera.";
 "WELCOME_SECOND_ITEM_DESCRIPTION" = "Visualizza e ascolta le traduzioni quando vuoi.";
-"WELCOME_THIRD_ITEM_DESCRIPTION" = "Memorizza nuove parole con le flashcard.";
+"WELCOME_THIRD_ITEM_DESCRIPTION" = "Memorizza nuove parole con le carte mnemoniche.";
 
 "CAMERA_PERMISSIONS_BUTTON_TITLE" = "Consenti Accesso";
 "CAMERA_PERMISSIONS_TITLE" = "Consenti l'accesso alla fotocamera";
-"CAMERA_PERMISSIONS_DESCRIPTION" = "Ci serve la fotocamera per iniziare a tradurre la realtà.";
+"CAMERA_PERMISSIONS_DESCRIPTION" = "Ci serve l'accesso alla tua fotocamera per iniziare a tradurre gli oggetti più comuni.";
 "NO_CAMERA_BUTTON_OK" = "OK";
 "NO_CAMERA_BUTTON_ALERT_TITLE" = "Errore";
 "NO_CAMERA_BUTTON_ALERT_MESSAGE" = "Il tuo dispositivo non ha una fotocamera. Questa app ha bisogno della fotocamera per funzionare.";

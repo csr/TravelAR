@@ -12,9 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ARDetailView" customModule="LanguageTranslationAR" customModuleProvider="target">
             <connections>
+                <outlet property="buttonClose" destination="8cF-Ru-XAf" id="2Bp-hC-5mJ"/>
                 <outlet property="labelOriginalText" destination="b8T-DG-C5l" id="tIN-hD-wAi"/>
                 <outlet property="labelTitle" destination="8Az-pU-PYy" id="eML-EJ-b7a"/>
                 <outlet property="labelTranslatedText" destination="cBw-OG-RL9" id="12I-ne-1W1"/>
+                <outlet property="reproduceButton" destination="iwN-eJ-NVH" id="6cQ-U5-Sqc"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -102,6 +104,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                             <state key="normal" title="Reproduce"/>
+                                            <connections>
+                                                <action selector="didTapReproduceButton:" destination="-1" eventType="touchUpInside" id="FDX-ai-HZ3"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>

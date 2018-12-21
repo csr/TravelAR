@@ -27,24 +27,37 @@ class ARDetailView: UIView, NibView {
     @IBOutlet weak var labelTranslatedText: UILabel!
     @IBOutlet weak var labelOriginalText: UILabel!
     @IBOutlet weak var buttonClose: UIButton!
+    @IBOutlet weak var reproduceButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 18
+        
+        
+        buttonClose.setTitle("MENU_ACTION_CLOSE".localized(), for: .normal)
+        reproduceButton.setTitle("MENU_ACTION_REPRODUCE".localized(), for: .normal)
+        labelTitle.text = "TRANSLATION".localized()
+
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
 
-        buttonClose.setTitle("MENU_ACTION_CLOSE".localized(), for: .normal)
-            labelTitle.text = "TRANSLATION".localized()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         xibSetup()
+        
+
+    }
+    
+    @IBAction func didTapReproduceButton(_ sender: UIButton) {
+        guard let translation = translation else { return }
+        self.delegate?.didTapReproduce(translation: translation)
     }
     
     @IBAction func didTapCloseButton(_ sender: UIButton) {

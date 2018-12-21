@@ -44,6 +44,7 @@
 
 "WARNING_NOTHING_FOUND" = "Keep moving";
 "MENU_ACTION_CLOSE" = "Close";
+"MENU_ACTION_REPRODUCE" = "Reproduce";
 "TRANSLATION" = "Translation";
 
 "Capture" = "Capture";

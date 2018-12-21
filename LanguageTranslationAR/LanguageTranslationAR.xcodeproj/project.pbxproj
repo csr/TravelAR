@@ -28,9 +28,6 @@
 		1D412B9F20D66D9F006CD60A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9B20D66D9F006CD60A /* Utilities.swift */; };
 		1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E2B20726EFE005E2ADD /* AppDelegate.swift */; };
 		1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3220726F00005E2ADD /* Assets.xcassets */; };
-		1D441E7B20726F22005E2ADD /* button-click-garageband.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E3E20726F1B005E2ADD /* button-click-garageband.wav */; };
-		1D441E8B20726F22005E2ADD /* pop_drip-reverse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5020726F1B005E2ADD /* pop_drip-reverse.wav */; };
-		1D441E8C20726F22005E2ADD /* pop_drip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5120726F1B005E2ADD /* pop_drip.wav */; };
 		1D441E9020726F22005E2ADD /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D441E5520726F1B005E2ADD /* sound.png */; };
 		1D441E9320726F22005E2ADD /* TranslateController+ARKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */; };
 		1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */; };
@@ -116,9 +113,6 @@
 		1D441E2B20726EFE005E2ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D441E3220726F00005E2ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D441E3720726F01005E2ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D441E3E20726F1B005E2ADD /* button-click-garageband.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-click-garageband.wav"; sourceTree = "<group>"; };
-		1D441E5020726F1B005E2ADD /* pop_drip-reverse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pop_drip-reverse.wav"; sourceTree = "<group>"; };
-		1D441E5120726F1B005E2ADD /* pop_drip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop_drip.wav; sourceTree = "<group>"; };
 		1D441E5520726F1B005E2ADD /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
 		1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateController+ARKit.swift"; sourceTree = "<group>"; };
 		1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslateController+CoreML.swift"; sourceTree = "<group>"; };
@@ -286,10 +280,7 @@
 		1D441E3D20726F1B005E2ADD /* PrivateResources */ = {
 			isa = PBXGroup;
 			children = (
-				1D441E3E20726F1B005E2ADD /* button-click-garageband.wav */,
 				1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */,
-				1D441E5020726F1B005E2ADD /* pop_drip-reverse.wav */,
-				1D441E5120726F1B005E2ADD /* pop_drip.wav */,
 				1D441E5520726F1B005E2ADD /* sound.png */,
 			);
 			path = PrivateResources;
@@ -386,12 +377,12 @@
 		1DEC7D2621C6CFD900BBEDD3 /* TranslateController */ = {
 			isa = PBXGroup;
 			children = (
-				1D441E6620726F22005E2ADD /* TextToSpeech.swift */,
 				1D441E6020726F22005E2ADD /* TranslateController.swift */,
 				1D441E5F20726F22005E2ADD /* TranslateController+Views.swift */,
 				1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */,
 				1D23B95A20986D1100121E8F /* TranslateController+API.swift */,
 				1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */,
+				1D441E6620726F22005E2ADD /* TextToSpeech.swift */,
 			);
 			path = TranslateController;
 			sourceTree = "<group>";
@@ -509,16 +500,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DF2BCFD21C2BC5300D5E29B /* Colors.xcassets in Resources */,
-				1D441E8B20726F22005E2ADD /* pop_drip-reverse.wav in Resources */,
 				1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */,
-				1D441E8C20726F22005E2ADD /* pop_drip.wav in Resources */,
 				1DEC7D3021C7CB7600BBEDD3 /* CustomView.xib in Resources */,
 				1DEC7D2521C6CFCE00BBEDD3 /* ARDetailView.xib in Resources */,
 				1D95A9F521CAF725002EDAF1 /* LaunchScreen.storyboard in Resources */,
 				1D23B96C2098FEDD00121E8F /* Localizable.strings in Resources */,
 				1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */,
 				1D441E9020726F22005E2ADD /* sound.png in Resources */,
-				1D441E7B20726F22005E2ADD /* button-click-garageband.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

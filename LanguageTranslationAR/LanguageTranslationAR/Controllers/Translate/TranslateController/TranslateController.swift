@@ -134,6 +134,10 @@ import AVFoundation
  }
  
  extension TranslateController: ARDetailViewDelegate {
+    func didTapReproduce(translation: Translation) {
+        TextToSpeech.speak(item: translation)
+    }
+    
     func didTapClose() {
         self.shouldPresentARDetailView = true
     }

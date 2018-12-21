@@ -25,6 +25,10 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
         setupView()
         setupNavigationBar()
         TranslationItems.shared.delegate = self
+        
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        self.navigationItem.searchController = search
     }
         
     private func setupView() {
@@ -122,5 +126,20 @@ extension HistoryController: TBEmptyDataSetDelegate, TBEmptyDataSetDataSource {
     
     func verticalOffsetForEmptyDataSet(in scrollView: UIScrollView) -> CGFloat {
         return -100
+    }
+}
+
+extension HistoryController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        print(text)
+        
+//        let searchText = searchBar.text ?? ""
+//        filteredList = items .filter { pokemon in
+//            let isMatchingSearchText =    pokemon.name.lowercaseString.containsString(searchText.lowercaseString) || searchText.lowercaseString.characters.count == 0
+//            return isMatchingSearchText
+//        }
+//        render()
+//        tableView.reloadData()
     }
 }

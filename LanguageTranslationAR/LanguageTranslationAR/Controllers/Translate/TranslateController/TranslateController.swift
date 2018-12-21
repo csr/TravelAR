@@ -45,10 +45,6 @@ import AVFoundation
     
     var focusSquare = FocusSquare()
     var canDisplayFocusSquare = true
-    var screenCenter: CGPoint {
-        let bounds = self.sceneView.bounds
-        return CGPoint(x: bounds.midX, y: bounds.midY)
-    }
     let updateQueue = DispatchQueue(label: "cesaredecal")
 
     //--------------------

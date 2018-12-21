@@ -50,6 +50,11 @@ extension TranslateController: ARSCNViewDelegate {
     }
     
     func updateFocusSquare() {
+        var screenCenter: CGPoint {
+            let bounds = self.sceneView.bounds
+            return CGPoint(x: bounds.midX, y: bounds.midY)
+        }
+        
         if let camera = self.augmentedRealitySession.currentFrame?.camera,
             case .normal = camera.trackingState,
             let result = self.sceneView.smartHitTest(screenCenter) {

@@ -32,10 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(_ application: UIApplication) {}
     func applicationDidEnterBackground(_ application: UIApplication) {}
     func applicationWillEnterForeground(_ application: UIApplication) {}
-    func applicationWillTerminate(_ application: UIApplication) {}
-    
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return [.allButUpsideDown]
-    }
+    func applicationWillTerminate(_ application: UIApplication) {}    
 }
 

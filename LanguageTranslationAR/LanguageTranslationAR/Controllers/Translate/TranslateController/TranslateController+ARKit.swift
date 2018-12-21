@@ -10,7 +10,11 @@ import UIKit
 import ARKit
 import Flags
 
-@available(iOS 11.0, *)
+class CustomSCNNode: SCNNode {
+    var translation: Translation?
+    
+}
+
 extension TranslateController: ARSCNViewDelegate {
 
     @objc internal func runARSession() {
@@ -19,13 +23,13 @@ extension TranslateController: ARSCNViewDelegate {
         sceneView.session.run(configuration)
     }
     
-    func addNode(text: String, coords: SCNVector3) {
+    func addNode(translation: Translation, coords: SCNVector3) {
         let currentLanguage = LanguagePreferences.getCurrent()
         let langCode = currentLanguage.languageCode.uppercased()
         if let flagEmoji = Flag(countryCode: langCode)?.emoji {
-            customView.textLabel.text = flagEmoji + " " + text
+            customView.textLabel.text = flagEmoji + " " + translation.translatedText
         } else {
-            customView.textLabel.text = text
+            customView.textLabel.text = translation.translatedText
         }
         
         let height: CGFloat = 0.02
@@ -37,11 +41,13 @@ extension TranslateController: ARSCNViewDelegate {
         imageMaterial.diffuse.contents = customView.asImage()
         
         plane.materials = [imageMaterial]
-        let node = SCNNode(geometry: plane)
+        let node = CustomSCNNode()
+        node.geometry = plane
         let billboardConstraint = SCNBillboardConstraint()
         billboardConstraint.freeAxes = [.X, .Y, .Z]
         node.constraints = [billboardConstraint]
         node.position = coords
+        node.translation = translation
         sceneView.scene.rootNode.addChildNode(node)
     }
         
@@ -81,7 +87,7 @@ extension TranslateController: ARSCNViewDelegate {
             getTranslation(text: identifier) { (translation) in
                 DispatchQueue.main.async {
                     if let translation = translation {
-                        self.addNode(text: translation.translatedText, coords: coords)
+                        self.addNode(translation: translation, coords: coords)
                         self.handleIncomingTranslation(translation: translation)
                         TranslationItems.shared.array.append(translation)
                     } else {

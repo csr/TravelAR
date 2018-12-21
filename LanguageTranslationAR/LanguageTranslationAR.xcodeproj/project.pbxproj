@@ -53,6 +53,7 @@
 		1D95A9EE21CACCB0002EDAF1 /* PermissionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95A9ED21CACCB0002EDAF1 /* PermissionsController.swift */; };
 		1D95A9F121CAD026002EDAF1 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */; };
 		1D95A9F521CAF725002EDAF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D95A9F421CAF725002EDAF1 /* LaunchScreen.storyboard */; };
+		1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC8A43621CD9DE10083506F /* ARDetailViewDelegate.swift */; };
 		1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */; };
 		1DEC7D1421C5771900BBEDD3 /* DidUpdateLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1321C5771900BBEDD3 /* DidUpdateLanguage.swift */; };
 		1DEC7D2121C69C4300BBEDD3 /* AddButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */; };
@@ -140,6 +141,7 @@
 		1D95A9ED21CACCB0002EDAF1 /* PermissionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsController.swift; sourceTree = "<group>"; };
 		1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		1D95A9F421CAF725002EDAF1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1DC8A43621CD9DE10083506F /* ARDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailViewDelegate.swift; sourceTree = "<group>"; };
 		1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverClearView.swift; sourceTree = "<group>"; };
 		1DEC7D1321C5771900BBEDD3 /* DidUpdateLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidUpdateLanguage.swift; sourceTree = "<group>"; };
 		1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonProtocol.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			children = (
 				1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */,
 				1D65245721C93A1800EB2D5C /* ARDetailView.swift */,
+				1DC8A43621CD9DE10083506F /* ARDetailViewDelegate.swift */,
 			);
 			path = ARDetailView;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				1DF2BCF021C1A7DC00D5E29B /* LanguagesTableView+TableView.swift in Sources */,
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
 				1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */,
+				1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */,
 				1D65246021CA735800EB2D5C /* ZLSwipeableViewController.swift in Sources */,
 				1D65245B21C9417300EB2D5C /* FeedbackView.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,

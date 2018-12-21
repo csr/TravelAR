@@ -62,7 +62,13 @@ import AVFoundation
         }
     }
     
-    var shouldPresentARDetailView = true
+    var shouldPresentARDetailView = true {
+        didSet {
+            UIView.animate(withDuration: 0.2) {
+                self.sceneView.alpha = self.shouldPresentARDetailView ? 1 : 0.5
+            }
+        }
+    }
     
     lazy var addButton: AddButtonView = {
         let view = AddButtonView()
@@ -81,8 +87,8 @@ import AVFoundation
         sceneView.session.pause()
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if isCameraPermissionGranted() {
             let navController = UINavigationController(rootViewController: WelcomeController())
             present(navController, animated: true, completion: nil)
@@ -103,23 +109,32 @@ import AVFoundation
         guard let touch = touches.first else { return }
         let position = touch.location(in: sceneView)
         
-        guard let _ = sceneView.hitTest(position, options: nil).first else {
+        guard let result = sceneView.hitTest(position, options: nil).first, let node = result.node as? CustomSCNNode, let translation = node.translation, shouldPresentARDetailView else {
             return
         }
         
-        let view = ARDetailView(frame: CGRect(x: position.x, y: position.y, width: 100, height: 40))
-        view.translatesAutoresizingMaskIntoConstraints = false
-        sceneView.addSubview(view)
+        
+        let detailView = ARDetailView(frame: CGRect(x: position.x, y: position.y, width: 100, height: 40))
+        detailView.delegate = self
+        detailView.translation = translation
+        detailView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(detailView)
         UIView.animate(withDuration: 0.2) {
-            view.centerXAnchor.constraint(equalTo: self.sceneView.centerXAnchor).isActive = true
-            view.centerYAnchor.constraint(equalTo: self.sceneView.centerYAnchor).isActive = true
-            view.widthAnchor.constraint(equalToConstant: 350).isActive = true
-            view.heightAnchor.constraint(equalToConstant: 190).isActive = true
+            detailView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            detailView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            detailView.widthAnchor.constraint(equalToConstant: 350).isActive = true
+            self.shouldPresentARDetailView = false
             self.view.layoutIfNeeded()
         }
     }
     
     public override var prefersStatusBarHidden: Bool {
         return true
+    }
+ }
+ 
+ extension TranslateController: ARDetailViewDelegate {
+    func didTapClose() {
+        self.shouldPresentARDetailView = true
     }
  }

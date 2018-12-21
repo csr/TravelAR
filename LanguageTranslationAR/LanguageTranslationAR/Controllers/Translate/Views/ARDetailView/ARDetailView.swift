@@ -10,7 +10,22 @@ import UIKit
 
 class ARDetailView: UIView, NibView {
     
+    var delegate: ARDetailViewDelegate?
+    
+    var translation: Translation? {
+        didSet {
+            if let translation = translation {
+                labelTranslatedText.text = translation.translatedText
+                labelOriginalText.text = translation.originalText
+            } else {
+                print("translation is nil")
+            }
+        }
+    }
+    
     @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelTranslatedText: UILabel!
+    @IBOutlet weak var labelOriginalText: UILabel!
     @IBOutlet weak var buttonClose: UIButton!
     
     override init(frame: CGRect) {
@@ -37,6 +52,7 @@ class ARDetailView: UIView, NibView {
             self.alpha = 0
         }) { _ in
             self.removeFromSuperview()
+            self.delegate?.didTapClose()
         }
     }
 }

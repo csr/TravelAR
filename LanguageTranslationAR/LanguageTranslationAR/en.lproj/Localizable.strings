@@ -10,6 +10,8 @@
 "PERMISSION_DESCRIPTION" = "Please grant permission to use the Camera so that you can translate things on the fly.";
 "PERMISSION_ACTION_SETTINGS" = "Open Settings";
 
+"TOOL_TIP_ADD_BUTTON" = "Translate things";
+
 "TITLE_TAB_TRANSLATE" = "Translate";
 "TITLE_TAB_HISTORY" = "History";
 "TITLE_TAB_CARDS" = "Flashcards";
@@ -17,10 +19,9 @@
 "NAV_BAR_CLEAR" = "Clear";
 
 "SETTINGS_TRANSLATE_TO" = "Translate to";
-"SETTINGS_HELP" = "Contact Me";
+"SETTINGS_HELP" = "Contact Developer";
 "SETTINGS_FRIENDS" = "Tell a Friend";
 "SETTINGS_SHARE_TEXT" = "Download this app from the App Store: https://itunes.apple.com/us/app/id1369603445";
-
 "SUPPORT_MESSAGE_TITLE" = "TranslateAR App";
 
 "EMPTY_STATE_TITLE" = "No translations yet";

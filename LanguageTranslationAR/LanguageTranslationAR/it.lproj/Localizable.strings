@@ -10,6 +10,8 @@
 "PERMISSION_DESCRIPTION" = "Per favore consenti l'utilizzo della fotocamera per tradurre gli oggeti al volo.";
 "PERMISSION_ACTION_SETTINGS" = "Apri Impostazioni";
 
+"TOOL_TIP_ADD_BUTTON" = "Traduci cose";
+
 "TITLE_TAB_TRANSLATE" = "Traduci";
 "TITLE_TAB_CARDS" = "Flashcard";
 "TITLE_TAB_HISTORY" = "Cronologia";
@@ -17,7 +19,7 @@
 "NAV_BAR_CLEAR" = "Pulisci";
 
 "SETTINGS_TRANSLATE_TO" = "Traduci in";
-"SETTINGS_HELP" = "Contattaci";
+"SETTINGS_HELP" = "Contatta Sviluppatore";
 "SETTINGS_FRIENDS" = "Dillo a un amico";
 "SETTINGS_SHARE_TEXT" = "Scarica questa app da App Store: https://itunes.apple.com/it/app/id1369603445";
 

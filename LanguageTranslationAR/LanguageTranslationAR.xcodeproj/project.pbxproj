@@ -48,6 +48,9 @@
 		1D65E4E121CE612800DB52A5 /* TBEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DB21CE612700DB52A5 /* TBEmptyDataSet.framework */; };
 		1D65E4E221CE612800DB52A5 /* ZLSwipeableViewSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DC21CE612800DB52A5 /* ZLSwipeableViewSwift.framework */; };
 		1D65E4E321CE612800DB52A5 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DD21CE612800DB52A5 /* FunctionalTableData.framework */; };
+		1D65E4E521CE6BC700DB52A5 /* TranslationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E421CE6BC700DB52A5 /* TranslationNode.swift */; };
+		1D65E4E721CE6CAF00DB52A5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */; };
+		1D65E4EA21CE708600DB52A5 /* TranslateController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E921CE708600DB52A5 /* TranslateController+Actions.swift */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */; };
 		1D95A9EA21CAC122002EDAF1 /* TranslationItemsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95A9E921CAC122002EDAF1 /* TranslationItemsDelegate.swift */; };
@@ -133,6 +136,9 @@
 		1D65E4DB21CE612700DB52A5 /* TBEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TBEmptyDataSet.framework; path = Carthage/Build/iOS/TBEmptyDataSet.framework; sourceTree = "<group>"; };
 		1D65E4DC21CE612800DB52A5 /* ZLSwipeableViewSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZLSwipeableViewSwift.framework; path = Carthage/Build/iOS/ZLSwipeableViewSwift.framework; sourceTree = "<group>"; };
 		1D65E4DD21CE612800DB52A5 /* FunctionalTableData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalTableData.framework; path = Carthage/Build/iOS/FunctionalTableData.framework; sourceTree = "<group>"; };
+		1D65E4E421CE6BC700DB52A5 /* TranslationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNode.swift; sourceTree = "<group>"; };
+		1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		1D65E4E921CE708600DB52A5 /* TranslateController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+Actions.swift"; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
 		1D95A9E921CAC122002EDAF1 /* TranslationItemsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItemsDelegate.swift; sourceTree = "<group>"; };
@@ -296,6 +302,7 @@
 				1DEC7D2621C6CFD900BBEDD3 /* TranslateController */,
 				1D412B9620D66D8F006CD60A /* Focus Square */,
 				1DEC7D1F21C69C2700BBEDD3 /* PlusButton */,
+				1D65E4E821CE6D4800DB52A5 /* Helper Classes */,
 				1DEC7D2721C6CFF300BBEDD3 /* Views */,
 			);
 			path = Translate;
@@ -308,6 +315,7 @@
 				1D104C8821BF0ADA000396C5 /* String+Localization.swift */,
 				1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */,
 				1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */,
+				1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,6 +366,16 @@
 			path = FeedbackView;
 			sourceTree = "<group>";
 		};
+		1D65E4E821CE6D4800DB52A5 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1D441E6620726F22005E2ADD /* TextToSpeech.swift */,
+				1D65E4E421CE6BC700DB52A5 /* TranslationNode.swift */,
+			);
+			name = "Helper Classes";
+			path = "TranslateController/Helper Classes";
+			sourceTree = "<group>";
+		};
 		1D94B76D20CB29FF0000B065 /* Languages */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,7 +405,7 @@
 				1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */,
 				1D23B95A20986D1100121E8F /* TranslateController+API.swift */,
 				1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */,
-				1D441E6620726F22005E2ADD /* TextToSpeech.swift */,
+				1D65E4E921CE708600DB52A5 /* TranslateController+Actions.swift */,
 			);
 			path = TranslateController;
 			sourceTree = "<group>";
@@ -558,6 +576,8 @@
 				1D95A9EA21CAC122002EDAF1 /* TranslationItemsDelegate.swift in Sources */,
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
 				1DEC7D3221C7CB8900BBEDD3 /* CustomView.swift in Sources */,
+				1D65E4E521CE6BC700DB52A5 /* TranslationNode.swift in Sources */,
+				1D65E4E721CE6CAF00DB52A5 /* UIView+Extensions.swift in Sources */,
 				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
 				1D32525220D57C670061517C /* LanguagePreferences.swift in Sources */,
 				1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */,
@@ -589,6 +609,7 @@
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D95A9EE21CACCB0002EDAF1 /* PermissionsController.swift in Sources */,
 				1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */,
+				1D65E4EA21CE708600DB52A5 /* TranslateController+Actions.swift in Sources */,
 				1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */,
 				1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */,
 				1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */,

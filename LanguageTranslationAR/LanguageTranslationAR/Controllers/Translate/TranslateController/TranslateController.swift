@@ -11,8 +11,9 @@ import AVKit
 import Vision
 import ARKit
 import AVFoundation
-
- public class TranslateController: UIViewController {
+import EasyTipView
+ 
+public class TranslateController: UIViewController {
 
     internal var items: [Translation] = []
 
@@ -27,17 +28,26 @@ import AVFoundation
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    //--------------------
-    //MARK: - AR Variables
-    //--------------------
-    
+
     lazy var sceneView: ARSCNView = {
         let sceneView = ARSCNView()
         sceneView.delegate = self
         sceneView.scene = SCNScene()
         sceneView.translatesAutoresizingMaskIntoConstraints = false
         return sceneView
+    }()
+    
+    lazy var tipView: EasyTipView = {
+        var preferences = EasyTipView.Preferences()
+        preferences.drawing.font = UIFont.boldSystemFont(ofSize: 19)
+        preferences.drawing.backgroundColor = #colorLiteral(red: 0.1411563158, green: 0.1411880553, blue: 0.1411542892, alpha: 1)
+        preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.top
+        preferences.drawing.cornerRadius = 15
+        preferences.positioning.textHInset = 12
+        preferences.positioning.textVInset = 12
+        
+        let tipView = EasyTipView(text: "TOOL_TIP_ADD_BUTTON".localized(), preferences: preferences)
+        return tipView
     }()
     
     let augmentedRealitySession = ARSession()
@@ -70,6 +80,8 @@ import AVFoundation
         }
     }
     
+    var shouldShowToolTip = true
+    
     lazy var addButton: AddButtonView = {
         let view = AddButtonView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +92,16 @@ import AVFoundation
     public override func viewDidLoad() {
 		super.viewDidLoad()
         setupViews()
+        
+        Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(showToolTip), userInfo: nil, repeats: false)
 	}
+    
+    @objc private func showToolTip() {
+        if shouldShowToolTip {
+            presentTipView()
+            shouldShowToolTip = false
+        }
+    }
 
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -106,38 +127,10 @@ import AVFoundation
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        guard let touch = touches.first else { return }
-        let position = touch.location(in: sceneView)
-        
-        guard let result = sceneView.hitTest(position, options: nil).first, let node = result.node as? CustomSCNNode, let translation = node.translation, shouldPresentARDetailView else {
-            return
-        }
-        
-        let detailView = ARDetailView(frame: CGRect(x: position.x, y: position.y, width: 100, height: 40))
-        detailView.delegate = self
-        detailView.translation = translation
-        detailView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(detailView)
-        UIView.animate(withDuration: 0.2) {
-            detailView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-            detailView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-            detailView.widthAnchor.constraint(equalToConstant: 350).isActive = true
-            self.shouldPresentARDetailView = false
-            self.view.layoutIfNeeded()
-        }
+        self.didTouchSceneView(touches: touches, event: event)
     }
     
     public override var prefersStatusBarHidden: Bool {
         return true
-    }
- }
- 
- extension TranslateController: ARDetailViewDelegate {
-    func didTapReproduce(translation: Translation) {
-        TextToSpeech.speak(item: translation)
-    }
-    
-    func didTapClose() {
-        self.shouldPresentARDetailView = true
     }
  }

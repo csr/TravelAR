@@ -9,11 +9,7 @@
 import UIKit
 import ARKit
 import Flags
-
-class CustomSCNNode: SCNNode {
-    var translation: Translation?
-    
-}
+import EasyTipView
 
 extension TranslateController: ARSCNViewDelegate {
 
@@ -41,7 +37,7 @@ extension TranslateController: ARSCNViewDelegate {
         imageMaterial.diffuse.contents = customView.asImage()
         
         plane.materials = [imageMaterial]
-        let node = CustomSCNNode()
+        let node = TranslationNode()
         node.geometry = plane
         let billboardConstraint = SCNBillboardConstraint()
         billboardConstraint.freeAxes = [.X, .Y, .Z]
@@ -80,65 +76,7 @@ extension TranslateController: ARSCNViewDelegate {
             }
         }
     }
-    
-    func didTapSceneView(coords: SCNVector3) {
-        print("didTapSceneView(coords: SCNVector3)")
-        if !identifier.isEmpty {
-            getTranslation(text: identifier) { (translation) in
-                DispatchQueue.main.async {
-                    if let translation = translation {
-                        self.addNode(translation: translation, coords: coords)
-                        self.handleIncomingTranslation(translation: translation)
-                        TranslationItems.shared.array.append(translation)
-                    } else {
-                        print("translation is nil!")
-                    }
-                }
-            }
-        } else {
-            print("identifier is empty!")
-        }
-    }
-    
-    func handleIncomingTranslation(translation: Translation) {
-        TextToSpeech.speak(item: translation)
-    }
-    
-    @objc func didTapAddButton() {
-        let screenCentre : CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
-        let arHitTestResults : [ARHitTestResult] = sceneView.hitTest(screenCentre, types: [.featurePoint]) // Alternatively, we could use '.existingPlaneUsingExtent' for more grounded hit-test-points.
-        if let closestResult = arHitTestResults.first {
-            let transform: matrix_float4x4 = closestResult.worldTransform
-            let worldCoord: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-            didTapSceneView(coords: worldCoord)
-        }
-        
-        let popoverViewController = PopOverController()
-        popoverViewController.view.backgroundColor = .blue
-        popoverViewController.modalPresentationStyle = .popover
-        popoverViewController.preferredContentSize = CGSize(width: 50, height: 50)
-        
-        let popoverPresentationViewController = popoverViewController.popoverPresentationController
-        
-        popoverPresentationViewController?.permittedArrowDirections = UIPopoverArrowDirection.any
-        popoverPresentationViewController?.delegate = self
-        popoverPresentationViewController?.sourceView = self.addButton
-        popoverPresentationViewController?.sourceRect = CGRect(x: 0, y: 0, width: addButton.frame.width, height: addButton.frame.height)
-        //CGRectMake(addButton.frame.width / 2, addButton.frame.height,0,0)
-        
-        present(popoverViewController, animated: true, completion: nil)
-
-    }
-    
-    @objc internal func didTapClearButton() {
-        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-            node.removeFromParentNode()
-        }
-        
-        let impact = UIImpactFeedbackGenerator()
-        impact.impactOccurred()
-    }
-    
+                
     @objc func updateLabel() {
         if let mlPrediction = mlPrediction {
             identifier = mlPrediction
@@ -156,18 +94,8 @@ extension TranslateController: ARSCNViewDelegate {
     }
 }
 
-extension UIView {
-    func asImage() -> UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: bounds)
-        return renderer.image { rendererContext in
-            layer.render(in: rendererContext.cgContext)
-        }
+extension TranslateController: EasyTipViewDelegate {
+    public func easyTipViewDidDismiss(_ tipView: EasyTipView) {
     }
 }
 
-class PopOverController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.preferredContentSize = CGSize(width: 40, height: 40)
-    }
-}

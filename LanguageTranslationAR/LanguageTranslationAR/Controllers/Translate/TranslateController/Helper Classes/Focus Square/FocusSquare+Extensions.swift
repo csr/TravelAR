@@ -10,7 +10,7 @@ import Foundation
 import SceneKit
 import ARKit
 
-extension ARSCNView{
+extension ARSCNView {
     
     func smartHitTest(_ point: CGPoint,
                       infinitePlane: Bool = false,

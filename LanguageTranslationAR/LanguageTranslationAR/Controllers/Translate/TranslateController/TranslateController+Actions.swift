@@ -60,7 +60,9 @@ extension TranslateController: ARDetailViewDelegate {
     
     @objc func didTapClearButton() {
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-            node.removeFromParentNode()
+            if node is TranslationNode {
+                node.removeFromParentNode()
+            }
         }
         
         let impact = UIImpactFeedbackGenerator()
@@ -82,4 +84,11 @@ extension TranslateController: ARDetailViewDelegate {
             }
         }
     }
+    
+    sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+        if node is TranslationNode {
+            node.removeFromParentNode()
+        }
+    }
+
 }

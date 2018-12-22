@@ -50,16 +50,19 @@ public class TranslateController: UIViewController {
         return tipView
     }()
     
+    lazy var addButton: AddButtonView = {
+        let view = AddButtonView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.delegate = self
+        return view
+    }()
+    
     let augmentedRealitySession = ARSession()
     var configuration = ARWorldTrackingConfiguration()
     
     var focusSquare = FocusSquare()
     var canDisplayFocusSquare = true
     let updateQueue = DispatchQueue(label: "cesaredecal")
-
-    //--------------------
-    //MARK: - CoreML Vision
-    //--------------------
 
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
@@ -82,30 +85,16 @@ public class TranslateController: UIViewController {
     
     var shouldShowToolTip = true
     
-    lazy var addButton: AddButtonView = {
-        let view = AddButtonView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.delegate = self
-        return view
-    }()
-    
     public override func viewDidLoad() {
 		super.viewDidLoad()
         setupViews()
-        
-        Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(showToolTip), userInfo: nil, repeats: false)
 	}
     
-    @objc private func showToolTip() {
+    @objc func showToolTip() {
         if shouldShowToolTip {
             presentTipView()
             shouldShowToolTip = false
         }
-    }
-
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        sceneView.session.pause()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -117,6 +106,11 @@ public class TranslateController: UIViewController {
             runARSession()
             setupCoreML()
         }
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        sceneView.session.pause()
     }
     
     @objc internal func isCameraPermissionGranted() -> Bool {

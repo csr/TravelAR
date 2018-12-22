@@ -11,13 +11,10 @@ import UIKit
 @available(iOS 11.0, *)
 extension TranslateController: AddButtonProtocol {
     
-    // Add a Clear navigation right item
-    
 	internal func setupViews() {
         view.backgroundColor = .black
 		setupSceneView()
         setupAddButton()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "NAV_BAR_CLEAR".localized(), style: .plain, target: self, action: #selector(didTapClearButton))
         setupClearButton()
         setupFeedbackView()
         setupCustomView()
@@ -66,15 +63,12 @@ extension TranslateController: AddButtonProtocol {
         addButton.widthAnchor.constraint(equalToConstant: 73).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 73).isActive = true
         addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -39).isActive = true        
+        addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -39).isActive = true
+        Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(showToolTip), userInfo: nil, repeats: false)
     }
     
 	private func setupSceneView() {
 		view.addSubview(sceneView)
         sceneView.fillToSuperview()
 	}
-}
-
-extension TranslateController: UIPopoverPresentationControllerDelegate {
-    
 }

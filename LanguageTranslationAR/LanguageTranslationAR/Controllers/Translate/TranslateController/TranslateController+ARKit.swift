@@ -79,8 +79,16 @@ extension TranslateController: ARSCNViewDelegate {
                 
     @objc func updateLabel() {
         if let mlPrediction = mlPrediction {
-            identifier = mlPrediction
-            feedbackView.textLabel.text = identifier
+            translateOriginalText(text: mlPrediction) { (translatedPrediction) in
+                if let translatedPrediction = translatedPrediction {
+                    self.identifier = translatedPrediction
+                    
+                    DispatchQueue.main.async {
+                        self.feedbackView.textLabel.text = self.identifier
+                    }
+                }
+            }
+            
             UIView.animate(withDuration: 0.2) {
                 self.addButton.alpha = 1
             }

@@ -141,12 +141,13 @@
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3L-fT-b1h">
-                    <rect key="frame" x="314" y="14.5" width="17" height="17"/>
+                    <rect key="frame" x="304" y="9.5" width="27" height="27"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="17" id="HZL-s3-VoB"/>
-                        <constraint firstAttribute="height" constant="17" id="JpA-E6-Bwq"/>
+                        <constraint firstAttribute="width" constant="27" id="HZL-s3-VoB"/>
+                        <constraint firstAttribute="height" constant="27" id="JpA-E6-Bwq"/>
                     </constraints>
-                    <state key="normal" image="cross" backgroundImage="cross"/>
+                    <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                    <state key="normal" image="cross"/>
                     <connections>
                         <action selector="didTapCloseButton:" destination="-1" eventType="touchUpInside" id="fRv-r8-VYC"/>
                     </connections>

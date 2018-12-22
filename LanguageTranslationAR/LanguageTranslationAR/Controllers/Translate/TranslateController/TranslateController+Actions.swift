@@ -84,11 +84,4 @@ extension TranslateController: ARDetailViewDelegate {
             }
         }
     }
-    
-    sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-        if node is TranslationNode {
-            node.removeFromParentNode()
-        }
-    }
-
 }

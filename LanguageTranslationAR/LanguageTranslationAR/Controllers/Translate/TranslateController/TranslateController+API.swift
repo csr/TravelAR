@@ -9,16 +9,35 @@
 import Foundation
 
 extension TranslateController {
-    internal func getTranslation(text: String, completion: @escaping (Translation?) -> Void) {
+    func getTranslation(text: String, completion: @escaping (Translation?) -> Void) {
         print("Sent translation request...")
         let userLanguage = LanguagePreferences.getCurrent()
         
-        if userLanguage.languageCode != "EN" {
-            
+        translateOriginalText(text: text) { (string) in
+            if let string = string {
+                GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: userLanguage.languageCode) { (translation) in
+                    var translationCopy = translation
+                    translationCopy?.originalText = string
+
+                    completion(translationCopy)
+                }
+            }
         }
         
-        GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: userLanguage.languageCode) { (translation) in
-            completion(translation)
+    }
+    
+    func translateOriginalText(text: String, completion: @escaping (String?) -> Void) {
+        let langLocaleCode = LanguagePreferences.getLocaleLanguageCode()
+        if langLocaleCode == "EN" {
+            completion(text) // no need to translate an English word to English
+        } else {
+            GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: "EN", targetLanguage: langLocaleCode) { (translation) in
+                if let translation = translation {
+                    completion(translation.translatedText)
+                } else {
+                    print("error on translateOriginalText")
+                }
+            }
         }
     }
 }

@@ -107,10 +107,7 @@ public class SettingsView: UIView {
         addSubview(stackView)
         stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        stackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        stackView.fillToSuperview()
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.spacing = 15

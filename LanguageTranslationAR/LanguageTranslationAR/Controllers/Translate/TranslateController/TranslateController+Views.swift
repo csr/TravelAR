@@ -46,10 +46,7 @@ extension TranslateController: AddButtonProtocol {
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.text = "NAV_BAR_CLEAR".localized()
         blurEffectView.contentView.addSubview(label)
-        label.topAnchor.constraint(equalTo: blurEffectView.topAnchor, constant: 11).isActive = true
-        label.rightAnchor.constraint(equalTo: blurEffectView.rightAnchor, constant: -15).isActive = true
-        label.leftAnchor.constraint(equalTo: blurEffectView.leftAnchor, constant: 15).isActive = true
-        label.bottomAnchor.constraint(equalTo: blurEffectView.bottomAnchor, constant: -11).isActive = true
+        label.fillToSuperview(constant: 13)
         
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(blurEffectView)
@@ -69,15 +66,15 @@ extension TranslateController: AddButtonProtocol {
         addButton.widthAnchor.constraint(equalToConstant: 73).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 73).isActive = true
         addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -39).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -39).isActive = true        
     }
     
 	private func setupSceneView() {
 		view.addSubview(sceneView)
-        let constraints = [sceneView.topAnchor.constraint(equalTo: view.topAnchor),
-                                              sceneView.rightAnchor.constraint(equalTo: view.rightAnchor),
-                                              sceneView.leftAnchor.constraint(equalTo: view.leftAnchor),
-                                              sceneView.bottomAnchor.constraint(equalTo: view.bottomAnchor)]
-        NSLayoutConstraint.activate(constraints)
+        sceneView.fillToSuperview()
 	}
+}
+
+extension TranslateController: UIPopoverPresentationControllerDelegate {
+    
 }

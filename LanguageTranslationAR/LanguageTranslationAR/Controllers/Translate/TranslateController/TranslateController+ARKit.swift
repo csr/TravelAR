@@ -112,6 +112,22 @@ extension TranslateController: ARSCNViewDelegate {
             let worldCoord: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
             didTapSceneView(coords: worldCoord)
         }
+        
+        let popoverViewController = PopOverController()
+        popoverViewController.view.backgroundColor = .blue
+        popoverViewController.modalPresentationStyle = .popover
+        popoverViewController.preferredContentSize = CGSize(width: 50, height: 50)
+        
+        let popoverPresentationViewController = popoverViewController.popoverPresentationController
+        
+        popoverPresentationViewController?.permittedArrowDirections = UIPopoverArrowDirection.any
+        popoverPresentationViewController?.delegate = self
+        popoverPresentationViewController?.sourceView = self.addButton
+        popoverPresentationViewController?.sourceRect = CGRect(x: 0, y: 0, width: addButton.frame.width, height: addButton.frame.height)
+        //CGRectMake(addButton.frame.width / 2, addButton.frame.height,0,0)
+        
+        present(popoverViewController, animated: true, completion: nil)
+
     }
     
     @objc internal func didTapClearButton() {
@@ -135,9 +151,9 @@ extension TranslateController: ARSCNViewDelegate {
                 self.addButton.alpha = 0.5
             }
             feedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized()
-        }        
+        }
+        
     }
-
 }
 
 extension UIView {
@@ -146,5 +162,12 @@ extension UIView {
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)
         }
+    }
+}
+
+class PopOverController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.preferredContentSize = CGSize(width: 40, height: 40)
     }
 }

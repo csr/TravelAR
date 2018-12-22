@@ -22,8 +22,8 @@ import AVFoundation
         return view
     }()
     
-    let feedbackView: FeedbackView = {
-        let view = FeedbackView()
+    let feedbackView: CurrentDetectionView = {
+        let view = CurrentDetectionView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

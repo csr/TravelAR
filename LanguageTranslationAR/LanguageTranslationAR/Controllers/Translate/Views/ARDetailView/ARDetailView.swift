@@ -41,18 +41,10 @@ class ARDetailView: UIView, NibView {
         labelTitle.text = "TRANSLATION".localized()
 
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
         
-
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         xibSetup()
-        
-
     }
     
     @IBAction func didTapReproduceButton(_ sender: UIButton) {

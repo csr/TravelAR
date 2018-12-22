@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedbackView: UIVisualEffectView {
+class CurrentDetectionView: UIVisualEffectView {
     
     let textLabel: UILabel = {
         let label = UILabel()
@@ -22,15 +22,11 @@ class FeedbackView: UIVisualEffectView {
     override init(effect: UIVisualEffect?) {
         let blurEffect = UIBlurEffect(style: .dark)
         super.init(effect: blurEffect)
-        
+
         layer.cornerRadius = 14
         self.clipsToBounds = true
-        
         contentView.addSubview(textLabel)
-        textLabel.topAnchor.constraint(equalTo: topAnchor, constant: 13).isActive = true
-        textLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -13).isActive = true
-        textLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 13).isActive = true
-        textLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -13).isActive = true
+        textLabel.fillToSuperview(constant: 13)
     }
     
     required init?(coder aDecoder: NSCoder) {

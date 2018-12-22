@@ -94,8 +94,8 @@ extension TranslateController: ARSCNViewDelegate {
     }
 }
 
-extension TranslateController: EasyTipViewDelegate {
-    public func easyTipViewDidDismiss(_ tipView: EasyTipView) {
-    }
-}
-
+//extension TranslateController: EasyTipViewDelegate {
+//    public func easyTipViewDidDismiss(_ tipView: EasyTipView) {
+//    }
+//}
+//

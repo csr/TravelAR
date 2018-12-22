@@ -216,8 +216,8 @@
 		1D2D630321BA6A9500F4FABD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1DF2BD0521C38C5700D5E29B /* Onboarding */,
 				1D441EAF20727BD9005E2ADD /* TabBar */,
+				1DF2BD0521C38C5700D5E29B /* Onboarding */,
 				1D441E5920726F22005E2ADD /* Translate */,
 				1D441E7020726F22005E2ADD /* History */,
 				1DEE6F3021BB14FA006D3830 /* Settings */,
@@ -300,10 +300,8 @@
 			isa = PBXGroup;
 			children = (
 				1DEC7D2621C6CFD900BBEDD3 /* TranslateController */,
-				1D412B9620D66D8F006CD60A /* Focus Square */,
-				1DEC7D1F21C69C2700BBEDD3 /* PlusButton */,
 				1D65E4E821CE6D4800DB52A5 /* Helper Classes */,
-				1DEC7D2721C6CFF300BBEDD3 /* Views */,
+				1DEC7D2721C6CFF300BBEDD3 /* Helper Views */,
 			);
 			path = Translate;
 			sourceTree = "<group>";
@@ -369,6 +367,7 @@
 		1D65E4E821CE6D4800DB52A5 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1D412B9620D66D8F006CD60A /* Focus Square */,
 				1D441E6620726F22005E2ADD /* TextToSpeech.swift */,
 				1D65E4E421CE6BC700DB52A5 /* TranslationNode.swift */,
 			);
@@ -410,14 +409,15 @@
 			path = TranslateController;
 			sourceTree = "<group>";
 		};
-		1DEC7D2721C6CFF300BBEDD3 /* Views */ = {
+		1DEC7D2721C6CFF300BBEDD3 /* Helper Views */ = {
 			isa = PBXGroup;
 			children = (
+				1DEC7D1F21C69C2700BBEDD3 /* PlusButton */,
 				1DEC7D3321C7CB9000BBEDD3 /* CustomView */,
 				1D65245921C93A1B00EB2D5C /* ARDetailView */,
 				1D65245C21C944B900EB2D5C /* FeedbackView */,
 			);
-			path = Views;
+			path = "Helper Views";
 			sourceTree = "<group>";
 		};
 		1DEC7D2E21C7A08200BBEDD3 /* Cards */ = {

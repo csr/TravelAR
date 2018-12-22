@@ -1,18 +1,9 @@
 {
-  "Mac" : [
-
-  ],
-  "watchOS" : [
-
-  ],
-  "tvOS" : [
-
-  ],
   "commitish" : "0.4.0",
   "iOS" : [
     {
       "name" : "Flags",
-      "hash" : "2d41559afaf71932adae7e09d2523c099009bd52cc64f7fb44987cfde7f9db98"
+      "hash" : "50773e4714a34a26040096fa464ff7c6336a2ae279347f44ab478b7e091acbf1"
     }
   ]
 }

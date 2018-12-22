@@ -37,13 +37,17 @@
 		1D441EA320726F22005E2ADD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6E20726F22005E2ADD /* Language.swift */; };
 		1D441EA720726F22005E2ADD /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7320726F22005E2ADD /* HistoryController.swift */; };
 		1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* HistoryCell.swift */; };
-		1D56275D21BFD6C000979C1A /* Flags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D56275C21BFD6BF00979C1A /* Flags.framework */; };
 		1D5E401420CE3A33001E801D /* LanguageTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */; };
 		1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245721C93A1800EB2D5C /* ARDetailView.swift */; };
 		1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */; };
 		1D65245E21CA733300EB2D5C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245D21CA733300EB2D5C /* CardView.swift */; };
 		1D65246021CA735800EB2D5C /* ZLSwipeableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245F21CA735800EB2D5C /* ZLSwipeableViewController.swift */; };
-		1D65246221CA82D700EB2D5C /* RandomColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65246121CA82D700EB2D5C /* RandomColor.framework */; };
+		1D65E4DE21CE612800DB52A5 /* Flags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4D821CE612700DB52A5 /* Flags.framework */; };
+		1D65E4DF21CE612800DB52A5 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4D921CE612700DB52A5 /* EasyTipView.framework */; };
+		1D65E4E021CE612800DB52A5 /* RandomColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DA21CE612700DB52A5 /* RandomColor.framework */; };
+		1D65E4E121CE612800DB52A5 /* TBEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DB21CE612700DB52A5 /* TBEmptyDataSet.framework */; };
+		1D65E4E221CE612800DB52A5 /* ZLSwipeableViewSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DC21CE612800DB52A5 /* ZLSwipeableViewSwift.framework */; };
+		1D65E4E321CE612800DB52A5 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DD21CE612800DB52A5 /* FunctionalTableData.framework */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D94B77120CB2B210000B065 /* LanguagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */; };
 		1D95A9EA21CAC122002EDAF1 /* TranslationItemsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95A9E921CAC122002EDAF1 /* TranslationItemsDelegate.swift */; };
@@ -60,13 +64,9 @@
 		1DEC7D2D21C7A05000BBEDD3 /* CardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2C21C7A05000BBEDD3 /* CardsController.swift */; };
 		1DEC7D3021C7CB7600BBEDD3 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2F21C7CB7600BBEDD3 /* CustomView.xib */; };
 		1DEC7D3221C7CB8900BBEDD3 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D3121C7CB8900BBEDD3 /* CustomView.swift */; };
-		1DEC7D3621C7DC1600BBEDD3 /* ZLSwipeableViewSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEC7D3521C7DC1500BBEDD3 /* ZLSwipeableViewSwift.framework */; };
 		1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE6F2E21BB1363006D3830 /* SettingsController.swift */; };
-		1DEE705D21BEB21B006D3830 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */; };
-		1DEE705E21BEB21B006D3830 /* FunctionalTableData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DF2BCF021C1A7DC00D5E29B /* LanguagesTableView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCEF21C1A7DC00D5E29B /* LanguagesTableView+TableView.swift */; };
 		1DF2BCF221C1AA1C00D5E29B /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */; };
-		1DF2BCFB21C2A93600D5E29B /* TBEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF2BCFA21C2A93500D5E29B /* TBEmptyDataSet.framework */; };
 		1DF2BCFD21C2BC5300D5E29B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF2BCFC21C2BC5300D5E29B /* Colors.xcassets */; };
 		1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCFE21C2CF1D00D5E29B /* AddButtonView.swift */; };
 		1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */; };
@@ -81,7 +81,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1DEE705E21BEB21B006D3830 /* FunctionalTableData.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,13 +122,17 @@
 		1D441E6E20726F22005E2ADD /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		1D441E7320726F22005E2ADD /* HistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
 		1D441E7420726F22005E2ADD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
-		1D56275C21BFD6BF00979C1A /* Flags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flags.framework; path = Carthage/Build/iOS/Flags.framework; sourceTree = "<group>"; };
 		1D5E401320CE3A33001E801D /* LanguageTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageTableViewController+Search.swift"; sourceTree = "<group>"; };
 		1D65245721C93A1800EB2D5C /* ARDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailView.swift; sourceTree = "<group>"; };
 		1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDetectionView.swift; sourceTree = "<group>"; };
 		1D65245D21CA733300EB2D5C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1D65245F21CA735800EB2D5C /* ZLSwipeableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLSwipeableViewController.swift; sourceTree = "<group>"; };
-		1D65246121CA82D700EB2D5C /* RandomColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RandomColor.framework; path = Carthage/Build/iOS/RandomColor.framework; sourceTree = "<group>"; };
+		1D65E4D821CE612700DB52A5 /* Flags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flags.framework; path = Carthage/Build/iOS/Flags.framework; sourceTree = "<group>"; };
+		1D65E4D921CE612700DB52A5 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
+		1D65E4DA21CE612700DB52A5 /* RandomColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RandomColor.framework; path = Carthage/Build/iOS/RandomColor.framework; sourceTree = "<group>"; };
+		1D65E4DB21CE612700DB52A5 /* TBEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TBEmptyDataSet.framework; path = Carthage/Build/iOS/TBEmptyDataSet.framework; sourceTree = "<group>"; };
+		1D65E4DC21CE612800DB52A5 /* ZLSwipeableViewSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZLSwipeableViewSwift.framework; path = Carthage/Build/iOS/ZLSwipeableViewSwift.framework; sourceTree = "<group>"; };
+		1D65E4DD21CE612800DB52A5 /* FunctionalTableData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalTableData.framework; path = Carthage/Build/iOS/FunctionalTableData.framework; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D94B77020CB2B210000B065 /* LanguagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewController.swift; sourceTree = "<group>"; };
 		1D95A9E921CAC122002EDAF1 /* TranslationItemsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItemsDelegate.swift; sourceTree = "<group>"; };
@@ -146,12 +149,9 @@
 		1DEC7D2C21C7A05000BBEDD3 /* CardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsController.swift; sourceTree = "<group>"; };
 		1DEC7D2F21C7CB7600BBEDD3 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		1DEC7D3121C7CB8900BBEDD3 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
-		1DEC7D3521C7DC1500BBEDD3 /* ZLSwipeableViewSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZLSwipeableViewSwift.framework; path = Carthage/Build/iOS/ZLSwipeableViewSwift.framework; sourceTree = "<group>"; };
 		1DEE6F2E21BB1363006D3830 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalTableData.framework; path = Carthage/Build/iOS/FunctionalTableData.framework; sourceTree = "<group>"; };
 		1DF2BCEF21C1A7DC00D5E29B /* LanguagesTableView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesTableView+TableView.swift"; sourceTree = "<group>"; };
 		1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
-		1DF2BCFA21C2A93500D5E29B /* TBEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TBEmptyDataSet.framework; path = Carthage/Build/iOS/TBEmptyDataSet.framework; sourceTree = "<group>"; };
 		1DF2BCFC21C2BC5300D5E29B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1DF2BCFE21C2CF1D00D5E29B /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 		1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableStringExtensions.swift; sourceTree = "<group>"; };
@@ -164,11 +164,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D65246221CA82D700EB2D5C /* RandomColor.framework in Frameworks */,
-				1DEC7D3621C7DC1600BBEDD3 /* ZLSwipeableViewSwift.framework in Frameworks */,
-				1DF2BCFB21C2A93600D5E29B /* TBEmptyDataSet.framework in Frameworks */,
-				1D56275D21BFD6C000979C1A /* Flags.framework in Frameworks */,
-				1DEE705D21BEB21B006D3830 /* FunctionalTableData.framework in Frameworks */,
+				1D65E4E021CE612800DB52A5 /* RandomColor.framework in Frameworks */,
+				1D65E4DE21CE612800DB52A5 /* Flags.framework in Frameworks */,
+				1D65E4DF21CE612800DB52A5 /* EasyTipView.framework in Frameworks */,
+				1D65E4E221CE612800DB52A5 /* ZLSwipeableViewSwift.framework in Frameworks */,
+				1D65E4E321CE612800DB52A5 /* FunctionalTableData.framework in Frameworks */,
+				1D65E4E121CE612800DB52A5 /* TBEmptyDataSet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,11 +243,12 @@
 		1D441E1F20726EFE005E2ADD = {
 			isa = PBXGroup;
 			children = (
-				1DF2BCFA21C2A93500D5E29B /* TBEmptyDataSet.framework */,
-				1DEE705C21BEB21B006D3830 /* FunctionalTableData.framework */,
-				1D56275C21BFD6BF00979C1A /* Flags.framework */,
-				1DEC7D3521C7DC1500BBEDD3 /* ZLSwipeableViewSwift.framework */,
-				1D65246121CA82D700EB2D5C /* RandomColor.framework */,
+				1D65E4D921CE612700DB52A5 /* EasyTipView.framework */,
+				1D65E4D821CE612700DB52A5 /* Flags.framework */,
+				1D65E4DD21CE612800DB52A5 /* FunctionalTableData.framework */,
+				1D65E4DA21CE612700DB52A5 /* RandomColor.framework */,
+				1D65E4DB21CE612700DB52A5 /* TBEmptyDataSet.framework */,
+				1D65E4DC21CE612800DB52A5 /* ZLSwipeableViewSwift.framework */,
 				1D441E2A20726EFE005E2ADD /* LanguageTranslationAR */,
 				1D441E2920726EFE005E2ADD /* Products */,
 			);
@@ -268,9 +270,9 @@
 				1D23B94E2097AB8000121E8F /* API */,
 				1D441E6C20726F22005E2ADD /* Models */,
 				1D2D630321BA6A9500F4FABD /* Controllers */,
-				1D95A9F421CAF725002EDAF1 /* LaunchScreen.storyboard */,
 				1D441E6220726F22005E2ADD /* Extensions */,
 				1D441E3D20726F1B005E2ADD /* PrivateResources */,
+				1D95A9F421CAF725002EDAF1 /* LaunchScreen.storyboard */,
 				1D23B96E2098FEDD00121E8F /* Localizable.strings */,
 				1D23B97420990AA000121E8F /* InfoPlist.strings */,
 				1D441E3220726F00005E2ADD /* Assets.xcassets */,
@@ -529,6 +531,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/TBEmptyDataSet.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ZLSwipeableViewSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RandomColor.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/EasyTipView.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (

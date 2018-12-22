@@ -113,7 +113,6 @@ import AVFoundation
             return
         }
         
-        
         let detailView = ARDetailView(frame: CGRect(x: position.x, y: position.y, width: 100, height: 40))
         detailView.delegate = self
         detailView.translation = translation

@@ -1,18 +1,9 @@
 {
-  "Mac" : [
-
-  ],
-  "watchOS" : [
-
-  ],
-  "tvOS" : [
-
-  ],
   "commitish" : "2.9",
   "iOS" : [
     {
       "name" : "TBEmptyDataSet",
-      "hash" : "09bb9a4b966180691dc95e68d34a385b2c238f55ee426fba5c513b455e6d6457"
+      "hash" : "b672ad2dbece84936d7b9e55c40befa926181d45106f3068ae33f7c3d97d96f7"
     }
   ]
 }

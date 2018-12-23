@@ -20,31 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="677" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="af1-Zj-M3h">
-                    <rect key="frame" x="15" y="15" width="647" height="70"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is just a test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfZ-Q6-s34">
-                            <rect key="frame" x="0.0" y="17" width="612" height="36"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disclosure-indicator" translatesAutoresizingMaskIntoConstraints="NO" id="Bk0-Iy-ZvC">
-                            <rect key="frame" x="617" y="20" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="30" id="M0y-6A-KfQ"/>
-                                <constraint firstAttribute="height" constant="30" id="sQe-Jd-fA5"/>
-                            </constraints>
-                        </imageView>
-                    </subviews>
-                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is just a test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfZ-Q6-s34">
+                    <rect key="frame" x="232" y="32" width="212.5" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="af1-Zj-M3h" secondAttribute="bottom" constant="15" id="Ir5-0d-EhO"/>
-                <constraint firstItem="af1-Zj-M3h" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="Xrs-IV-NkO"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="af1-Zj-M3h" secondAttribute="trailing" constant="15" id="gUM-PW-QoZ"/>
-                <constraint firstItem="af1-Zj-M3h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="t3P-vp-kqx"/>
+                <constraint firstItem="yfZ-Q6-s34" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ELk-lP-REc"/>
+                <constraint firstItem="yfZ-Q6-s34" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Oqm-Rr-yts"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -57,7 +43,4 @@
             <point key="canvasLocation" x="316" y="-200.59970014992504"/>
         </view>
     </objects>
-    <resources>
-        <image name="disclosure-indicator" width="491.51998901367188" height="491.51998901367188"/>
-    </resources>
 </document>

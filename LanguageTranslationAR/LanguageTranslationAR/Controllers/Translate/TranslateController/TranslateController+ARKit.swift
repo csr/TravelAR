@@ -20,13 +20,28 @@ extension TranslateController: ARSCNViewDelegate {
     }
     
     func addNode(translation: Translation, coords: SCNVector3) {
+        view.addSubview(customViewLabel)
+        
+        
+        let customView = CustomView()
+//        view.addSubview(customView)
+//        customView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+//        customView.translatesAutoresizingMaskIntoConstraints = false
+        print("Custom view frame init:", customView.frame)
+        
         let currentLanguage = LanguagePreferences.getCurrent()
         let langCode = currentLanguage.languageCode.uppercased()
         if let flagEmoji = Flag(countryCode: langCode)?.emoji {
-            customView.textLabel.text = flagEmoji + " " + translation.translatedText
+            customViewLabel.text = flagEmoji + " " + translation.translatedText
         } else {
-            customView.textLabel.text = translation.translatedText
+            customViewLabel.text = translation.translatedText
         }
+        
+        print("custom view label width and height:", customViewLabel.frame)
+
+        customView.invalidateIntrinsicContentSize()
+        
+        print("New label text set for custom view. New frame:", customView.frame)
         
         let height: CGFloat = 0.02
         let aspectRatio = customView.bounds.height / customView.bounds.width

@@ -15,12 +15,16 @@ class CustomView: UIView, NibView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
-        //translatesAutoresizingMaskIntoConstraints = false
-        //heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         xibSetup()
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let w = self.textLabel.intrinsicContentSize.width + 40
+        let h = self.textLabel.intrinsicContentSize.height + 40
+        return CGSize(width: w, height: h)
     }
 }

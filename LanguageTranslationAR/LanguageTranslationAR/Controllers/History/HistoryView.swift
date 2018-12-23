@@ -16,7 +16,6 @@ public class HistoryView: UIView {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.textColor = .orange
         textLabel.numberOfLines = 0
-        textLabel.backgroundColor = .gray
         textLabel.font = UIFont.preferredFont(forTextStyle: .title2)
         return textLabel
     }()
@@ -26,7 +25,6 @@ public class HistoryView: UIView {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.textColor = .white
         textLabel.numberOfLines = 0
-        textLabel.backgroundColor = .gray
         textLabel.font = UIFont.preferredFont(forTextStyle: .body)
         return textLabel
     }()
@@ -44,8 +42,6 @@ public class HistoryView: UIView {
     }
     
     private func setupView() {
-//        heightAnchor.constraint(equalToConstant: 77).isActive = true
-        
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
@@ -53,10 +49,7 @@ public class HistoryView: UIView {
         
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-//        stackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-//
-//        stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+
         stackView.fillToSuperview()
         stackView.spacing = 20
         
@@ -85,7 +78,11 @@ public class HistoryView: UIView {
     private func getTopLabelsStackView() -> UIStackView {
         let topStackView = UIStackView()
         topStackView.axis = .horizontal
-        topStackView.addArrangedSubview(textLabel)
+        
+        let textLabelStackView = UIStackView()
+        textLabelStackView.addArrangedSubview(textLabel)
+        
+        topStackView.addArrangedSubview(textLabelStackView)
         let audioImageView = UIImageView()
         audioImageView.translatesAutoresizingMaskIntoConstraints = false
         audioImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true

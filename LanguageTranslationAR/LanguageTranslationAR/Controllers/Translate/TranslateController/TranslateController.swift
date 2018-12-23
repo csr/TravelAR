@@ -16,17 +16,19 @@ import EasyTipView
 public class TranslateController: UIViewController {
 
     internal var items: [Translation] = []
-
-    var customView: CustomView = {
-        let view = CustomView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
     
     let feedbackView: CurrentDetectionView = {
         let view = CurrentDetectionView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    let customViewLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Hello"
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
     }()
 
     lazy var sceneView: ARSCNView = {

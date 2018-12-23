@@ -10,7 +10,7 @@
 "PERMISSION_DESCRIPTION" = "Please grant permission to use the Camera so that you can translate things on the fly.";
 "PERMISSION_ACTION_SETTINGS" = "Open Settings";
 
-"TOOL_TIP_ADD_BUTTON" = "Translate things";
+"TOOL_TIP_ADD_BUTTON" = "Translate something";
 
 "TITLE_TAB_TRANSLATE" = "Translate";
 "TITLE_TAB_HISTORY" = "History";

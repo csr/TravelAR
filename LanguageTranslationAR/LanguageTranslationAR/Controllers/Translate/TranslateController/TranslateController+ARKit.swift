@@ -20,28 +20,19 @@ extension TranslateController: ARSCNViewDelegate {
     }
     
     func addNode(translation: Translation, coords: SCNVector3) {
-        view.addSubview(customViewLabel)
+        let view = CustomView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        
-        let customView = CustomView()
-//        view.addSubview(customView)
-//        customView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-//        customView.translatesAutoresizingMaskIntoConstraints = false
-        print("Custom view frame init:", customView.frame)
-        
+        customView.textLabel.text = "customView.textLabel.textcustomView.textLabel.textcustomView.textLabel.text"
         let currentLanguage = LanguagePreferences.getCurrent()
         let langCode = currentLanguage.languageCode.uppercased()
         if let flagEmoji = Flag(countryCode: langCode)?.emoji {
-            customViewLabel.text = flagEmoji + " " + translation.translatedText
+            customView.textLabel.text = flagEmoji + " " + translation.translatedText
         } else {
-            customViewLabel.text = translation.translatedText
+            customView.textLabel.text = translation.translatedText
         }
         
-        print("custom view label width and height:", customViewLabel.frame)
-
-        customView.invalidateIntrinsicContentSize()
         
-        print("New label text set for custom view. New frame:", customView.frame)
         
         let height: CGFloat = 0.02
         let aspectRatio = customView.bounds.height / customView.bounds.width
@@ -61,17 +52,29 @@ extension TranslateController: ARSCNViewDelegate {
         node.translation = translation
         sceneView.scene.rootNode.addChildNode(node)
     }
-        
+    
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        // Convert the node's position to screen coordinates
+//        let screenCoordinate = self.sceneView.projectPoint(node.position)
+//
+//        DispatchQueue.main.async {
+//            // Move the label
+//            self.customView.center = CGPoint(x: CGFloat(self.screenCenter.x), y: CGFloat(self.screenCenter.y))
+//
+//            // Hide the label if the node is "behind the screen"
+//            self.customView.isHidden = (screenCoordinate.z > 1)
+//
+//            // Rotate the label
+//            if let rotation = self.sceneView.session.currentFrame?.camera.eulerAngles.z {
+//                self.customView.transform = CGAffineTransform(rotationAngle: CGFloat(rotation + Float.pi/2))
+//            }
+//        }
+
+        
         DispatchQueue.main.async { self.updateFocusSquare() }
     }
     
-    func updateFocusSquare() {
-        var screenCenter: CGPoint {
-            let bounds = self.sceneView.bounds
-            return CGPoint(x: bounds.midX, y: bounds.midY)
-        }
-        
+    func updateFocusSquare() {        
         if let camera = self.augmentedRealitySession.currentFrame?.camera,
             case .normal = camera.trackingState,
             let result = self.sceneView.smartHitTest(screenCenter) {

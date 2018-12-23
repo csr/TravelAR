@@ -10,7 +10,7 @@
 "PERMISSION_DESCRIPTION" = "Per favore consenti l'utilizzo della fotocamera per tradurre gli oggeti al volo.";
 "PERMISSION_ACTION_SETTINGS" = "Apri Impostazioni";
 
-"TOOL_TIP_ADD_BUTTON" = "Traduci cose";
+"TOOL_TIP_ADD_BUTTON" = "Traduci qualcosa";
 
 "TITLE_TAB_TRANSLATE" = "Traduci";
 "TITLE_TAB_CARDS" = "Flashcard";

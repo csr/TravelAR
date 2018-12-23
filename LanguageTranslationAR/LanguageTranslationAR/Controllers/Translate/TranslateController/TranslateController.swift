@@ -23,12 +23,10 @@ public class TranslateController: UIViewController {
         return view
     }()
     
-    let customViewLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Hello"
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        return label
+    var customView: CustomView = {
+        let view = CustomView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
     lazy var sceneView: ARSCNView = {
@@ -58,6 +56,11 @@ public class TranslateController: UIViewController {
         view.delegate = self
         return view
     }()
+    
+    var screenCenter: CGPoint {
+        let bounds = self.sceneView.bounds
+        return CGPoint(x: bounds.midX, y: bounds.midY)
+    }
     
     let augmentedRealitySession = ARSession()
     var configuration = ARWorldTrackingConfiguration()

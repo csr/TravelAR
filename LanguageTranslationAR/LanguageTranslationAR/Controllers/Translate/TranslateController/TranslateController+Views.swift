@@ -17,15 +17,21 @@ extension TranslateController: AddButtonProtocol {
         setupAddButton()
         setupClearButton()
         setupFeedbackView()
+        setupCustomView()
     }
     
     private func setupFeedbackView() {
         view.addSubview(feedbackView)
         feedbackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 66).isActive = true
         feedbackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
     }
     
+    private func setupCustomView() {
+        view.addSubview(customView)
+        //customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
+    }
+
     func setupClearButton() {
         let blurEffect = UIBlurEffect(style: .prominent)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)

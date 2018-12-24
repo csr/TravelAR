@@ -66,9 +66,7 @@ extension TranslateController: ARDetailViewDelegate {
         }
         
         let impact = UIImpactFeedbackGenerator()
-        impact.impactOccurred()
-        
-        TextToSpeech.speak(text: "test")
+        impact.impactOccurred()        
     }
     
     func addNodeTranslation(coords: SCNVector3) {

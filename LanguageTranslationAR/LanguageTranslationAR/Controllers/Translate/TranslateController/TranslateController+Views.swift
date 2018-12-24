@@ -28,7 +28,7 @@ extension TranslateController: AddButtonProtocol {
     
     private func setupCustomView() {
         view.addSubview(customView)
-        //customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
+        customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
         Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
     }
 

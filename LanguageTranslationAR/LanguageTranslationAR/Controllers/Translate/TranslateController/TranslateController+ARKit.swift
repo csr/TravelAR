@@ -20,19 +20,14 @@ extension TranslateController: ARSCNViewDelegate {
     }
     
     func addNode(translation: Translation, coords: SCNVector3) {
-        let view = CustomView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         
-        customView.textLabel.text = "customView.textLabel.textcustomView.textLabel.textcustomView.textLabel.text"
         let currentLanguage = LanguagePreferences.getCurrent()
         let langCode = currentLanguage.languageCode.uppercased()
         if let flagEmoji = Flag(countryCode: langCode)?.emoji {
-            customView.textLabel.text = flagEmoji + " " + translation.translatedText
+            customView.setText(text: flagEmoji + " " + translation.translatedText)
         } else {
-            customView.textLabel.text = translation.translatedText
+            customView.setText(text: translation.translatedText)
         }
-        
-        
         
         let height: CGFloat = 0.02
         let aspectRatio = customView.bounds.height / customView.bounds.width
@@ -54,23 +49,6 @@ extension TranslateController: ARSCNViewDelegate {
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        // Convert the node's position to screen coordinates
-//        let screenCoordinate = self.sceneView.projectPoint(node.position)
-//
-//        DispatchQueue.main.async {
-//            // Move the label
-//            self.customView.center = CGPoint(x: CGFloat(self.screenCenter.x), y: CGFloat(self.screenCenter.y))
-//
-//            // Hide the label if the node is "behind the screen"
-//            self.customView.isHidden = (screenCoordinate.z > 1)
-//
-//            // Rotate the label
-//            if let rotation = self.sceneView.session.currentFrame?.camera.eulerAngles.z {
-//                self.customView.transform = CGAffineTransform(rotationAngle: CGFloat(rotation + Float.pi/2))
-//            }
-//        }
-
-        
         DispatchQueue.main.async { self.updateFocusSquare() }
     }
     
@@ -116,6 +94,5 @@ extension TranslateController: ARSCNViewDelegate {
             }
             feedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized()
         }
-        
     }
 }

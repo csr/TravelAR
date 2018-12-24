@@ -41,7 +41,7 @@
 		1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245721C93A1800EB2D5C /* ARDetailView.swift */; };
 		1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */; };
 		1D65245E21CA733300EB2D5C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245D21CA733300EB2D5C /* CardView.swift */; };
-		1D65246021CA735800EB2D5C /* ZLSwipeableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245F21CA735800EB2D5C /* ZLSwipeableViewController.swift */; };
+		1D65246021CA735800EB2D5C /* CardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245F21CA735800EB2D5C /* CardsController.swift */; };
 		1D65E4DE21CE612800DB52A5 /* Flags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4D821CE612700DB52A5 /* Flags.framework */; };
 		1D65E4DF21CE612800DB52A5 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4D921CE612700DB52A5 /* EasyTipView.framework */; };
 		1D65E4E021CE612800DB52A5 /* RandomColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DA21CE612700DB52A5 /* RandomColor.framework */; };
@@ -66,7 +66,6 @@
 		1DEC7D2121C69C4300BBEDD3 /* AddButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */; };
 		1DEC7D2521C6CFCE00BBEDD3 /* ARDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */; };
 		1DEC7D2B21C6F40200BBEDD3 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */; };
-		1DEC7D2D21C7A05000BBEDD3 /* CardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2C21C7A05000BBEDD3 /* CardsController.swift */; };
 		1DEC7D3221C7CB8900BBEDD3 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D3121C7CB8900BBEDD3 /* CustomView.swift */; };
 		1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE6F2E21BB1363006D3830 /* SettingsController.swift */; };
 		1DF2BCF021C1A7DC00D5E29B /* LanguagesTableView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCEF21C1A7DC00D5E29B /* LanguagesTableView+TableView.swift */; };
@@ -130,7 +129,7 @@
 		1D65245721C93A1800EB2D5C /* ARDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailView.swift; sourceTree = "<group>"; };
 		1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDetectionView.swift; sourceTree = "<group>"; };
 		1D65245D21CA733300EB2D5C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		1D65245F21CA735800EB2D5C /* ZLSwipeableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLSwipeableViewController.swift; sourceTree = "<group>"; };
+		1D65245F21CA735800EB2D5C /* CardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsController.swift; sourceTree = "<group>"; };
 		1D65E4D821CE612700DB52A5 /* Flags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flags.framework; path = Carthage/Build/iOS/Flags.framework; sourceTree = "<group>"; };
 		1D65E4D921CE612700DB52A5 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
 		1D65E4DA21CE612700DB52A5 /* RandomColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RandomColor.framework; path = Carthage/Build/iOS/RandomColor.framework; sourceTree = "<group>"; };
@@ -155,7 +154,6 @@
 		1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonProtocol.swift; sourceTree = "<group>"; };
 		1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARDetailView.xib; sourceTree = "<group>"; };
 		1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
-		1DEC7D2C21C7A05000BBEDD3 /* CardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsController.swift; sourceTree = "<group>"; };
 		1DEC7D3121C7CB8900BBEDD3 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		1DEE6F2E21BB1363006D3830 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		1DF2BCEF21C1A7DC00D5E29B /* LanguagesTableView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesTableView+TableView.swift"; sourceTree = "<group>"; };
@@ -427,8 +425,7 @@
 		1DEC7D2E21C7A08200BBEDD3 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				1DEC7D2C21C7A05000BBEDD3 /* CardsController.swift */,
-				1D65245F21CA735800EB2D5C /* ZLSwipeableViewController.swift */,
+				1D65245F21CA735800EB2D5C /* CardsController.swift */,
 				1D65245D21CA733300EB2D5C /* CardView.swift */,
 			);
 			path = Cards;
@@ -600,7 +597,6 @@
 				1DC8A43B21CEDC3B0083506F /* HistoryView.swift in Sources */,
 				1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */,
 				1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */,
-				1DEC7D2D21C7A05000BBEDD3 /* CardsController.swift in Sources */,
 				1D95A9F121CAD026002EDAF1 /* UIView+Constraints.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,
 				1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */,
@@ -608,7 +604,7 @@
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
 				1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */,
 				1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */,
-				1D65246021CA735800EB2D5C /* ZLSwipeableViewController.swift in Sources */,
+				1D65246021CA735800EB2D5C /* CardsController.swift in Sources */,
 				1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D95A9EE21CACCB0002EDAF1 /* PermissionsController.swift in Sources */,

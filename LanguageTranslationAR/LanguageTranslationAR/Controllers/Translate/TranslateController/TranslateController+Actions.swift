@@ -27,7 +27,7 @@ extension TranslateController: ARDetailViewDelegate {
         if let closestResult = arHitTestResults.first {
             let transform: matrix_float4x4 = closestResult.worldTransform
             let worldCoord: SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-            didTapSceneView(coords: worldCoord)
+            addNodeTranslation(coords: worldCoord)
         }        
     }
     
@@ -67,18 +67,17 @@ extension TranslateController: ARDetailViewDelegate {
         
         let impact = UIImpactFeedbackGenerator()
         impact.impactOccurred()
+        
+        TextToSpeech.speak(text: "test")
     }
     
-    func didTapSceneView(coords: SCNVector3) {
-        print("didTapSceneView(coords: SCNVector3)")
+    func addNodeTranslation(coords: SCNVector3) {
         if !identifier.isEmpty {
             getTranslation(text: identifier) { (translation) in
                 DispatchQueue.main.async {
                     if let translation = translation {
                         self.addNode(translation: translation, coords: coords)
                         TranslationItems.shared.array.append(translation)
-                    } else {
-                        print("translation is nil!")
                     }
                 }
             }

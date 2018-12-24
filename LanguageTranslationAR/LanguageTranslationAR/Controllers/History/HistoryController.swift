@@ -18,7 +18,15 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
             render()
         }
     }
-
+    
+    internal var filteredItems: [Translation] = [] {
+        didSet {
+            render()
+        }
+    }
+    
+    var isFiltering = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         items = TranslationItems.shared.array
@@ -28,6 +36,7 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
         
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
+        search.delegate = self
         self.navigationItem.searchController = search
     }
         
@@ -83,7 +92,7 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
                                   selectionColor: UIColor(named: "selectedCell"),
                                   backgroundColor: .black)
         
-        let rows: [CellConfigType] = items.enumerated().map { index, item in
+        let rows: [CellConfigType] = getSourceArray().enumerated().map { index, item in
             return HistoryCell(
                 key: item.key ?? "",
                 style: cellStyle,
@@ -102,6 +111,14 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
         functionalData.renderAndDiff([
             TableSection(key: "section", rows: rows)
             ])
+    }
+    
+    private func getSourceArray() -> [Translation] {
+        if isFiltering {
+            return filteredItems
+        } else {
+            return items
+        }
     }
     
     func newItemAdded() {
@@ -129,17 +146,37 @@ extension HistoryController: TBEmptyDataSetDelegate, TBEmptyDataSetDataSource {
     }
 }
 
-extension HistoryController: UISearchResultsUpdating {
+extension HistoryController: UISearchResultsUpdating, UISearchControllerDelegate {
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        print("will present search controller")
+        isFiltering = true
+    }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        print("will dismiss search controller")
+        isFiltering = false
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        print(text)
         
-//        let searchText = searchBar.text ?? ""
-//        filteredList = items .filter { pokemon in
-//            let isMatchingSearchText =    pokemon.name.lowercaseString.containsString(searchText.lowercaseString) || searchText.lowercaseString.characters.count == 0
-//            return isMatchingSearchText
-//        }
-//        render()
-//        tableView.reloadData()
+        filteredItems = items.filter { (translation) -> Bool in
+            return filter(searchText: text, translation: translation)
+        }
+        
+        render()
+    }
+    
+    private func filter(searchText: String, translation: Translation) -> Bool {
+        if searchText.isEmpty {
+            return true
+        }
+        
+        if let originalText = translation.originalText, originalText.lowercased().contains(searchText.lowercased()) {
+            return true
+        }
+        
+        return translation.translatedText.lowercased().contains(searchText.lowercased())
     }
 }

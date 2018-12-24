@@ -45,7 +45,7 @@ class AddButtonView: UIView {
         context.restoreGState()
     }
 
-    let plusButton: UIImageView = {
+    private let plusButton: UIImageView = {
         let view = UIImageView()
         view.isUserInteractionEnabled = true
         //view.backgroundColor = .white

@@ -10,15 +10,14 @@ import UIKit
 
 class CustomView: UIView {
     
-    let textLabel: UILabel = {
+    private let textLabel: UILabel = {
         let label = UILabel()
-        label.text = "teclado de computatodraa test"
         label.font = UIFont.systemFont(ofSize: 30)
         label.textColor = .black
         return label
     }()
     
-    let disclosureIndicatorImageView: UIImageView = {
+    private let disclosureIndicatorImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = #imageLiteral(resourceName: "disclosure-indicator")
@@ -50,6 +49,12 @@ class CustomView: UIView {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.axis = .horizontal
+    }
+    
+    public func setText(text: String?) {
+        textLabel.text = text
+        self.layoutSubviews()
+        self.layoutIfNeeded()
     }
     
     required init?(coder aDecoder: NSCoder) {

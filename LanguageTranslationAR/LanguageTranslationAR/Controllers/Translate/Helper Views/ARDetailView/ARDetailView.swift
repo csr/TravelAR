@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import SceneKit.SCNNode
 
 class ARDetailView: UIView, NibView {
     
+    var node: SCNNode?
     var delegate: ARDetailViewDelegate?
+    
+    var customConstraints: [NSLayoutConstraint] = []
     
     var translation: Translation? {
         didSet {
@@ -59,5 +63,18 @@ class ARDetailView: UIView, NibView {
             self.removeFromSuperview()
             self.delegate?.didTapClose()
         }
+    }
+    
+    func show() {
+        translatesAutoresizingMaskIntoConstraints = false
+        guard let view = superview else { return }
+        customConstraints = [centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                             centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                             widthAnchor.constraint(equalToConstant: 350)]
+        NSLayoutConstraint.activate(customConstraints)
+        
+        UIView.animate(withDuration: 0.2,  delay: 0, options: [.curveEaseOut], animations: {
+            view.layoutIfNeeded()
+        })
     }
 }

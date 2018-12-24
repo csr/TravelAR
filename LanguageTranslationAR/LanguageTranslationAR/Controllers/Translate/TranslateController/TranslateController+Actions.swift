@@ -39,18 +39,22 @@ extension TranslateController: ARDetailViewDelegate {
             return
         }
         
-        let detailView = ARDetailView(frame: CGRect(x: position.x, y: position.y, width: 100, height: 40))
+        presentDetailView(node: node, translation: translation)
+    }
+    
+    private func presentDetailView(node: SCNNode, translation: Translation) {
+        // Convert the node's position to screen coordinates
+        let screenCoordinate = self.sceneView.projectPoint(node.position)
+        let xPosition = CGFloat(screenCoordinate.x)
+        let yPosition = CGFloat(screenCoordinate.y)
+        
+        let detailView = ARDetailView(frame: CGRect(x: xPosition, y: yPosition, width: 100, height: 40))
         detailView.delegate = self
+        detailView.node = node
         detailView.translation = translation
-        detailView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(detailView)
-        UIView.animate(withDuration: 0.2) {
-            detailView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-            detailView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-            detailView.widthAnchor.constraint(equalToConstant: 350).isActive = true
-            self.shouldPresentARDetailView = false
-            self.view.layoutIfNeeded()
-        }
+        detailView.show()
+        self.shouldPresentARDetailView = false
     }
     
     func presentTipView() {

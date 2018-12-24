@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SceneKit.SCNNode
 
 protocol ARDetailViewDelegate {
     func didTapClose()

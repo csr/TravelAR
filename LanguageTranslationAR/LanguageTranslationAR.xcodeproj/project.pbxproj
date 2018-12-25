@@ -188,13 +188,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1D23B94E2097AB8000121E8F /* API */ = {
+		1D23B94E2097AB8000121E8F /* Google API */ = {
 			isa = PBXGroup;
 			children = (
 				1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */,
 				1D23B94F2097AC3E00121E8F /* Keys.swift */,
 			);
-			path = API;
+			path = "Google API";
 			sourceTree = "<group>";
 		};
 		1D23B9512097C58E00121E8F /* Language */ = {
@@ -278,22 +278,13 @@
 			isa = PBXGroup;
 			children = (
 				1D441E2B20726EFE005E2ADD /* AppDelegate.swift */,
-				1D23B94E2097AB8000121E8F /* API */,
+				1D23B94E2097AB8000121E8F /* Google API */,
 				1D441E6C20726F22005E2ADD /* Models */,
 				1D2D630321BA6A9500F4FABD /* Controllers */,
 				1D441E6220726F22005E2ADD /* Extensions */,
-				1D441E3D20726F1B005E2ADD /* PrivateResources */,
 				1D745CD421D241FA008A974F /* Supporting Files */,
 			);
 			path = LanguageTranslationAR;
-			sourceTree = "<group>";
-		};
-		1D441E3D20726F1B005E2ADD /* PrivateResources */ = {
-			isa = PBXGroup;
-			children = (
-				1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */,
-			);
-			path = PrivateResources;
 			sourceTree = "<group>";
 		};
 		1D441E5920726F22005E2ADD /* Translate */ = {
@@ -399,6 +390,7 @@
 		1D745CD421D241FA008A974F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */,
 				1D441E3720726F01005E2ADD /* Info.plist */,
 				1D95A9F421CAF725002EDAF1 /* LaunchScreen.storyboard */,
 				1D23B96E2098FEDD00121E8F /* Localizable.strings */,

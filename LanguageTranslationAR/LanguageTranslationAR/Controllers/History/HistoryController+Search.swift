@@ -21,7 +21,7 @@ extension HistoryController: UISearchResultsUpdating, UISearchControllerDelegate
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         
-        filteredItems = items.filter { (translation) -> Bool in
+        filteredItems = TranslationItems.shared.getAll().filter { (translation) -> Bool in
             return filter(searchText: text, translation: translation)
         }
         

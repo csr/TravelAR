@@ -13,9 +13,25 @@ class TranslationItems {
     
     static let shared = TranslationItems()
     
-    var array = [Translation]() {
-        didSet {
-            delegate?.newItemAdded()
-        }
+    private var set = Set<Translation>()
+    
+    // Public API
+    
+    public func add(object: Translation) {
+        set.insert(object)
+        delegate?.newItemAdded()
+    }
+    
+    public func remove(object: Translation) {
+        set.remove(object)
+        delegate?.someItemDeleted()
+    }
+    
+    public func getAll() -> [Translation] {
+        return Array(set)
+    }
+    
+    public func getRandomItem() -> Translation? {
+        return set.randomElement()
     }
 }

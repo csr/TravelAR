@@ -13,16 +13,23 @@ import TBEmptyDataSet
 extension HistoryController {
     @objc func didTapAddButton() {
         let translation = Translation(originalText: "backpack", targetLanguage: "es", translatedText: "test", sourceLanguage: "en")
-        print("Adding translation with hash value:", translation.hashValue)
-        TranslationItems.shared.array.append(translation)        
+        TranslationItems.shared.add(object: translation)
         let selection = UISelectionFeedbackGenerator()
         selection.selectionChanged()
     }
     
     private func didTapDeleteOnRow(indexPath: IndexPath) {
+        if isFiltering {
+            let translation = filteredItems[indexPath.row]
+            TranslationItems.shared.remove(object: translation)
+            self.filteredItems.remove(at: indexPath.row)
+        } else {
+            let translation = TranslationItems.shared.getAll()[indexPath.row]
+            TranslationItems.shared.remove(object: translation)
+        }
+
         let impact = UIImpactFeedbackGenerator()
         impact.impactOccurred()
-        self.items.remove(at: indexPath.row)
     }
     
     private func didSelectCell(translation: Translation) {
@@ -52,7 +59,7 @@ extension HistoryController {
         
         let rows: [CellConfigType] = getSourceArray().enumerated().map { index, item in
             return HistoryCell(
-                key: item.key ?? "",
+                key: "index-\(index)-\(item.translatedText)",
                 style: cellStyle,
                 actions: CellActions(
                     selectionAction: { _ in
@@ -75,12 +82,16 @@ extension HistoryController {
         if isFiltering {
             return filteredItems
         } else {
-            return items
+            return TranslationItems.shared.getAll()
         }
     }
     
+    func someItemDeleted() {
+        render()
+    }
+    
     func newItemAdded() {
-        items = TranslationItems.shared.array
+        render()
     }
 }
 

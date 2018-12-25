@@ -13,23 +13,16 @@ import TBEmptyDataSet
 class HistoryController: UITableViewController, TranslationItemsDelegate {
     internal let functionalData = FunctionalTableData()
     
-    internal var items: [Translation] = [] {
-        didSet {
-            render()
-        }
-    }
-    
     internal var filteredItems: [Translation] = [] {
         didSet {
             render()
         }
     }
-    
+
     var isFiltering = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        items = Array(Set<Translation>(TranslationItems.shared.array))
         TranslationItems.shared.delegate = self
         setupViews()
     }    

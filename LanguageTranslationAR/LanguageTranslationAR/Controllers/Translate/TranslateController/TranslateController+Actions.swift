@@ -79,7 +79,7 @@ extension TranslateController: ARDetailViewDelegate {
                 DispatchQueue.main.async {
                     if let translation = translation {
                         self.addNode(translation: translation, coords: coords)
-                        TranslationItems.shared.array.append(translation)
+                        TranslationItems.shared.add(object: translation)
                     }
                 }
             }

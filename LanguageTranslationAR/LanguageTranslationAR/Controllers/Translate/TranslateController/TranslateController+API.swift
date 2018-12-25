@@ -26,9 +26,10 @@ extension TranslateController {
         
     }
     
+    // Write unit tests for this
     func translateOriginalText(text: String, completion: @escaping (String?) -> Void) {
         let langLocaleCode = LanguagePreferences.getLocaleLanguageCode()
-        if langLocaleCode == "EN" {
+        if langLocaleCode.uppercased() == "EN" {
             completion(text) // no need to translate an English word to English
         } else {
             GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: "EN", targetLanguage: langLocaleCode) { (translation) in

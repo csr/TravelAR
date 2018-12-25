@@ -8,7 +8,6 @@
 
 import UIKit
 
-@available(iOS 11.0, *)
 extension TranslateController: AddButtonProtocol {
     
 	internal func setupViews() {

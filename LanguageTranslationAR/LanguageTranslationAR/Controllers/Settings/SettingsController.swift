@@ -22,6 +22,15 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         render()
         didUpdateLanguage()
         getLanguages()
+        setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func setupView() {
         tableView.backgroundColor = .clear
         view.backgroundColor = .black
         tableView.tableFooterView = UIView()
@@ -34,6 +43,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         return [translateCellState]
     }
     
+    // Secondary cell states include the Help, Feedback sections
     private func getSecondaryCellStates() -> [LabelState] {
         let helpCellState = LabelState(text: "SETTINGS_HELP".localized(), imageName: "help", imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(composeSupportEmail))
         let friendCellState = LabelState(text: "SETTINGS_FRIENDS".localized(), imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didSelectShareRow))
@@ -45,11 +55,6 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         GoogleTranslateAPI.getLanguages(targetLanguage: languageCode) { (languages) in
             self.languages = languages
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     @objc private func didSelectTranslationLanguage() {
@@ -66,7 +71,6 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         composeVC.setSubject("SUPPORT_MESSAGE_TITLE".localized())
         present(composeVC, animated: true, completion: nil)
     }
-
     
     @objc private func didSelectShareRow() {
         let text = "SETTINGS_SHARE_TEXT".localized()
@@ -135,15 +139,6 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         headerCellStyle.bottomSeparator = .none
         
         let headerRows: [CellConfigType] = [HeaderCell(key: "key", style: secondaryCellStyle, state: HeaderState(height: 50), cellUpdater: HeaderState.updateView)]
-            
-//
-//                key: "id-3",
-//                style: secondaryCellStyle,
-//                actions: nil,
-//                state: HeaderState(height: 50),
-//                cellUpdater: HeaderState.updateView)
-
-        
         
         functionalData.renderAndDiff([TableSection(key: "sectionH", rows: headerRows),
             TableSection(key: "section", rows: primaryRows), TableSection(key: "sectionH2", rows: headerRows), TableSection(key: "section2", rows: secondaryRows)])
@@ -153,41 +148,5 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
 extension SettingsController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
-    }
-}
-
-
-public typealias HeaderCell = HostCell<SampleHeader, HeaderState, LayoutMarginsTableItemLayout>
-
-public class SampleHeader: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .clear
-        heightAnchor.constraint(equalToConstant: 15).isActive = true
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-public struct HeaderState: Equatable {
-    let height: CGFloat
-    
-    public init(height: CGFloat) {
-        self.height = height
-    }
-    
-    /// Update the view with the contents of the state.
-    ///
-    /// - Parameters:
-    ///   - view: `UIView` that responds to this state.
-    ///   - state: data to update the view with. If `nil` the view is being reused by the tableview.
-    public static func updateView(_ view: SampleHeader, state: HeaderState?) {
-    }
-    
-    public static func ==(lhs: HeaderState, rhs: HeaderState) -> Bool {
-        return false
     }
 }

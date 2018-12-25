@@ -21,8 +21,6 @@ class ARDetailView: UIView, NibView {
             if let translation = translation {
                 labelTranslatedText.text = translation.translatedText
                 labelOriginalText.text = translation.originalText
-            } else {
-                print("translation is nil")
             }
         }
     }

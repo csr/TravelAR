@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    internal func setupWindow() {
+    private func setupWindow() {
         window = UIWindow()
         window?.tintColor = .orange
         window?.makeKeyAndVisible()
@@ -27,11 +27,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = .orange
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
     }
-        
-    func applicationDidBecomeActive(_ application: UIApplication) {}
-    func applicationWillResignActive(_ application: UIApplication) {}
-    func applicationDidEnterBackground(_ application: UIApplication) {}
-    func applicationWillEnterForeground(_ application: UIApplication) {}
-    func applicationWillTerminate(_ application: UIApplication) {}    
 }
 

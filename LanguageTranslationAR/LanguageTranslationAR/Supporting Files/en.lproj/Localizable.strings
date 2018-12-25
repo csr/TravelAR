@@ -48,22 +48,5 @@
 "MENU_ACTION_REPRODUCE" = "Reproduce";
 "TRANSLATION" = "Translation";
 
-"Capture" = "Capture";
-"Scanning" = "Scanning...";
-"Move device" = "Move your %@ around to detect planes.";
-"How to use" = "Point and tap";
-"Point device" = "Look around and tap to translate what's in front of you.";
-"OK" = "OK";
-"Translations" = "Translations";
-"Clear" = "Clear";
-"Tap to play" = "Tap Item to Play";
-"History" = "History";
-"No items" = "Your translations will be shown here.";
-"Select" = "Select";
-"Cancel" = "Cancel";
-"Translation Language" = "Translation Language";
-"Translation language" = "Select a language that will be used to translate the things around you.";
-"Camera permissions" = "It looks like you don't have camera permissions enabled.";
-"Enable camera" = "Go to Settings";
-"Ask camera permission" = "To translate what's around you Beeply will need camera permissions.";
-"Turn on camera" = "Enable Camera";
+"E_MAIL" = "Mail";
+"CANCEL" = "Cancel";

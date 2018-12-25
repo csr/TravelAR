@@ -12,6 +12,7 @@ class TranslationItems {
     var delegate: TranslationItemsDelegate?
     
     static let shared = TranslationItems()
+    
     var array = [Translation]() {
         didSet {
             delegate?.newItemAdded()

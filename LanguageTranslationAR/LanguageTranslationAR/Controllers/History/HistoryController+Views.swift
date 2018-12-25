@@ -15,7 +15,6 @@ extension HistoryController {
         setupSearchController()
     }
     
-    
     private func setupSearchController() {
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
@@ -33,7 +32,6 @@ extension HistoryController {
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = NSLocalizedString("History", comment: "History")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
     }
 }

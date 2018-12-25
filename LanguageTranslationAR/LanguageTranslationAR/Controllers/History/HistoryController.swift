@@ -29,7 +29,7 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        items = TranslationItems.shared.array
+        items = Array(Set<Translation>(TranslationItems.shared.array))
         TranslationItems.shared.delegate = self
         setupViews()
     }    

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Translation: Codable, Equatable {
+public struct Translation: Codable, Equatable, Hashable {
     var key: String?
     var originalText: String?
     var targetLanguage: String?
@@ -27,5 +27,9 @@ public struct Translation: Codable, Equatable {
         case key
         case translatedText
         case sourceLanguage = "detectedSourceLanguage"
+    }
+    
+    public static func ==(lhs: Translation, rhs: Translation) -> Bool {
+        return lhs.key == rhs.key
     }
 }

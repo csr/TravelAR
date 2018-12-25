@@ -13,7 +13,8 @@ import TBEmptyDataSet
 extension HistoryController {
     @objc func didTapAddButton() {
         let translation = Translation(originalText: "backpack", targetLanguage: "es", translatedText: "test", sourceLanguage: "en")
-        items.append(translation)
+        print("Adding translation with hash value:", translation.hashValue)
+        TranslationItems.shared.array.append(translation)        
         let selection = UISelectionFeedbackGenerator()
         selection.selectionChanged()
     }

@@ -49,22 +49,5 @@
 "MENU_ACTION_REPRODUCE" = "Ascolta";
 "TRANSLATION" = "Traduzione";
 
-"Translation Language" = "Lingua di Traduzione";
-"Capture" = "Cattura";
-"Scanning" = "Scansionando...";
-"Move device" = "Guarda i dintorni con il tuo %@ per trovare superfici.";
-"How to use" = "Punta e tocca";
-"Point device" = "Guardati in giro e tocca per tradurre quello che hai davanti.";
-"OK" = "OK";
-"Translations" = "Traduzioni";
-"Clear" = "Pulisci";
-"Tap to play" = "Tocca per ascoltare";
-"History" = "Cronologia";
-"No items" = "Non c'è niente qui per adesso. Le traduzioni appariranno qui.";
-"Select" = "Seleziona";
-"Cancel" = "Annulla";
-"Translation language" = "Seleziona la lingua che verrà usata per tradurre gli oggetti intorno a te.";
-"Camera permissions" = "Sembra che l'app non riesca ad accedere alla fotocamera.";
-"Enable camera" = "Vai alle impostazioni";
-"Ask camera permission" = "Per iniziare a tradurre, abbiamo bisogno dei permessi fotocamera.";
-"Turn on camera" = "Abilita fotocamera";
+"E_MAIL" = "Email";
+"CANCEL" = "Annulla";

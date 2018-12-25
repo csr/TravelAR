@@ -40,8 +40,8 @@ class CardsController: UIViewController {
     
     func nextCardView() -> UIView? {
         let cardView = CardView(frame: swipeableView.bounds)
-        let hello = randomColor(hue: .random, luminosity: .dark)
-        cardView.backgroundColor = hello
+        //let hello = randomColor(hue: .random, luminosity: .dark)
+        cardView.backgroundColor = .white
         return cardView
     }
 }

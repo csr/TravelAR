@@ -45,7 +45,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     
     // Secondary cell states include the Help, Feedback sections
     private func getSecondaryCellStates() -> [LabelState] {
-        let helpCellState = LabelState(text: "SETTINGS_HELP".localized(), imageName: "help", imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(composeSupportEmail))
+        let helpCellState = LabelState(text: "SETTINGS_HELP".localized(), imageName: "help", imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(didTapHelpRow))
         let friendCellState = LabelState(text: "SETTINGS_FRIENDS".localized(), imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didSelectShareRow))
         return [helpCellState, friendCellState]
     }
@@ -64,7 +64,35 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         navigationController?.pushViewController(languagesController, animated: true)
     }
     
-    @objc internal func composeSupportEmail() {
+    @objc internal func didTapHelpRow() {
+        let alertPrompt = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let mailAction = UIAlertAction(title: "E_MAIL".localized(), style: .default) { (action) in
+            self.composeSupportEmail()
+        }
+        
+        let telegramAction = UIAlertAction(title: "Telegram", style: .default) { (action) in
+            self.launchApp(decodedURL: "tg://resolve?domain=cesaredecal")
+        }
+
+        let cancelAction = UIAlertAction(title: "CANCEL".localized(), style: .cancel, handler: nil)
+        
+        alertPrompt.addAction(mailAction)
+        alertPrompt.addAction(telegramAction)
+        alertPrompt.addAction(cancelAction)
+        
+        present(alertPrompt, animated: true, completion: nil)
+    }
+    
+    func launchApp(decodedURL: String) {
+        if let url = URL(string: decodedURL) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
+    
+    func composeSupportEmail() {
         let composeVC = MFMailComposeViewController()
         composeVC.setToRecipients(["help@cesare.io"])
         composeVC.mailComposeDelegate = self

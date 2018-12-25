@@ -83,7 +83,7 @@ public class TranslateController: UIViewController {
     var shouldPresentARDetailView = true {
         didSet {
             UIView.animate(withDuration: 0.2) {
-                self.sceneView.alpha = self.shouldPresentARDetailView ? 1 : 0.5
+                self.sceneView.alpha = self.shouldPresentARDetailView ? 1 : 0.3
             }
         }
     }

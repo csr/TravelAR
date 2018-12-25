@@ -24,6 +24,23 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         TranslationItems.shared.delegate = self
-        setupViews()
-    }    
+        setupView()
+        setupSearchController()
+        render()
+    }
+        
+    private func setupView() {
+        view.backgroundColor = .black
+        navigationController?.navigationBar.prefersLargeTitles = true
+        functionalData.tableView = tableView
+        tableView.emptyDataSetDataSource = self
+        tableView.emptyDataSetDelegate = self
+    }
+    
+    private func setupSearchController() {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.delegate = self
+        self.navigationItem.searchController = search
+    }
 }

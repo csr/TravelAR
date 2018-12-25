@@ -18,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        presentBlurredView()
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        hideBlurredView()
+    }
+    
     private func setupWindow() {
         window = UIWindow()
         window?.tintColor = .orange
@@ -26,6 +34,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().tintColor = .orange
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+    }
+    
+    private func presentBlurredView() {
+        guard let rootVC = window?.rootViewController as? UITabBarController, let viewController = rootVC.viewControllers?.first else { return }
+        print("print view controller:", type(of: viewController))
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = viewController.view.frame
+        blurEffectView.tag = 100
+        self.window?.addSubview(blurEffectView)
+    }
+    
+    private func hideBlurredView() {
+        self.window?.viewWithTag(100)?.removeFromSuperview()
     }
 }
 

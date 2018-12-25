@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension LanguagesTableViewController: UISearchResultsUpdating {
+extension LanguagesController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
 //            filteredNFLTeams = unfilteredNFLTeams.filter { team in

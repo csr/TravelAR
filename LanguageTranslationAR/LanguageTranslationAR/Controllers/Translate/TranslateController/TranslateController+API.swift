@@ -18,7 +18,6 @@ extension TranslateController {
                 GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: userLanguage.languageCode) { (translation) in
                     var translationCopy = translation
                     translationCopy?.originalText = string
-
                     completion(translationCopy)
                 }
             }
@@ -30,13 +29,11 @@ extension TranslateController {
     func translateOriginalText(text: String, completion: @escaping (String?) -> Void) {
         let langLocaleCode = LanguagePreferences.getLocaleLanguageCode()
         if langLocaleCode.uppercased() == "EN" {
-            completion(text) // no need to translate an English word to English
+            completion(text)
         } else {
             GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: "EN", targetLanguage: langLocaleCode) { (translation) in
                 if let translation = translation {
                     completion(translation.translatedText)
-                } else {
-                    print("error on translateOriginalText")
                 }
             }
         }

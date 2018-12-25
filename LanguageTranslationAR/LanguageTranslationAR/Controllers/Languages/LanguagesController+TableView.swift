@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension LanguagesTableViewController {
+extension LanguagesController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Deselect cell at previous index path
         if let previousIndexPath = selectedIndexPath {
@@ -76,5 +76,44 @@ extension LanguagesTableViewController {
             strings.append(String(character))
         }
         return strings
+    }
+    
+    func createTableData(languagesList: [Language]) -> (firstSymbols: [Character], source: [Character : [Language]]) {
+        
+        // Build Character Set
+        var firstSymbols = Set<Character>()
+        
+        func getFirstSymbol(language: Language) -> Character {
+            return language.name[language.name.startIndex]
+        }
+        
+        languagesList.forEach {_ = firstSymbols.insert(getFirstSymbol(language: $0)) }
+        
+        // Build tableSourse array
+        var tableViewSourse = [Character : [Language]]()
+        
+        for symbol in firstSymbols {
+            
+            var languages = [Language]()
+            
+            for language in languagesList {
+                if symbol == getFirstSymbol(language: language) {
+                    languages.append(language)
+                }
+            }
+            
+            tableViewSourse[symbol] = languages.sorted(by: { (language1, language2) -> Bool in
+                return language1.name < language2.name
+            })
+        }
+        
+        let sortedSymbols = firstSymbols.sorted(by: {$0 < $1})
+        
+        return (sortedSymbols, tableViewSourse)
+    }
+    
+    func getTableData(languages: [Language]) {
+        tableViewSource = createTableData(languagesList: languages).source
+        tableViewHeaders = createTableData(languagesList: languages).firstSymbols
     }
 }

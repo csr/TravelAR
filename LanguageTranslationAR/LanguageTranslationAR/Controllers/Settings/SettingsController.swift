@@ -58,14 +58,14 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     }
     
     @objc private func didSelectTranslationLanguage() {
-        let languagesController = LanguagesTableViewController()
+        let languagesController = LanguagesController()
         languagesController.didUpdateLanguageDelegate = self
         languagesController.getTableData(languages: languages)
         navigationController?.pushViewController(languagesController, animated: true)
     }
     
     @objc internal func didTapHelpRow() {
-        let alertPrompt = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alertPrompt = UIAlertController(title: nil, message: "SETTINGS_HELP_DESCRIPTION".localized(), preferredStyle: .actionSheet)
         
         let mailAction = UIAlertAction(title: "E_MAIL".localized(), style: .default) { (action) in
             self.composeSupportEmail()

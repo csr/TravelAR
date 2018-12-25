@@ -10,12 +10,17 @@ import UIKit
 
 class CardView: UIView {
     
+    var translation: Translation? {
+        didSet {
+            textLabel.text = translation?.translatedText
+        }
+    }
+    
     private let textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-//        label.text = "Hello"
         label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
     
@@ -30,7 +35,7 @@ class CardView: UIView {
         setup()
     }
     
-    func setup() {
+    private func setup() {
         // Shadow
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.25

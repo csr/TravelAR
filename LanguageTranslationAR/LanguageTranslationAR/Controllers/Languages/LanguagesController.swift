@@ -12,12 +12,10 @@ class LanguagesController: UITableViewController {
     
     var tableViewSource = [Character: [Language]]()
     var tableViewHeaders = [Character]()
-    
     var didUpdateLanguageDelegate: DidUpdateLanguage?
     
     var selectedIndexPath: IndexPath? {
         didSet {
-            // Save language
             guard let index = selectedIndexPath else { return }
             let section = index.section
             let row = index.row
@@ -31,48 +29,9 @@ class LanguagesController: UITableViewController {
     
     let cellId = "reuseIdentifier"
     
-    func createTableData(languagesList: [Language]) -> (firstSymbols: [Character], source: [Character : [Language]]) {
-        
-        // Build Character Set
-        var firstSymbols = Set<Character>()
-        
-        func getFirstSymbol(language: Language) -> Character {
-            return language.name[language.name.startIndex]
-        }
-        
-        languagesList.forEach {_ = firstSymbols.insert(getFirstSymbol(language: $0)) }
-        
-        // Build tableSourse array
-        var tableViewSourse = [Character : [Language]]()
-        
-        for symbol in firstSymbols {
-            
-            var languages = [Language]()
-            
-            for language in languagesList {
-                if symbol == getFirstSymbol(language: language) {
-                    languages.append(language)
-                }
-            }
-            
-            tableViewSourse[symbol] = languages.sorted(by: { (language1, language2) -> Bool in
-                return language1.name < language2.name
-            })
-        }
-        
-        let sortedSymbols = firstSymbols.sorted(by: {$0 < $1})
-        
-        return (sortedSymbols, tableViewSourse)
-    }
-    
-    func getTableData(languages: [Language]) {
-        tableViewSource = createTableData(languagesList: languages).source
-        tableViewHeaders = createTableData(languagesList: languages).firstSymbols
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        scrollToUserLanguage()
+        //scrollToUserLanguage()
     }
     
     func scrollToUserLanguage() {
@@ -97,26 +56,30 @@ class LanguagesController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        getData()
+        setupSearchController()
+    }
+    
+    private func setupSearchController() {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.delegate = self
+        self.navigationItem.searchController = search
+    }
+    
+    private func setupView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         title = "SETTINGS_TRANSLATE_TO".localized()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .black
-        navigationController?.navigationBar.prefersLargeTitles = false
-        setupActivityIndicator()
-        getData()
-    }
-    
-    internal func setupActivityIndicator() {
-        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
-        tableView.backgroundView = activityIndicator
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
+        //navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     func getData() {
         self.tableView.reloadData()
-        self.scrollToUserLanguage()
+        //self.scrollToUserLanguage()
     }
     
     @objc func didTapSaveBarButtonItem() {
@@ -124,4 +87,7 @@ class LanguagesController: UITableViewController {
         notification.notificationOccurred(.success)
         navigationController?.popViewController(animated: true)
     }
+}
+
+extension LanguagesController: UISearchControllerDelegate {
 }

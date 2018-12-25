@@ -27,37 +27,19 @@ class LanguagesController: UITableViewController {
         }
     }
     
-    let cellId = "reuseIdentifier"
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //scrollToUserLanguage()
-    }
-    
-    func scrollToUserLanguage() {
-        let userLanguage = LanguagePreferences.getCurrent()
-        
-        let nestedArr = Array(tableViewSource.values)
-        let allLangs = nestedArr.reduce([], +)
-        
-        if let index = allLangs.index(of: userLanguage) {
-            let language = allLangs[index]
-            let name = language.name
-            let initialLetter = name.first ?? " "
-            let languagesWithInitial = tableViewSource[initialLetter]
-            if let sectionNumber = tableViewHeaders.index(of: initialLetter), let rowNumber = languagesWithInitial?.index(of: language) {
-                let indexPath = IndexPath(row: rowNumber, section: sectionNumber)
-                self.tableView.reloadData()
-                tableView.scrollToRow(at: indexPath, at: .middle, animated: false)
-                selectedIndexPath = indexPath
-            }
+    internal var filteredItems: [Character: [Language]] = [:] {
+        didSet {
+            self.tableView.reloadData()
         }
     }
+    
+    var isFiltering = false
+    
+    let cellId = "reuseIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        getData()
         setupSearchController()
     }
     
@@ -74,13 +56,9 @@ class LanguagesController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .black
-        //navigationController?.navigationBar.prefersLargeTitles = false
+        self.tableView.reloadData()
     }
     
-    func getData() {
-        self.tableView.reloadData()
-        //self.scrollToUserLanguage()
-    }
     
     @objc func didTapSaveBarButtonItem() {
         let notification = UINotificationFeedbackGenerator()
@@ -89,5 +67,32 @@ class LanguagesController: UITableViewController {
     }
 }
 
-extension LanguagesController: UISearchControllerDelegate {
+extension LanguagesController: UISearchResultsUpdating, UISearchControllerDelegate {
+    func willPresentSearchController(_ searchController: UISearchController) {
+        isFiltering = true
+    }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        isFiltering = false
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+
+        print("search bar:", text)
+        
+        filteredItems = tableViewSource["text"]        
+    }
+    
+    private func filter(searchText: String, translation: Translation) -> Bool {
+        if searchText.isEmpty {
+            return true
+        }
+        
+        if let originalText = translation.originalText, originalText.lowercased().contains(searchText.lowercased()) {
+            return true
+        }
+        
+        return translation.translatedText.lowercased().contains(searchText.lowercased())
+    }
 }

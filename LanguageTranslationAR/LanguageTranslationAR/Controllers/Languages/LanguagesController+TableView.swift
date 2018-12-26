@@ -28,7 +28,11 @@ extension LanguagesController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewHeaders.count
+        if isFiltering {
+            return filteredTableViewHeaders.count
+        } else {
+            return tableViewHeaders.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -39,20 +43,31 @@ extension LanguagesController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let header = tableViewHeaders[section]
-        let values = tableViewSource[header]
-        return values?.count ?? 0
+        if isFiltering {
+            let header = filteredTableViewHeaders[section]
+            let values = filteredTableViewSource[header]
+            return values?.count ?? 0
+        } else {
+            let header = tableViewHeaders[section]
+            let values = tableViewSource[header]
+            return values?.count ?? 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let title = tableViewHeaders[section]
-        return String(title)
+        if isFiltering {
+            let title = filteredTableViewHeaders[section]
+            return String(title)
+        } else {
+            let title = tableViewHeaders[section]
+            return String(title)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        let key = tableViewHeaders[indexPath.section]
-        let values = tableViewSource[key]
+        let key = isFiltering ? filteredTableViewHeaders[indexPath.section] : tableViewHeaders[indexPath.section]
+        let values = isFiltering ? filteredTableViewSource[key] : tableViewSource[key]
         let language = values![indexPath.row]
         cell.textLabel?.text = language.name
         cell.textLabel?.textColor = .white
@@ -90,7 +105,7 @@ extension LanguagesController {
         languagesList.forEach {_ = firstSymbols.insert(getFirstSymbol(language: $0)) }
         
         // Build tableSourse array
-        var tableViewSourse = [Character : [Language]]()
+        var tableViewSource = [Character : [Language]]()
         
         for symbol in firstSymbols {
             
@@ -102,18 +117,17 @@ extension LanguagesController {
                 }
             }
             
-            tableViewSourse[symbol] = languages.sorted(by: { (language1, language2) -> Bool in
+            tableViewSource[symbol] = languages.sorted(by: { (language1, language2) -> Bool in
                 return language1.name < language2.name
             })
         }
         
         let sortedSymbols = firstSymbols.sorted(by: {$0 < $1})
         
-        return (sortedSymbols, tableViewSourse)
+        return (sortedSymbols, tableViewSource)
     }
     
     func getTableData(languages: [Language]) {
-        tableViewSource = createTableData(languagesList: languages).source
-        tableViewHeaders = createTableData(languagesList: languages).firstSymbols
+        (tableViewHeaders, tableViewSource) = createTableData(languagesList: languages)
     }
 }

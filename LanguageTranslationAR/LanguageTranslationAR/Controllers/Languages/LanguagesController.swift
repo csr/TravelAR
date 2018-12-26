@@ -12,6 +12,10 @@ class LanguagesController: UITableViewController {
     
     var tableViewSource = [Character: [Language]]()
     var tableViewHeaders = [Character]()
+    
+    var filteredTableViewSource = [Character: [Language]]()
+    var filteredTableViewHeaders = [Character]()
+    
     var didUpdateLanguageDelegate: DidUpdateLanguage?
     
     var selectedIndexPath: IndexPath? {
@@ -56,14 +60,17 @@ class LanguagesController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .black
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
-    
     
     @objc func didTapSaveBarButtonItem() {
         let notification = UINotificationFeedbackGenerator()
         notification.notificationOccurred(.success)
         navigationController?.popViewController(animated: true)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 
@@ -77,22 +84,14 @@ extension LanguagesController: UISearchResultsUpdating, UISearchControllerDelega
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-
-        print("search bar:", text)
+        guard let text = searchController.searchBar.text, let firstChar = text.first, let langs = tableViewSource[firstChar] else { return }
         
-        filteredItems = tableViewSource["text"]        
-    }
-    
-    private func filter(searchText: String, translation: Translation) -> Bool {
-        if searchText.isEmpty {
-            return true
-        }
+        let filteredLanguages = langs.filter({ (language) -> Bool in
+            return language.name.lowercased().contains(text.lowercased())
+        })
         
-        if let originalText = translation.originalText, originalText.lowercased().contains(searchText.lowercased()) {
-            return true
-        }
+        (filteredTableViewHeaders, filteredTableViewSource) = createTableData(languagesList: filteredLanguages)
         
-        return translation.translatedText.lowercased().contains(searchText.lowercased())
+        tableView.reloadData()
     }
 }

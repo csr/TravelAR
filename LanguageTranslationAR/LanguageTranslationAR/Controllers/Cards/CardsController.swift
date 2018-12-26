@@ -43,8 +43,8 @@ class CardsController: UIViewController {
         let randomTranslation = TranslationItems.shared.getRandomItem()
         cardView.translation = randomTranslation
         
-        //let hello = randomColor(hue: .random, luminosity: .dark)
-        cardView.backgroundColor = .white
+        let hello = randomColor(hue: .random, luminosity: .dark)
+        cardView.backgroundColor = hello
         return cardView
     }
 }

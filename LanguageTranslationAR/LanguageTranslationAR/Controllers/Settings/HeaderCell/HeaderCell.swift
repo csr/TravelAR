@@ -11,7 +11,6 @@ import FunctionalTableData
 
 public typealias HeaderCell = HostCell<HeaderView, HeaderState, LayoutMarginsTableItemLayout>
 
-
 public struct HeaderState: Equatable {
     let height: CGFloat
     

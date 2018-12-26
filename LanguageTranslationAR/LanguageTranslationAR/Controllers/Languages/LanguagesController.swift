@@ -34,10 +34,27 @@ class LanguagesController: UITableViewController {
         setupSearchController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getLanguages()
+    }
+    
+    func getLanguages() {
+        let languageCode = LanguagePreferences.getLocaleLanguageCode()
+        GoogleTranslateAPI.getLanguages(targetLanguage: languageCode) { (languages) in
+            (self.tableViewHeaders, self.tableViewSource) = self.createTableData(languagesList: languages)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+        
     private func setupSearchController() {
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         search.delegate = self
+        search.dimsBackgroundDuringPresentation = false
+        search.hidesNavigationBarDuringPresentation = false
         self.navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
     }
@@ -49,47 +66,27 @@ class LanguagesController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .black
         tableView.reloadData()
+        
+        if isModal {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapDismiss))
+        }
+    }
+    
+    @objc private func didTapDismiss() {
+        if isModal {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     @objc func didTapSaveBarButtonItem() {
         let notification = UINotificationFeedbackGenerator()
         notification.notificationOccurred(.success)
-        navigationController?.popViewController(animated: true)
+        didTapDismiss()
     }
-        
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-}
-
-extension LanguagesController: UISearchResultsUpdating, UISearchControllerDelegate {
-    func willPresentSearchController(_ searchController: UISearchController) {
-        isFiltering = true
-    }
-    
-    func willDismissSearchController(_ searchController: UISearchController) {
-        isFiltering = false
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else { return }
-
-        let langs = Array(tableViewSource.values.joined())
-
-        let filteredLanguages = langs.filter({ (language) -> Bool in
-           return self.filter(searchText: searchText, language: language)
-        })
-        
-        (filteredTableViewHeaders, filteredTableViewSource) = createTableData(languagesList: filteredLanguages)
-        
-        tableView.reloadData()
-    }
-    
-    private func filter(searchText: String, language: Language) -> Bool {
-        if searchText.isEmpty {
-            return true
-        }
-        
-        return language.name.lowercased().starts(with: searchText.lowercased())
     }
 }

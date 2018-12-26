@@ -18,23 +18,15 @@ class PermissionsController: UIViewController {
         return stackView
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        let attributedString = NSMutableAttributedString(string: "CAMERA_PERMISSIONS_TITLE".localized())
-        attributedString.setColor(color: UIColor.orange, forText: "TranslateAR")
-        label.attributedText = attributedString
-        label.font = UIFont.boldSystemFont(ofSize: 33)
-        label.numberOfLines = 0
+    private let titleLabel: TitleLabel = {
+        let label = TitleLabel()
+        label.text = "CAMERA_PERMISSIONS_TITLE".localized()
         return label
     }()
     
-    private let descriptionLabel: UILabel = {
-        let descriptionLabel = UILabel()
+    private let descriptionLabel: DescriptionLabel = {
+        let descriptionLabel = DescriptionLabel()
         descriptionLabel.text = "CAMERA_PERMISSIONS_DESCRIPTION".localized()
-        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        descriptionLabel.textColor = .white
-        descriptionLabel.numberOfLines = 0
         return descriptionLabel
     }()
     
@@ -72,11 +64,11 @@ class PermissionsController: UIViewController {
         stackView.addArrangedSubview(button)
     }
     
-    internal func didAuthorizeCamera() {
+    private func didAuthorizeCamera() {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func didTapAllowButton() {
+    @objc private func didTapAllowButton() {
         AVCaptureDevice.requestAccess(for: .video) { (granted) in
             DispatchQueue.main.async {
                 self.cameraSelected()
@@ -89,7 +81,7 @@ class PermissionsController: UIViewController {
             let authStatus = AVCaptureDevice.authorizationStatus(for: .video)
             switch authStatus {
             case .authorized:
-                self.dismiss(animated: true, completion: nil)
+                self.proceedWithOnboarding()
             case .denied:
                 alertPromptToAllowCameraAccessViaSettings()
             default:
@@ -103,7 +95,7 @@ class PermissionsController: UIViewController {
         }
     }
     
-    func alertPromptToAllowCameraAccessViaSettings() {
+    private func alertPromptToAllowCameraAccessViaSettings() {
         let alert = UIAlertController(title: "PERMISSION_TITLE".localized(), message: "PERMISSION_DESCRIPTION".localized(), preferredStyle: .alert )
         alert.addAction(UIAlertAction(title: "PERMISSION_ACTION_SETTINGS".localized(), style: .cancel) { alert in
             if let appSettingsURL = NSURL(string: UIApplication.openSettingsURLString) {
@@ -111,6 +103,11 @@ class PermissionsController: UIViewController {
             }
         })
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func proceedWithOnboarding() {
+        let learningVC = LearningController()
+        navigationController?.pushViewController(learningVC, animated: true)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

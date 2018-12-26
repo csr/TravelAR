@@ -21,13 +21,14 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         functionalData.tableView = tableView
         render()
         didUpdateLanguage()
-        getLanguages()
+//        getLanguages()
         setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     func setupView() {
@@ -37,25 +38,25 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     }
     
     // Primary cell states include the "Translate To" row
-    private func getPrimaryCellStates() -> [LabelState] {
+    private func getPrimaryCellStates() -> [SettingsState] {
         let currentLanguage = LanguagePreferences.getCurrent()
-        let translateCellState = LabelState(text: "SETTINGS_TRANSLATE_TO".localized(), detailText: currentLanguage.name, imageName: "translate", imageBgColor: .red, selector: #selector(didSelectTranslationLanguage))
+        let translateCellState = SettingsState(text: "SETTINGS_TRANSLATE_TO".localized(), detailText: currentLanguage.name, imageName: "translate", imageBgColor: .red, selector: #selector(didSelectTranslationLanguage))
         return [translateCellState]
     }
     
     // Secondary cell states include the Help, Feedback sections
-    private func getSecondaryCellStates() -> [LabelState] {
-        let helpCellState = LabelState(text: "SETTINGS_HELP".localized(), imageName: "help", imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(didTapHelpRow))
-        let friendCellState = LabelState(text: "SETTINGS_FRIENDS".localized(), imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didSelectShareRow))
+    private func getSecondaryCellStates() -> [SettingsState] {
+        let helpCellState = SettingsState(text: "SETTINGS_HELP".localized(), imageName: "help", imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(didTapHelpRow))
+        let friendCellState = SettingsState(text: "SETTINGS_FRIENDS".localized(), imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didSelectShareRow))
         return [helpCellState, friendCellState]
     }
     
-    func getLanguages() {
-        let languageCode = LanguagePreferences.getLocaleLanguageCode()
-        GoogleTranslateAPI.getLanguages(targetLanguage: languageCode) { (languages) in
-            self.languages = languages
-        }
-    }
+//    func getLanguages() {
+//        let languageCode = LanguagePreferences.getLocaleLanguageCode()
+//        GoogleTranslateAPI.getLanguages(targetLanguage: languageCode) { (languages) in
+//            self.languages = languages
+//        }
+//    }
     
     @objc private func didSelectTranslationLanguage() {
         let languagesController = LanguagesController()
@@ -143,7 +144,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
                         return .deselected
                 }),
                 state: state,
-                cellUpdater: LabelState.updateView)
+                cellUpdater: SettingsState.updateView)
         }
         
         let secondaryRows: [CellConfigType] = getSecondaryCellStates().enumerated().map { index, state in
@@ -160,7 +161,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
                         return .deselected
                 }),
                 state: state,
-                cellUpdater: LabelState.updateView)
+                cellUpdater: SettingsState.updateView)
         }
         
         var headerCellStyle = primaryCellStyle

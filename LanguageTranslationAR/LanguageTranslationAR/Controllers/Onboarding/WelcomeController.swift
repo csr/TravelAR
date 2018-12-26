@@ -18,14 +18,11 @@ class WelcomeController: UIViewController {
         return stackView
     }()
     
-    let titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .white
+    let titleLabel: TitleLabel = {
+        let titleLabel = TitleLabel()
         let attributedString = NSMutableAttributedString(string: "WELCOME_TITLE".localized())
         attributedString.setColor(color: UIColor.orange, forText: "TranslateAR")
         titleLabel.attributedText = attributedString
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 33)
-        titleLabel.numberOfLines = 0
         return titleLabel
     }()
     
@@ -44,14 +41,6 @@ class WelcomeController: UIViewController {
     @objc func didSelectContinueButton() {
         let cameraPermissionVC = PermissionsController()
         navigationController?.pushViewController(cameraPermissionVC, animated: true)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return [.portrait]
     }
     
     internal func setupView() {
@@ -118,5 +107,13 @@ class WelcomeController: UIViewController {
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(labelsStackView)
         return stackView
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
     }
 }

@@ -10,6 +10,12 @@
 		1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8621BF09DF000396C5 /* ApplicationTab.swift */; };
 		1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8821BF0ADA000396C5 /* String+Localization.swift */; };
 		1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8C21BF91A5000396C5 /* TranslationItems.swift */; };
+		1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77921D3AD9100364C59 /* SettingsView.swift */; };
+		1D21F77E21D410FD00364C59 /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */; };
+		1D21F78121D411B600364C59 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78021D411B600364C59 /* TitleLabel.swift */; };
+		1D21F78321D411DE00364C59 /* LearningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78221D411DE00364C59 /* LearningController.swift */; };
+		1D21F78521D41E5A00364C59 /* LanguagesController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78421D41E5A00364C59 /* LanguagesController+Search.swift */; };
+		1D21F78721D42A0800364C59 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */; };
 		1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */; };
 		1D23B9502097AC3E00121E8F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94F2097AC3E00121E8F /* Keys.swift */; };
 		1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9522097C59D00121E8F /* LanguageData.swift */; };
@@ -95,6 +101,12 @@
 		1D104C8621BF09DF000396C5 /* ApplicationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTab.swift; sourceTree = "<group>"; };
 		1D104C8821BF0ADA000396C5 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		1D104C8C21BF91A5000396C5 /* TranslationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItems.swift; sourceTree = "<group>"; };
+		1D21F77921D3AD9100364C59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
+		1D21F78021D411B600364C59 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		1D21F78221D411DE00364C59 /* LearningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningController.swift; sourceTree = "<group>"; };
+		1D21F78421D41E5A00364C59 /* LanguagesController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesController+Search.swift"; sourceTree = "<group>"; };
+		1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
 		1D23B94F2097AC3E00121E8F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		1D23B9522097C59D00121E8F /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
@@ -184,6 +196,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D21F77F21D4117A00364C59 /* Helper Views */ = {
+			isa = PBXGroup;
+			children = (
+				1DF2BD0821C4500B00D5E29B /* CustomButton.swift */,
+				1D21F78021D411B600364C59 /* TitleLabel.swift */,
+				1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */,
+			);
+			path = "Helper Views";
+			sourceTree = "<group>";
+		};
 		1D23B94E2097AB8000121E8F /* Google API */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */,
+				1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */,
 				1D104C8821BF0ADA000396C5 /* String+Localization.swift */,
 				1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */,
 				1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */,
@@ -377,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */,
+				1D21F77921D3AD9100364C59 /* SettingsView.swift */,
 				1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */,
 			);
 			path = SettingsCell;
@@ -417,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				1D94B77020CB2B210000B065 /* LanguagesController.swift */,
+				1D21F78421D41E5A00364C59 /* LanguagesController+Search.swift */,
 				1DF2BCEF21C1A7DC00D5E29B /* LanguagesController+TableView.swift */,
 				1D745CD621D280B7008A974F /* Helper Classes */,
 			);
@@ -490,7 +515,8 @@
 			children = (
 				1DF2BD0621C38C7B00D5E29B /* WelcomeController.swift */,
 				1D95A9ED21CACCB0002EDAF1 /* PermissionsController.swift */,
-				1DF2BD0821C4500B00D5E29B /* CustomButton.swift */,
+				1D21F78221D411DE00364C59 /* LearningController.swift */,
+				1D21F77F21D4117A00364C59 /* Helper Views */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -630,14 +656,18 @@
 				1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */,
 				1DEC7D2B21C6F40200BBEDD3 /* NibView.swift in Sources */,
 				1DC8A43B21CEDC3B0083506F /* HistoryView.swift in Sources */,
+				1D21F78321D411DE00364C59 /* LearningController.swift in Sources */,
+				1D21F78721D42A0800364C59 /* UIViewController+Extensions.swift in Sources */,
 				1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */,
 				1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */,
 				1D95A9F121CAD026002EDAF1 /* UIView+Constraints.swift in Sources */,
+				1D21F78121D411B600364C59 /* TitleLabel.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,
 				1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */,
 				1DF2BCF021C1A7DC00D5E29B /* LanguagesController+TableView.swift in Sources */,
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
 				1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */,
+				1D21F78521D41E5A00364C59 /* LanguagesController+Search.swift in Sources */,
 				1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */,
 				1D65246021CA735800EB2D5C /* CardsController.swift in Sources */,
 				1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */,
@@ -647,6 +677,7 @@
 				1D65E4EA21CE708600DB52A5 /* TranslateController+Actions.swift in Sources */,
 				1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */,
 				1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */,
+				1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */,
 				1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */,
 				1D745CD221D228E6008A974F /* HeaderView.swift in Sources */,
 				1D441E9320726F22005E2ADD /* TranslateController+ARKit.swift in Sources */,
@@ -655,6 +686,7 @@
 				1D441E9820726F22005E2ADD /* TranslateController.swift in Sources */,
 				1D441E9720726F22005E2ADD /* TranslateController+Views.swift in Sources */,
 				1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */,
+				1D21F77E21D410FD00364C59 /* DescriptionLabel.swift in Sources */,
 				1D441EA720726F22005E2ADD /* HistoryController.swift in Sources */,
 				1DEC7D2121C69C4300BBEDD3 /* AddButtonProtocol.swift in Sources */,
 			);

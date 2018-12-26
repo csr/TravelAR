@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func presentBlurredView() {
-        guard let rootVC = window?.rootViewController as? UITabBarController, let viewController = rootVC.selectedViewController as? TranslateController else { return }
+        guard let rootVC = window?.rootViewController as? UITabBarController, let viewController = rootVC.selectedViewController as? TranslateController, viewController.isViewLoaded, let _ = viewController.view.window else { return }
         let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = viewController.view.frame

@@ -102,8 +102,8 @@ public class TranslateController: UIViewController {
         }
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if isCameraPermissionGranted() {
             let navController = UINavigationController(rootViewController: WelcomeController())
             present(navController, animated: true, completion: nil)
@@ -111,6 +111,10 @@ public class TranslateController: UIViewController {
             runARSession()
             setupCoreML()
         }
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     public override func viewWillDisappear(_ animated: Bool) {

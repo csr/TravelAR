@@ -37,6 +37,6 @@ extension HistoryController: UISearchResultsUpdating, UISearchControllerDelegate
             return true
         }
         
-        return translation.translatedText.lowercased().contains(searchText.lowercased())
+        return translation.translatedText.lowercased().starts(with: searchText.lowercased())
     }
 }

@@ -10,19 +10,16 @@ import UIKit
 
 extension LanguagesController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Deselect cell at previous index path
-        if let previousIndexPath = selectedIndexPath {
-            tableView.cellForRow(at: previousIndexPath)?.accessoryType = .none
-        }
+        let char = isFiltering ? filteredTableViewHeaders[indexPath.section] : tableViewHeaders[indexPath.section]
+        let languages = isFiltering ? filteredTableViewSource[char] : tableViewSource[char]
         
-        selectedIndexPath = indexPath
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .checkmark
+        if let languages = languages {
+            let language = languages[indexPath.row]
+            selectedLanguage = language
         }
-        
+
         didUpdateLanguageDelegate?.didUpdateLanguage()
-        
-        tableView.deselectRow(at: indexPath, animated: true)
+        didTapSaveBarButtonItem()
     }
     
     // MARK: - Table view data source
@@ -76,8 +73,8 @@ extension LanguagesController {
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor(named: "selectedCell")
         cell.selectedBackgroundView = bgColorView
-        
-        if indexPath == selectedIndexPath {
+
+        if language.languageCode == LanguagePreferences.getCurrent().languageCode {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none

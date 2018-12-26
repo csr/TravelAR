@@ -18,22 +18,9 @@ class LanguagesController: UITableViewController {
     
     var didUpdateLanguageDelegate: DidUpdateLanguage?
     
-    var selectedIndexPath: IndexPath? {
+    var selectedLanguage: Language? {
         didSet {
-            guard let index = selectedIndexPath else { return }
-            let section = index.section
-            let row = index.row
-            let initialLetter = tableViewHeaders[section]
-            if let values = tableViewSource[initialLetter] {
-                let language = values[row]
-                LanguagePreferences.save(language: language)
-            }
-        }
-    }
-    
-    internal var filteredItems: [Character: [Language]] = [:] {
-        didSet {
-            self.tableView.reloadData()
+            LanguagePreferences.save(language: selectedLanguage)
         }
     }
     
@@ -52,6 +39,7 @@ class LanguagesController: UITableViewController {
         search.searchResultsUpdater = self
         search.delegate = self
         self.navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func setupView() {
@@ -68,7 +56,7 @@ class LanguagesController: UITableViewController {
         notification.notificationOccurred(.success)
         navigationController?.popViewController(animated: true)
     }
-    
+        
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -84,14 +72,24 @@ extension LanguagesController: UISearchResultsUpdating, UISearchControllerDelega
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text, let firstChar = text.first, let langs = tableViewSource[firstChar] else { return }
-        
+        guard let searchText = searchController.searchBar.text else { return }
+
+        let langs = Array(tableViewSource.values.joined())
+
         let filteredLanguages = langs.filter({ (language) -> Bool in
-            return language.name.lowercased().contains(text.lowercased())
+           return self.filter(searchText: searchText, language: language)
         })
         
         (filteredTableViewHeaders, filteredTableViewSource) = createTableData(languagesList: filteredLanguages)
         
         tableView.reloadData()
+    }
+    
+    private func filter(searchText: String, language: Language) -> Bool {
+        if searchText.isEmpty {
+            return true
+        }
+        
+        return language.name.lowercased().starts(with: searchText.lowercased())
     }
 }

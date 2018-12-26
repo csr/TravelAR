@@ -21,7 +21,9 @@ class LanguagePreferences {
         }        
     }
     
-    class func save(language: Language) {
+    class func save(language: Language?) {
+        guard let language = language else { return }
+        
         let defaults = UserDefaults.standard
         defaults.set(language.name, forKey: "languageName")
         defaults.set(language.languageCode, forKey: "languageCode")

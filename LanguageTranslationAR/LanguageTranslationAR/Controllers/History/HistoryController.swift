@@ -27,8 +27,14 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
         setupView()
         setupSearchController()
         render()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(test))
     }
-        
+    
+    @objc private func test() {
+        let navController = UINavigationController(rootViewController: WelcomeController())
+        present(navController, animated: true, completion: nil)
+    }
+    
     private func setupView() {
         view.backgroundColor = .black
         navigationController?.navigationBar.prefersLargeTitles = true

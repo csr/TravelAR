@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LanguagesController: UITableViewController {
+class LanguagesController: UIViewController {
     
     var tableViewSource = [Character: [Language]]()
     var tableViewHeaders = [Character]()
@@ -28,6 +28,21 @@ class LanguagesController: UITableViewController {
     
     let cellId = "reuseIdentifier"
     
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    let chooseButton: BasicButton = {
+        let button = BasicButton()
+        button.setTitle("Save", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -36,6 +51,8 @@ class LanguagesController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.isNavigationBarHidden = false
         getLanguages()
     }
     
@@ -67,8 +84,22 @@ class LanguagesController: UITableViewController {
         tableView.backgroundColor = .black
         tableView.reloadData()
         
+        view.addSubview(tableView)
+        
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        
         if isModal {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapDismiss))
+            view.addSubview(chooseButton)
+            chooseButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            chooseButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            chooseButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+            chooseButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+            chooseButton.addTarget(self, action: #selector(didTapDismiss), for: .touchUpInside)
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         }
     }
     

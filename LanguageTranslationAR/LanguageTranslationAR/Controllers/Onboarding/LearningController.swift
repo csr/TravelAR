@@ -38,12 +38,7 @@ class LearningController: UIViewController {
         let button = CustomButton()
         button.setTitle("ONBOARDING_CHOOSE_BUTTON".localized(), for: .normal)
         button.addTarget(self, action: #selector(presentLanguageSelection), for: .touchUpInside)
-        
-        let skipButton = UIButton()
-        skipButton.setTitleColor(.white, for: .normal)
-        skipButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
-        skipButton.setTitle("SKIP".localized(), for: .normal)
-        
+                
         let labelStackView = UIStackView()
         labelStackView.axis = .vertical
         labelStackView.addArrangedSubview(titleLabel)
@@ -56,15 +51,14 @@ class LearningController: UIViewController {
         buttonsStackView.axis = .vertical
         buttonsStackView.spacing = 10
         buttonsStackView.addArrangedSubview(button)
-        buttonsStackView.addArrangedSubview(skipButton)
+//        buttonsStackView.addArrangedSubview(skipButton)
         stackView.addArrangedSubview(buttonsStackView)
     }
         
     @objc private func presentLanguageSelection() {
         let vc = LanguagesController()
         vc.didUpdateLanguageDelegate = self
-        let navController = UINavigationController(rootViewController: vc)
-        present(navController, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func dismissController() {
@@ -78,7 +72,7 @@ class LearningController: UIViewController {
 
 extension LearningController: DidUpdateLanguage {
     func didUpdateLanguage() {
-        print("did update language")
-        dismiss(animated: true, completion: nil)
+//        print("did update language")
+//        dismiss(animated: true, completion: nil)
     }
 }

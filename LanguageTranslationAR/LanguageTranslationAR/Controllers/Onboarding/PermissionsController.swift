@@ -106,8 +106,7 @@ class PermissionsController: UIViewController {
     }
     
     private func proceedWithOnboarding() {
-        let learningVC = LearningController()
-        navigationController?.pushViewController(learningVC, animated: true)
+        navigationController?.pushViewController(LearningController(), animated: true)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

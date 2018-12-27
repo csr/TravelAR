@@ -18,11 +18,7 @@ extension TranslateController: AddButtonProtocol {
         setupFeedbackView()
         setupCustomView()
     }
-    
-    func scanningState() {
         
-    }
-    
     private func setupFeedbackView() {
         view.addSubview(feedbackView)
         feedbackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 66).isActive = true

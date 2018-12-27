@@ -21,7 +21,6 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         functionalData.tableView = tableView
         render()
         didUpdateLanguage()
-//        getLanguages()
         setupView()
     }
     
@@ -50,13 +49,6 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         let friendCellState = SettingsState(text: "SETTINGS_FRIENDS".localized(), imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didSelectShareRow))
         return [helpCellState, friendCellState]
     }
-    
-//    func getLanguages() {
-//        let languageCode = LanguagePreferences.getLocaleLanguageCode()
-//        GoogleTranslateAPI.getLanguages(targetLanguage: languageCode) { (languages) in
-//            self.languages = languages
-//        }
-//    }
     
     @objc private func didSelectTranslationLanguage() {
         let languagesController = LanguagesController()

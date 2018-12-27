@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension LanguagesController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let char = isFiltering ? filteredTableViewHeaders[indexPath.section] : tableViewHeaders[indexPath.section]
         let languages = isFiltering ? filteredTableViewSource[char] : tableViewSource[char]
         
@@ -24,7 +24,7 @@ extension LanguagesController {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         if isFiltering {
             return filteredTableViewHeaders.count
         } else {
@@ -32,14 +32,14 @@ extension LanguagesController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let view = view as? UITableViewHeaderFooterView {
             view.textLabel?.textColor = .black
             view.tintColor = #colorLiteral(red: 0.2941176471, green: 0.2980392157, blue: 0.3019607843, alpha: 1)
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
             let header = filteredTableViewHeaders[section]
             let values = filteredTableViewSource[header]
@@ -51,7 +51,7 @@ extension LanguagesController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if isFiltering {
             let title = filteredTableViewHeaders[section]
             return String(title)
@@ -61,7 +61,7 @@ extension LanguagesController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let key = isFiltering ? filteredTableViewHeaders[indexPath.section] : tableViewHeaders[indexPath.section]
         let values = isFiltering ? filteredTableViewSource[key] : tableViewSource[key]
@@ -82,7 +82,7 @@ extension LanguagesController {
         return cell
     }
     
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         var strings = [String]()
         for character in tableViewHeaders {
             strings.append(String(character))

@@ -12,20 +12,24 @@ class LanguagesController: UIViewController {
     
     var tableViewSource = [Character: [Language]]()
     var tableViewHeaders = [Character]()
-    
     var filteredTableViewSource = [Character: [Language]]()
     var filteredTableViewHeaders = [Character]()
     
     var didUpdateLanguageDelegate: DidUpdateLanguage?
     
+    var selectedIndexPath: IndexPath?
+    
     var selectedLanguage: Language? {
         didSet {
-            LanguagePreferences.save(language: selectedLanguage)
+            guard let language = selectedLanguage else { return }
+            let buttonTitle = "SAVE_LANGUAGE_NAME".localizedString(with: [language.name])
+            chooseButton.setTitle(buttonTitle, for: .normal)
+            LanguagePreferences.save(language: language)
+            print("Saving language:", language.name)
         }
     }
     
     var isFiltering = false
-    
     let cellId = "reuseIdentifier"
     
     lazy var tableView: UITableView = {
@@ -78,7 +82,7 @@ class LanguagesController: UIViewController {
     
     private func setupView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        title = "SETTINGS_TRANSLATE_TO".localized()
+        title = "SETTINGS_TRANSLATE_TO".localized
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .black
@@ -92,7 +96,7 @@ class LanguagesController: UIViewController {
         
         if isModal {
             view.addSubview(chooseButton)
-            chooseButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            //chooseButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
             chooseButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
             chooseButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
             chooseButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
@@ -112,9 +116,11 @@ class LanguagesController: UIViewController {
     }
     
     @objc func didTapSaveBarButtonItem() {
-        let notification = UINotificationFeedbackGenerator()
-        notification.notificationOccurred(.success)
-        didTapDismiss()
+        if !isModal {
+            let notification = UINotificationFeedbackGenerator()
+            notification.notificationOccurred(.success)
+            didTapDismiss()
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

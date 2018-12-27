@@ -46,10 +46,11 @@
 "NO_CAMERA_BUTTON_ALERT_TITLE" = "Errore";
 "NO_CAMERA_BUTTON_ALERT_MESSAGE" = "Il tuo dispositivo non ha una fotocamera. Questa app ha bisogno della fotocamera per funzionare.";
 
-"ONBOARDING_CHOOSE_LANG_TITLE" = "Quale lingua vuoi imparare?";
+"ONBOARDING_CHOOSE_LANG_TITLE" = "Quale lingua vuoi imparare oggi?";
 "ONBOARDING_CHOOSE_LANG_DESCRIPTION" = "Scegli tra oltre 100 lingue e cambia la tua scelta nelle impostazioni.";
 "ONBOARDING_CHOOSE_BUTTON" = "Scegli Lingua";
 "SKIP" = "Salta";
+"SAVE_LANGUAGE_NAME" = "Scegli %@";
 
 "WARNING_NOTHING_FOUND" = "Contina a muoverti";
 "MENU_ACTION_CLOSE" = "Chiudi";

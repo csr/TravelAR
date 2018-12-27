@@ -40,7 +40,7 @@ extension TranslateController: AddButtonProtocol {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkGray
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.text = "NAV_BAR_CLEAR".localized()
+        label.text = "NAV_BAR_CLEAR".localized
         blurEffectView.contentView.addSubview(label)
         label.fillToSuperview(constant: 13)
         

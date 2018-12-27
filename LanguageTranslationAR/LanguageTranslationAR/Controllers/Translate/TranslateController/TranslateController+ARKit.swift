@@ -92,7 +92,7 @@ extension TranslateController: ARSCNViewDelegate {
             UIView.animate(withDuration: 0.2) {
                 self.addButton.alpha = 0.5
             }
-            feedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized()
+            feedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized
         }
     }
 }

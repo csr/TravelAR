@@ -22,10 +22,10 @@ enum ApplicationTab: Int, CaseIterable {
     
     var title: String {
         switch self {
-        case .translate: return "TITLE_TAB_TRANSLATE".localized()
-        case .history: return "TITLE_TAB_HISTORY".localized()
-        case .cards: return "TITLE_TAB_CARDS".localized()
-        case .settings: return "TITLE_TAB_SETTINGS".localized()
+        case .translate: return "TITLE_TAB_TRANSLATE".localized
+        case .history: return "TITLE_TAB_HISTORY".localized
+        case .cards: return "TITLE_TAB_CARDS".localized
+        case .settings: return "TITLE_TAB_SETTINGS".localized
         }
     }
     

@@ -27,7 +27,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+        render()
     }
     
     func setupView() {
@@ -39,14 +39,14 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     // Primary cell states include the "Translate To" row
     private func getPrimaryCellStates() -> [SettingsState] {
         let currentLanguage = LanguagePreferences.getCurrent()
-        let translateCellState = SettingsState(text: "SETTINGS_TRANSLATE_TO".localized(), detailText: currentLanguage.name, imageName: "translate", imageBgColor: .red, selector: #selector(didSelectTranslationLanguage))
+        let translateCellState = SettingsState(text: "SETTINGS_TRANSLATE_TO".localized, detailText: currentLanguage.name, imageName: "translate", imageBgColor: .red, selector: #selector(didSelectTranslationLanguage))
         return [translateCellState]
     }
     
     // Secondary cell states include the Help, Feedback sections
     private func getSecondaryCellStates() -> [SettingsState] {
-        let helpCellState = SettingsState(text: "SETTINGS_HELP".localized(), imageName: "help", imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(didTapHelpRow))
-        let friendCellState = SettingsState(text: "SETTINGS_FRIENDS".localized(), imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didSelectShareRow))
+        let helpCellState = SettingsState(text: "SETTINGS_HELP".localized, imageName: "help", imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(didTapHelpRow))
+        let friendCellState = SettingsState(text: "SETTINGS_FRIENDS".localized, imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didSelectShareRow))
         return [helpCellState, friendCellState]
     }
     
@@ -58,9 +58,9 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
     }
     
     @objc internal func didTapHelpRow() {
-        let alertPrompt = UIAlertController(title: nil, message: "SETTINGS_HELP_DESCRIPTION".localized(), preferredStyle: .actionSheet)
+        let alertPrompt = UIAlertController(title: nil, message: "SETTINGS_HELP_DESCRIPTION".localized, preferredStyle: .actionSheet)
         
-        let mailAction = UIAlertAction(title: "E_MAIL".localized(), style: .default) { (action) in
+        let mailAction = UIAlertAction(title: "E_MAIL".localized, style: .default) { (action) in
             self.composeSupportEmail()
         }
         
@@ -68,7 +68,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
             self.launchApp(decodedURL: "tg://resolve?domain=cesaredecal")
         }
 
-        let cancelAction = UIAlertAction(title: "CANCEL".localized(), style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "CANCEL".localized, style: .cancel, handler: nil)
         
         alertPrompt.addAction(mailAction)
         alertPrompt.addAction(telegramAction)
@@ -89,12 +89,12 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         let composeVC = MFMailComposeViewController()
         composeVC.setToRecipients(["help@cesare.io"])
         composeVC.mailComposeDelegate = self
-        composeVC.setSubject("SUPPORT_MESSAGE_TITLE".localized())
+        composeVC.setSubject("SUPPORT_MESSAGE_TITLE".localized)
         present(composeVC, animated: true, completion: nil)
     }
     
     @objc private func didSelectShareRow() {
-        let text = "SETTINGS_SHARE_TEXT".localized()
+        let text = "SETTINGS_SHARE_TEXT".localized
         let textShare = [text]
         let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view

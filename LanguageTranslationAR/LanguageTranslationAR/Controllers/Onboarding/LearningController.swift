@@ -12,13 +12,13 @@ class LearningController: UIViewController {
     
     let titleLabel: TitleLabel = {
         let label = TitleLabel()
-        label.text = "ONBOARDING_CHOOSE_LANG_TITLE".localized()
+        label.text = "ONBOARDING_CHOOSE_LANG_TITLE".localized
         return label
     }()
     
     let descriptionLabel: DescriptionLabel = {
         let label = DescriptionLabel()
-        label.text = "ONBOARDING_CHOOSE_LANG_DESCRIPTION".localized()
+        label.text = "ONBOARDING_CHOOSE_LANG_DESCRIPTION".localized
         return label
     }()
     
@@ -26,6 +26,11 @@ class LearningController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         setupStackView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func setupStackView() {
@@ -36,7 +41,7 @@ class LearningController: UIViewController {
         stackView.fillToSuperview(constant: 40)
         
         let button = CustomButton()
-        button.setTitle("ONBOARDING_CHOOSE_BUTTON".localized(), for: .normal)
+        button.setTitle("ONBOARDING_CHOOSE_BUTTON".localized, for: .normal)
         button.addTarget(self, action: #selector(presentLanguageSelection), for: .touchUpInside)
                 
         let labelStackView = UIStackView()
@@ -57,7 +62,6 @@ class LearningController: UIViewController {
         
     @objc private func presentLanguageSelection() {
         let vc = LanguagesController()
-        vc.didUpdateLanguageDelegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -67,12 +71,5 @@ class LearningController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-}
-
-extension LearningController: DidUpdateLanguage {
-    func didUpdateLanguage() {
-//        print("did update language")
-//        dismiss(animated: true, completion: nil)
     }
 }

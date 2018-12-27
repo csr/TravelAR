@@ -11,7 +11,7 @@ import Foundation
 struct Language: Codable, Equatable {
     var name: String
     var languageCode: String
-    
+        
     static func ==(lhs: Language, rhs: Language) -> Bool {
         return lhs.languageCode == rhs.languageCode
     }

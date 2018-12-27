@@ -46,7 +46,7 @@ public class TranslateController: UIViewController {
         preferences.positioning.textHInset = 12
         preferences.positioning.textVInset = 12
         
-        let tipView = EasyTipView(text: "TOOL_TIP_ADD_BUTTON".localized(), preferences: preferences)
+        let tipView = EasyTipView(text: "TOOL_TIP_ADD_BUTTON".localized, preferences: preferences)
         return tipView
     }()
     

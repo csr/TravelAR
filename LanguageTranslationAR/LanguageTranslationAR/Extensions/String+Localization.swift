@@ -9,12 +9,12 @@
 import Foundation
 
 extension String {
-    func localized() -> String {
-        let localizationText = NSLocalizedString(self, comment: "")
-        guard !localizationText.isEmpty else {
-            return self
-        }
-        
-        return localizationText
+    
+    public var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+
+    public func localizedString(with arguments: [CVarArg]) -> String {
+        return String(format: localized, arguments: arguments)
     }
 }

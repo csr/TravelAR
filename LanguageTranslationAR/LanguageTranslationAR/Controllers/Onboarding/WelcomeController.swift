@@ -20,7 +20,7 @@ class WelcomeController: UIViewController {
     
     let titleLabel: TitleLabel = {
         let titleLabel = TitleLabel()
-        let attributedString = NSMutableAttributedString(string: "WELCOME_TITLE".localized())
+        let attributedString = NSMutableAttributedString(string: "WELCOME_TITLE".localized)
         attributedString.setColor(color: UIColor.orange, forText: "TranslateAR")
         titleLabel.attributedText = attributedString
         return titleLabel
@@ -29,7 +29,7 @@ class WelcomeController: UIViewController {
     let button: CustomButton = {
         let button = CustomButton()
         button.addTarget(self, action: #selector(didSelectContinueButton), for: .touchUpInside)
-        button.setTitle("WELCOME_BUTTON_TEXT".localized(), for: .normal)
+        button.setTitle("WELCOME_BUTTON_TEXT".localized, for: .normal)
         return button
     }()
     
@@ -61,9 +61,9 @@ class WelcomeController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 5
-        let firstItem = getItemStackView(title: "WELCOME_FIRST_ITEM_TITLE".localized(), description: "WELCOME_FIRST_ITEM_DESCRIPTION".localized(), imageName: "welcome-first")
-        let secondItem = getItemStackView(title: "WELCOME_SECOND_ITEM_TITLE".localized(), description: "WELCOME_SECOND_ITEM_DESCRIPTION".localized(), imageName: "welcome-second")
-        let thirdItem = getItemStackView(title: "WELCOME_THIRD_ITEM_TITLE".localized(), description: "WELCOME_THIRD_ITEM_DESCRIPTION".localized(), imageName: "welcome-third")
+        let firstItem = getItemStackView(title: "WELCOME_FIRST_ITEM_TITLE".localized, description: "WELCOME_FIRST_ITEM_DESCRIPTION".localized, imageName: "welcome-first")
+        let secondItem = getItemStackView(title: "WELCOME_SECOND_ITEM_TITLE".localized, description: "WELCOME_SECOND_ITEM_DESCRIPTION".localized, imageName: "welcome-second")
+        let thirdItem = getItemStackView(title: "WELCOME_THIRD_ITEM_TITLE".localized, description: "WELCOME_THIRD_ITEM_DESCRIPTION".localized, imageName: "welcome-third")
         
         stackView.addArrangedSubview(firstItem)
         stackView.addArrangedSubview(secondItem)

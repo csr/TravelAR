@@ -20,13 +20,13 @@ class PermissionsController: UIViewController {
     
     private let titleLabel: TitleLabel = {
         let label = TitleLabel()
-        label.text = "CAMERA_PERMISSIONS_TITLE".localized()
+        label.text = "CAMERA_PERMISSIONS_TITLE".localized
         return label
     }()
     
     private let descriptionLabel: DescriptionLabel = {
         let descriptionLabel = DescriptionLabel()
-        descriptionLabel.text = "CAMERA_PERMISSIONS_DESCRIPTION".localized()
+        descriptionLabel.text = "CAMERA_PERMISSIONS_DESCRIPTION".localized
         return descriptionLabel
     }()
     
@@ -40,7 +40,7 @@ class PermissionsController: UIViewController {
     private let button: CustomButton = {
         let button = CustomButton()
         button.addTarget(self, action: #selector(didTapAllowButton), for: .touchUpInside)
-        button.setTitle("CAMERA_PERMISSIONS_BUTTON_TITLE".localized(), for: .normal)
+        button.setTitle("CAMERA_PERMISSIONS_BUTTON_TITLE".localized, for: .normal)
         return button
     }()
     
@@ -88,16 +88,16 @@ class PermissionsController: UIViewController {
                 return
             }
         } else {
-            let alertController = UIAlertController(title: "NO_CAMERA_BUTTON_ALERT_TITLE".localized(), message: "NO_CAMERA_BUTTON_ALERT_MESSAGE".localized(), preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "NO_CAMERA_BUTTON_OK".localized(), style: .default, handler: nil)
+            let alertController = UIAlertController(title: "NO_CAMERA_BUTTON_ALERT_TITLE".localized, message: "NO_CAMERA_BUTTON_ALERT_MESSAGE".localized, preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "NO_CAMERA_BUTTON_OK".localized, style: .default, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
         }
     }
     
     private func alertPromptToAllowCameraAccessViaSettings() {
-        let alert = UIAlertController(title: "PERMISSION_TITLE".localized(), message: "PERMISSION_DESCRIPTION".localized(), preferredStyle: .alert )
-        alert.addAction(UIAlertAction(title: "PERMISSION_ACTION_SETTINGS".localized(), style: .cancel) { alert in
+        let alert = UIAlertController(title: "PERMISSION_TITLE".localized, message: "PERMISSION_DESCRIPTION".localized, preferredStyle: .alert )
+        alert.addAction(UIAlertAction(title: "PERMISSION_ACTION_SETTINGS".localized, style: .cancel) { alert in
             if let appSettingsURL = NSURL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(appSettingsURL as URL, options: [:], completionHandler: nil)
             }

@@ -38,9 +38,9 @@ class ARDetailView: UIView, NibView {
         self.layer.cornerRadius = 18
         
         
-        buttonClose.setTitle("MENU_ACTION_CLOSE".localized(), for: .normal)
-        reproduceButton.setTitle("MENU_ACTION_REPRODUCE".localized(), for: .normal)
-        labelTitle.text = "TRANSLATION".localized()
+        buttonClose.setTitle("MENU_ACTION_CLOSE".localized, for: .normal)
+        reproduceButton.setTitle("MENU_ACTION_REPRODUCE".localized, for: .normal)
+        labelTitle.text = "TRANSLATION".localized
 
     }
         

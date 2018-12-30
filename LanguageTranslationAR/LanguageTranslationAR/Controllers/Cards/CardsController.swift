@@ -8,7 +8,6 @@
 
 import UIKit
 import ZLSwipeableViewSwift
-import RandomColor
 
 class CardsController: UIViewController {
     
@@ -25,6 +24,14 @@ class CardsController: UIViewController {
         super.viewDidLayoutSubviews()
         swipeableView.nextView = {
             return self.nextCardView()
+        }
+        
+        swipeableView.didTap = { view, location in
+            print("did tap!")
+            guard let view = view as? CardView else {
+                return
+            }
+            view.didTapCard()
         }
     }
     
@@ -56,9 +63,7 @@ class CardsController: UIViewController {
     }
     func nextCardView() -> CardView {
         let cardView = CardView(frame: swipeableView.bounds)
-        let bgColor = randomColor(hue: .orange, luminosity: .dark)
         cardView.dictionaryEntry = getDictionaryItem()
-        cardView.backgroundColor = bgColor
         return cardView
     }
 }

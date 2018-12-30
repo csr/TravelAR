@@ -13,6 +13,7 @@
 		1D17BE6921D8CDB2005243E8 /* DictionaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE6821D8CDB2005243E8 /* DictionaryEntry.swift */; };
 		1D17BE6B21D8D1C4005243E8 /* dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D17BE6A21D8D1C3005243E8 /* dictionary.json */; };
 		1D17BE6D21D8D6BB005243E8 /* LanguagePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */; };
+		1D17BE7121D8F320005243E8 /* CardTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */; };
 		1D1E34CB21D8C23C0096CEAB /* TestingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */; };
 		1D1E34CF21D8C73E0096CEAB /* CardsController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */; };
 		1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77921D3AD9100364C59 /* SettingsView.swift */; };
@@ -109,6 +110,7 @@
 		1D17BE6821D8CDB2005243E8 /* DictionaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEntry.swift; sourceTree = "<group>"; };
 		1D17BE6A21D8D1C3005243E8 /* dictionary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dictionary.json; sourceTree = "<group>"; };
 		1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagePreferences.swift; sourceTree = "<group>"; };
+		1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleLabel.swift; sourceTree = "<group>"; };
 		1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingPreferences.swift; sourceTree = "<group>"; };
 		1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardsController+Data.swift"; sourceTree = "<group>"; };
 		1D21F77921D3AD9100364C59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,15 @@
 				1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */,
 			);
 			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		1D17BE6F21D8F2B4005243E8 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				1D65245D21CA733300EB2D5C /* CardView.swift */,
+				1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */,
+			);
+			path = CardView;
 			sourceTree = "<group>";
 		};
 		1D21F77F21D4117A00364C59 /* Helper Views */ = {
@@ -500,7 +511,7 @@
 			children = (
 				1D65245F21CA735800EB2D5C /* CardsController.swift */,
 				1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */,
-				1D65245D21CA733300EB2D5C /* CardView.swift */,
+				1D17BE6F21D8F2B4005243E8 /* CardView */,
 				1D17BE6821D8CDB2005243E8 /* DictionaryEntry.swift */,
 			);
 			path = Cards;
@@ -665,6 +676,7 @@
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
 				1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */,
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
+				1D17BE7121D8F320005243E8 /* CardTitleLabel.swift in Sources */,
 				1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */,
 				1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */,
 				1DEC7D1421C5771900BBEDD3 /* DidUpdateLanguage.swift in Sources */,

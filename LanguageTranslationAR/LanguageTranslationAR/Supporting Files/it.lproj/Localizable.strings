@@ -18,7 +18,7 @@
 "TITLE_TAB_SETTINGS" = "Impostazioni";
 "NAV_BAR_CLEAR" = "Pulisci";
 
-"SETTINGS_TRANSLATE_TO" = "Traduci in";
+"SETTINGS_TRANSLATE_TO" = "Voglio imparare";
 "SETTINGS_HELP" = "Invia Feedback";
 "SETTINGS_HELP_DESCRIPTION" = "Bisogno di aiuto? Idee? Vuoi chiaccherare? Mi chiamo Cesare e vorrei parlarti! :)";
 
@@ -52,6 +52,8 @@
 "SKIP" = "Salta";
 "SAVE" = "Salva";
 "SAVE_LANGUAGE_NAME" = "Scegli %@";
+
+"POPULAR" = "Populari";
 
 "WARNING_NOTHING_FOUND" = "Contina a muoverti";
 "MENU_ACTION_CLOSE" = "Chiudi";

@@ -22,6 +22,7 @@ class CustomButton: UIButton {
     }
     
     private func setup() {
+        backgroundColor = .orange
         translatesAutoresizingMaskIntoConstraints = false
         layer.masksToBounds = true
         layer.cornerRadius = 8

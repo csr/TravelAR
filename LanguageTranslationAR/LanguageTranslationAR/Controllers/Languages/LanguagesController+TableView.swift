@@ -93,7 +93,7 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
     func setupCell(cell: UITableViewCell, language: Language, indexPath: IndexPath) {
         cell.textLabel?.text = language.name
         cell.textLabel?.textColor = .white
-        cell.backgroundColor = .black //UIColor(named: "cellBackground")
+        cell.backgroundColor = .black
         
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor(named: "selectedCell")
@@ -121,10 +121,11 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         for character in tableViewHeaders {
             strings.append(String(character))
         }
-        return strings
+        return Array(strings.dropFirst())
+        // remove "Popular" from A-Z grid
     }
     
-    func createTableData(languagesList: [Language]) -> (firstSymbols: [Character], source: [Character : [Language]]) {
+    func createTableData(languagesList: [Language]) -> (firstSymbols: [String], source: [String: [Language]]) {
         
         // Build Character Set
         var firstSymbols = Set<Character>()
@@ -135,8 +136,8 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         
         languagesList.forEach {_ = firstSymbols.insert(getFirstSymbol(language: $0)) }
         
-        // Build tableSourse array
-        var tableViewSource = [Character : [Language]]()
+        // Build tableSource array
+        var tableViewSource = [String: [Language]]()
         
         for symbol in firstSymbols {
             
@@ -148,14 +149,51 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
             
-            tableViewSource[symbol] = languages.sorted(by: { (language1, language2) -> Bool in
+            let symbolStr = String(symbol)
+            
+            tableViewSource[symbolStr] = languages.sorted(by: { (language1, language2) -> Bool in
                 return language1.name < language2.name
             })
+            
         }
         
-        let sortedSymbols = firstSymbols.sorted(by: {$0 < $1})
+        var charToStrArray = [String]()
+        for symbol in firstSymbols {
+            let symbolStr = String(symbol)
+            charToStrArray.append(symbolStr)
+        }
         
-        return (sortedSymbols, tableViewSource)
+        var sortedSymbolsStr = [String]()
+        sortedSymbolsStr = charToStrArray.sorted(by: { (char1, char2) -> Bool in
+            let char1Str = String(char1)
+            let char2Str = String(char2)
+            return char1Str < char2Str
+        })
+        
+        
+        let popularStr = "POPULAR".localized
+        tableViewSource[popularStr] = []
+        sortedSymbolsStr.insert(popularStr, at: 0)
+        
+        let popularLangCodes = ["es", "en", "it", "de", "ru", "fr", "zh"]
+        
+        for language in languagesList {
+            if popularLangCodes.contains(language.code.lowercased()) && language.code.lowercased() != LanguagePreferences.getLocaleLanguageCode().lowercased() {
+                if let array = tableViewSource[popularStr] {
+                    var finalArray = array
+                    finalArray.append(language)
+                    tableViewSource[popularStr] = finalArray
+                } else {
+                    tableViewSource[popularStr] = [language]
+                }
+            }
+        }
+        
+        if let array = tableViewSource[popularStr] {
+            tableViewSource[popularStr] = array.sorted(by: {$0.name < $1.name})
+        }
+        
+        return (sortedSymbolsStr, tableViewSource)
     }
     
     func getTableData(languages: [Language]) {

@@ -10,10 +10,11 @@ import UIKit
 
 class LanguagesController: UIViewController {
     
-    var tableViewSource = [Character: [Language]]()
-    var tableViewHeaders = [Character]()
-    var filteredTableViewSource = [Character: [Language]]()
-    var filteredTableViewHeaders = [Character]()
+    var tableViewSource = [String: [Language]]()
+    var tableViewHeaders = [String]()
+    
+    var filteredTableViewSource = [String: [Language]]()
+    var filteredTableViewHeaders = [String]()
     
     var didUpdateLanguageDelegate: DidUpdateLanguage?
     

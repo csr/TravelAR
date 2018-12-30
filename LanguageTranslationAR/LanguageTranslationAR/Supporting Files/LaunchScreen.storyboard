@@ -24,6 +24,7 @@
                                 <items>
                                     <tabBarItem image="translate" id="VbI-B1-HNX"/>
                                     <tabBarItem image="history" id="aZt-L9-6UQ"/>
+                                    <tabBarItem title="" image="cards" id="jSr-7o-Ekr"/>
                                     <tabBarItem image="settings" id="6LJ-ZW-RBB"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,6 +57,7 @@
     </scenes>
     <resources>
         <image name="add-button" width="217" height="217"/>
+        <image name="cards" width="23" height="21"/>
         <image name="history" width="23" height="23"/>
         <image name="settings" width="25" height="25"/>
         <image name="translate" width="23" height="23"/>

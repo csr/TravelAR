@@ -10,6 +10,11 @@
 		1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8621BF09DF000396C5 /* ApplicationTab.swift */; };
 		1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8821BF0ADA000396C5 /* String+Localization.swift */; };
 		1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8C21BF91A5000396C5 /* TranslationItems.swift */; };
+		1D17BE6921D8CDB2005243E8 /* DictionaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE6821D8CDB2005243E8 /* DictionaryEntry.swift */; };
+		1D17BE6B21D8D1C4005243E8 /* dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D17BE6A21D8D1C3005243E8 /* dictionary.json */; };
+		1D17BE6D21D8D6BB005243E8 /* LanguagePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */; };
+		1D1E34CB21D8C23C0096CEAB /* TestingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */; };
+		1D1E34CF21D8C73E0096CEAB /* CardsController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */; };
 		1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77921D3AD9100364C59 /* SettingsView.swift */; };
 		1D21F77E21D410FD00364C59 /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */; };
 		1D21F78121D411B600364C59 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78021D411B600364C59 /* TitleLabel.swift */; };
@@ -28,7 +33,6 @@
 		1D23B96C2098FEDD00121E8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B96E2098FEDD00121E8F /* Localizable.strings */; };
 		1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B97420990AA000121E8F /* InfoPlist.strings */; };
 		1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D630621BA6FC700F4FABD /* TabBarController.swift */; };
-		1D32525220D57C670061517C /* LanguagePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D32525120D57C670061517C /* LanguagePreferences.swift */; };
 		1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9720D66D9E006CD60A /* FocusSquareSegment.swift */; };
 		1D412B9D20D66D9F006CD60A /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9820D66D9F006CD60A /* FocusSquare.swift */; };
 		1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9920D66D9F006CD60A /* FocusSquare+Extensions.swift */; };
@@ -102,6 +106,11 @@
 		1D104C8621BF09DF000396C5 /* ApplicationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTab.swift; sourceTree = "<group>"; };
 		1D104C8821BF0ADA000396C5 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		1D104C8C21BF91A5000396C5 /* TranslationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItems.swift; sourceTree = "<group>"; };
+		1D17BE6821D8CDB2005243E8 /* DictionaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEntry.swift; sourceTree = "<group>"; };
+		1D17BE6A21D8D1C3005243E8 /* dictionary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dictionary.json; sourceTree = "<group>"; };
+		1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagePreferences.swift; sourceTree = "<group>"; };
+		1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingPreferences.swift; sourceTree = "<group>"; };
+		1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardsController+Data.swift"; sourceTree = "<group>"; };
 		1D21F77921D3AD9100364C59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
 		1D21F78021D411B600364C59 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
@@ -122,7 +131,6 @@
 		1D23B97320990AA000121E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D23B97520990AA200121E8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D2D630621BA6FC700F4FABD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = LanguageTranslationAR/Controllers/TabBarController.swift; sourceTree = SOURCE_ROOT; };
-		1D32525120D57C670061517C /* LanguagePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LanguagePreferences.swift; path = ../LanguagePreferences.swift; sourceTree = "<group>"; };
 		1D412B9720D66D9E006CD60A /* FocusSquareSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
 		1D412B9820D66D9F006CD60A /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		1D412B9920D66D9F006CD60A /* FocusSquare+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusSquare+Extensions.swift"; sourceTree = "<group>"; };
@@ -198,6 +206,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D17BE6E21D8D6BD005243E8 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */,
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
 		1D21F77F21D4117A00364C59 /* Helper Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +428,8 @@
 		1D745CD421D241FA008A974F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D17BE6A21D8D1C3005243E8 /* dictionary.json */,
+				1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */,
 				1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */,
 				1D441E3720726F01005E2ADD /* Info.plist */,
 				1D95A9F421CAF725002EDAF1 /* LaunchScreen.storyboard */,
@@ -432,21 +450,13 @@
 			path = HistoryCell;
 			sourceTree = "<group>";
 		};
-		1D745CD621D280B7008A974F /* Helper Classes */ = {
-			isa = PBXGroup;
-			children = (
-				1D32525120D57C670061517C /* LanguagePreferences.swift */,
-			);
-			path = "Helper Classes";
-			sourceTree = "<group>";
-		};
 		1D94B76D20CB29FF0000B065 /* Languages */ = {
 			isa = PBXGroup;
 			children = (
 				1D94B77020CB2B210000B065 /* LanguagesController.swift */,
 				1D21F78421D41E5A00364C59 /* LanguagesController+Search.swift */,
 				1DF2BCEF21C1A7DC00D5E29B /* LanguagesController+TableView.swift */,
-				1D745CD621D280B7008A974F /* Helper Classes */,
+				1D17BE6E21D8D6BD005243E8 /* Helper Classes */,
 			);
 			path = Languages;
 			sourceTree = "<group>";
@@ -489,7 +499,9 @@
 			isa = PBXGroup;
 			children = (
 				1D65245F21CA735800EB2D5C /* CardsController.swift */,
+				1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */,
 				1D65245D21CA733300EB2D5C /* CardView.swift */,
+				1D17BE6821D8CDB2005243E8 /* DictionaryEntry.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -589,6 +601,7 @@
 				1DF2BCFD21C2BC5300D5E29B /* Colors.xcassets in Resources */,
 				1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */,
 				1DEC7D2521C6CFCE00BBEDD3 /* ARDetailView.xib in Resources */,
+				1D17BE6B21D8D1C4005243E8 /* dictionary.json in Resources */,
 				1D95A9F521CAF725002EDAF1 /* LaunchScreen.storyboard in Resources */,
 				1D23B96C2098FEDD00121E8F /* Localizable.strings in Resources */,
 				1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */,
@@ -633,6 +646,7 @@
 				1D412B9F20D66D9F006CD60A /* Utilities.swift in Sources */,
 				1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */,
 				1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */,
+				1D1E34CF21D8C73E0096CEAB /* CardsController+Data.swift in Sources */,
 				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
 				1D95A9EA21CAC122002EDAF1 /* TranslationItemsDelegate.swift in Sources */,
 				1D745CC921D224D2008A974F /* HistoryController+Search.swift in Sources */,
@@ -643,7 +657,6 @@
 				1D65E4E521CE6BC700DB52A5 /* TranslationNode.swift in Sources */,
 				1D65E4E721CE6CAF00DB52A5 /* UIView+Extensions.swift in Sources */,
 				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
-				1D32525220D57C670061517C /* LanguagePreferences.swift in Sources */,
 				1D94B77120CB2B210000B065 /* LanguagesController.swift in Sources */,
 				1DC8A43921CE39B90083506F /* ToolTipView.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
@@ -655,8 +668,10 @@
 				1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */,
 				1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */,
 				1DEC7D1421C5771900BBEDD3 /* DidUpdateLanguage.swift in Sources */,
+				1D17BE6D21D8D6BB005243E8 /* LanguagePreferences.swift in Sources */,
 				1D745CCF21D228AE008A974F /* HeaderCell.swift in Sources */,
 				1D23B95920986BB700121E8F /* Translation.swift in Sources */,
+				1D17BE6921D8CDB2005243E8 /* DictionaryEntry.swift in Sources */,
 				1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */,
 				1DEC7D2B21C6F40200BBEDD3 /* NibView.swift in Sources */,
 				1DC8A43B21CEDC3B0083506F /* HistoryView.swift in Sources */,
@@ -677,6 +692,7 @@
 				1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D95A9EE21CACCB0002EDAF1 /* PermissionsController.swift in Sources */,
+				1D1E34CB21D8C23C0096CEAB /* TestingPreferences.swift in Sources */,
 				1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */,
 				1D65E4EA21CE708600DB52A5 /* TranslateController+Actions.swift in Sources */,
 				1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */,

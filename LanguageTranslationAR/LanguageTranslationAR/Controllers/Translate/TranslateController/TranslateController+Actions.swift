@@ -63,7 +63,7 @@ extension TranslateController: ARDetailViewDelegate {
     }
     
     @objc func didTapClearButton() {
-        if isTestingOn {
+        if Testing.isTesting {
             testingShowDetailView()
         } else {
             sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
@@ -90,6 +90,7 @@ extension TranslateController: ARDetailViewDelegate {
     }
     
     func testingShowDetailView() {
+        tipView.dismiss()
         shouldPresentARDetailView = false
         testImageView.image = UIImage(named: "test-dog")
         feedbackView.textLabel.text = "TEST_LABEL_2".localized

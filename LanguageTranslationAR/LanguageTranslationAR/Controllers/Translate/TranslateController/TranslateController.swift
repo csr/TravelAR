@@ -17,8 +17,6 @@ public class TranslateController: UIViewController {
 
     internal var items: [Translation] = []
     
-    var isTestingOn = true
-    
     let feedbackView: CurrentDetectionView = {
         let view = CurrentDetectionView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -114,10 +112,10 @@ public class TranslateController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if isCameraPermissionGranted() {
+        if isCameraPermissionGranted() && !Testing.isTesting {
             let navController = UINavigationController(rootViewController: WelcomeController())
             present(navController, animated: true, completion: nil)
-        } else if !isTestingOn {
+        } else if !Testing.isTesting {
             runARSession()
             setupCoreML()
         }

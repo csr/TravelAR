@@ -61,14 +61,23 @@ extension UIView {
             ])
     }
     
-    public func fillToSuperview(constant: CGFloat = 0) {
+    public func fillToSuperview(constant: CGFloat = 0, includeNotch: Bool = false) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             let left = leftAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leftAnchor, constant: constant)
             let right = rightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.rightAnchor, constant: -constant)
-            let top = topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: constant)
+            let top = includeNotch ? topAnchor.constraint(equalTo: superview.topAnchor, constant: constant) : topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: constant)            
             let bottom = bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: -constant)
             NSLayoutConstraint.activate([left, right, top, bottom])
+        }
+    }
+    
+    public func centerToSuperview() {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let superview = superview {
+            let centerX = centerXAnchor.constraint(equalTo: superview.centerXAnchor)
+            let centerY = centerYAnchor.constraint(equalTo: superview.centerYAnchor)
+            NSLayoutConstraint.activate([centerX, centerY])
         }
     }
 }

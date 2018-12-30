@@ -13,9 +13,9 @@ extension TranslateController: AddButtonProtocol {
 	internal func setupViews() {
         view.backgroundColor = .black
         
-        if isTestingOn {
+        if Testing.isTesting {
             view.addSubview(testImageView)
-            testImageView.fillToSuperview()
+            testImageView.fillToSuperview(includeNotch: true)            
         } else {
             setupSceneView()
             setupCustomView()
@@ -35,7 +35,7 @@ extension TranslateController: AddButtonProtocol {
         view.addSubview(customView)
         customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
         
-        if !isTestingOn {
+        if !Testing.isTesting {
             Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
         } else {
             self.feedbackView.textLabel.text = "TEST_LABEL".localized
@@ -79,6 +79,7 @@ extension TranslateController: AddButtonProtocol {
     
 	private func setupSceneView() {
 		view.addSubview(sceneView)
+        sceneView.fillToSuperview(includeNotch: true)
         sceneView.fillToSuperview()
 	}
 }

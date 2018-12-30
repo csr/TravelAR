@@ -10,24 +10,45 @@ import UIKit
 
 class CardView: UIView {
     
-    var translation: Translation? {
+    var dictionaryEntry: (String, String)? {
         didSet {
-            textLabel.text = translation?.translatedText
+            guard let entry = dictionaryEntry else { return }
+            textLabel.text = entry.0
+            secondaryTextLabel.text = entry.1
         }
     }
     
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     private let textLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textColor = .black
+        label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.text = "Hello"
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         return label
     }()
     
+    private let secondaryTextLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.text = "Hello"
+        return label
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupView()
         setup()
-        setupTextLabel()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,9 +69,20 @@ class CardView: UIView {
         layer.cornerRadius = 10.0;
     }
     
-    private func setupTextLabel() {
-        addSubview(textLabel)
-        textLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        textLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    private func setupView() {
+        addSubview(stackView)
+        stackView.fillToSuperview(constant: 15)
+        stackView.distribution = .equalCentering
+        
+        let labelsStackView = UIStackView()
+        labelsStackView.axis = .vertical
+        labelsStackView.addArrangedSubview(textLabel)
+        labelsStackView.addArrangedSubview(secondaryTextLabel)
+        labelsStackView.spacing = 5
+        
+        stackView.addArrangedSubview(UIView())
+        stackView.addArrangedSubview(labelsStackView)
+        stackView.addArrangedSubview(UIView())
+
     }
 }

@@ -13,7 +13,7 @@ class GoogleTranslateAPI {
         let session = URLSession(configuration: .default)
         let urlStr = "https://translation.googleapis.com/language/translate/v2?q=\(text)&target=\(targetLanguage)&key=\(Keys.googleAPIKey)"
         guard let escapedString = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: escapedString) else {
-            print("Error: invalid url while getting translation")
+            print("Error: invalid URL while getting translation")
             completion(nil)
             return
         }

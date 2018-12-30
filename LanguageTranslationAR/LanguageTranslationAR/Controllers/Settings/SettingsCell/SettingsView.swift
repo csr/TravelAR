@@ -37,7 +37,6 @@ public class SettingsView: UIView {
     let detailTextLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.text = "Test"
         label.textAlignment = .right
         label.textColor = .gray
         return label

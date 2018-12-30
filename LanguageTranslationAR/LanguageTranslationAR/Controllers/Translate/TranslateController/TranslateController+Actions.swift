@@ -63,14 +63,17 @@ extension TranslateController: ARDetailViewDelegate {
     }
     
     @objc func didTapClearButton() {
-        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-            if node is TranslationNode {
-                node.removeFromParentNode()
+        if isTestingOn {
+            testingShowDetailView()
+        } else {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+                if node is TranslationNode {
+                    node.removeFromParentNode()
+                }
             }
+            let impact = UIImpactFeedbackGenerator()
+            impact.impactOccurred()
         }
-        
-        let impact = UIImpactFeedbackGenerator()
-        impact.impactOccurred()        
     }
     
     func addNodeTranslation(coords: SCNVector3) {
@@ -84,5 +87,13 @@ extension TranslateController: ARDetailViewDelegate {
                 }
             }
         }
+    }
+    
+    func testingShowDetailView() {
+        shouldPresentARDetailView = false
+        testImageView.image = UIImage(named: "test-dog")
+        feedbackView.textLabel.text = "TEST_LABEL_2".localized
+        let translation = Translation(originalText: "dog", targetLanguage: "es", translatedText: "perro", sourceLanguage: LanguagePreferences.getLocaleLanguageCode())
+        presentDetailView(node: SCNNode(), translation: translation)
     }
 }

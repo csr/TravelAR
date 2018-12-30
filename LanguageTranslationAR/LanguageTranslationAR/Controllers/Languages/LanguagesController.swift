@@ -96,7 +96,6 @@ class LanguagesController: UIViewController {
         
         if isModal {
             view.addSubview(chooseButton)
-            //chooseButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
             chooseButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
             chooseButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
             chooseButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true

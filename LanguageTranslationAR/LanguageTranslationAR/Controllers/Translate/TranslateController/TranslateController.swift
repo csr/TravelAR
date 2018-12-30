@@ -17,10 +17,19 @@ public class TranslateController: UIViewController {
 
     internal var items: [Translation] = []
     
+    var isTestingOn = true
+    
     let feedbackView: CurrentDetectionView = {
         let view = CurrentDetectionView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    var testImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "test-icecream")
+        return imageView
     }()
     
     var customView: CustomView = {
@@ -84,6 +93,7 @@ public class TranslateController: UIViewController {
         didSet {
             UIView.animate(withDuration: 0.2) {
                 self.sceneView.alpha = self.shouldPresentARDetailView ? 1 : 0.3
+                self.testImageView.alpha = self.shouldPresentARDetailView ? 1 : 0.3
             }
         }
     }
@@ -107,7 +117,7 @@ public class TranslateController: UIViewController {
         if isCameraPermissionGranted() {
             let navController = UINavigationController(rootViewController: WelcomeController())
             present(navController, animated: true, completion: nil)
-        } else {
+        } else if !isTestingOn {
             runARSession()
             setupCoreML()
         }

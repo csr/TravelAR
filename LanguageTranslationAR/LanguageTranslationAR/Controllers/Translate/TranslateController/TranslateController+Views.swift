@@ -12,11 +12,17 @@ extension TranslateController: AddButtonProtocol {
     
 	internal func setupViews() {
         view.backgroundColor = .black
-		setupSceneView()
+        
+        if isTestingOn {
+            view.addSubview(testImageView)
+            testImageView.fillToSuperview()
+        } else {
+            setupSceneView()
+            setupCustomView()
+        }
         setupAddButton()
         setupClearButton()
         setupFeedbackView()
-        setupCustomView()
     }
         
     private func setupFeedbackView() {
@@ -28,7 +34,12 @@ extension TranslateController: AddButtonProtocol {
     private func setupCustomView() {
         view.addSubview(customView)
         customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
+        
+        if !isTestingOn {
+            Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
+        } else {
+            self.feedbackView.textLabel.text = "TEST_LABEL".localized
+        }
     }
 
     func setupClearButton() {

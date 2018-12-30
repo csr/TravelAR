@@ -13,7 +13,7 @@ class CurrentDetectionView: UIVisualEffectView {
     let textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Test"
+        label.text = "TEST_LABEL".localized
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 21)
         return label

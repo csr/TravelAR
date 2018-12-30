@@ -36,14 +36,17 @@ class LanguagesController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
-    let chooseButton: BasicButton = {
-        let button = BasicButton()
-        button.setTitle("Save", for: .normal)
+    let chooseButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .orange
+        button.setTitle("SAVE".localized, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 60).isActive = true
         return button
     }()
     
@@ -94,19 +97,15 @@ class LanguagesController: UIViewController {
         tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         
-        if isModal {
-            view.addSubview(chooseButton)
-            chooseButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-            chooseButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-            chooseButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-            chooseButton.addTarget(self, action: #selector(didTapDismiss), for: .touchUpInside)
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        } else {
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        }
+        view.addSubview(chooseButton)
+        chooseButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        chooseButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        chooseButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        chooseButton.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
-    @objc private func didTapDismiss() {
+    @objc private func dismissViewController() {
         if isModal {
             dismiss(animated: true, completion: nil)
         } else {
@@ -115,11 +114,9 @@ class LanguagesController: UIViewController {
     }
     
     @objc func didTapSaveBarButtonItem() {
-        if !isModal {
-            let notification = UINotificationFeedbackGenerator()
-            notification.notificationOccurred(.success)
-            didTapDismiss()
-        }
+        let notification = UINotificationFeedbackGenerator()
+        notification.notificationOccurred(.success)
+        dismissViewController()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

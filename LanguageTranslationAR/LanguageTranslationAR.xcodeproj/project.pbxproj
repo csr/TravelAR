@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D023F9721D9496D00D5EFFC /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D023F9621D9496D00D5EFFC /* CustomButton.swift */; };
 		1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8621BF09DF000396C5 /* ApplicationTab.swift */; };
 		1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8821BF0ADA000396C5 /* String+Localization.swift */; };
 		1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8C21BF91A5000396C5 /* TranslationItems.swift */; };
@@ -23,7 +24,6 @@
 		1D21F78321D411DE00364C59 /* LearningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78221D411DE00364C59 /* LearningController.swift */; };
 		1D21F78521D41E5A00364C59 /* LanguagesController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78421D41E5A00364C59 /* LanguagesController+Search.swift */; };
 		1D21F78721D42A0800364C59 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */; };
-		1D21F78921D4BCB300364C59 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78821D4BCB300364C59 /* BasicButton.swift */; };
 		1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */; };
 		1D23B9502097AC3E00121E8F /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94F2097AC3E00121E8F /* APIKeys.swift */; };
 		1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9522097C59D00121E8F /* LanguageData.swift */; };
@@ -88,7 +88,6 @@
 		1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCFE21C2CF1D00D5E29B /* AddButtonView.swift */; };
 		1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */; };
 		1DF2BD0721C38C7B00D5E29B /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BD0621C38C7B00D5E29B /* WelcomeController.swift */; };
-		1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BD0821C4500B00D5E29B /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +104,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D023F9621D9496D00D5EFFC /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1D104C8621BF09DF000396C5 /* ApplicationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTab.swift; sourceTree = "<group>"; };
 		1D104C8821BF0ADA000396C5 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		1D104C8C21BF91A5000396C5 /* TranslationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItems.swift; sourceTree = "<group>"; };
@@ -121,7 +121,6 @@
 		1D21F78221D411DE00364C59 /* LearningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningController.swift; sourceTree = "<group>"; };
 		1D21F78421D41E5A00364C59 /* LanguagesController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesController+Search.swift"; sourceTree = "<group>"; };
 		1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		1D21F78821D4BCB300364C59 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
 		1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
 		1D23B94F2097AC3E00121E8F /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		1D23B9522097C59D00121E8F /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
@@ -190,7 +189,6 @@
 		1DF2BCFE21C2CF1D00D5E29B /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 		1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableStringExtensions.swift; sourceTree = "<group>"; };
 		1DF2BD0621C38C7B00D5E29B /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
-		1DF2BD0821C4500B00D5E29B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,8 +236,7 @@
 		1D21F77F21D4117A00364C59 /* Helper Views */ = {
 			isa = PBXGroup;
 			children = (
-				1DF2BD0821C4500B00D5E29B /* CustomButton.swift */,
-				1D21F78821D4BCB300364C59 /* BasicButton.swift */,
+				1D023F9621D9496D00D5EFFC /* CustomButton.swift */,
 				1D21F78021D411B600364C59 /* TitleLabel.swift */,
 				1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */,
 			);
@@ -675,12 +672,12 @@
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
 				1D745CCD21D22542008A974F /* HistoryController+TableView.swift in Sources */,
 				1DEC7D3221C7CB8900BBEDD3 /* CustomView.swift in Sources */,
-				1D21F78921D4BCB300364C59 /* BasicButton.swift in Sources */,
 				1D65E4E521CE6BC700DB52A5 /* TranslationNode.swift in Sources */,
 				1D65E4E721CE6CAF00DB52A5 /* UIView+Extensions.swift in Sources */,
 				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
 				1D94B77120CB2B210000B065 /* LanguagesController.swift in Sources */,
 				1DC8A43921CE39B90083506F /* ToolTipView.swift in Sources */,
+				1D023F9721D9496D00D5EFFC /* CustomButton.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
 				1D23B95B20986D1100121E8F /* TranslateController+API.swift in Sources */,
 				1DF2BCF221C1AA1C00D5E29B /* SettingsCell.swift in Sources */,
@@ -708,7 +705,6 @@
 				1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */,
 				1DF2BCF021C1A7DC00D5E29B /* LanguagesController+TableView.swift in Sources */,
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
-				1DF2BD0921C4500B00D5E29B /* CustomButton.swift in Sources */,
 				1D21F78521D41E5A00364C59 /* LanguagesController+Search.swift in Sources */,
 				1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */,
 				1D65246021CA735800EB2D5C /* CardsController.swift in Sources */,

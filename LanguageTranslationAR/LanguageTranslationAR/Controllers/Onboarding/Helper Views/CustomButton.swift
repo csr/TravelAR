@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomButton: BasicButton {
+class CustomButton: UIButton {
     
     override open var isHighlighted: Bool {
         didSet {
@@ -25,6 +25,7 @@ class CustomButton: BasicButton {
         translatesAutoresizingMaskIntoConstraints = false
         layer.masksToBounds = true
         layer.cornerRadius = 8
+        heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

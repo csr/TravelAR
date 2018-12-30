@@ -48,6 +48,7 @@
 "ONBOARDING_CHOOSE_LANG_DESCRIPTION" = "Choose from 100+ languages and change your preference anytime in the app settings.";
 "ONBOARDING_CHOOSE_BUTTON" = "Choose Language";
 "SKIP" = "Skip";
+"SAVE" = "Salva";
 "SAVE_LANGUAGE_NAME" = "Select %@";
 
 "WARNING_NOTHING_FOUND" = "Keep moving";
@@ -60,7 +61,6 @@
 
 "TEST_LABEL" = "Ice Cream";
 "TEST_LABEL_2" = "Dog";
-
 "ORIGINAL_TEXT_1" = "frame";
 "ORIGINAL_TEXT_2" = "desk";
 "ORIGINAL_TEXT_3" = "milk";

@@ -49,7 +49,7 @@ class OxfordTranslationAPI {
     }
     
     class func isTranslationSupported(sourceLanguageCode: String, targetLanguageCode: String) -> Bool {
-        let supportedLanguages = ["es", "en", "nso", "zu", "ms", "id", "tn", "ur", "de", "pt"]
+        //let supportedLanguages = ["es", "en", "nso", "zu", "ms", "id", "tn", "ur", "de", "pt"]
         return false //supportedLanguages.contains(sourceLanguageCode) && supportedLanguages.contains(targetLanguageCode)
     }
 }

@@ -21,7 +21,6 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         }
         
         didUpdateLanguageDelegate?.didUpdateLanguage()
-        didTapSaveBarButtonItem()
         
         guard let selectedIndexPath = selectedIndexPath else {
             self.selectedIndexPath = indexPath
@@ -40,7 +39,7 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         let oldCell = tableView.cellForRow(at: selectedIndexPath)
         oldCell?.accessoryType = .none
 
-        self.selectedIndexPath = indexPath  // save the selected index path        
+        self.selectedIndexPath = indexPath
     }
     
     // MARK: - Table view data source
@@ -94,7 +93,7 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
     func setupCell(cell: UITableViewCell, language: Language, indexPath: IndexPath) {
         cell.textLabel?.text = language.name
         cell.textLabel?.textColor = .white
-        cell.backgroundColor = UIColor(named: "cellBackground")
+        cell.backgroundColor = .black //UIColor(named: "cellBackground")
         
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor(named: "selectedCell")

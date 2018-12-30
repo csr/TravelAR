@@ -27,7 +27,6 @@ class CardsController: UIViewController {
         }
         
         swipeableView.didTap = { view, location in
-            print("did tap!")
             guard let view = view as? CardView else {
                 return
             }
@@ -61,6 +60,7 @@ class CardsController: UIViewController {
         }
         return nil
     }
+    
     func nextCardView() -> CardView {
         let cardView = CardView(frame: swipeableView.bounds)
         cardView.dictionaryEntry = getDictionaryItem()

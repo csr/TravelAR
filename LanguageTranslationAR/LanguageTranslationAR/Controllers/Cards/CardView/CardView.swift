@@ -32,6 +32,18 @@ class CardView: UIView {
             guard let entry = dictionaryEntry else { return }
             frontTitleLabel.text = entry.0
             secondaryTextLabel.text = entry.1
+            
+            GoogleTranslateAPI.getTranslation(for: entry.0, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: LanguagePreferences.getCurrent().languageCode) { (translation) in
+                self.translation = translation
+            }
+        }
+    }
+    
+    var translation: Translation? {
+        didSet {
+            DispatchQueue.main.async {
+                self.rearTitleLabel.text = self.translation?.translatedText
+            }
         }
     }
     
@@ -43,6 +55,7 @@ class CardView: UIView {
     
     private let rearTitleLabel: CardTitleLabel = {
         let label = CardTitleLabel()
+        label.textColor = .black
         return label
     }()
     
@@ -90,6 +103,7 @@ class CardView: UIView {
         addSubview(rearView)
         applyCornerRadius(to: rearView)
         rearView.fillToSuperview()
+        setupRearStackView()
     }
     
     private func setupFrontStackView() {
@@ -114,16 +128,14 @@ class CardView: UIView {
     private func setupRearStackView() {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        frontView.addSubview(stackView)
+        rearView.addSubview(stackView)
         stackView.fillToSuperview(constant: 15)
         stackView.distribution = .equalCentering
         stackView.spacing = 25
         
         let labelsStackView = UIStackView()
         labelsStackView.axis = .vertical
-        labelsStackView.addArrangedSubview(frontTitleLabel)
-        labelsStackView.addArrangedSubview(secondaryTextLabel)
-        labelsStackView.spacing = 5
+        labelsStackView.addArrangedSubview(rearTitleLabel)
         
         stackView.addArrangedSubview(UIView())
         stackView.addArrangedSubview(labelsStackView)

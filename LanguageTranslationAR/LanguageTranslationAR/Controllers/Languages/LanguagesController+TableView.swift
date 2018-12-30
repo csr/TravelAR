@@ -112,7 +112,7 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
             cell.accessoryType = .none
         }
         
-        if selectedIndexPath == nil, language.languageCode == LanguagePreferences.getCurrent().languageCode {
+        if selectedIndexPath == nil, language.code == LanguagePreferences.getCurrent().code {
             selectedIndexPath = indexPath
         }
     }

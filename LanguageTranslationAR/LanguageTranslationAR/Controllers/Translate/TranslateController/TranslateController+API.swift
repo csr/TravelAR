@@ -15,7 +15,7 @@ extension TranslateController {
         
         translateOriginalText(text: text) { (string) in
             if let string = string {
-                GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: userLanguage.languageCode) { (translation) in
+                GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: userLanguage.code) { (translation) in
                     var translationCopy = translation
                     translationCopy?.originalText = string
                     completion(translationCopy)

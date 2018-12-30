@@ -62,3 +62,25 @@
 
 "TEST_LABEL" = "Gelato";
 "TEST_LABEL_2" = "Cane";
+
+# Testing: history controller
+"ORIGINAL_TEXT_1" = "cornice";
+"ORIGINAL_TEXT_2" = "scrivania";
+"ORIGINAL_TEXT_3" = "latte";
+"ORIGINAL_TEXT_4" = "carta";
+"ORIGINAL_TEXT_5" = "aria";
+"ORIGINAL_TEXT_6" = "cioccolato";
+"ORIGINAL_TEXT_7" = "tessuto";
+"ORIGINAL_TEXT_8" = "gatto";
+"ORIGINAL_TEXT_9" = "sedia";
+
+"TRANSLATED_TEXT_1" = "cornice";
+"TRANSLATED_TEXT_2" = "scrivania";
+"TRANSLATED_TEXT_3" = "latte";
+"TRANSLATED_TEXT_4" = "carta";
+"TRANSLATED_TEXT_5" = "aria";
+"TRANSLATED_TEXT_6" = "cioccolato";
+"TRANSLATED_TEXT_7" = "tessuto";
+"TRANSLATED_TEXT_8" = "tessuto";
+"TRANSLATED_TEXT_9" = "tessuto";
+

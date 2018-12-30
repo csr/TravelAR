@@ -30,12 +30,7 @@ class CardView: UIView {
     var dictionaryEntry: (String, String)? {
         didSet {
             guard let entry = dictionaryEntry else { return }
-            frontTitleLabel.text = entry.0
-            secondaryTextLabel.text = entry.1
-            
-            GoogleTranslateAPI.getTranslation(for: entry.0, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: LanguagePreferences.getCurrent().languageCode) { (translation) in
-                self.translation = translation
-            }
+            requestTranslation(for: entry)
         }
     }
     
@@ -155,6 +150,24 @@ class CardView: UIView {
                 self.bringSubviewToFront(self.frontView)
             }) { (finished) in
                 self.rearView.isHidden = true
+            }
+        }
+    }
+    
+    private func requestTranslation(for dictionaryEntry: (String, String)) {
+        frontTitleLabel.text = dictionaryEntry.0
+        secondaryTextLabel.text = dictionaryEntry.1
+        
+        let srcLangCode = LanguagePreferences.getLocaleLanguageCode()
+        let trgLangCode = LanguagePreferences.getCurrent().code
+        
+        if OxfordTranslationAPI.isTranslationSupported(sourceLanguageCode: srcLangCode, targetLanguageCode: trgLangCode) {
+            OxfordTranslationAPI.getTranslationWithExamples(for: dictionaryEntry.0, sourceLanguage: srcLangCode, targetLanguage: trgLangCode) { (translation) in
+                self.translation = translation
+            }
+        } else {
+            GoogleTranslateAPI.getTranslation(for: dictionaryEntry.0, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: LanguagePreferences.getCurrent().code) { (translation) in
+                self.translation = translation
             }
         }
     }

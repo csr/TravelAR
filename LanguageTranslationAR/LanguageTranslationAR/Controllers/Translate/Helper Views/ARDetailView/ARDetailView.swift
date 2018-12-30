@@ -19,7 +19,12 @@ class ARDetailView: UIView, NibView {
     var translation: Translation? {
         didSet {
             if let translation = translation {
-                labelTranslatedText.text = translation.translatedText
+                if let targetLang = translation.targetLanguage, let flagEmoji = LanguagePreferences.getEmoji(for: targetLang) {
+                    labelTranslatedText.text = translation.translatedText + " " + flagEmoji
+                } else {
+                    labelTranslatedText.text = translation.translatedText
+                }
+                
                 labelOriginalText.text = translation.originalText
             }
         }
@@ -37,11 +42,9 @@ class ARDetailView: UIView, NibView {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 18
         
-        
         buttonClose.setTitle("MENU_ACTION_CLOSE".localized, for: .normal)
         reproduceButton.setTitle("MENU_ACTION_REPRODUCE".localized, for: .normal)
         labelTitle.text = "TRANSLATION".localized
-
     }
         
     required init?(coder aDecoder: NSCoder) {
@@ -68,7 +71,7 @@ class ARDetailView: UIView, NibView {
         guard let view = superview else { return }
         customConstraints = [centerXAnchor.constraint(equalTo: view.centerXAnchor),
                              centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                             widthAnchor.constraint(equalToConstant: 350)]
+                             widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8)]
         NSLayoutConstraint.activate(customConstraints)
         
         UIView.animate(withDuration: 0.2,  delay: 0, options: [.curveEaseOut], animations: {

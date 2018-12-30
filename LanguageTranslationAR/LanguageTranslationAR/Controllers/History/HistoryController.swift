@@ -27,7 +27,26 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
         setupView()
         setupSearchController()
         render()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(test))
+        
+        if Testing.isTesting {
+            populateWithDemoData()
+        }
+    }
+    
+    private func populateWithDemoData() {
+        let languagesToTranslateTo = ["ar", "be", "am", "hr", "nl", "es", "ch", "ro", "ne"]        
+        for i in 1...9 {
+            let targetLanguage = languagesToTranslateTo[i-1]
+            let originalText = "ORIGINAL_TEXT_\(i)".localized
+            let sourceLanguage = LanguagePreferences.getLocaleLanguageCode()
+            
+            GoogleTranslateAPI.getTranslation(for: originalText, sourceLanguage: sourceLanguage, targetLanguage: targetLanguage) { (translation) in
+                if let translation = translation {
+                    TranslationItems.shared.add(object: translation)
+                    self.render()
+                }
+            }
+        }
     }
     
     @objc private func test() {

@@ -10,14 +10,14 @@ import Foundation
 
 struct Language: Codable, Equatable {
     var name: String
-    var languageCode: String
+    var code: String
         
     static func ==(lhs: Language, rhs: Language) -> Bool {
-        return lhs.languageCode == rhs.languageCode
+        return lhs.code == rhs.code
     }
     
     private enum CodingKeys: String, CodingKey {
         case name
-        case languageCode = "language"
+        case code = "language"
     }
 }

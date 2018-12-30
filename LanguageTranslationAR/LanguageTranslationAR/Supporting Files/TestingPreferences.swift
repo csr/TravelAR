@@ -9,5 +9,5 @@
 import Foundation
 
 class Testing {
-    static var isTesting = true
+    static var isTesting = false
 }

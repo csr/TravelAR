@@ -25,7 +25,7 @@ class LanguagesController: UIViewController {
             let buttonTitle = "SAVE_LANGUAGE_NAME".localizedString(with: [language.name])
             chooseButton.setTitle(buttonTitle, for: .normal)
             LanguagePreferences.save(language: language)
-            print("Saving language:", language.name)
+            print("Saving language \(language.name), code: \(language.code)")
         }
     }
     
@@ -62,7 +62,7 @@ class LanguagesController: UIViewController {
     
     func getLanguages() {
         let languageCode = LanguagePreferences.getLocaleLanguageCode()
-        GoogleTranslateAPI.getLanguages(targetLanguage: languageCode) { (languages) in
+        GoogleTranslateAPI.getAvailableLanguages(targetLanguage: languageCode) { (languages) in
             (self.tableViewHeaders, self.tableViewSource) = self.createTableData(languagesList: languages)
             DispatchQueue.main.async {
                 self.tableView.reloadData()

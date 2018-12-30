@@ -28,10 +28,10 @@
                     <rect key="frame" x="0.0" y="8" width="346" height="236"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="wF5-Ah-9tE">
-                            <rect key="frame" x="0.0" y="0.0" width="346" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="346" height="22.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="256" text="Translation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Az-pU-PYy">
-                                    <rect key="frame" x="0.0" y="0.0" width="346" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="346" height="22.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                     <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -39,15 +39,15 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="nGL-DL-FNg">
-                            <rect key="frame" x="0.0" y="53" width="346" height="68"/>
+                            <rect key="frame" x="0.0" y="45.5" width="346" height="75.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F4X-OJ-yRk">
-                                    <rect key="frame" x="0.0" y="0.0" width="346" height="32.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="346" height="42"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBw-OG-RL9">
-                                            <rect key="frame" x="0.0" y="0.0" width="346" height="32.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="346" height="42"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -61,10 +61,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbo-P5-L1v">
-                                    <rect key="frame" x="0.0" y="38.5" width="346" height="29.5"/>
+                                    <rect key="frame" x="0.0" y="48" width="346" height="27.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ciao Mondo!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8T-DG-C5l">
-                                            <rect key="frame" x="0.0" y="0.0" width="346" height="29.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="346" height="27.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                             <nil key="textColor"/>
@@ -141,7 +141,7 @@
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3L-fT-b1h">
-                    <rect key="frame" x="304" y="9.5" width="27" height="27"/>
+                    <rect key="frame" x="304" y="6" width="27" height="27"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="27" id="HZL-s3-VoB"/>
                         <constraint firstAttribute="height" constant="27" id="JpA-E6-Bwq"/>

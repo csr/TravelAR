@@ -52,7 +52,7 @@
 
 "WARNING_NOTHING_FOUND" = "Keep moving";
 "MENU_ACTION_CLOSE" = "Close";
-"MENU_ACTION_REPRODUCE" = "Reproduce";
+"MENU_ACTION_REPRODUCE" = "Listen";
 "TRANSLATION" = "Translation";
 
 "E_MAIL" = "Mail";
@@ -60,3 +60,14 @@
 
 "TEST_LABEL" = "Ice Cream";
 "TEST_LABEL_2" = "Dog";
+
+"ORIGINAL_TEXT_1" = "frame";
+"ORIGINAL_TEXT_2" = "desk";
+"ORIGINAL_TEXT_3" = "milk";
+"ORIGINAL_TEXT_4" = "paper";
+"ORIGINAL_TEXT_5" = "air";
+"ORIGINAL_TEXT_6" = "chocolate";
+"ORIGINAL_TEXT_7" = "tissue";
+"ORIGINAL_TEXT_8" = "cat";
+"ORIGINAL_TEXT_9" = "chair";
+

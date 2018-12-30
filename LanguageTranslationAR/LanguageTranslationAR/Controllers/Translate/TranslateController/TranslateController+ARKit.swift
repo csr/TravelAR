@@ -22,7 +22,7 @@ extension TranslateController: ARSCNViewDelegate {
     func addNode(translation: Translation, coords: SCNVector3) {
         
         let currentLanguage = LanguagePreferences.getCurrent()
-        let langCode = currentLanguage.languageCode.uppercased()
+        let langCode = currentLanguage.code.uppercased()
         if let flagEmoji = Flag(countryCode: langCode)?.emoji {
             customView.setText(text: flagEmoji + " " + translation.translatedText)
         } else {

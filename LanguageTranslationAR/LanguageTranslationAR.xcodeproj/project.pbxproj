@@ -10,10 +10,11 @@
 		1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8621BF09DF000396C5 /* ApplicationTab.swift */; };
 		1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8821BF0ADA000396C5 /* String+Localization.swift */; };
 		1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8C21BF91A5000396C5 /* TranslationItems.swift */; };
-		1D17BE6921D8CDB2005243E8 /* DictionaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE6821D8CDB2005243E8 /* DictionaryEntry.swift */; };
 		1D17BE6B21D8D1C4005243E8 /* dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D17BE6A21D8D1C3005243E8 /* dictionary.json */; };
 		1D17BE6D21D8D6BB005243E8 /* LanguagePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */; };
 		1D17BE7121D8F320005243E8 /* CardTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */; };
+		1D17BE7321D914EF005243E8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7221D914EF005243E8 /* Dictionary.swift */; };
+		1D17BE7621D919CE005243E8 /* OxfordTranslationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7521D919CE005243E8 /* OxfordTranslationAPI.swift */; };
 		1D1E34CB21D8C23C0096CEAB /* TestingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */; };
 		1D1E34CF21D8C73E0096CEAB /* CardsController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */; };
 		1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77921D3AD9100364C59 /* SettingsView.swift */; };
@@ -24,7 +25,7 @@
 		1D21F78721D42A0800364C59 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */; };
 		1D21F78921D4BCB300364C59 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78821D4BCB300364C59 /* BasicButton.swift */; };
 		1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */; };
-		1D23B9502097AC3E00121E8F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94F2097AC3E00121E8F /* Keys.swift */; };
+		1D23B9502097AC3E00121E8F /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94F2097AC3E00121E8F /* APIKeys.swift */; };
 		1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9522097C59D00121E8F /* LanguageData.swift */; };
 		1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B9542097C5AF00121E8F /* LanguagesList.swift */; };
 		1D23B95920986BB700121E8F /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95820986BB700121E8F /* Translation.swift */; };
@@ -107,10 +108,11 @@
 		1D104C8621BF09DF000396C5 /* ApplicationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTab.swift; sourceTree = "<group>"; };
 		1D104C8821BF0ADA000396C5 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		1D104C8C21BF91A5000396C5 /* TranslationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItems.swift; sourceTree = "<group>"; };
-		1D17BE6821D8CDB2005243E8 /* DictionaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEntry.swift; sourceTree = "<group>"; };
 		1D17BE6A21D8D1C3005243E8 /* dictionary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dictionary.json; sourceTree = "<group>"; };
 		1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagePreferences.swift; sourceTree = "<group>"; };
 		1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleLabel.swift; sourceTree = "<group>"; };
+		1D17BE7221D914EF005243E8 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		1D17BE7521D919CE005243E8 /* OxfordTranslationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxfordTranslationAPI.swift; sourceTree = "<group>"; };
 		1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingPreferences.swift; sourceTree = "<group>"; };
 		1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardsController+Data.swift"; sourceTree = "<group>"; };
 		1D21F77921D3AD9100364C59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -121,7 +123,7 @@
 		1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		1D21F78821D4BCB300364C59 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
 		1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
-		1D23B94F2097AC3E00121E8F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		1D23B94F2097AC3E00121E8F /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		1D23B9522097C59D00121E8F /* LanguageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
 		1D23B9542097C5AF00121E8F /* LanguagesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesList.swift; sourceTree = "<group>"; };
 		1D23B95820986BB700121E8F /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
@@ -225,6 +227,14 @@
 			path = CardView;
 			sourceTree = "<group>";
 		};
+		1D17BE7421D914F3005243E8 /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				1D17BE7221D914EF005243E8 /* Dictionary.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
 		1D21F77F21D4117A00364C59 /* Helper Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,13 +246,14 @@
 			path = "Helper Views";
 			sourceTree = "<group>";
 		};
-		1D23B94E2097AB8000121E8F /* Google API */ = {
+		1D23B94E2097AB8000121E8F /* API */ = {
 			isa = PBXGroup;
 			children = (
 				1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */,
-				1D23B94F2097AC3E00121E8F /* Keys.swift */,
+				1D17BE7521D919CE005243E8 /* OxfordTranslationAPI.swift */,
+				1D23B94F2097AC3E00121E8F /* APIKeys.swift */,
 			);
-			path = "Google API";
+			path = API;
 			sourceTree = "<group>";
 		};
 		1D23B9512097C58E00121E8F /* Language */ = {
@@ -326,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				1D441E2B20726EFE005E2ADD /* AppDelegate.swift */,
-				1D23B94E2097AB8000121E8F /* Google API */,
+				1D23B94E2097AB8000121E8F /* API */,
 				1D441E6C20726F22005E2ADD /* Models */,
 				1D2D630321BA6A9500F4FABD /* Controllers */,
 				1D441E6220726F22005E2ADD /* Extensions */,
@@ -363,6 +374,7 @@
 			children = (
 				1D23B95E2098945100121E8F /* Translation */,
 				1D23B9512097C58E00121E8F /* Language */,
+				1D17BE7421D914F3005243E8 /* Dictionary */,
 			);
 			name = Models;
 			path = Sources/Models;
@@ -512,7 +524,6 @@
 				1D65245F21CA735800EB2D5C /* CardsController.swift */,
 				1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */,
 				1D17BE6F21D8F2B4005243E8 /* CardView */,
-				1D17BE6821D8CDB2005243E8 /* DictionaryEntry.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -658,7 +669,7 @@
 				1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */,
 				1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */,
 				1D1E34CF21D8C73E0096CEAB /* CardsController+Data.swift in Sources */,
-				1D23B9502097AC3E00121E8F /* Keys.swift in Sources */,
+				1D23B9502097AC3E00121E8F /* APIKeys.swift in Sources */,
 				1D95A9EA21CAC122002EDAF1 /* TranslationItemsDelegate.swift in Sources */,
 				1D745CC921D224D2008A974F /* HistoryController+Search.swift in Sources */,
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
@@ -683,11 +694,11 @@
 				1D17BE6D21D8D6BB005243E8 /* LanguagePreferences.swift in Sources */,
 				1D745CCF21D228AE008A974F /* HeaderCell.swift in Sources */,
 				1D23B95920986BB700121E8F /* Translation.swift in Sources */,
-				1D17BE6921D8CDB2005243E8 /* DictionaryEntry.swift in Sources */,
 				1D23B95D2098944C00121E8F /* TranslationData.swift in Sources */,
 				1DEC7D2B21C6F40200BBEDD3 /* NibView.swift in Sources */,
 				1DC8A43B21CEDC3B0083506F /* HistoryView.swift in Sources */,
 				1D21F78321D411DE00364C59 /* LearningController.swift in Sources */,
+				1D17BE7321D914EF005243E8 /* Dictionary.swift in Sources */,
 				1D21F78721D42A0800364C59 /* UIViewController+Extensions.swift in Sources */,
 				1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */,
 				1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */,
@@ -716,6 +727,7 @@
 				1DF2BD0721C38C7B00D5E29B /* WelcomeController.swift in Sources */,
 				1D65245E21CA733300EB2D5C /* CardView.swift in Sources */,
 				1D441E9820726F22005E2ADD /* TranslateController.swift in Sources */,
+				1D17BE7621D919CE005243E8 /* OxfordTranslationAPI.swift in Sources */,
 				1D441E9720726F22005E2ADD /* TranslateController+Views.swift in Sources */,
 				1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */,
 				1D21F77E21D410FD00364C59 /* DescriptionLabel.swift in Sources */,

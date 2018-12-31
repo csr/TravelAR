@@ -106,8 +106,7 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         for character in tableViewHeaders {
             strings.append(String(character))
         }
-        return Array(strings.dropFirst())
-        // remove "Popular" from A-Z grid
+        return Array(strings.dropFirst()) // remove "Popular" from A-Z grid
     }
     
     func createTableData(languagesList: [Language]) -> (firstSymbols: [String], source: [String: [Language]]) {

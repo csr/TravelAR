@@ -113,7 +113,7 @@ class LanguagesController: UIViewController {
     
     func displayActivityIndicator() {
         view.addSubview(activityIndicatorView)
-        activityIndicatorView.style = .gray
+        activityIndicatorView.style = .white
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityIndicatorView.widthAnchor.constraint(equalToConstant: 40).isActive = true

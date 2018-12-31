@@ -28,7 +28,7 @@
 "EMPTY_STATE_TITLE" = "No translations yet";
 "EMPTY_STATE_DESCRIPTION" = "Translate an object to get started.";
 "WELCOME_BUTTON_TEXT" = "Continue";
-"WELCOME_TITLE" = "Welcome to TranslateAR";
+"WELCOME_TITLE" = "Welcome to TranslateAR"; 
 
 "WELCOME_FIRST_ITEM_TITLE" = "Your Got Superpowers";
 "WELCOME_SECOND_ITEM_TITLE" = "Larn New Languages";

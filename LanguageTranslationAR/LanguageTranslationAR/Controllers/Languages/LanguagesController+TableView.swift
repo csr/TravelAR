@@ -12,8 +12,8 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let char = isFiltering ? filteredTableViewHeaders[indexPath.section] : tableViewHeaders[indexPath.section]
-        let languages = isFiltering ? filteredTableViewSource[char] : tableViewSource[char]
+        let char = tableViewHeaders[indexPath.section]
+        let languages = tableViewSource[char]
         
         if let languages = languages {
             let language = languages[indexPath.row]
@@ -45,11 +45,7 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if isFiltering {
-            return filteredTableViewHeaders.count
-        } else {
-            return tableViewHeaders.count
-        }
+        return tableViewHeaders.count
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -60,31 +56,20 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            let header = filteredTableViewHeaders[section]
-            let values = filteredTableViewSource[header]
-            return values?.count ?? 0
-        } else {
-            let header = tableViewHeaders[section]
-            let values = tableViewSource[header]
-            return values?.count ?? 0
-        }
+        let header = tableViewHeaders[section]
+        let values = tableViewSource[header]
+        return values?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if isFiltering {
-            let title = filteredTableViewHeaders[section]
-            return String(title)
-        } else {
-            let title = tableViewHeaders[section]
-            return String(title)
-        }
+        let title = tableViewHeaders[section]
+        return String(title)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        let key = isFiltering ? filteredTableViewHeaders[indexPath.section] : tableViewHeaders[indexPath.section]
-        let values = isFiltering ? filteredTableViewSource[key] : tableViewSource[key]
+        let key = tableViewHeaders[indexPath.section]
+        let values = tableViewSource[key]
         let language = values![indexPath.row]
         setupCell(cell: cell, language: language, indexPath: indexPath)
         return cell

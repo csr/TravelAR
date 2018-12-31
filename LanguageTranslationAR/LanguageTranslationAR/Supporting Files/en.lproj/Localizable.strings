@@ -44,14 +44,13 @@
 "NO_CAMERA_BUTTON_ALERT_TITLE" = "Error";
 "NO_CAMERA_BUTTON_ALERT_MESSAGE" = "Your device does not have a camera. This app needs a camera to work properly.";
 
-"ONBOARDING_CHOOSE_LANG_TITLE" = "Let's learn a language";
+"ONBOARDING_CHOOSE_LANG_TITLE" = "What Language Do You Want to Learn?";
 "ONBOARDING_CHOOSE_LANG_DESCRIPTION" = "You can change your selection anytime in the app settings.";
 "ONBOARDING_CHOOSE_BUTTON" = "Choose Language";
 "SKIP" = "Skip";
-"SAVE" = "Salva";
 "SAVE_LANGUAGE_NAME" = "Select %@";
 
-"POPULAR" = "Popolars";
+"POPULAR" = "Populars";
 
 "WARNING_NOTHING_FOUND" = "Keep moving";
 "MENU_ACTION_CLOSE" = "Close";

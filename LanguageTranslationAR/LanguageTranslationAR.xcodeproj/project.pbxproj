@@ -22,7 +22,6 @@
 		1D21F77E21D410FD00364C59 /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */; };
 		1D21F78121D411B600364C59 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78021D411B600364C59 /* TitleLabel.swift */; };
 		1D21F78321D411DE00364C59 /* LearningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78221D411DE00364C59 /* LearningController.swift */; };
-		1D21F78521D41E5A00364C59 /* LanguagesController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78421D41E5A00364C59 /* LanguagesController+Search.swift */; };
 		1D21F78721D42A0800364C59 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */; };
 		1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */; };
 		1D23B9502097AC3E00121E8F /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B94F2097AC3E00121E8F /* APIKeys.swift */; };
@@ -119,7 +118,6 @@
 		1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
 		1D21F78021D411B600364C59 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		1D21F78221D411DE00364C59 /* LearningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningController.swift; sourceTree = "<group>"; };
-		1D21F78421D41E5A00364C59 /* LanguagesController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesController+Search.swift"; sourceTree = "<group>"; };
 		1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateAPI.swift; sourceTree = "<group>"; };
 		1D23B94F2097AC3E00121E8F /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
@@ -474,7 +472,6 @@
 			isa = PBXGroup;
 			children = (
 				1D94B77020CB2B210000B065 /* LanguagesController.swift */,
-				1D21F78421D41E5A00364C59 /* LanguagesController+Search.swift */,
 				1DF2BCEF21C1A7DC00D5E29B /* LanguagesController+TableView.swift */,
 				1D17BE6E21D8D6BD005243E8 /* Helper Classes */,
 			);
@@ -705,7 +702,6 @@
 				1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */,
 				1DF2BCF021C1A7DC00D5E29B /* LanguagesController+TableView.swift in Sources */,
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
-				1D21F78521D41E5A00364C59 /* LanguagesController+Search.swift in Sources */,
 				1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */,
 				1D65246021CA735800EB2D5C /* CardsController.swift in Sources */,
 				1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */,

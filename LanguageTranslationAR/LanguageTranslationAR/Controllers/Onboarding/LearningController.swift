@@ -10,18 +10,25 @@ import UIKit
 
 class LearningController: UIViewController {
     
-    let titleLabel: TitleLabel = {
+    private let titleLabel: TitleLabel = {
         let label = TitleLabel()
         label.text = "ONBOARDING_CHOOSE_LANG_TITLE".localized
         return label
     }()
     
-    let descriptionLabel: DescriptionLabel = {
+    private let descriptionLabel: DescriptionLabel = {
         let label = DescriptionLabel()
         label.text = "ONBOARDING_CHOOSE_LANG_DESCRIPTION".localized
         return label
     }()
     
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "welcome-language")
+        return imageView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -51,12 +58,12 @@ class LearningController: UIViewController {
         labelStackView.spacing = 10
         
         stackView.addArrangedSubview(labelStackView)
+        stackView.addArrangedSubview(imageView)
         
         let buttonsStackView = UIStackView()
         buttonsStackView.axis = .vertical
         buttonsStackView.spacing = 10
         buttonsStackView.addArrangedSubview(button)
-//        buttonsStackView.addArrangedSubview(skipButton)
         stackView.addArrangedSubview(buttonsStackView)
     }
         

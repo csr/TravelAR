@@ -20,7 +20,6 @@ extension TranslateController: ARSCNViewDelegate {
     }
     
     func addNode(translation: Translation, coords: SCNVector3) {
-        
         let currentLanguage = LanguagePreferences.getCurrent()
         let langCode = currentLanguage.code.uppercased()
         if let flagEmoji = Flag(countryCode: langCode)?.emoji {
@@ -49,7 +48,17 @@ extension TranslateController: ARSCNViewDelegate {
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        DispatchQueue.main.async { self.updateFocusSquare() }
+        DispatchQueue.main.async {
+            if !self.addButton.isHidden {
+                self.updateFocusSquare()
+            }
+        }
+    }
+    
+    public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        DispatchQueue.main.async {
+            self.changeScanningState(planesDetected: true)
+        }
     }
     
     func updateFocusSquare() {        

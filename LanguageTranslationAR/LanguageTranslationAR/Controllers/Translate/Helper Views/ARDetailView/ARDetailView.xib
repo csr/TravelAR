@@ -45,7 +45,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="346" height="42"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBw-OG-RL9">
-                                            <rect key="frame" x="0.0" y="0.0" width="346" height="42"/>
+                                            <rect key="frame" x="17.5" y="0.0" width="311" height="42"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                             <nil key="textColor"/>
@@ -57,14 +57,14 @@
                                         <constraint firstItem="cBw-OG-RL9" firstAttribute="height" secondItem="F4X-OJ-yRk" secondAttribute="height" id="421-fc-Yip"/>
                                         <constraint firstItem="cBw-OG-RL9" firstAttribute="centerX" secondItem="F4X-OJ-yRk" secondAttribute="centerX" id="8S5-tO-e2o"/>
                                         <constraint firstItem="cBw-OG-RL9" firstAttribute="centerY" secondItem="F4X-OJ-yRk" secondAttribute="centerY" id="Jba-Mv-JUS"/>
-                                        <constraint firstItem="cBw-OG-RL9" firstAttribute="width" secondItem="F4X-OJ-yRk" secondAttribute="width" id="OUT-In-J9q"/>
+                                        <constraint firstItem="cBw-OG-RL9" firstAttribute="width" secondItem="F4X-OJ-yRk" secondAttribute="width" multiplier="0.9" id="OUT-In-J9q"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbo-P5-L1v">
                                     <rect key="frame" x="0.0" y="48" width="346" height="27.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ciao Mondo!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8T-DG-C5l">
-                                            <rect key="frame" x="0.0" y="0.0" width="346" height="27.5"/>
+                                            <rect key="frame" x="17.5" y="0.0" width="311" height="27.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                             <nil key="textColor"/>
@@ -75,7 +75,7 @@
                                     <constraints>
                                         <constraint firstItem="b8T-DG-C5l" firstAttribute="height" secondItem="Fbo-P5-L1v" secondAttribute="height" id="OXy-m1-cc7"/>
                                         <constraint firstItem="b8T-DG-C5l" firstAttribute="centerX" secondItem="Fbo-P5-L1v" secondAttribute="centerX" id="lNk-Ph-tO1"/>
-                                        <constraint firstItem="b8T-DG-C5l" firstAttribute="width" secondItem="Fbo-P5-L1v" secondAttribute="width" id="tZE-4g-b38"/>
+                                        <constraint firstItem="b8T-DG-C5l" firstAttribute="width" secondItem="Fbo-P5-L1v" secondAttribute="width" multiplier="0.9" id="tZE-4g-b38"/>
                                         <constraint firstItem="b8T-DG-C5l" firstAttribute="centerY" secondItem="Fbo-P5-L1v" secondAttribute="centerY" id="vWB-gG-Vao"/>
                                     </constraints>
                                 </view>

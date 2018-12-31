@@ -23,6 +23,8 @@ extension TranslateController: AddButtonProtocol {
         setupAddButton()
         setupClearButton()
         setupFeedbackView()
+        setupScanningView()
+        changeScanningState(planesDetected: false)
     }
         
     private func setupFeedbackView() {
@@ -31,41 +33,39 @@ extension TranslateController: AddButtonProtocol {
         feedbackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
+    private func setupScanningView() {
+        view.addSubview(scanningView)
+        scanningView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        scanningView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    func changeScanningState(planesDetected: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            self.addButton.isHidden = !planesDetected
+            self.feedbackView.isHidden = !planesDetected
+            self.clearButtonView.isHidden = !planesDetected
+            self.tipView.isHidden = !planesDetected
+            self.scanningView.isHidden = planesDetected
+        }
+        
+        if planesDetected {
+            Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
+        }
+    }
+    
     private func setupCustomView() {
         view.addSubview(customView)
         customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
         
-        if !Testing.isTesting {
-            Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateLabel), userInfo: nil, repeats: true).fire()
-        } else {
+        if Testing.isTesting {
             self.feedbackView.textLabel.text = "TEST_LABEL".localized
         }
     }
 
     func setupClearButton() {
-        let blurEffect = UIBlurEffect(style: .prominent)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.text = "NAV_BAR_CLEAR".localized
-        blurEffectView.contentView.addSubview(label)
-        label.fillToSuperview(constant: 13)
-        
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(blurEffectView)
-        blurEffectView.layer.masksToBounds = true
-        blurEffectView.layer.cornerRadius = 15
-        
-        blurEffectView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 7).isActive = true
-        blurEffectView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -7).isActive = true
-        
-        blurEffectView.isUserInteractionEnabled = true
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapClearButton))
-        blurEffectView.addGestureRecognizer(tapRecognizer)
+        view.addSubview(clearButtonView)
+        clearButtonView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 7).isActive = true
+        clearButtonView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -7).isActive = true
     }
     
     internal func setupAddButton() {

@@ -64,6 +64,35 @@ public class TranslateController: UIViewController {
         return view
     }()
     
+    let scanningView: ScanningStateView = {
+        let scanningView = ScanningStateView()
+        scanningView.translatesAutoresizingMaskIntoConstraints = false
+        return scanningView
+    }()
+    
+    lazy var clearButtonView: UIView = {
+        let blurEffect = UIBlurEffect(style: .prominent)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .darkGray
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.text = "NAV_BAR_CLEAR".localized
+        blurEffectView.contentView.addSubview(label)
+        label.fillToSuperview(constant: 13)
+        
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.layer.masksToBounds = true
+        blurEffectView.layer.cornerRadius = 15
+        
+        blurEffectView.isUserInteractionEnabled = true
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapClearButton))
+        blurEffectView.addGestureRecognizer(tapRecognizer)
+        return blurEffectView
+    }()
+    
     var screenCenter: CGPoint {
         let bounds = self.sceneView.bounds
         return CGPoint(x: bounds.midX, y: bounds.midY)
@@ -103,13 +132,6 @@ public class TranslateController: UIViewController {
         setupViews()
 	}
     
-    @objc func showToolTip() {
-        if shouldShowToolTip {
-            presentTipView()
-            shouldShowToolTip = false
-        }
-    }
-    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isCameraPermissionGranted() && !Testing.isTesting {
@@ -128,6 +150,13 @@ public class TranslateController: UIViewController {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
+    }
+    
+    @objc func showToolTip() {
+        if shouldShowToolTip {
+            presentTipView()
+            shouldShowToolTip = false
+        }
     }
     
     @objc internal func isCameraPermissionGranted() -> Bool {

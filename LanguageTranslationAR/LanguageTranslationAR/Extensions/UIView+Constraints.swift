@@ -72,11 +72,11 @@ extension UIView {
         }
     }
     
-    public func centerToSuperview() {
+    public func centerToSuperview(verticalOffset: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             let centerX = centerXAnchor.constraint(equalTo: superview.centerXAnchor)
-            let centerY = centerYAnchor.constraint(equalTo: superview.centerYAnchor)
+            let centerY = centerYAnchor.constraint(equalTo: superview.centerYAnchor, constant: verticalOffset)
             NSLayoutConstraint.activate([centerX, centerY])
         }
     }

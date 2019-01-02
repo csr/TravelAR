@@ -35,6 +35,8 @@ public class HistoryView: UIView {
         return iv
     }()
     
+    var imageViewWidthAnchor: NSLayoutConstraint?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -53,7 +55,9 @@ public class HistoryView: UIView {
         stackView.fillToSuperview()
         stackView.spacing = 20
         
-        imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        imageViewWidthAnchor = imageView.widthAnchor.constraint(equalToConstant: 40) //.isActive = true
+        imageViewWidthAnchor?.isActive = true
+        
         imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         stackView.addArrangedSubview(imageView)
@@ -96,7 +100,11 @@ public class HistoryView: UIView {
     }
     
     func setFlag(for countryCode: String?) {
-        guard let countryCode = countryCode?.uppercased(), let flag = Flag(countryCode: countryCode) else { return }
+        guard let countryCode = countryCode?.uppercased(), let flag = Flag(countryCode: countryCode) else {
+            imageViewWidthAnchor?.constant = 0
+            return
+        }
+        imageViewWidthAnchor?.constant = 40
         imageView.image = flag.image(size: CGSize(width: 50, height: 50), color: .clear)
     }
     

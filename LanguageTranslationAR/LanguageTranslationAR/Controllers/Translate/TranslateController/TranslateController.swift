@@ -134,22 +134,28 @@ public class TranslateController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if isCameraPermissionGranted() && !Testing.isTesting {
-            let navController = UINavigationController(rootViewController: WelcomeController())
-            present(navController, animated: true, completion: nil)
-        } else if !Testing.isTesting {
+        if Testing.isTesting { return }
+        
+        if isCameraPermissionGranted() {
+            presentWelcomeController()
+        } else {
             runARSession()
             setupCoreML()
+            scanningView.animateImageView()
         }
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
+    }
+    
+    private func presentWelcomeController() {
+        let vc = WelcomeController()
+        vc.onboardingDelegate = self
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .formSheet
+        present(navController, animated: true, completion: nil)
     }
     
     @objc func showToolTip() {

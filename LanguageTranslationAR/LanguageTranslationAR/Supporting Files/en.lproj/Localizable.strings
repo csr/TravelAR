@@ -52,6 +52,7 @@
 
 "POPULAR" = "Top Picks";
 
+"MOVE_DEVICE_INSTRUCTION" = "Move device to start";
 "WARNING_NOTHING_FOUND" = "Keep moving";
 "MENU_ACTION_CLOSE" = "Close";
 "MENU_ACTION_REPRODUCE" = "Listen";

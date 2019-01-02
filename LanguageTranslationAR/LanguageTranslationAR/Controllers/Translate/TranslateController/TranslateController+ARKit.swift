@@ -11,8 +11,8 @@ import ARKit
 import Flags
 import EasyTipView
 
-extension TranslateController: ARSCNViewDelegate {
-
+extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
+    
     @objc internal func runARSession() {
         configuration.planeDetection = [.horizontal, .vertical]
         sceneView.session = augmentedRealitySession
@@ -103,5 +103,10 @@ extension TranslateController: ARSCNViewDelegate {
             }
             feedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized
         }
+    }
+    
+    func didFinishOnboarding() {
+        runARSession()
+        setupCoreML()
     }
 }

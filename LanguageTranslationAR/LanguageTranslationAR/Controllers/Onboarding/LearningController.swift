@@ -10,6 +10,8 @@ import UIKit
 
 class LearningController: UIViewController {
 
+    var onboardingDelegate: OnboardingDelegate?
+    
     private let titleLabel: TitleLabel = {
         let label = TitleLabel()
         label.text = "ONBOARDING_CHOOSE_LANG_TITLE".localized
@@ -31,7 +33,7 @@ class LearningController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(named: "cellBackground")
         setupStackView()
     }
 
@@ -43,6 +45,7 @@ class LearningController: UIViewController {
     private func setupStackView() {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 50
         stackView.distribution = .equalSpacing
         view.addSubview(stackView)
         stackView.fillToSuperview(constant: 40)
@@ -50,13 +53,13 @@ class LearningController: UIViewController {
         let button = CustomButton()
         button.setTitle("ONBOARDING_CHOOSE_BUTTON".localized, for: .normal)
         button.addTarget(self, action: #selector(presentLanguageSelection), for: .touchUpInside)
-
+        
         let labelStackView = UIStackView()
         labelStackView.axis = .vertical
         labelStackView.addArrangedSubview(titleLabel)
         labelStackView.addArrangedSubview(descriptionLabel)
         labelStackView.spacing = 10
-
+        
         stackView.addArrangedSubview(labelStackView)
         stackView.addArrangedSubview(imageView)
 
@@ -68,6 +71,7 @@ class LearningController: UIViewController {
     }
 
     @objc private func presentLanguageSelection() {
+        onboardingDelegate?.didFinishOnboarding()
         let vc = LanguagesController()
         navigationController?.pushViewController(vc, animated: true)
     }

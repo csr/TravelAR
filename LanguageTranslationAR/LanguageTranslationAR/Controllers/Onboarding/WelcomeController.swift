@@ -10,11 +10,13 @@ import UIKit
 
 class WelcomeController: UIViewController {
     
+    var onboardingDelegate: OnboardingDelegate?
+    
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 50
+        stackView.distribution = .equalCentering
         return stackView
     }()
     
@@ -40,12 +42,13 @@ class WelcomeController: UIViewController {
     
     @objc func didSelectContinueButton() {
         let cameraPermissionVC = PermissionsController()
+        cameraPermissionVC.onboardingDelegate = onboardingDelegate
         navigationController?.pushViewController(cameraPermissionVC, animated: true)
     }
     
     internal func setupView() {
         setupContentStackView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(named: "cellBackground")
         navigationController?.isNavigationBarHidden = true
     }
     
@@ -60,7 +63,7 @@ class WelcomeController: UIViewController {
     private func getMiddleStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = 45
         let firstItem = getItemStackView(title: "WELCOME_FIRST_ITEM_TITLE".localized, description: "WELCOME_FIRST_ITEM_DESCRIPTION".localized, imageName: "welcome-first")
         let secondItem = getItemStackView(title: "WELCOME_SECOND_ITEM_TITLE".localized, description: "WELCOME_SECOND_ITEM_DESCRIPTION".localized, imageName: "welcome-second")
         let thirdItem = getItemStackView(title: "WELCOME_THIRD_ITEM_TITLE".localized, description: "WELCOME_THIRD_ITEM_DESCRIPTION".localized, imageName: "welcome-third")

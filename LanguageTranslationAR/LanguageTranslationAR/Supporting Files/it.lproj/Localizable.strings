@@ -51,9 +51,9 @@
 "ONBOARDING_CHOOSE_BUTTON" = "Scegli Lingua";
 "SKIP" = "Salta";
 "SAVE_LANGUAGE_NAME" = "Scegli %@";
+"MOVE_DEVICE_INSTRUCTION" = "Muovi il dispositivo";
 
 "POPULAR" = "Popolari";
-
 "WARNING_NOTHING_FOUND" = "Contina a muoverti";
 "MENU_ACTION_CLOSE" = "Chiudi";
 "MENU_ACTION_REPRODUCE" = "Ascolta";

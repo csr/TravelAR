@@ -11,6 +11,8 @@ import AVFoundation
 
 class PermissionsController: UIViewController {
 
+    var onboardingDelegate: OnboardingDelegate?
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -50,7 +52,7 @@ class PermissionsController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(named: "cellBackground")
         view.addSubview(stackView)
         stackView.fillToSuperview(constant: 40)
         
@@ -106,7 +108,9 @@ class PermissionsController: UIViewController {
     }
     
     private func proceedWithOnboarding() {
-        navigationController?.pushViewController(LearningController(), animated: true)
+        let vc = LearningController()
+        vc.onboardingDelegate = onboardingDelegate
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

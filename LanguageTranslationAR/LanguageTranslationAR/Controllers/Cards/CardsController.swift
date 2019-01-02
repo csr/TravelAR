@@ -41,6 +41,18 @@ class CardsController: UIViewController {
         view.addSubview(swipeableView)
         setupSwipeableView()
         loadDictionary()
+        animateFirstFlashcard()
+    }
+    
+    private func animateFirstFlashcard() {
+        perform(#selector(showCardAnimation), with: nil, afterDelay: 1)
+        perform(#selector(showCardAnimation), with: nil, afterDelay: 2.5)
+    }
+    
+    @objc func showCardAnimation() {
+        if let card = swipeableView.activeViews().first as? CardView {
+            card.didTapCard()
+        }
     }
 
     private func setupSwipeableView() {
@@ -60,6 +72,8 @@ class CardsController: UIViewController {
         }
         return nil
     }
+    
+    var isFirstCard = false
     
     func nextCardView() -> CardView {
         let cardView = CardView(frame: swipeableView.bounds)

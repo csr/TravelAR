@@ -15,6 +15,7 @@ class ScanningStateView: UIView {
         label.textAlignment = .center
         label.text = "MOVE_DEVICE_INSTRUCTION".localized
         label.textColor = .white
+        label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 23)
         return label
     }()
@@ -54,7 +55,7 @@ class ScanningStateView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        animateImageView()
+        //animateImageView()
     }
     
     required init?(coder aDecoder: NSCoder) {

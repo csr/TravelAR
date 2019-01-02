@@ -51,7 +51,7 @@
 "ONBOARDING_CHOOSE_BUTTON" = "Scegli Lingua";
 "SKIP" = "Salta";
 "SAVE_LANGUAGE_NAME" = "Scegli %@";
-"MOVE_DEVICE_INSTRUCTION" = "Muovi il dispositivo";
+"MOVE_DEVICE_INSTRUCTION" = "Muovi il dispositivo per iniziare";
 
 "POPULAR" = "Popolari";
 "WARNING_NOTHING_FOUND" = "Contina a muoverti";

@@ -30,8 +30,8 @@
 "WELCOME_BUTTON_TEXT" = "Continue";
 "WELCOME_TITLE" = "Welcome to TranslateAR"; 
 
-"WELCOME_FIRST_ITEM_TITLE" = "Your Got Superpowers";
-"WELCOME_SECOND_ITEM_TITLE" = "Larn New Languages";
+"WELCOME_FIRST_ITEM_TITLE" = "You Got Superpowers";
+"WELCOME_SECOND_ITEM_TITLE" = "Learn New Languages";
 "WELCOME_THIRD_ITEM_TITLE" = "New Flashcards Every Day";
 "WELCOME_FIRST_ITEM_DESCRIPTION" = "Translate objects into a foreign language.";
 "WELCOME_SECOND_ITEM_DESCRIPTION" = "Learn new words and listen to the spoken audio.";

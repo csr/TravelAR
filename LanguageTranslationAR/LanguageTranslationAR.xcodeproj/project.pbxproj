@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D023F9721D9496D00D5EFFC /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D023F9621D9496D00D5EFFC /* CustomButton.swift */; };
 		1D09A74721F222FD00928848 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D09A74621F222FD00928848 /* Keys.swift */; };
-		1D09A78321F3606C00928848 /* GoogleAPIKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1D09A78221F3606C00928848 /* GoogleAPIKey.txt */; };
+		1D09A78521F3652800928848 /* GoogleAPIKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1D09A78421F3652800928848 /* GoogleAPIKey.txt */; };
 		1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8621BF09DF000396C5 /* ApplicationTab.swift */; };
 		1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8821BF0ADA000396C5 /* String+Localization.swift */; };
 		1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8C21BF91A5000396C5 /* TranslationItems.swift */; };
@@ -107,7 +107,7 @@
 /* Begin PBXFileReference section */
 		1D023F9621D9496D00D5EFFC /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1D09A74621F222FD00928848 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		1D09A78221F3606C00928848 /* GoogleAPIKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoogleAPIKey.txt; sourceTree = "<group>"; };
+		1D09A78421F3652800928848 /* GoogleAPIKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoogleAPIKey.txt; sourceTree = "<group>"; };
 		1D104C8621BF09DF000396C5 /* ApplicationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTab.swift; sourceTree = "<group>"; };
 		1D104C8821BF0ADA000396C5 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		1D104C8C21BF91A5000396C5 /* TranslationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItems.swift; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 			children = (
 				1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */,
 				1D09A74621F222FD00928848 /* Keys.swift */,
-				1D09A78221F3606C00928848 /* GoogleAPIKey.txt */,
+				1D09A78421F3652800928848 /* GoogleAPIKey.txt */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -634,7 +634,7 @@
 				1D17BE6B21D8D1C4005243E8 /* dictionary.json in Resources */,
 				1D95A9F521CAF725002EDAF1 /* LaunchScreen.storyboard in Resources */,
 				1D23B96C2098FEDD00121E8F /* Localizable.strings in Resources */,
-				1D09A78321F3606C00928848 /* GoogleAPIKey.txt in Resources */,
+				1D09A78521F3652800928848 /* GoogleAPIKey.txt in Resources */,
 				1D441E3320726F00005E2ADD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

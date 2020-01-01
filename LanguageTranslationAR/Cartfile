@@ -1,7 +1,5 @@
 github "Shopify/FunctionalTableData"
 github "cruisediary/Flags" ~> 0.4.0
 github "teambition/TBEmptyDataSet"
-github "zhxnlai/ZLSwipeableViewSwift"
-github "onevcat/RandomColorSwift"
 github "teodorpatras/EasyTipView"
 

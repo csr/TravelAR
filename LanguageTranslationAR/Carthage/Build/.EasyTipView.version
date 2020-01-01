@@ -1,9 +1,10 @@
 {
-  "commitish" : "2.0.1",
+  "commitish" : "2.0.4",
   "iOS" : [
     {
       "name" : "EasyTipView",
-      "hash" : "f6ea5e86d9bd839a758d118e863080fef4f82d676e736f0dbf664727a4956b82"
+      "hash" : "eb7bb3e825f4b795d9bd660060478bf78ca84c91679c9e97e5c855f5385d5cb5",
+      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
     }
   ]
 }

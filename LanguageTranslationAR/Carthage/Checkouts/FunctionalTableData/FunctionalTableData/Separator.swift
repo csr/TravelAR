@@ -14,28 +14,44 @@ import UIKit
 ///
 /// Supported by `UITableView` only.
 public class Separator: UIView {
-	/// Specifies the default inset of cell separators.
-	public static var inset: CGFloat = 0.0
-	/// Specifies the default thickness of cell separators.
-	private let thickness: CGFloat = 1.0 / UIScreen.main.scale
-	
 	/// The style for table cells used as separators.
-	///
-	/// The options are `full`, `inset`, and `moreInset`
-	public enum Style {
-		case full
-		case inset
-		case moreInset
-		
-		public var insetDistance: CGFloat {
-			switch self {
-			case .inset:
-				return Separator.inset
-			case .full:
-				return 0
-			case .moreInset:
-				return 3 * Separator.inset
+	public struct Style: Equatable {
+		/// The inset used in the separators.
+		public struct Inset: Equatable {
+			/// Specifies the amount of spacing to apply to the separator.
+			public let value: CGFloat
+			/// Specifies if the inset is relative to the layout margins.
+			public let respectingLayoutMargins: Bool
+
+			public static let none: Inset = Inset(value: 0, respectingLayoutMargins: false)
+			
+			public init(value: CGFloat, respectingLayoutMargins: Bool) {
+				self.value = value
+				self.respectingLayoutMargins = respectingLayoutMargins
 			}
+		}
+		
+		/// Specifies the leading inset of the separators.
+		public let leadingInset: Inset
+		/// Specifies the trailing inset of the separators.
+		public let trailingInset: Inset
+		/// Specifies the thickness of cell separators.
+		public let thickness: CGFloat
+		/// A separator going from the leading edge to the trailing edge of the screen.
+		static public let full: Style = Style(leadingInset: .none, trailingInset: .none)
+		/// A separator going from the leading margin to the trailing edge of the screen.
+		static public let inset: Style = Style(leadingInset: .init(value: 0, respectingLayoutMargins: true), trailingInset: .none)
+		
+		/// Initializes and returns a newly separator style.
+		///
+		/// - Parameters:
+		///   - leadingInset: The spacing to use from the leading edge.
+		///   - trailingInset: The spacing to use from the trailing edge.
+		///   - thickness: The thickness of the separator.
+		public init(leadingInset: Inset, trailingInset: Inset, thickness: CGFloat = 1.0 / UIScreen.main.scale) {
+			self.leadingInset = leadingInset
+			self.trailingInset = trailingInset
+			self.thickness = thickness
 		}
 	}
 	
@@ -50,7 +66,7 @@ public class Separator: UIView {
 
 	public required init(style: Style) {
 		self.style = style
-		super.init(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: thickness))
+		super.init(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: style.thickness))
 	}
 	
 	public required init?(coder aDecoder: NSCoder) {
@@ -58,7 +74,7 @@ public class Separator: UIView {
 	}
 	
 	public override var intrinsicContentSize: CGSize {
-		return CGSize(width: UIView.noIntrinsicMetric, height: thickness)
+		return CGSize(width: UIView.noIntrinsicMetric, height: style.thickness)
 	}
 
 	public func constrainToTopOfView(_ view: UIView, constant: CGFloat = 0) {
@@ -72,12 +88,16 @@ public class Separator: UIView {
 	}
 
 	private func applyHorizontalConstraints(_ view: UIView) {
-		trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-		switch style {
-		case .full, .moreInset:
-			leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: style.insetDistance).isActive = true
-		case .inset:
-			leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+		if style.leadingInset.respectingLayoutMargins {
+			leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: style.leadingInset.value).isActive = true
+		} else {
+			leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: style.leadingInset.value).isActive = true
+		}
+		
+		if style.trailingInset.respectingLayoutMargins {
+			trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -style.trailingInset.value).isActive = true
+		} else {
+			trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -style.trailingInset.value).isActive = true
 		}
 	}
 }
@@ -88,7 +108,7 @@ public extension UIView {
 	/// - Parameters:
 	///   - style: the separator inset style.
 	///   - color: the separator color.
-	public func applyTopSeparator(_ style: Separator.Style, color: UIColor? = nil) {
+	func applyTopSeparator(_ style: Separator.Style, color: UIColor? = nil) {
 		removeSeparator(Separator.Tag.top)
 		let separator = Separator(style: style)
 		separator.tag = Separator.Tag.top.rawValue
@@ -104,7 +124,7 @@ public extension UIView {
 	/// - Parameters:
 	///   - style: the separator inset style.
 	///   - color: the separator color.
-	public func applyBottomSeparator(_ style: Separator.Style, color: UIColor? = nil) {
+	func applyBottomSeparator(_ style: Separator.Style, color: UIColor? = nil) {
 		removeSeparator(Separator.Tag.bottom)
 		let separator = Separator(style: style)
 		separator.tag = Separator.Tag.bottom.rawValue
@@ -118,7 +138,7 @@ public extension UIView {
 	/// Removes any instance of a `Separator` view from the current view.
 	///
 	/// - Parameter withTag: the separator to remove.
-	public func removeSeparator(_ withTag: Separator.Tag) {
+	func removeSeparator(_ withTag: Separator.Tag) {
 		guard let separator = viewWithTag(withTag.rawValue) as? Separator else { return }
 		separator.removeFromSuperview()
 	}

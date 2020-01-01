@@ -7,31 +7,33 @@
 //
 
 import UIKit
-import ZLSwipeableViewSwift
+//import ZLSwipeableViewSwift
 
 class CardsController: UIViewController {
     
     private var dictionary = [String: String]()
     
-    private var swipeableView: ZLSwipeableView = {
-        let swipeableView = ZLSwipeableView()
-        swipeableView.numberOfActiveView = 3
+    private var swipeableView: UIView = {
+//    private var swipeableView: ZLSwipeableView = {
+//        let swipeableView = ZLSwipeableView()
+        let swipeableView = UIView()
+//        swipeableView.numberOfActiveView = 3
         swipeableView.translatesAutoresizingMaskIntoConstraints = false
         return swipeableView
     }()
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        swipeableView.nextView = {
-            return self.nextCardView()
-        }
-        
-        swipeableView.didTap = { view, location in
-            guard let view = view as? CardView else {
-                return
-            }
-            view.didTapCard()
-        }
+//        swipeableView.nextView = {
+//            return self.nextCardView()
+//        }
+//
+//        swipeableView.didTap = { view, location in
+//            guard let view = view as? CardView else {
+//                return
+//            }
+//            view.didTapCard()
+//        }
     }
     
     override func viewDidLoad() {
@@ -50,9 +52,9 @@ class CardsController: UIViewController {
     }
     
     @objc func showCardAnimation() {
-        if let card = swipeableView.activeViews().first as? CardView {
-            card.didTapCard()
-        }
+//        if let card = swipeableView.activeViews().first as? CardView {
+//            card.didTapCard()
+//        }
     }
 
     private func setupSwipeableView() {

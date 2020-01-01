@@ -1,4 +1,0 @@
-framework module ZLSwipeableViewSwift {
-  header "ZLSwipeableViewSwift-Swift.h"
-  requires objc
-}

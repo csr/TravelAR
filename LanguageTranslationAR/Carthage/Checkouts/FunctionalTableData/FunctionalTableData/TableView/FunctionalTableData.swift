@@ -21,7 +21,7 @@ public protocol FunctionalTableDataExceptionHandler {
 /// A renderer for `UITableView`.
 ///
 /// By providing a complete description of your view state using an array of `TableSection`. `FunctionalTableData` compares it with the previous render call to insert, update, and remove everything that have changed. This massively simplifies state management of complex UI.
-public class FunctionalTableData: NSObject {
+public class FunctionalTableData {
 	/// A type that provides the information about an exception.
 	public struct Exception {
 		public let name: String
@@ -37,34 +37,23 @@ public class FunctionalTableData: NSObject {
 	/// Specifies the desired exception handling behaviour.
 	public static var exceptionHandler: FunctionalTableDataExceptionHandler?
 	
-	/// Represents the unique path to a given item in the `FunctionalTableData`.
-	///
-	/// Think of it as a readable implementation of `IndexPath`, that can be used to locate a given cell
-	/// or `TableSection` in the data set.
-	public struct KeyPath {
-		/// Unique identifier for a section.
-		public let sectionKey: String
-		/// Unique identifier for an item inside a section.
-		public let rowKey: String
-		
-		public init(sectionKey: String, rowKey: String) {
-			self.sectionKey = sectionKey
-			self.rowKey = rowKey
-		}
-	}
+	public typealias KeyPath = ItemPath
 	
 	private func dumpDebugInfoForChanges(_ changes: TableSectionChangeSet, previousSections: [TableSection], visibleIndexPaths: [IndexPath], exceptionReason: String?, exceptionUserInfo: [AnyHashable: Any]?) {
 		guard let exceptionHandler = FunctionalTableData.exceptionHandler else { return }
-		let exception = Exception(name: name, newSections: sections, oldSections: previousSections, changes: changes, visible: visibleIndexPaths, viewFrame: tableView?.frame ?? .zero, reason: exceptionReason, userInfo: exceptionUserInfo)
+		let exception = Exception(name: name, newSections: data.sections, oldSections: previousSections, changes: changes, visible: visibleIndexPaths, viewFrame: tableView?.frame ?? .zero, reason: exceptionReason, userInfo: exceptionUserInfo)
 		exceptionHandler.handle(exception: exception)
 	}
 	
-	private var sections: [TableSection] = []
+	private let data: TableData
 	private static let reloadEntireTableThreshold = 20
-	private var heightAtIndexKeyPath: [String: CGFloat] = [:]
 	
 	private let renderAndDiffQueue: OperationQueue
 	private let name: String
+	
+	private let cellStyler: CellStyler
+	private let dataSource: DataSource
+	internal let delegate: Delegate
 	
 	/// Enclosing `UITableView` that presents all the `TableSection` data.
 	///
@@ -73,8 +62,8 @@ public class FunctionalTableData: NSObject {
 	public var tableView: UITableView? {
 		didSet {
 			guard let tableView = tableView else { return }
-			tableView.dataSource = self
-			tableView.delegate = self
+			tableView.dataSource = dataSource
+			tableView.delegate = delegate
 			tableView.rowHeight = UITableView.automaticDimension
 			tableView.tableFooterView = UIView(frame: .zero)
 			tableView.separatorStyle = .none
@@ -82,33 +71,22 @@ public class FunctionalTableData: NSObject {
 	}
 	
 	public subscript(indexPath: IndexPath) -> CellConfigType? {
-		return sections[indexPath]
+		return data.sections[indexPath]
 	}
 	
-	/// See UIScrollView's [documentation](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619392-scrollviewdidscroll) for more information.
-	public var scrollViewDidScroll: ((_ scrollView: UIScrollView) -> Void)?
-	/// See UIScrollView's [documentation](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619394-scrollviewwillbegindragging) for more information.
-	public var scrollViewWillBeginDragging: ((_ scrollView: UIScrollView) -> Void)?
-	/// See UIScrollView's [documentation](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619385-scrollviewwillenddragging) for more information.
-	public var scrollViewWillEndDragging: ((_ scrollView: UIScrollView, _ velocity: CGPoint, _ targetContentOffset: UnsafeMutablePointer<CGPoint>) -> Void)?
-	/// See UIScrollView's [documentation](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619436-scrollviewdidenddragging) for more information.
-	public var scrollViewDidEndDragging: ((_ scrollView: UIScrollView, _ decelerate: Bool) -> Void)?
-	/// See UIScrollView's [documentation](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619386-scrollviewwillbegindecelerating) for more information.
-	public var scrollViewWillBeginDecelerating: ((_ scrollView: UIScrollView) -> Void)?
-	/// See UIScrollView's [documentation](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619417-scrollviewdidenddecelerating) for more information.
-	public var scrollViewDidEndDecelerating: ((_ scrollView: UIScrollView) -> Void)?
-	/// Tells the delegate that the scroll view has changed its content size.
-	public var scrollViewDidChangeContentSize: ((_ scrollView: UIScrollView) -> Void)?
-	/// See UIScrollView's [documentation](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619379-scrollviewdidendscrollinganimati) for more information.
-	public var scrollViewDidEndScrollingAnimation: ((_ scrollView: UIScrollView) -> Void)?
-	/// See UIScrollView's [documentation](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619378-scrollviewshouldscrolltotop) for more information.
-	public var scrollViewShouldScrollToTop: ((_ scrollView: UIScrollView) -> Bool)?
-	/// See UIScrollView's [documentation](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619382-scrollviewdidscrolltotop) for more information.
-	public var scrollViewDidScrollToTop: ((_ scrollView: UIScrollView) -> Void)?
-
-	/// An optional callback that describes the current scroll position of the table as an accessibility aid.
-	/// See UIScrollView's [documentation](https://developer.apple.com/documentation/uikit/uiscrollviewaccessibilitydelegate/1621055-accessibilityscrollstatus) for more information.
-	public var scrollViewAccessibilityScrollStatus: ((_ scrollView: UIScrollView) -> String?)?
+	/// An object to receive various [UIScrollViewDelegate](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate) related events
+	public weak var scrollViewDelegate: UIScrollViewDelegate? {
+		get {
+			return delegate.scrollViewDelegate
+		}
+		set {
+			delegate.scrollViewDelegate = newValue
+			
+			// Reset the delegate, this triggers UITableView and UIScrollView to re-cache their available delegate methods
+			tableView?.delegate = nil
+			tableView?.delegate = delegate
+		}
+	}
 	
 	/// The type of animation when rows and sections are inserted or deleted.
 	public struct TableAnimations {
@@ -152,6 +130,12 @@ public class FunctionalTableData: NSObject {
 		renderAndDiffQueue = OperationQueue()
 		renderAndDiffQueue.name = self.name
 		renderAndDiffQueue.maxConcurrentOperationCount = 1
+		let data = TableData()
+		let cellStyler = CellStyler(data: data)
+		self.data = data
+		self.cellStyler = cellStyler
+		self.dataSource = DataSource(cellStyler: cellStyler)
+		self.delegate = Delegate(cellStyler: cellStyler)
 	}
 	
 	deinit {
@@ -162,9 +146,9 @@ public class FunctionalTableData: NSObject {
 	///
 	/// - Parameter keyPath: A key path identifying the cell to look up.
 	/// - Returns: A `CellConfigType` instance corresponding to the key path or `nil` if the key path is invalid.
-	public func rowForKeyPath(_ keyPath: KeyPath) -> CellConfigType? {
-		if let sectionIndex = sections.index(where: { $0.key == keyPath.sectionKey }), let rowIndex = sections[sectionIndex].rows.index(where: { $0.key == keyPath.rowKey }) {
-			return sections[sectionIndex].rows[rowIndex]
+	public func rowForKeyPath(_ keyPath: ItemPath) -> CellConfigType? {
+		if let sectionIndex = data.sections.firstIndex(where: { $0.key == keyPath.sectionKey }), let rowIndex = data.sections[sectionIndex].rows.firstIndex(where: { $0.key == keyPath.itemKey }) {
+			return data.sections[sectionIndex].rows[rowIndex]
 		}
 		
 		return nil
@@ -173,13 +157,11 @@ public class FunctionalTableData: NSObject {
 	/// Returns the key path specified by its string presentation.
 	///
 	/// - Parameter key: String identifier to lookup.
-	/// - Returns: A `KeyPath` that matches the key or `nil` if there is no match.
-	public func keyPathForRowKey(_ key: String) -> KeyPath? {
-		for section in sections {
-			for row in section {
-				if row.key == key {
-					return KeyPath(sectionKey: section.key, rowKey: row.key)
-				}
+	/// - Returns: A `ItemPath` that matches the key or `nil` if there is no match.
+	public func keyPathForRowKey(_ key: String) -> ItemPath? {
+		for section in data.sections {
+			for row in section where row.key == key {
+				return ItemPath(sectionKey: section.key, itemKey: row.key)
 			}
 		}
 		
@@ -189,36 +171,26 @@ public class FunctionalTableData: NSObject {
 	/// Returns the key path of the cell in a given `IndexPath` location.
 	///
 	/// __Note:__ This method performs an unsafe lookup, make sure that the `IndexPath` exists
-	/// before trying to transform it into a `KeyPath`.
+	/// before trying to transform it into a `ItemPath`.
 	/// - Parameter indexPath: A key path identifying where the key path is located.
 	/// - Returns: The key representation of the supplied `IndexPath`.
-	public func keyPathForIndexPath(indexPath: IndexPath) -> KeyPath {
-		let section = sections[indexPath.section]
+	public func keyPathForIndexPath(indexPath: IndexPath) -> ItemPath {
+		let section = data.sections[indexPath.section]
 		let row = section.rows[indexPath.row]
-		return KeyPath(sectionKey: section.key, rowKey: row.key)
+		return ItemPath(sectionKey: section.key, itemKey: row.key)
 	}
 	
 	/// Returns the drawing area for a row identified by key path.
 	///
 	/// - Parameter keyPath: A key path identifying the cell to look up.
 	/// - Returns: A rectangle defining the area in which the table view draws the row or `nil` if the key path is invalid.
-	public func rectForKeyPath(_ keyPath: KeyPath) -> CGRect? {
+	public func rectForKeyPath(_ keyPath: ItemPath) -> CGRect? {
 		guard let indexPath = indexPathFromKeyPath(keyPath) else { return nil }
 		return tableView?.rectForRow(at: indexPath)
 	}
 	
-	private func sectionForKey(key: String) -> TableSection? {
-		for section in sections {
-			if section.key == key {
-				return section
-			}
-		}
-		
-		return nil
-	}
-	
 	@available(*, deprecated, message: "The `reloadList` argument is no longer available.")
-	public func renderAndDiff(_ newSections: [TableSection], keyPath: KeyPath? = nil, reloadList: Bool, animated: Bool = true, animations: TableAnimations = .default, completion: (() -> Void)? = nil) {
+	public func renderAndDiff(_ newSections: [TableSection], keyPath: ItemPath? = nil, reloadList: Bool, animated: Bool = true, animations: TableAnimations = .default, completion: (() -> Void)? = nil) {
 		renderAndDiff(newSections, keyPath: keyPath, animated: animated, animations: animations, completion: completion)
 	}
 	
@@ -231,7 +203,7 @@ public class FunctionalTableData: NSObject {
 	///   - animations: Type of animation to perform. See `FunctionalTableData.TableAnimations` for more info.
 	///   - completion: Callback that will be called on the main thread once the `UITableView` has finished updating and animating any changes.
 	@available(*, deprecated, message: "Call `scroll(to:animated:scrollPosition:)` in the completion handler instead.")
-	public func renderAndDiff(_ newSections: [TableSection], keyPath: KeyPath?, animated: Bool = true, animations: TableAnimations = .default, completion: (() -> Void)? = nil) {
+	public func renderAndDiff(_ newSections: [TableSection], keyPath: ItemPath?, animated: Bool = true, animations: TableAnimations = .default, completion: (() -> Void)? = nil) {
 		renderAndDiff(newSections, animated: animated, animations: animations) { [weak self] in
 			if let strongSelf = self, let keyPath = keyPath {
 				strongSelf.scroll(to: keyPath)
@@ -265,7 +237,8 @@ public class FunctionalTableData: NSObject {
 					if $0.name == NSExceptionName.internalInconsistencyException {
 						guard let exceptionHandler = FunctionalTableData.exceptionHandler else { return }
 						let changes = TableSectionChangeSet()
-						let exception = Exception(name: $0.name.rawValue, newSections: newSections, oldSections: strongSelf.sections, changes: changes, visible: [], viewFrame: strongSelf.tableView?.frame ?? .zero, reason: $0.reason, userInfo: $0.userInfo)
+						let viewFrame = DispatchQueue.main.sync { strongSelf.tableView?.frame ?? .zero }
+						let exception = Exception(name: $0.name.rawValue, newSections: newSections, oldSections: strongSelf.data.sections, changes: changes, visible: [], viewFrame: viewFrame, reason: $0.reason, userInfo: $0.userInfo)
 						exceptionHandler.handle(exception: exception)
 					}
 				})
@@ -286,7 +259,7 @@ public class FunctionalTableData: NSObject {
 			return
 		}
 		
-		let oldSections = sections
+		let oldSections = data.sections
 		
 		let visibleIndexPaths = DispatchQueue.main.sync {
 			tableView.indexPathsForVisibleRows?.filter {
@@ -309,7 +282,7 @@ public class FunctionalTableData: NSObject {
 			strongSelf.renderAndDiffQueue.isSuspended = true
 			tableView.registerCellsForSections(localSections)
 			if oldSections.isEmpty || changes.count > FunctionalTableData.reloadEntireTableThreshold || tableView.isDecelerating || !animated {
-				strongSelf.sections = localSections
+				strongSelf.data.sections = localSections
 				CATransaction.begin()
 				CATransaction.setCompletionBlock {
 					strongSelf.finishRenderAndDiff()
@@ -348,7 +321,7 @@ public class FunctionalTableData: NSObject {
 		}
 		
 		if changes.isEmpty {
-			sections = localSections
+			data.sections = localSections
 			if let completion = completion {
 				DispatchQueue.main.async(execute: completion)
 			}
@@ -385,13 +358,7 @@ public class FunctionalTableData: NSObject {
 		
 		func applyTransitionChanges(_ changes: TableSectionChangeSet) {
 			for update in changes.updates {
-				if let cell = tableView.cellForRow(at: update.index) {
-					update.cellConfig.update(cell: cell, in: tableView)
-					
-					let section = sections[update.index.section]
-					let style = section.mergedStyle(for: update.index.row)
-					style.configure(cell: cell, in: tableView)
-				}
+				cellStyler.update(cellConfig: update.cellConfig, at: update.index, in: tableView)
 			}
 		}
 		
@@ -403,7 +370,7 @@ public class FunctionalTableData: NSObject {
 		tableView.beginUpdates()
 		// #4629 - There is an issue where on some occasions calling beginUpdates() will cause a heightForRowAtIndexPath() call to be made. If the sections have been changed already we may no longer find the cells
 		// in the model causing a crash. To prevent this from happening, only load the new model AFTER beginUpdates() has run
-		sections = localSections
+		data.sections = localSections
 		applyTableSectionChanges(changes)
 		tableView.endUpdates()
 		
@@ -425,12 +392,12 @@ public class FunctionalTableData: NSObject {
 	///   - keyPath: A key path identifying a row in the table view.
 	///   - animated: `true` if you want to animate the selection, and `false` if the change should be immediate.
 	///   - triggerDelegate: `true` to trigger the `tableView:didSelectRowAt:` delegate from `UITableView` or `false` to skip it. Skipping it is the default `UITableView` behavior.
-	public func select(keyPath: KeyPath, animated: Bool = true, scrollPosition: UITableView.ScrollPosition = .none, triggerDelegate: Bool = false) {
-		guard let aTableView = tableView, let indexPath = indexPathFromKeyPath(keyPath) else { return }
-		if tableView(aTableView, willSelectRowAt: indexPath) != nil {
-			aTableView.selectRow(at: indexPath, animated: animated, scrollPosition: scrollPosition)
+	public func select(keyPath: ItemPath, animated: Bool = true, scrollPosition: UITableView.ScrollPosition = .none, triggerDelegate: Bool = false) {
+		guard let tableView = tableView, let indexPath = indexPathFromKeyPath(keyPath) else { return }
+		if delegate.tableView(tableView, willSelectRowAt: indexPath) != nil {
+			tableView.selectRow(at: indexPath, animated: animated, scrollPosition: scrollPosition)
 			if triggerDelegate {
-				tableView(aTableView, didSelectRowAt: indexPath)
+				delegate.tableView(tableView, didSelectRowAt: indexPath)
 			}
 		}
 	}
@@ -441,14 +408,29 @@ public class FunctionalTableData: NSObject {
 	///   - keyPath: A key path identifying a row in the table view.
 	///   - animated: `true` to animate to the new scroll position, or `false` to scroll immediately.
 	///   - scrollPosition: Specifies where the item specified by `keyPath` should be positioned once scrolling finishes.
-	public func scroll(to keyPath: KeyPath, animated: Bool = true, scrollPosition: UITableView.ScrollPosition = .bottom) {
-		guard let aTableView = tableView, let indexPath = indexPathFromKeyPath(keyPath) else { return }
-		aTableView.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
+	public func scroll(to keyPath: ItemPath, animated: Bool = true, scrollPosition: UITableView.ScrollPosition = .bottom) {
+		guard let tableView = tableView, let indexPath = indexPathFromKeyPath(keyPath) else { return }
+		tableView.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
+	}
+	
+	/// Returns the currently highlighted row
+	public var highlightedRow: ItemPath? {
+		return cellStyler.highlightedRow
+	}
+	
+	/// Highlights the row at the given ItemPath
+	///
+	/// - Parameters:
+	///   - itemPath: The `ItemPath` to highlight. Pass nil to unhighlight any previously highlighted row.
+	///   - animated: `true` to highlight/unhighlight with animations, `false` otherwise.
+	public func highlightRow(at itemPath: ItemPath?, animated: Bool) {
+		guard let tableView = tableView else { return }
+		cellStyler.highlightRow(at: itemPath, animated: animated, in: tableView)
 	}
 	
 	/// - Parameter point: The point in the collection view’s bounds that you want to test.
 	/// - Returns: the keypath of the item at the specified point, or `nil` if no item was found at that point.
-	public func keyPath(at point: CGPoint) -> KeyPath? {
+	public func keyPath(at point: CGPoint) -> ItemPath? {
 		guard let indexPath = tableView?.indexPathForRow(at: point) else {
 			return nil
 		}
@@ -456,12 +438,8 @@ public class FunctionalTableData: NSObject {
 		return keyPathForIndexPath(indexPath: indexPath)
 	}
 	
-	public func indexPathFromKeyPath(_ keyPath: KeyPath) -> IndexPath? {
-		if let sectionIndex = sections.index(where: { $0.key == keyPath.sectionKey }), let rowIndex = sections[sectionIndex].rows.index(where: { $0.key == keyPath.rowKey }) {
-			return IndexPath(row: rowIndex, section: sectionIndex)
-		}
-		
-		return nil
+	public func indexPathFromKeyPath(_ keyPath: ItemPath) -> IndexPath? {
+		return data.sections.indexPath(from: keyPath)
 	}
 	
 	internal func calculateTableChanges(oldSections: [TableSection], newSections: [TableSection], visibleIndexPaths: [IndexPath]) -> TableSectionChangeSet {
@@ -524,274 +502,5 @@ extension UITableView {
 	public func indexPath(for view: UIView) -> IndexPath? {
 		guard let cell: UITableViewCell = view.typedSuperview() else { return nil }
 		return self.indexPath(for: cell)
-	}
-}
-
-extension FunctionalTableData: UITableViewDataSource {
-	public func numberOfSections(in tableView: UITableView) -> Int {
-		return sections.count
-	}
-	
-	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return sections[section].rows.count
-	}
-	
-	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let sectionData = sections[indexPath.section]
-		let row = indexPath.row
-		let cellConfig = sectionData[row]
-		let cell = cellConfig.dequeueCell(from: tableView, at: indexPath)
-		cell.accessibilityIdentifier = sectionData.sectionKeyPathForRow(row)
-		
-		cellConfig.update(cell: cell, in: tableView)
-		let style = sectionData.mergedStyle(for: row)
-		style.configure(cell: cell, in: tableView)
-		
-		return cell
-	}
-	
-	public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-		// Should only ever be moving within section
-		assert(sourceIndexPath.section == destinationIndexPath.section)
-		
-		// Update internal state to match move
-		let cell = sections[sourceIndexPath.section].rows.remove(at: sourceIndexPath.row)
-		sections[destinationIndexPath.section].rows.insert(cell, at: destinationIndexPath.row)
-		
-		sections[sourceIndexPath.section].didMoveRow?(sourceIndexPath.row, destinationIndexPath.row)
-	}
-}
-
-extension FunctionalTableData: UITableViewDelegate {
-	public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		guard let header = sections[section].header else {
-			// When given a height of zero grouped style UITableView's use their default value instead of zero. By returning CGFloat.min we get around this behavior and force UITableView to end up using a height of zero after all.
-			return tableView.style == .grouped ? CGFloat.leastNormalMagnitude : 0
-		}
-		return header.height
-	}
-	
-	public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-		guard let footer = sections[section].footer else {
-			// When given a height of zero grouped style UITableView's use their default value instead of zero. By returning CGFloat.min we get around this behavior and force UITableView to end up using a height of zero after all.
-			return tableView.style == .grouped ? CGFloat.leastNormalMagnitude : 0
-		}
-		return footer.height
-	}
-	
-	public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-		guard indexPath.section < sections.count else { return UITableView.automaticDimension }
-		if let indexKeyPath = sections[indexPath.section].sectionKeyPathForRow(indexPath.row), let height = heightAtIndexKeyPath[indexKeyPath] {
-			return height
-		} else {
-			return UITableView.automaticDimension
-		}
-	}
-	
-	public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		guard let header = sections[section].header else { return nil }
-		return header.dequeueHeaderFooter(from: tableView)
-	}
-	
-	public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-		guard let footer = sections[section].footer else { return nil }
-		return footer.dequeueHeaderFooter(from: tableView)
-	}
-	
-	public func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-		let cellConfig = sections[indexPath]
-		return cellConfig?.actions.selectionAction != nil
-	}
-	
-	public func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-		if tableView.indexPathForSelectedRow == indexPath {
-			return nil
-		}
-		
-		guard let cellConfig = sections[indexPath], let selectionAction = cellConfig.actions.selectionAction else {
-			return nil
-		}
-		
-		let currentSelection = tableView.indexPathForSelectedRow
-		
-		if let canSelectAction = cellConfig.actions.canSelectAction, let selectedCell = tableView.cellForRow(at: indexPath) {
-			let canSelectResult: (Bool) -> Void = { selected in
-				if #available(iOSApplicationExtension 10.0, *) {
-					dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
-				}
-				if selected {
-					selectedCell.setHighlighted(false, animated: false)
-					
-					if selectionAction(selectedCell) == .selected {
-						tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-					} else {
-						tableView.deselectRow(at: indexPath, animated: false)
-					}
-					
-					if !tableView.allowsMultipleSelection, let currentSelection = currentSelection {
-						tableView.cellForRow(at: currentSelection)?.setHighlighted(false, animated: false)
-						tableView.deselectRow(at: currentSelection, animated: false)
-					}
-				} else {
-					selectedCell.setHighlighted(false, animated: true)
-				}
-			}
-			DispatchQueue.main.async {
-				selectedCell.setHighlighted(true, animated: false)
-				canSelectAction(canSelectResult)
-			}
-			return nil
-		} else {
-			return indexPath
-		}
-	}
-	
-	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		guard let cell = tableView.cellForRow(at: indexPath) else { return }
-		let cellConfig = sections[indexPath]
-		
-		let selectionState = cellConfig?.actions.selectionAction?(cell) ?? .deselected
-		if selectionState == .deselected {
-			DispatchQueue.main.async {
-				tableView.deselectRow(at: indexPath, animated: true)
-			}
-		}
-	}
-	
-	public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		guard let cell = tableView.cellForRow(at: indexPath) else { return }
-		let cellConfig = sections[indexPath]
-		
-		let selectionState = cellConfig?.actions.deselectionAction?(cell) ?? .deselected
-		if selectionState == .selected {
-			DispatchQueue.main.async {
-				tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-			}
-		}
-	}
-	
-	public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-		guard indexPath.section < sections.count else { return }
-		
-		if let indexKeyPath = sections[indexPath.section].sectionKeyPathForRow(indexPath.row) {
-			heightAtIndexKeyPath[indexKeyPath] = cell.bounds.height
-		}
-		
-		if let cellConfig = sections[indexPath] {
-			cellConfig.actions.visibilityAction?(cell, true)
-			return
-		}
-	}
-	
-	public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-		if let cellConfig = sections[indexPath] {
-			cellConfig.actions.visibilityAction?(cell, false)
-			return
-		}
-	}
-	
-	public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-		let tableSection = sections[section]
-		tableSection.headerVisibilityAction?(view, true)
-	}
-	
-	public func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
-		guard section < sections.count else { return }
-		let tableSection = sections[section]
-		tableSection.headerVisibilityAction?(view, false)
-	}
-	
-	public func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
-		let cellConfig = sections[indexPath]
-		return cellConfig?.actions.canPerformAction != nil
-	}
-	
-	public func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-		let cellConfig = sections[indexPath]
-		return cellConfig?.actions.canPerformAction?(action) ?? false
-	}
-	
-	public func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
-		// required
-	}
-	
-	public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-		let cellConfig = sections[indexPath]
-		return cellConfig?.actions.rowActions != nil ? .delete : .none
-	}
-	
-	public func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-		return false
-	}
-	
-	public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-		return sections[indexPath]?.actions.canBeMoved ?? false
-	}
-	
-	public func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
-		return sourceIndexPath.section == proposedDestinationIndexPath.section ? proposedDestinationIndexPath : sourceIndexPath
-	}
-	
-	public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-		let cellConfig = sections[indexPath]
-		return cellConfig?.actions.rowActions != nil || self.tableView(tableView, canMoveRowAt: indexPath)
-	}
-	
-	public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-		let cellConfig = sections[indexPath]
-		return cellConfig?.actions.rowActions
-	}
-	
-	// MARK: - UIScrollViewDelegate
-	
-	/// This is an undocumented optional `UIScrollViewDelegate` method that is not exposed by the public protocol
-	/// but will still get called on delegates that implement it. Because it is not publicly exposed,
-	/// the Swift 4 compiler will not automatically annotate it as @objc, requiring this manual annotation.
-	@objc public func scrollViewDidChangeContentSize(_ scrollView: UIScrollView) {
-		scrollViewDidChangeContentSize?(scrollView)
-	}
-	
-	public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		scrollViewDidScroll?(scrollView)
-	}
-	
-	public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-		scrollViewWillBeginDragging?(scrollView)
-	}
-	
-	public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-		scrollViewWillEndDragging?(scrollView, velocity, targetContentOffset)
-	}
-	
-	public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-		scrollViewDidEndDragging?(scrollView, decelerate)
-	}
-	
-	public func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-		scrollViewWillBeginDecelerating?(scrollView)
-	}
-	
-	public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-		scrollViewDidEndDecelerating?(scrollView)
-	}
-	
-	public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-		scrollViewDidEndScrollingAnimation?(scrollView)
-	}
-	
-	public func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-		return scrollViewShouldScrollToTop?(scrollView) ?? true
-	}
-	
-	public func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-		scrollViewDidScrollToTop?(scrollView)
-	}
-}
-
-// MARK: - UIScrollViewAccessibilityDelegate
-
-extension FunctionalTableData: UIScrollViewAccessibilityDelegate {
-	public func accessibilityScrollStatus(for scrollView: UIScrollView) -> String? {
-		return scrollViewAccessibilityScrollStatus?(scrollView)
 	}
 }

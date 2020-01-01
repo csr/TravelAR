@@ -19,7 +19,7 @@ No longer do you have to manually track the number of sections, cells, and indic
 
 ### Manual
 
-Simply drag and drop the `FunctionalTableData/FunctionalTableData` folder into your Xcode project.
+Simply drag and drop `FunctionalTableData/FunctionalTableData.xcodeproj` into your Xcode project.
 
 ### Carthage
 
@@ -122,6 +122,15 @@ LabelCell(key: "company", state: LabelState(text: "Shopify",
 ```
 
 At the end of the day `HostCell` is just one of the possible implementations of `CellConfigType`, that's the underlying power of this framework.
+
+For examples of more complex cells, check out the [demo app](https://github.com/Shopify/FunctionalTableData/blob/master/FunctionalTableDataDemo).
+
+## Other resources
+
+- [Building Apps with FunctionalTableData](https://medium.com/@raulriera/building-apps-with-functionaltabledata-c99bfaa7e2e5).
+- [FunctionalTableData and Interface Builder 🎨✨](https://medium.com/@raulriera/using-interface-builder-and-code-%EF%B8%8F-d9db30269d1d).
+
+Seen other articles in the wild? Feel free to open a [pull request](https://github.com/Shopify/FunctionalTableData/pulls).
 
 ## License
 Functional Table Data is under the [MIT License](https://github.com/Shopify/FunctionalTableData/blob/master/LICENSE.txt)

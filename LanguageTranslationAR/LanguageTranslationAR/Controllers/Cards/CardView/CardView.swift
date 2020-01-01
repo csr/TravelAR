@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import RandomColor
+//import RandomColor
 
 class CardView: UIView {
     
     var frontView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        let bgColor = randomColor(hue: .orange, luminosity: .dark)
+        let bgColor = UIColor.red
         view.backgroundColor = bgColor
         return view
     }()

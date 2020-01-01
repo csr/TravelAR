@@ -57,24 +57,24 @@ extension HistoryController {
                                   selectionColor: UIColor(named: "selectedCell"),
                                   backgroundColor: .black)
         
-        let rows: [CellConfigType] = getSourceArray().enumerated().map { index, item in
-            return HistoryCell(
-                key: "index-\(index)-\(item.translatedText)",
-                style: cellStyle,
-                actions: CellActions(
-                    selectionAction: { _ in
-                        self.didSelectCell(translation: item)
-                        return .selected
-                },
-                    deselectionAction: { _ in
-                        return .deselected
-                }, rowActions: [deleteRowAction]),
-                state: HistoryState(translationItem: item),
-                cellUpdater: HistoryState.updateView)
-        }
+//        let rows: [CellConfigType] = getSourceArray().enumerated().map { index, item in
+//            return HistoryCell(
+//                key: "index-\(index)-\(item.translatedText)",
+//                style: cellStyle,
+//                actions: CellActions(
+//                    selectionAction: { _ in
+//                        self.didSelectCell(translation: item)
+//                        return .selected
+//                },
+//                    deselectionAction: { _ in
+//                        return .deselected
+//                }, rowActions: [deleteRowAction]),
+//                state: HistoryState(translationItem: item),
+//                cellUpdater: HistoryState.updateView)
+//        }
         
         functionalData.renderAndDiff([
-            TableSection(key: "section", rows: rows)
+            TableSection(key: "section", rows: [])
             ])
     }
     

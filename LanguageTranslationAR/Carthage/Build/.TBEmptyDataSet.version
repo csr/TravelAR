@@ -1,9 +1,10 @@
 {
-  "commitish" : "2.9",
+  "commitish" : "3.0.2",
   "iOS" : [
     {
       "name" : "TBEmptyDataSet",
-      "hash" : "b672ad2dbece84936d7b9e55c40befa926181d45106f3068ae33f7c3d97d96f7"
+      "hash" : "0ac454d337de60f2bb6e94b17aaf3b11ddf57243528e327a2cda1d1517445c35",
+      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
     }
   ]
 }

@@ -134,7 +134,11 @@ public final class TableSectionChangeSet {
 				if oldSectionIndex < old.count && new[newSectionIndex].key == old[oldSectionIndex].key {
 					// Skip over equal sections
 					repeat {
-						compareRows(newRows: &newRows, oldRows: &oldRows, oldSectionIndex: oldSectionIndex, newSectionIndex: newSectionIndex)
+						if headerOrFooterChanged(oldSectionIndex: oldSectionIndex, newSectionIndex: newSectionIndex) {
+							reloadedSections.insert(oldSectionIndex)
+						} else {
+							compareRows(newRows: &newRows, oldRows: &oldRows, oldSectionIndex: oldSectionIndex, newSectionIndex: newSectionIndex)
+						}
 						oldSectionIndex += 1
 						newSectionIndex += 1
 					} while oldSectionIndex < old.count &&
@@ -165,6 +169,22 @@ public final class TableSectionChangeSet {
 			return false
 		}
 		return new.section.mergedStyle(for: new.row) == old.section.mergedStyle(for: old.row)
+	}
+
+	private func headerOrFooterChanged(oldSectionIndex: Int, newSectionIndex: Int) -> Bool {
+		let oldHeader = old[oldSectionIndex].header
+		let newHeader = new[newSectionIndex].header
+		guard oldHeader?.isEqual(newHeader) ?? (newHeader == nil) else {
+			return true
+		}
+
+		let oldFooter = old[oldSectionIndex].footer
+		let newFooter = new[newSectionIndex].footer
+		guard oldFooter?.isEqual(newFooter) ?? (newFooter == nil) else {
+			return true
+		}
+
+		return false
 	}
 
 	private func compareRows(newRows: inout Set<String>, oldRows: inout [String: Int], oldSectionIndex: Int, newSectionIndex: Int) {
@@ -205,13 +225,13 @@ public final class TableSectionChangeSet {
 						let newRow = newSection[newRowIndex]
 						// Compare existing row
 						if visibleIndexPaths.contains(IndexPath(row: oldRowIndex, section: oldSectionIndex)) && !isRow(new: (section: newSection, row: newRowIndex), equalTo: (section: oldSection, row: oldRowIndex)) {
-							if type(of: newRow) == type(of: oldSection[oldRowIndex]) {
+							if newRow.isSameKind(as: oldSection[oldRowIndex]) {
 								updates.append(Update(
 									index: IndexPath(row: newRowIndex, section: newSectionIndex),
 									cellConfig: newRow
 								))
 							} else {
-								reloadedRows.append(IndexPath(row: newRowIndex, section: newSectionIndex))
+								reloadedRows.append(IndexPath(row: oldRowIndex, section: oldSectionIndex))
 							}
 						}
 						oldRowIndex += 1
@@ -229,13 +249,13 @@ public final class TableSectionChangeSet {
 						from: IndexPath(row: oldRowIndexLocation, section: oldSectionIndex),
 						to: IndexPath(row: newRowIndex, section: newSectionIndex)))
 					if visibleIndexPaths.contains(IndexPath(row: oldRowIndexLocation, section: oldSectionIndex)) && !isRow(new: (section: newSection, row: newRowIndex), equalTo: (section: oldSection, row: oldRowIndexLocation)) {
-						if type(of: newRow) == type(of: oldSection[oldRowIndex]) {
+						if newRow.isSameKind(as: oldSection[oldRowIndexLocation]) {
 							updates.append(Update(
 								index: IndexPath(row: newRowIndex, section: newSectionIndex),
 								cellConfig: newRow
 							))
 						} else {
-							reloadedRows.append(IndexPath(row: newRowIndex, section: newSectionIndex))
+							reloadedRows.append(IndexPath(row: oldRowIndexLocation, section: oldSectionIndex))
 						}
 					}
 					newRowIndex += 1

@@ -50,8 +50,8 @@ public class TranslateController: UIViewController {
         preferences.drawing.backgroundColor = #colorLiteral(red: 0.1411563158, green: 0.1411880553, blue: 0.1411542892, alpha: 1)
         preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.top
         preferences.drawing.cornerRadius = 15
-        preferences.positioning.textHInset = 12
-        preferences.positioning.textVInset = 12
+//        preferences.positioning.textHInset = 12
+//        preferences.positioning.textVInset = 12
         
         let tipView = EasyTipView(text: "TOOL_TIP_ADD_BUTTON".localized, preferences: preferences)
         return tipView

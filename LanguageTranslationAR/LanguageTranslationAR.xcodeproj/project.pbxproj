@@ -55,9 +55,7 @@
 		1D65246021CA735800EB2D5C /* CardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245F21CA735800EB2D5C /* CardsController.swift */; };
 		1D65E4DE21CE612800DB52A5 /* Flags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4D821CE612700DB52A5 /* Flags.framework */; };
 		1D65E4DF21CE612800DB52A5 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4D921CE612700DB52A5 /* EasyTipView.framework */; };
-		1D65E4E021CE612800DB52A5 /* RandomColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DA21CE612700DB52A5 /* RandomColor.framework */; };
 		1D65E4E121CE612800DB52A5 /* TBEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DB21CE612700DB52A5 /* TBEmptyDataSet.framework */; };
-		1D65E4E221CE612800DB52A5 /* ZLSwipeableViewSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DC21CE612800DB52A5 /* ZLSwipeableViewSwift.framework */; };
 		1D65E4E321CE612800DB52A5 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DD21CE612800DB52A5 /* FunctionalTableData.framework */; };
 		1D65E4E521CE6BC700DB52A5 /* TranslationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E421CE6BC700DB52A5 /* TranslationNode.swift */; };
 		1D65E4E721CE6CAF00DB52A5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */; };
@@ -157,9 +155,7 @@
 		1D65245F21CA735800EB2D5C /* CardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsController.swift; sourceTree = "<group>"; };
 		1D65E4D821CE612700DB52A5 /* Flags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flags.framework; path = Carthage/Build/iOS/Flags.framework; sourceTree = "<group>"; };
 		1D65E4D921CE612700DB52A5 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
-		1D65E4DA21CE612700DB52A5 /* RandomColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RandomColor.framework; path = Carthage/Build/iOS/RandomColor.framework; sourceTree = "<group>"; };
 		1D65E4DB21CE612700DB52A5 /* TBEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TBEmptyDataSet.framework; path = Carthage/Build/iOS/TBEmptyDataSet.framework; sourceTree = "<group>"; };
-		1D65E4DC21CE612800DB52A5 /* ZLSwipeableViewSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZLSwipeableViewSwift.framework; path = Carthage/Build/iOS/ZLSwipeableViewSwift.framework; sourceTree = "<group>"; };
 		1D65E4DD21CE612800DB52A5 /* FunctionalTableData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalTableData.framework; path = Carthage/Build/iOS/FunctionalTableData.framework; sourceTree = "<group>"; };
 		1D65E4E421CE6BC700DB52A5 /* TranslationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNode.swift; sourceTree = "<group>"; };
 		1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -198,10 +194,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D65E4E021CE612800DB52A5 /* RandomColor.framework in Frameworks */,
 				1D65E4DE21CE612800DB52A5 /* Flags.framework in Frameworks */,
 				1D65E4DF21CE612800DB52A5 /* EasyTipView.framework in Frameworks */,
-				1D65E4E221CE612800DB52A5 /* ZLSwipeableViewSwift.framework in Frameworks */,
 				1D65E4E321CE612800DB52A5 /* FunctionalTableData.framework in Frameworks */,
 				1D65E4E121CE612800DB52A5 /* TBEmptyDataSet.framework in Frameworks */,
 			);
@@ -324,9 +318,7 @@
 				1D65E4D921CE612700DB52A5 /* EasyTipView.framework */,
 				1D65E4D821CE612700DB52A5 /* Flags.framework */,
 				1D65E4DD21CE612800DB52A5 /* FunctionalTableData.framework */,
-				1D65E4DA21CE612700DB52A5 /* RandomColor.framework */,
 				1D65E4DB21CE612700DB52A5 /* TBEmptyDataSet.framework */,
-				1D65E4DC21CE612800DB52A5 /* ZLSwipeableViewSwift.framework */,
 				1D441E2A20726EFE005E2ADD /* LanguageTranslationAR */,
 				1D441E2920726EFE005E2ADD /* Products */,
 			);
@@ -653,8 +645,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/FunctionalTableData.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Flags.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TBEmptyDataSet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZLSwipeableViewSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RandomColor.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/EasyTipView.framework",
 			);
 			name = Carthage;

@@ -10,12 +10,19 @@ import UIKit
 
 // MARK: Header specific item config
 
-@available(*, deprecated: 1.0, message: "Use `TableHeaderFooterConfigType` instead.")
+@available(*, deprecated, message: "Use `TableHeaderFooterConfigType` instead.")
 public typealias TableHeaderConfigType = TableHeaderFooterConfigType
 
 public protocol TableHeaderFooterConfigType: TableItemConfigType {
 	func dequeueHeaderFooter(from tableView: UITableView) -> UITableViewHeaderFooterView?
+	func isEqual(_ other: TableHeaderFooterConfigType?) -> Bool
 	var height: CGFloat { get }
+}
+
+public extension TableHeaderFooterConfigType {
+	func isEqual(_ other: TableHeaderFooterConfigType?) -> Bool {
+		return (other as? Self) != nil
+	}
 }
 
 public protocol TableHeaderFooterStateType {

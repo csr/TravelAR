@@ -3,7 +3,8 @@
   "iOS" : [
     {
       "name" : "Flags",
-      "hash" : "50773e4714a34a26040096fa464ff7c6336a2ae279347f44ab478b7e091acbf1"
+      "hash" : "74f1b5e63e0de72b73ac8e619a39fa3c15902cd1fa26c8ccf3c4303d32040702",
+      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
     }
   ]
 }

@@ -11,15 +11,15 @@ import Foundation
 enum Keys: String {
     case GoogleAPIKey
     var value: String {
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent(rawValue)
-            do {
-                let key = try String(contentsOf: fileURL, encoding: .utf8)
-                return key
-            }
-            catch {
-                print("An error occured while loading the key")
-            }
+        guard let path = Bundle.main.path(forResource: rawValue, ofType: "txt") else {
+            print("Invalid path while retrieving key")
+            return ""
+        }
+        do {
+            let string = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            return string
+        } catch {
+            print("An error occured while loading the key:", error)
         }
         return ""
     }

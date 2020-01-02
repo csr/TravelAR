@@ -22,7 +22,7 @@ class TabBarController: UITabBarController {
     }
     
     private func getViewControllers() -> [UIViewController] {
-        let vc = [TranslateController(), HistoryController(), CardsController(), SettingsController()]
+        let vc = [TranslateController(), HistoryController(), SettingsController()]
         
         let navControllers = ApplicationTab.allCases.enumerated().map { (index, tab) -> UIViewController in
             let viewController = vc[index]

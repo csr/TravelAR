@@ -79,6 +79,11 @@ class PermissionsController: UIViewController {
     }
     
     func cameraSelected() {
+        if Platform.isSimulator {
+            self.proceedWithOnboarding()
+            return
+        }
+        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let authStatus = AVCaptureDevice.authorizationStatus(for: .video)
             switch authStatus {

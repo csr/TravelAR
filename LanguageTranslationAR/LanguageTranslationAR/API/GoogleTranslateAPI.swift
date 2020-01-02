@@ -33,7 +33,7 @@ class GoogleTranslateAPI {
                     transl.originalText = text
                     completion(transl)
                 } else {
-                    print("Error while decoding translation data")
+                    print("Error while decoding translation data. body:", String(data: data, encoding: .utf8)!)
                 }
             } else {
                 print("Error: data nil")
@@ -44,10 +44,17 @@ class GoogleTranslateAPI {
     
     class func getAvailableLanguages(targetLanguage: String, completion: @escaping ([Language]) -> Void) {
         let session = URLSession(configuration: .default)
-        guard let url = URL(string: "https://translation.googleapis.com/language/translate/v2/languages?target=\(targetLanguage)&key=\(Keys.GoogleAPIKey)") else {
+        let googleKey = Keys.GoogleAPIKey.value
+        
+        let queryItems = [NSURLQueryItem(name: "target", value: targetLanguage), NSURLQueryItem(name: "key", value: googleKey)]
+        let urlComps = NSURLComponents(string: "https://translation.googleapis.com/language/translate/v2/languages")!
+        urlComps.queryItems = queryItems as [URLQueryItem]
+        guard let url = urlComps.url else {
             print("error: invalid URL while getting languages")
+            completion([])
             return
         }
+            
         let request = URLRequest(url: url)
         session.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -58,7 +65,7 @@ class GoogleTranslateAPI {
                 let languageData = try? decoder.decode(LanguageData.self, from: data)
                 completion(languageData?.data.languages ?? [])
             } else {
-                print("Could not parse data")
+                print("Could not parse getAvailableLanguages data")
             }
         }.resume()
     }

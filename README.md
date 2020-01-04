@@ -5,7 +5,9 @@ Hey Shopify 👋 Thank you for checking out my app. TravelAR makes traveling and
 | Point and translate  | Listen and learn | Listen and learn |
 | ------------- | ------------- | ------------- |
 | ![](/Screenshots/appstore_1.jpg?raw=true)  | ![](/Screenshots/appstore_2.jpg?raw=true) | ![](/Screenshots/appstore_3.jpg?raw=true)  |
+
 | Play with flashcards  | Review with what you learn | Review with what you learn |
+| ------------- | ------------- | ------------- |
 | ![](/Screenshots/onboarding_1.png?raw=true)  | ![](/Screenshots/onboarding_2.png?raw=true)  | ![](/Screenshots/onboarding_3.png?raw=true)  |
 
 ## How I built TravelAR

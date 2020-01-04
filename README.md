@@ -5,6 +5,7 @@ Hey Shopify 👋 Thank you for checking out my app. TravelAR makes traveling and
 Point and translate        |  Listen and learn
 :-------------------------:|:-------------------------:
 ![](/Screenshots/appstore_1.jpg?raw=true)  |  ![](/Screenshots/appstore_2.jpg?raw=true)
+Point and translate        |  Listen and learn
 :-------------------------:|:-------------------------:
 ![](/Screenshots/appstore_3.jpg?raw=true)  |  ![](/Screenshots/appstore_4.jpg?raw=true)
 

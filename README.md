@@ -6,7 +6,7 @@ Hey Shopify 👋 Thank you for checking out my app. TravelAR makes traveling and
 | ------------- | ------------- | ------------- |
 | ![](/Screenshots/appstore_1.jpg?raw=true)  | ![](/Screenshots/appstore_2.jpg?raw=true) | ![](/Screenshots/appstore_3.jpg?raw=true)  |
 
-| Play with flashcards  | Review with what you learn | Review with what you learn |
+| Play with flashcards  | Review with what you learn | Select language from list |
 | ------------- | ------------- | ------------- |
 | ![](/Screenshots/onboarding_1.png?raw=true)  | ![](/Screenshots/onboarding_2.png?raw=true)  | ![](/Screenshots/onboarding_3.png?raw=true)  |
 

@@ -5,10 +5,9 @@ Hey Shopify 👋 Thank you for checking out my app. TravelAR makes traveling and
 | Point and translate  | Listen and learn | Listen and learn |
 | ------------- | ------------- | ------------- |
 | ![](/Screenshots/appstore_1.jpg?raw=true)  | ![](/Screenshots/appstore_2.jpg?raw=true) | ![](/Screenshots/appstore_3.jpg?raw=true)  |
-
-| Play with flashcards  | Review with what you learn |
-| ------------- | ------------- |
-| ![](/Screenshots/onboarding_2.jpg?raw=true)  | ![](/Screenshots/appstore_4.jpg?raw=true)  |
+| Play with flashcards  | Review with what you learn | Review with what you learn |
+| ------------- | ------------- | ------------- |
+| ![](/Screenshots/onboarding_1.png?raw=true)  | ![](/Screenshots/onboarding_2.png?raw=true)  | ![](/Screenshots/onboarding_3.png?raw=true)  |
 
 ## How I built TravelAR
 When people travel to a new country, it’s hard to learn to speak the local language, so we rely on gestures and facial expressions to communicate, without much success. I have always wanted to be able to point my device at an object and know the name of that object in another language, so I’ve decided to build a Swift app that does just that. 

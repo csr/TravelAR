@@ -18,7 +18,7 @@ When people travel to a new country, it’s hard to learn to speak the local lan
 ![build status](https://build.appcenter.ms/v0.1/apps/e0928fc1-253b-4e65-81cd-01e013fd6c0d/branches/master/badge)
 
 ## Building the app
-To test the app, add your own Google Cloud key by creating a file `GoogleAPIKey.txt` inside the main project directory. The app will automatically parse the key inside the file to make requests to the Translation API.
+To get the most out of the app, add your own Google Cloud key by creating a file `GoogleAPIKey.txt` inside the main project directory. The app will automatically parse the key inside the file to make requests to the Translation API.
 
 ## License
 TravelAR is under the [MIT License](https://github.com/cesaredecal/TravelAR/blob/master/LICENSE.txt)

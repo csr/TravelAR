@@ -1,5 +1,5 @@
 # TravelAR
-Hey Shopify 👋 Thank you for checking out my app. TravelAR makes traveling and learning new languages easy by translating anything around you using your phone camera, machine learning and augmented reality.
+TravelAR makes traveling and learning new languages easy by translating anything around you using your phone camera, machine learning and augmented reality.
 
 ## Screenshots
 | Point and translate  | Listen and learn | Listen and learn |

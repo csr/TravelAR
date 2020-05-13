@@ -37,6 +37,25 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
         tableView.emptyDataSetDelegate = self
     }
     
+    private func populateWithDemoData() {
+        let languagesToTranslateTo = ["ar", "be", "am", "hr", "nl", "es", "ch", "ro", "ne"]
+        for i in 1...9 {
+            let targetLanguage = languagesToTranslateTo[i-1]
+            let originalText = "ORIGINAL_TEXT_\(i)".localized
+            let sourceLanguage = LanguagePreferences.getLocaleLanguageCode()
+            
+            GoogleTranslateAPI.shared.getTranslation(for: originalText, sourceLanguage: sourceLanguage, targetLanguage: targetLanguage) { result in
+                switch result {
+                case .success(let translation):
+                    TranslationItems.shared.add(object: translation)
+                    self.render()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+
     private func setupSearchController() {
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self

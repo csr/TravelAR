@@ -7,6 +7,7 @@ TravelAR is an iOS app that makes traveling and learning new languages easy by t
 * Powered by CoreML, ARKit, and the Google Cloud Translation API
 * Auto Layout written entirely with code (no Storyboards/XIBs)
 * Supports localization with localizable strings
+* Continous Integration with AppCenter.ms (looking into transitioning to Travis CI)
 
 ![](demo.gif)
 
@@ -17,6 +18,9 @@ When people travel to a new country, it’s hard to learn to speak the local lan
 
 ## Building the app
 To run the app, first run `carthage update` to update the dependencies. Then, place your Google Cloud Platform Translate API key in the `GoogleAPIKey.txt` file at root level. Although this is not necessary for the app to run, you will need to include the ky to in order to make requests to the Translation API.
+
+## Techical Details
+At a high level, the app uses a local machine learning model (Inception V3) to perform object recognition via CoreML by analyzing the incoming camera frames. If the user taps on the plus button and an object in-view was successfully recognized, we send the object name along with the target language (the language we want to translate to) to the Google Cloud Platform API. After the API gets back to the app with the result, we create a ARKit node with the translated text and place it on the object that's been recognized. These results are cached locally to save on the number of API calls. The user can tap the ARKit view to learn more about the translation and listen to the correct pronounciation with AVSpeechSynthesizer. To get started with the project, you can take a look at the `TranslateController` class which handles the app core functionality. 
 
 ## Screenshots
 | Welcome  | Camera permission | Language selection |

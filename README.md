@@ -8,6 +8,8 @@ TravelAR is an iOS app that makes traveling and learning new languages easy by t
 * Auto Layout written entirely with code (no Storyboards/XIBs)
 * Supports localization with localizable strings
 
+![](demo.gif)
+
 ## How I built TravelAR
 When people travel to a new country, it’s hard to learn to speak the local language, so we rely on gestures and facial expressions to communicate, without much success. I have always wanted to be able to point my device at an object and know the name of that object in another language, so I’ve decided to build a Swift app that does just that. 
 

@@ -17,6 +17,7 @@
 		1D17BE7121D8F320005243E8 /* CardTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */; };
 		1D17BE7321D914EF005243E8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7221D914EF005243E8 /* Dictionary.swift */; };
 		1D1A8EBA246BCEE8006111FF /* GoogleAPIKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1D1A8EB9246BCEE8006111FF /* GoogleAPIKey.txt */; };
+		1D1A8EBC246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */; };
 		1D1E34CB21D8C23C0096CEAB /* TestingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */; };
 		1D1E34CF21D8C73E0096CEAB /* CardsController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */; };
 		1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77921D3AD9100364C59 /* SettingsView.swift */; };
@@ -80,7 +81,7 @@
 		1DEC7D2121C69C4300BBEDD3 /* AddButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */; };
 		1DEC7D2521C6CFCE00BBEDD3 /* ARDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */; };
 		1DEC7D2B21C6F40200BBEDD3 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */; };
-		1DEC7D3221C7CB8900BBEDD3 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D3121C7CB8900BBEDD3 /* CustomView.swift */; };
+		1DEC7D3221C7CB8900BBEDD3 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D3121C7CB8900BBEDD3 /* CustomARView.swift */; };
 		1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE6F2E21BB1363006D3830 /* SettingsController.swift */; };
 		1DF2BCF021C1A7DC00D5E29B /* LanguagesController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCEF21C1A7DC00D5E29B /* LanguagesController+TableView.swift */; };
 		1DF2BCF221C1AA1C00D5E29B /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */; };
@@ -114,6 +115,7 @@
 		1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleLabel.swift; sourceTree = "<group>"; };
 		1D17BE7221D914EF005243E8 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		1D1A8EB9246BCEE8006111FF /* GoogleAPIKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoogleAPIKey.txt; sourceTree = SOURCE_ROOT; };
+		1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+ARDetailViewDelegate.swift"; sourceTree = "<group>"; };
 		1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingPreferences.swift; sourceTree = "<group>"; };
 		1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardsController+Data.swift"; sourceTree = "<group>"; };
 		1D21F77921D3AD9100364C59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -181,7 +183,7 @@
 		1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonProtocol.swift; sourceTree = "<group>"; };
 		1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARDetailView.xib; sourceTree = "<group>"; };
 		1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
-		1DEC7D3121C7CB8900BBEDD3 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		1DEC7D3121C7CB8900BBEDD3 /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
 		1DEE6F2E21BB1363006D3830 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		1DF2BCEF21C1A7DC00D5E29B /* LanguagesController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesController+TableView.swift"; sourceTree = "<group>"; };
 		1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				1D23B95A20986D1100121E8F /* TranslateController+API.swift */,
 				1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */,
 				1D65E4E921CE708600DB52A5 /* TranslateController+Actions.swift */,
+				1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */,
 			);
 			path = TranslateController;
 			sourceTree = "<group>";
@@ -533,7 +536,7 @@
 		1DEC7D3321C7CB9000BBEDD3 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				1DEC7D3121C7CB8900BBEDD3 /* CustomView.swift */,
+				1DEC7D3121C7CB8900BBEDD3 /* CustomARView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -677,7 +680,7 @@
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
 				1D5AC48623BE9E2800571B10 /* Platform.swift in Sources */,
 				1D745CCD21D22542008A974F /* HistoryController+TableView.swift in Sources */,
-				1DEC7D3221C7CB8900BBEDD3 /* CustomView.swift in Sources */,
+				1DEC7D3221C7CB8900BBEDD3 /* CustomARView.swift in Sources */,
 				1D65E4E521CE6BC700DB52A5 /* TranslationNode.swift in Sources */,
 				1D65E4E721CE6CAF00DB52A5 /* UIView+Extensions.swift in Sources */,
 				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
@@ -712,6 +715,7 @@
 				1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */,
 				1DF2BCF021C1A7DC00D5E29B /* LanguagesController+TableView.swift in Sources */,
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
+				1D1A8EBC246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift in Sources */,
 				1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */,
 				1D65246021CA735800EB2D5C /* CardsController.swift in Sources */,
 				1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */,

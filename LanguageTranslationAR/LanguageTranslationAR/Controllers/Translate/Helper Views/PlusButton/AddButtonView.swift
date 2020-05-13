@@ -17,6 +17,7 @@ class AddButtonView: UIView {
         isOpaque = false
         layer.masksToBounds = true
         layer.cornerRadius = self.frame.height/2
+        translatesAutoresizingMaskIntoConstraints = false
         setupInnerView()
     }
     

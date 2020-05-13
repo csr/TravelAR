@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ARCustomView: UIView {
+// View placed on top of objects in the ARKit scene displaying the real world
+
+class CustomARView: UIView {
     
     private let textLabel: UILabel = {
         let label = UILabel()

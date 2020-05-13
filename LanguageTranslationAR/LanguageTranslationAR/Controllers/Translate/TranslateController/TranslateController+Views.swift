@@ -21,31 +21,31 @@ extension TranslateController: AddButtonProtocol {
             setupCustomView()
         }
         setupAddButton()
-        setupClearButton()
         setupFeedbackView()
         setupScanningView()
         changeScanningState(planesDetected: false)
+        setupClearButton()
     }
-        
+            
     private func setupFeedbackView() {
-        view.addSubview(feedbackView)
-        feedbackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 66).isActive = true
-        feedbackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        view.addSubview(recognizedObjectFeedbackView)
+        recognizedObjectFeedbackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 66).isActive = true
+        recognizedObjectFeedbackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     private func setupScanningView() {
-        view.addSubview(scanningView)
-        scanningView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scanningView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        view.addSubview(moveDeviceToScanView)
+        moveDeviceToScanView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        moveDeviceToScanView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     func changeScanningState(planesDetected: Bool) {
         UIView.animate(withDuration: 0.2) {
-            self.addButton.isHidden = !planesDetected
-            self.feedbackView.isHidden = !planesDetected
+            self.plusButton.isHidden = !planesDetected
+            self.recognizedObjectFeedbackView.isHidden = !planesDetected
             self.clearButtonView.isHidden = !planesDetected
             self.tipView.isHidden = !planesDetected
-            self.scanningView.isHidden = planesDetected
+            self.moveDeviceToScanView.isHidden = planesDetected
         }
         
         if planesDetected {
@@ -54,27 +54,30 @@ extension TranslateController: AddButtonProtocol {
     }
     
     private func setupCustomView() {
-        view.addSubview(customView)
-        customView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
+        view.addSubview(customARView)
+        customARView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
         
         if Testing.isTesting {
-            self.feedbackView.textLabel.text = "TEST_LABEL".localized
+            self.recognizedObjectFeedbackView.textLabel.text = "TEST_LABEL".localized
         }
     }
 
     func setupClearButton() {
         view.addSubview(clearButtonView)
         clearButtonView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 7).isActive = true
-        clearButtonView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -7).isActive = true
+        clearButtonView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -7).isActive = true        
     }
     
     internal func setupAddButton() {
-        view.addSubview(addButton)        
-        addButton.widthAnchor.constraint(equalToConstant: 73).isActive = true
-        addButton.heightAnchor.constraint(equalToConstant: 73).isActive = true
-        addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -39).isActive = true
-        Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(showToolTip), userInfo: nil, repeats: false)
+        view.addSubview(plusButton)        
+        plusButton.widthAnchor.constraint(equalToConstant: 73).isActive = true
+        plusButton.heightAnchor.constraint(equalToConstant: 73).isActive = true
+        plusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        plusButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -39).isActive = true
+        
+        presentTipView()
+        
+        plusButton.delegate = self
     }
     
 	private func setupSceneView() {

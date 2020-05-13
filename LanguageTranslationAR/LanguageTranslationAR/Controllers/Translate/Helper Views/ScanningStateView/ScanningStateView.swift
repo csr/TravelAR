@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+// View that prompts the user to move the device to scan the surface
+
 class ScanningStateView: UIView {
     
     private let instructionLabel: UILabel = {
@@ -34,6 +37,7 @@ class ScanningStateView: UIView {
     }
     
     private func setupView() {
+        translatesAutoresizingMaskIntoConstraints = false
         addSubview(imageView)
         addSubview(instructionLabel)
         imageView.centerToSuperview()

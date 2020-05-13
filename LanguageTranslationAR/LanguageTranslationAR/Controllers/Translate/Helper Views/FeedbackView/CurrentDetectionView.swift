@@ -8,6 +8,9 @@
 
 import UIKit
 
+// This view shows the object name currently recognized by the app
+// If nothing is found, it will show 'Keep moving'
+
 class CurrentDetectionView: UIVisualEffectView {
     
     let textLabel: UILabel = {
@@ -22,9 +25,13 @@ class CurrentDetectionView: UIVisualEffectView {
     override init(effect: UIVisualEffect?) {
         let blurEffect = UIBlurEffect(style: .dark)
         super.init(effect: blurEffect)
-
+        setupView()
+    }
+    
+    private func setupView() {
+        translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 14
-        self.clipsToBounds = true
+        clipsToBounds = true
         contentView.addSubview(textLabel)
         textLabel.fillToSuperview(constant: 13)
     }

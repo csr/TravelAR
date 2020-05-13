@@ -7,35 +7,15 @@
 //
 
 import UIKit
-import AVKit
 import Vision
 import ARKit
-import AVFoundation
 import EasyTipView
  
 public class TranslateController: UIViewController {
 
-    internal var items: [Translation] = []
+    // MARK: - Views
     
-    let feedbackView: CurrentDetectionView = {
-        let view = CurrentDetectionView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    var testImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "test-icecream")
-        return imageView
-    }()
-    
-    var customView: CustomView = {
-        let view = CustomView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
+    // ARKit scene view that displays the camera frames and scene nodes
     lazy var sceneView: ARSCNView = {
         let sceneView = ARSCNView()
         sceneView.delegate = self
@@ -44,29 +24,12 @@ public class TranslateController: UIViewController {
         return sceneView
     }()
     
-    lazy var tipView: EasyTipView = {
-        var preferences = EasyTipView.Preferences()
-        preferences.drawing.font = UIFont.boldSystemFont(ofSize: 19)
-        preferences.drawing.backgroundColor = #colorLiteral(red: 0.1411563158, green: 0.1411880553, blue: 0.1411542892, alpha: 1)
-        preferences.drawing.arrowPosition = .bottom
-        preferences.drawing.cornerRadius = 15        
-        let tipView = EasyTipView(text: "TOOL_TIP_ADD_BUTTON".localized, preferences: preferences)
-        return tipView
-    }()
-    
-    lazy var addButton: AddButtonView = {
-        let view = AddButtonView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.delegate = self
-        return view
-    }()
-    
-    let scanningView: ScanningStateView = {
-        let scanningView = ScanningStateView()
-        scanningView.translatesAutoresizingMaskIntoConstraints = false
-        return scanningView
-    }()
-    
+    // Helper views
+    lazy var recognizedObjectFeedbackView = CurrentDetectionView()
+    lazy var moveDeviceToScanView = ScanningStateView()
+    lazy var customARView = CustomARView()
+    lazy var plusButton = AddButtonView()
+
     lazy var clearButtonView: UIView = {
         let blurEffect = UIBlurEffect(style: .prominent)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -90,26 +53,33 @@ public class TranslateController: UIViewController {
         return blurEffectView
     }()
     
+    // Added on top of plus button to prompt the user to tap the button
+    lazy var tipView: EasyTipView = {
+        var preferences = EasyTipView.Preferences()
+        preferences.drawing.font = UIFont.boldSystemFont(ofSize: 19)
+        preferences.drawing.backgroundColor = #colorLiteral(red: 0.1411563158, green: 0.1411880553, blue: 0.1411542892, alpha: 1)
+        preferences.drawing.arrowPosition = .bottom
+        preferences.drawing.cornerRadius = 15        
+        let tipView = EasyTipView(text: "TOOL_TIP_ADD_BUTTON".localized, preferences: preferences)
+        return tipView
+    }()
+    
     var screenCenter: CGPoint {
         let bounds = self.sceneView.bounds
         return CGPoint(x: bounds.midX, y: bounds.midY)
     }
     
+    // MARK: - AR
     let augmentedRealitySession = ARSession()
     var configuration = ARWorldTrackingConfiguration()
-    
     var focusSquare = FocusSquare()
     var canDisplayFocusSquare = true
+    
+    // MARK: - Vision
     let updateQueue = DispatchQueue(label: "queue")
-
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
-    
-    var identifier: String = "" {
-        didSet {
-            if identifier == oldValue { return }
-        }
-    }
+    var previousObjectPrediction = ""
     
     var shouldPresentARDetailView = true {
         didSet {
@@ -120,23 +90,35 @@ public class TranslateController: UIViewController {
         }
     }
     
-    var shouldShowToolTip = true
+    // For testing, used to replace AR scene view if we're taking app screenshots
+    var testImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "test-icecream")
+        return imageView
+    }()
+
+    // MARK: - View Lifecycle
     
     public override func viewDidLoad() {
 		super.viewDidLoad()
-        setupViews()
+        setupViews()        
 	}
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if Testing.isTesting { return }
+        // If we're running the app to take screenshots or on the simulator
+        // we're not interested in settup up the AR and ML sessions
+        if Testing.isTesting {
+            return
+        }
         
         if isCameraPermissionGranted() {
             presentWelcomeController()
         } else {
             runARSession()
             setupCoreML()
-            scanningView.animateImageView()
+            moveDeviceToScanView.animateImageView()
         }
     }
     
@@ -152,14 +134,7 @@ public class TranslateController: UIViewController {
         navController.modalPresentationStyle = .formSheet
         present(navController, animated: true, completion: nil)
     }
-    
-    @objc func showToolTip() {
-        if shouldShowToolTip {
-            presentTipView()
-            shouldShowToolTip = false
-        }
-    }
-    
+        
     @objc internal func isCameraPermissionGranted() -> Bool {
         let cameraMediaType = AVMediaType.video
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)

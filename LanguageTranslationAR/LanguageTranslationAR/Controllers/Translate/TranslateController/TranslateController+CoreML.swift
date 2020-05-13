@@ -29,7 +29,7 @@ extension TranslateController {
 	}
 	
 	private func loopCoreMLUpdate() {
-		DispatchQueue(label: "com.cesare.ml").async {
+		DispatchQueue(label: "mlPrediction").async {
 			self.updateCoreML()
 			self.loopCoreMLUpdate()
 		}

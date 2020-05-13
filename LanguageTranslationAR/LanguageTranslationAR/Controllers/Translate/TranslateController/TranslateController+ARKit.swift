@@ -23,18 +23,18 @@ extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
         let currentLanguage = LanguagePreferences.getCurrent()
         let langCode = currentLanguage.code.uppercased()
         if let flagEmoji = Flag(countryCode: langCode)?.emoji {
-            customView.setText(text: flagEmoji + " " + translation.translatedText)
+            customARView.setText(text: flagEmoji + " " + translation.translatedText)
         } else {
-            customView.setText(text: translation.translatedText)
+            customARView.setText(text: translation.translatedText)
         }
         
         let height: CGFloat = 0.02
-        let aspectRatio = customView.bounds.height / customView.bounds.width
+        let aspectRatio = customARView.bounds.height / customARView.bounds.width
         let width = height * (1 / aspectRatio)
             
         let plane = SCNPlane(width: width, height: height)
         let imageMaterial = SCNMaterial()
-        imageMaterial.diffuse.contents = customView.asImage()
+        imageMaterial.diffuse.contents = customARView.asImage()
         
         plane.materials = [imageMaterial]
         let node = TranslationNode()
@@ -49,7 +49,7 @@ extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
     
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         DispatchQueue.main.async {
-            if !self.addButton.isHidden {
+            if !self.plusButton.isHidden {
                 self.updateFocusSquare()
             }
         }
@@ -86,22 +86,22 @@ extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
         if let mlPrediction = mlPrediction {
             translateOriginalText(text: mlPrediction) { (translatedPrediction) in
                 if let translatedPrediction = translatedPrediction {
-                    self.identifier = translatedPrediction
+                    self.previousObjectPrediction = translatedPrediction
                     
                     DispatchQueue.main.async {
-                        self.feedbackView.textLabel.text = self.identifier
+                        self.recognizedObjectFeedbackView.textLabel.text = self.previousObjectPrediction
                     }
                 }
             }
             
             UIView.animate(withDuration: 0.2) {
-                self.addButton.alpha = 1
+                self.plusButton.alpha = 1
             }
         } else {
             UIView.animate(withDuration: 0.2) {
-                self.addButton.alpha = 0.5
+                self.plusButton.alpha = 0.5
             }
-            feedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized
+            recognizedObjectFeedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized
         }
     }
     

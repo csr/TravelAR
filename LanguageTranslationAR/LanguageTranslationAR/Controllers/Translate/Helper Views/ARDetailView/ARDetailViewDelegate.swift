@@ -10,6 +10,6 @@ import Foundation
 import SceneKit.SCNNode
 
 protocol ARDetailViewDelegate {
-    func didTapClose()
-    func didTapReproduce(translation: Translation)
+    func didTapCloseDetailView()
+    func didTapListenPronunciation(translation: Translation)
 }

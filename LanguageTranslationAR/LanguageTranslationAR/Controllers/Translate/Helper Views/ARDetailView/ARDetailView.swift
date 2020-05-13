@@ -54,7 +54,7 @@ class ARDetailView: UIView, NibView {
     
     @IBAction func didTapReproduceButton(_ sender: UIButton) {
         guard let translation = translation else { return }
-        self.delegate?.didTapReproduce(translation: translation)
+        self.delegate?.didTapListenPronunciation(translation: translation)
     }
     
     @IBAction func didTapCloseButton(_ sender: UIButton) {
@@ -62,7 +62,7 @@ class ARDetailView: UIView, NibView {
             self.alpha = 0
         }) { _ in
             self.removeFromSuperview()
-            self.delegate?.didTapClose()
+            self.delegate?.didTapCloseDetailView()
         }
     }
     

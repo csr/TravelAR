@@ -9,17 +9,8 @@
 import ARKit
 import EasyTipView
 
-extension TranslateController: ARDetailViewDelegate {
-    func didTapReproduce(translation: Translation) {
-        TextToSpeech.speak(item: translation)
-    }
-    
-    func didTapClose() {
-        self.shouldPresentARDetailView = true
-    }
-    
+extension TranslateController {    
     @objc func didTapAddButton() {
-        shouldShowToolTip = false
         tipView.dismiss()
         
         let screenCentre : CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
@@ -58,7 +49,7 @@ extension TranslateController: ARDetailViewDelegate {
     }
     
     func presentTipView() {
-        tipView.show(forView: addButton,
+        tipView.show(forView: plusButton,
                          withinSuperview: view)
     }
     
@@ -77,8 +68,8 @@ extension TranslateController: ARDetailViewDelegate {
     }
     
     func addNodeTranslation(coords: SCNVector3) {
-        if !identifier.isEmpty {
-            getTranslation(text: identifier) { (translation) in
+        if !previousObjectPrediction.isEmpty {
+            getTranslation(text: previousObjectPrediction) { (translation) in
                 DispatchQueue.main.async {
                     if let translation = translation {
                         self.addNode(translation: translation, coords: coords)
@@ -93,7 +84,7 @@ extension TranslateController: ARDetailViewDelegate {
         tipView.dismiss()
         shouldPresentARDetailView = false
         testImageView.image = UIImage(named: "test-dog")
-        feedbackView.textLabel.text = "TEST_LABEL_2".localized
+        recognizedObjectFeedbackView.textLabel.text = "TEST_LABEL_2".localized
         let translation = Translation(originalText: "dog", targetLanguage: "es", translatedText: "perro", sourceLanguage: LanguagePreferences.getLocaleLanguageCode())
         presentDetailView(node: SCNNode(), translation: translation)
     }

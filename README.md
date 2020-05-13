@@ -1,8 +1,13 @@
-# TravelAR
-TravelAR makes traveling and learning new languages easy by translating anything around you using your phone camera, machine learning and augmented reality.
+# TravelAR: Translate anything with your camera
+TravelAR is an iOS app that makes traveling and learning new languages easy by translating anything around you using your phone camera, machine learning and augmented reality. 
+
+* Written in Swift
+* Powered by CoreML, ARKit, and the Google Cloud Translation API
+* Auto Layout written entirely with code (no Storyboards/XIBs)
+* Supports localization with localizable strings
 
 ## Screenshots
-| Play with flashcards  | Review what you learnt | Select language from list |
+| Welcome!  | Review what you learnt | Language selection |
 | ------------- | ------------- | ------------- |
 | ![](/Screenshots/onboarding_1.png?raw=true)  | ![](/Screenshots/onboarding_2.png?raw=true)  | ![](/Screenshots/onboarding_3.png?raw=true)  |
 

@@ -14,7 +14,7 @@ extension ARSCNView {
     
     func smartHitTest(_ point: CGPoint,
                       infinitePlane: Bool = false,
-                      objectPosition: float3? = nil,
+                      objectPosition: SIMD3<Float>? = nil,
                       allowedAlignments: [ARPlaneAnchor.Alignment] = [.horizontal, .vertical]) -> ARHitTestResult? {
         
         // Perform the hit test.

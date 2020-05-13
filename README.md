@@ -7,7 +7,7 @@ TravelAR is an iOS app that makes traveling and learning new languages easy by t
 * Supports localization with localizable strings
 
 ## Screenshots
-| Welcome!  | Review what you learnt | Language selection |
+| Welcome  | Camera permission | Language selection |
 | ------------- | ------------- | ------------- |
 | ![](/Screenshots/onboarding_1.png?raw=true)  | ![](/Screenshots/onboarding_2.png?raw=true)  | ![](/Screenshots/onboarding_3.png?raw=true)  |
 
@@ -21,7 +21,7 @@ When people travel to a new country, it’s hard to learn to speak the local lan
  In the app, simply select the language you’d like to learn from the list (e.g. Portuguese) and point your iPad at an object. You'll see the results provided by the machine learning model, based on what the iPad is picturing. When you tap on the screen, the app provides a translation in your language of choice on top of the object as 3D text. You can also hear how the translation is pronounced in the local language and you can browse a list of the scanned items by tapping on the buttons at the top. To make this experience work, I have implemented several Apple technologies, such as CoreML, SceneKit, and ARKit. The app is also translated in multiple languages.
 
 ## Building the app
-To get the most out of the app, add your own Google Cloud key by creating a file `GoogleAPIKey.txt` inside the main project directory. The app will automatically parse the key inside the file to make requests to the Translation API.
+To run the app, first run `carthage update` to update the dependencies. Then, place your Google Cloud Platform Translate API key in the `GoogleAPIKey.txt` file at root level. Although this is not necessary for the app to run, you will need to include the ky to in order to make requests to the Translation API.
 
 ## License
 TravelAR is under the [MIT License](https://github.com/cesaredecal/TravelAR/blob/master/LICENSE.txt)

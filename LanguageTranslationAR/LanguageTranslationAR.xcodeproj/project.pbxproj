@@ -18,6 +18,7 @@
 		1D17BE7321D914EF005243E8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7221D914EF005243E8 /* Dictionary.swift */; };
 		1D1A8EBA246BCEE8006111FF /* GoogleAPIKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1D1A8EB9246BCEE8006111FF /* GoogleAPIKey.txt */; };
 		1D1A8EBC246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */; };
+		1D1A8EC1246C1A17006111FF /* ClearButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A8EC0246C1A17006111FF /* ClearButtonView.swift */; };
 		1D1E34CB21D8C23C0096CEAB /* TestingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */; };
 		1D1E34CF21D8C73E0096CEAB /* CardsController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */; };
 		1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77921D3AD9100364C59 /* SettingsView.swift */; };
@@ -116,6 +117,7 @@
 		1D17BE7221D914EF005243E8 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		1D1A8EB9246BCEE8006111FF /* GoogleAPIKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoogleAPIKey.txt; sourceTree = SOURCE_ROOT; };
 		1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+ARDetailViewDelegate.swift"; sourceTree = "<group>"; };
+		1D1A8EC0246C1A17006111FF /* ClearButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonView.swift; sourceTree = "<group>"; };
 		1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingPreferences.swift; sourceTree = "<group>"; };
 		1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardsController+Data.swift"; sourceTree = "<group>"; };
 		1D21F77921D3AD9100364C59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,14 @@
 				1D17BE7221D914EF005243E8 /* Dictionary.swift */,
 			);
 			path = Dictionary;
+			sourceTree = "<group>";
+		};
+		1D1A8EC2246C1B17006111FF /* ClearButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				1D1A8EC0246C1A17006111FF /* ClearButtonView.swift */,
+			);
+			path = ClearButtonView;
 			sourceTree = "<group>";
 		};
 		1D21F77F21D4117A00364C59 /* Helper Views */ = {
@@ -519,6 +529,7 @@
 				1D65245921C93A1B00EB2D5C /* ARDetailView */,
 				1D65245C21C944B900EB2D5C /* FeedbackView */,
 				1D224D7121DAC79700DA42E7 /* ScanningStateView */,
+				1D1A8EC2246C1B17006111FF /* ClearButtonView */,
 			);
 			path = "Helper Views";
 			sourceTree = "<group>";
@@ -680,6 +691,7 @@
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
 				1D5AC48623BE9E2800571B10 /* Platform.swift in Sources */,
 				1D745CCD21D22542008A974F /* HistoryController+TableView.swift in Sources */,
+				1D1A8EC1246C1A17006111FF /* ClearButtonView.swift in Sources */,
 				1DEC7D3221C7CB8900BBEDD3 /* CustomARView.swift in Sources */,
 				1D65E4E521CE6BC700DB52A5 /* TranslationNode.swift in Sources */,
 				1D65E4E721CE6CAF00DB52A5 /* UIView+Extensions.swift in Sources */,

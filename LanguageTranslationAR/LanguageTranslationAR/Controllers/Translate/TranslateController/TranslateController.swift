@@ -29,29 +29,7 @@ public class TranslateController: UIViewController {
     lazy var moveDeviceToScanView = ScanningStateView()
     lazy var customARView = CustomARView()
     lazy var plusButton = AddButtonView()
-
-    lazy var clearButtonView: UIView = {
-        let blurEffect = UIBlurEffect(style: .prominent)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.text = "NAV_BAR_CLEAR".localized
-        blurEffectView.contentView.addSubview(label)
-        label.fillToSuperview(constant: 13)
-        
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.layer.masksToBounds = true
-        blurEffectView.layer.cornerRadius = 15
-        
-        blurEffectView.isUserInteractionEnabled = true
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapClearButton))
-        blurEffectView.addGestureRecognizer(tapRecognizer)
-        return blurEffectView
-    }()
+    lazy var clearButtonView = ClearButtonView()
     
     // Added on top of plus button to prompt the user to tap the button
     lazy var tipView: EasyTipView = {

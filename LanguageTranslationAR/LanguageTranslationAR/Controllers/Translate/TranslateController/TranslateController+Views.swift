@@ -65,7 +65,10 @@ extension TranslateController: AddButtonProtocol {
     func setupClearButton() {
         view.addSubview(clearButtonView)
         clearButtonView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 7).isActive = true
-        clearButtonView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -7).isActive = true        
+        clearButtonView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -7).isActive = true
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapClearButton))
+        clearButtonView.addGestureRecognizer(tapRecognizer)
     }
     
     internal func setupAddButton() {

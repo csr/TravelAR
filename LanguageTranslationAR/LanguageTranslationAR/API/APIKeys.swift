@@ -10,10 +10,10 @@ import Foundation
 
 enum APIKeys: String {
     
-    case googleCloud
+    case GoogleAPIKey
     
     // You can add any additional case you'd like here. The computed property below
-    // takes the value as input and files the {rawValue}.txt file at root level
+    // takes the returns the contents of the {rawValue}.txt file at root level
     
     var value: String? {
         guard let path = Bundle.main.path(forResource: rawValue, ofType: "txt") else {

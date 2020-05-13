@@ -63,11 +63,17 @@ class LanguagesController: UIViewController {
     
     func getLanguages() {
         let languageCode = LanguagePreferences.getLocaleLanguageCode()
-        GoogleTranslateAPI.getAvailableLanguages(targetLanguage: languageCode) { (languages) in
-            (self.tableViewHeaders, self.tableViewSource) = self.createTableData(languagesList: languages)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.activityIndicatorView.stopAnimating()
+        
+        GoogleTranslateAPI.shared.getAvailableLanguages(targetLanguage: languageCode) { result in
+            switch result {
+            case .success(let languages):
+                (self.tableViewHeaders, self.tableViewSource) = self.createTableData(languagesList: languages)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.activityIndicatorView.stopAnimating()
+                }
+            case .failure(let error):
+                print("Error occurred while retrieving list of languages:", error.localizedDescription)
             }
         }
     }

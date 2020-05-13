@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D023F9721D9496D00D5EFFC /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D023F9621D9496D00D5EFFC /* CustomButton.swift */; };
-		1D09A74721F222FD00928848 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D09A74621F222FD00928848 /* Keys.swift */; };
+		1D09A74721F222FD00928848 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D09A74621F222FD00928848 /* APIKeys.swift */; };
 		1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8621BF09DF000396C5 /* ApplicationTab.swift */; };
 		1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8821BF0ADA000396C5 /* String+Localization.swift */; };
 		1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8C21BF91A5000396C5 /* TranslationItems.swift */; };
@@ -16,6 +16,7 @@
 		1D17BE6D21D8D6BB005243E8 /* LanguagePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */; };
 		1D17BE7121D8F320005243E8 /* CardTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */; };
 		1D17BE7321D914EF005243E8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7221D914EF005243E8 /* Dictionary.swift */; };
+		1D182042246C456700A01BAE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D182041246C456700A01BAE /* NetworkError.swift */; };
 		1D1A8EBA246BCEE8006111FF /* GoogleAPIKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1D1A8EB9246BCEE8006111FF /* GoogleAPIKey.txt */; };
 		1D1A8EBC246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */; };
 		1D1A8EC1246C1A17006111FF /* ClearButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A8EC0246C1A17006111FF /* ClearButtonView.swift */; };
@@ -106,7 +107,7 @@
 
 /* Begin PBXFileReference section */
 		1D023F9621D9496D00D5EFFC /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		1D09A74621F222FD00928848 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		1D09A74621F222FD00928848 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		1D104C8621BF09DF000396C5 /* ApplicationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTab.swift; sourceTree = "<group>"; };
 		1D104C8821BF0ADA000396C5 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		1D104C8C21BF91A5000396C5 /* TranslationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItems.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagePreferences.swift; sourceTree = "<group>"; };
 		1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleLabel.swift; sourceTree = "<group>"; };
 		1D17BE7221D914EF005243E8 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		1D182041246C456700A01BAE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		1D1A8EB9246BCEE8006111FF /* GoogleAPIKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoogleAPIKey.txt; sourceTree = SOURCE_ROOT; };
 		1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+ARDetailViewDelegate.swift"; sourceTree = "<group>"; };
 		1D1A8EC0246C1A17006111FF /* ClearButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonView.swift; sourceTree = "<group>"; };
@@ -263,7 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				1D23B94C2097AB7C00121E8F /* GoogleTranslateAPI.swift */,
-				1D09A74621F222FD00928848 /* Keys.swift */,
+				1D09A74621F222FD00928848 /* APIKeys.swift */,
+				1D182041246C456700A01BAE /* NetworkError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -678,7 +681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D412B9D20D66D9F006CD60A /* FocusSquare.swift in Sources */,
-				1D09A74721F222FD00928848 /* Keys.swift in Sources */,
+				1D09A74721F222FD00928848 /* APIKeys.swift in Sources */,
 				1D412B9F20D66D9F006CD60A /* Utilities.swift in Sources */,
 				1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */,
 				1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */,
@@ -738,6 +741,7 @@
 				1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */,
 				1D745CD221D228E6008A974F /* HeaderView.swift in Sources */,
 				1D441E9320726F22005E2ADD /* TranslateController+ARKit.swift in Sources */,
+				1D182042246C456700A01BAE /* NetworkError.swift in Sources */,
 				1DD0873F21DCCE3900E671BA /* OnboardingDelegate.swift in Sources */,
 				1DF2BD0721C38C7B00D5E29B /* WelcomeController.swift in Sources */,
 				1D65245E21CA733300EB2D5C /* CardView.swift in Sources */,

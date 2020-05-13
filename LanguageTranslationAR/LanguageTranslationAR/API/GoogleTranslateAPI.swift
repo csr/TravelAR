@@ -6,13 +6,14 @@
 //  Copyright © 2018 Cesare de Cal. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class GoogleTranslateAPI {
-    class func getTranslation(for text: String, sourceLanguage: String, targetLanguage: String, completion: @escaping(Translation?) -> Void) {
-        let session = URLSession(configuration: .default)
-        let apiKey = APIKeys.googleCloud.value
-        
+    
+    static let shared = GoogleTranslateAPI()
+    
+    func getTranslation(for text: String, sourceLanguage: String, targetLanguage: String, completion: @escaping (Result<Translation, NetworkError>) -> Void) {
+        let apiKey = APIKeys.GoogleAPIKey.value
         let url = "https://translation.googleapis.com/language/translate/v2"
         var components = URLComponents(string: url)!
         components.queryItems = [
@@ -22,28 +23,25 @@ class GoogleTranslateAPI {
         ]
         
         let request = URLRequest(url: components.url!)
+        let session = URLSession(configuration: .default)
         session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print(error.localizedDescription)
             }
             
-            if let data = data {
-                if let languageData = try? JSONDecoder().decode(TranslationData.self, from: data), let translation = languageData.data.translations.first {
-                    var transl = translation
-                    transl.targetLanguage = targetLanguage
-                    transl.originalText = text
-                    completion(transl)
-                } else {
-                    print("Error while decoding translation data. body:", String(data: data, encoding: .utf8)!)
-                }
+            if let data = data, let languageData = try? JSONDecoder().decode(TranslationData.self, from: data), var translation = languageData.data.translations.first {
+                translation.targetLanguage = targetLanguage
+                translation.originalText = text
+                completion(.success(translation))
+            } else {
+                completion(.failure(.error))
             }
-            completion(nil)
         }.resume()
     }
     
-    class func getAvailableLanguages(targetLanguage: String, completion: @escaping ([Language]) -> Void) {
+    func getAvailableLanguages(targetLanguage: String, completion: @escaping (Result<[Language], NetworkError>) -> Void) {
         let session = URLSession(configuration: .default)
-        let apiKey = APIKeys.googleCloud.value
+        let apiKey = APIKeys.GoogleAPIKey.value
         
         let url = "https://translation.googleapis.com/language/translate/v2/languages"
         var components = URLComponents(string: url)!
@@ -57,13 +55,11 @@ class GoogleTranslateAPI {
             if let error = error {
                 print(error.localizedDescription)
             }
-            if let data = data {
-                let decoder = JSONDecoder()
-                let languageData = try? decoder.decode(LanguageData.self, from: data)
-                completion(languageData?.data.languages ?? [])
+            
+            if let data = data, let languageData = try? JSONDecoder().decode(LanguageData.self, from: data) {
+                completion(.success(languageData.data.languages))
             } else {
-                print("Could not parse getAvailableLanguages data")
-                completion([])
+                completion(.failure(.error))
             }
         }.resume()
     }

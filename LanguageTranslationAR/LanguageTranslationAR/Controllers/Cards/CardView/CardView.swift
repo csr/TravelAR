@@ -158,8 +158,16 @@ class CardView: UIView {
         frontTitleLabel.text = dictionaryEntry.0
         secondaryTextLabel.text = dictionaryEntry.1
                 
-        GoogleTranslateAPI.getTranslation(for: dictionaryEntry.0, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: LanguagePreferences.getCurrent().code) { (translation) in
-            self.translation = translation
+        let sourceLanguage = LanguagePreferences.getLocaleLanguageCode()
+        let targetLanguage = LanguagePreferences.getCurrent().code
+    
+        GoogleTranslateAPI.shared.getTranslation(for: dictionaryEntry.0, sourceLanguage: sourceLanguage, targetLanguage: targetLanguage) { result in
+            switch result {
+            case .success(let translation):
+                self.translation = translation
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }

@@ -14,26 +14,34 @@ extension TranslateController {
         let userLanguage = LanguagePreferences.getCurrent()
         
         translateOriginalText(text: text) { (string) in
-            if let string = string {
-                GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: LanguagePreferences.getLocaleLanguageCode(), targetLanguage: userLanguage.code) { (translation) in
-                    var translationCopy = translation
-                    translationCopy?.originalText = string
-                    completion(translationCopy)
+            
+            let sourceLanguage = LanguagePreferences.getLocaleLanguageCode()
+            let targetLanguage = userLanguage.code
+            
+            GoogleTranslateAPI.shared.getTranslation(for: text, sourceLanguage: sourceLanguage, targetLanguage: targetLanguage) { result in
+                switch result {
+                case .success(var translation):
+                    translation.originalText = string
+                    completion(translation)
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
             }
         }
         
     }
     
-    // Write unit tests for this
     func translateOriginalText(text: String, completion: @escaping (String?) -> Void) {
         let langLocaleCode = LanguagePreferences.getLocaleLanguageCode()
         if langLocaleCode.uppercased() == "EN" {
             completion(text)
         } else {
-            GoogleTranslateAPI.getTranslation(for: text, sourceLanguage: "EN", targetLanguage: langLocaleCode) { (translation) in
-                if let translation = translation {
+            GoogleTranslateAPI.shared.getTranslation(for: text, sourceLanguage: "EN", targetLanguage: langLocaleCode) { result in
+                switch result {
+                case .success(let translation):
                     completion(translation.translatedText)
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
             }
         }

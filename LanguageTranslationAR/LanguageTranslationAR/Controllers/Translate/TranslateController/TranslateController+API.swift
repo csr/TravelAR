@@ -48,6 +48,7 @@ extension TranslateController {
                     completion(translation.translatedText)
                 case .failure(let error):
                     print(error.localizedDescription)
+                    self.presentErrorAlertController()
                 }
             }
         }

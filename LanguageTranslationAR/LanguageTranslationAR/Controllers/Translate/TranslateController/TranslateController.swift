@@ -42,6 +42,8 @@ public class TranslateController: UIViewController {
         return tipView
     }()
     
+    var hasShownAPIKeyErrorMessageBefore = false
+    
     var screenCenter: CGPoint {
         let bounds = self.sceneView.bounds
         return CGPoint(x: bounds.midX, y: bounds.midY)

@@ -77,4 +77,22 @@ extension TranslateController: AddButtonProtocol {
 		view.addSubview(sceneView)
         sceneView.fillToSuperview(includeNotch: true)
 	}
+    
+    func presentErrorAlertController() {
+        if hasShownAPIKeyErrorMessageBefore {
+            return
+        }
+        
+        hasShownAPIKeyErrorMessageBefore = true
+        
+        let message = "The \(APIKeys.GoogleAPIKey.rawValue).txt file at root level either doesn't exist or contains an invalid key. Current contents: \(APIKeys.GoogleAPIKey.value ?? "None")"
+        
+        let alertController = UIAlertController(title: "Invalid Google API Key", message: message, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+        
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }

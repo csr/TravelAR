@@ -71,7 +71,7 @@ class SettingsController: UITableViewController, DidUpdateLanguage {
         }
         
         let telegramAction = UIAlertAction(title: "Telegram", style: .default) { (action) in
-            self.launchApp(decodedURL: "tg://resolve?domain=cesaredecal")
+            self.launchApp(decodedURL: "tg://resolve?domain=cesare_d")
         }
 
         let cancelAction = UIAlertAction(title: "CANCEL".localized, style: .cancel, handler: nil)

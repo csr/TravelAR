@@ -114,7 +114,7 @@ public class HistoryView: UIView {
 }
 
 public extension Flag {
-    public func image(size: CGSize, color: UIColor = UIColor.white) -> UIImage? {
+    func image(size: CGSize, color: UIColor = UIColor.white) -> UIImage? {
         defer { UIGraphicsEndImageContext() }
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         color.set()

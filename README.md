@@ -22,13 +22,16 @@ When people travel to a new country, it’s hard to learn to speak the local lan
 ## Building the app
 To run the app, first run `carthage update` to update the dependencies. Then, place your Google Cloud Platform Translate API key in the `GoogleAPIKey.txt` file at root level. Although this is not necessary for the app to run, you will need to include the ky to in order to make requests to the Translation API. If the API Key supplied is invalid or isn't found, the app will display an alert message to let you know.
 
-## Contributing
+## Future Improvements
 A few interesting future technical goals would be:
 * Implement a caching mechanism to reduce the number of API calls made to the APIs.
 * Reduce CPU usage by optimizing the CoreML implementation (for example, by reducing the amount of frames per second analalyzed by the model).
 * Implement offline translation. We could find the most common or most useful words translated and go from there. A good place to start would be checking out the [Oxford Dictionaries API](https://developer.oxforddictionaries.com/) for the JSON files.
 
 Pull requests are welcome.
+
+## License
+TravelAR is under the [MIT License](https://github.com/cesaredecal/TravelAR/blob/master/LICENSE.txt)
 
 ## Screenshots
 | Welcome  | Camera permission | Language selection |
@@ -38,6 +41,3 @@ Pull requests are welcome.
 | Point and translate  | Listen and learn | Play with flashcards |
 | ------------- | ------------- | ------------- |
 | ![](/Screenshots/appstore_1.jpg?raw=true)  | ![](/Screenshots/appstore_2.jpg?raw=true) | ![](/Screenshots/appstore_3.jpg?raw=true)  |
-
-## License
-TravelAR is under the [MIT License](https://github.com/cesaredecal/TravelAR/blob/master/LICENSE.txt)

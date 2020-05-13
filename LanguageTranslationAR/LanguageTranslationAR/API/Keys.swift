@@ -12,7 +12,7 @@ enum Keys: String {
     case GoogleAPIKey
     var value: String {
         guard let path = Bundle.main.path(forResource: rawValue, ofType: "txt") else {
-            print("Invalid path while retrieving key")
+            print("⚠️ I couldn't find the Cloud Translation key. Please include the GoogleAPIKey.txt file in the main directory.")
             return ""
         }
         do {

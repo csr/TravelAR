@@ -1,10 +1,19 @@
 {
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
   "commitish" : "1.3.2",
   "iOS" : [
     {
       "name" : "FunctionalTableData",
-      "hash" : "29b562d0bd53e6d88eb7d6bf60353b82762f47c85e226e1de258f53491e0046a",
-      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+      "hash" : "ffc272f2245cf20002e8221429a8f4ff5e00ae5428d42f93918a3a61b5dcb689",
+      "swiftToolchainVersion" : "5.2.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)"
     }
   ]
 }

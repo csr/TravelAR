@@ -13,14 +13,15 @@ class GoogleTranslateAPI {
         let session = URLSession(configuration: .default)
         let apiKey = Keys.GoogleAPIKey.value
         
-        let urlStr = "https://translation.googleapis.com/language/translate/v2?q=\(text)&target=\(targetLanguage)&key=\(apiKey)"
-        guard let escapedString = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: escapedString) else {
-            print("Error: invalid URL while getting translation")
-            completion(nil)
-            return
-        }
+        let url = "https://translation.googleapis.com/language/translate/v2"
+        var components = URLComponents(string: url)!
+        components.queryItems = [
+            URLQueryItem(name: "q", value: text),
+            URLQueryItem(name: "target", value: targetLanguage),
+            URLQueryItem(name: "key", value: apiKey)
+        ]
         
-        let request = URLRequest(url: url)
+        let request = URLRequest(url: components.url!)
         session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -35,27 +36,23 @@ class GoogleTranslateAPI {
                 } else {
                     print("Error while decoding translation data. body:", String(data: data, encoding: .utf8)!)
                 }
-            } else {
-                print("Error: data nil")
-                completion(nil)
             }
+            completion(nil)
         }.resume()
     }
     
     class func getAvailableLanguages(targetLanguage: String, completion: @escaping ([Language]) -> Void) {
         let session = URLSession(configuration: .default)
-        let googleKey = Keys.GoogleAPIKey.value
+        let apiKey = Keys.GoogleAPIKey.value
         
-        let queryItems = [NSURLQueryItem(name: "target", value: targetLanguage), NSURLQueryItem(name: "key", value: googleKey)]
-        let urlComps = NSURLComponents(string: "https://translation.googleapis.com/language/translate/v2/languages")!
-        urlComps.queryItems = queryItems as [URLQueryItem]
-        guard let url = urlComps.url else {
-            print("error: invalid URL while getting languages")
-            completion([])
-            return
-        }
-            
-        let request = URLRequest(url: url)
+        let url = "https://translation.googleapis.com/language/translate/v2/languages"
+        var components = URLComponents(string: url)!
+        components.queryItems = [
+            URLQueryItem(name: "target", value: targetLanguage),
+            URLQueryItem(name: "key", value: apiKey)
+        ]
+
+        let request = URLRequest(url: components.url!)
         session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -66,6 +63,7 @@ class GoogleTranslateAPI {
                 completion(languageData?.data.languages ?? [])
             } else {
                 print("Could not parse getAvailableLanguages data")
+                completion([])
             }
         }.resume()
     }

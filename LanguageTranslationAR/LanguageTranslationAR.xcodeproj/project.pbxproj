@@ -19,7 +19,6 @@
 		1D1A8EBA246BCEE8006111FF /* GoogleAPIKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1D1A8EB9246BCEE8006111FF /* GoogleAPIKey.txt */; };
 		1D1A8EBC246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */; };
 		1D1A8EC1246C1A17006111FF /* ClearButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A8EC0246C1A17006111FF /* ClearButtonView.swift */; };
-		1D1E34CB21D8C23C0096CEAB /* TestingPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */; };
 		1D1E34CF21D8C73E0096CEAB /* CardsController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */; };
 		1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77921D3AD9100364C59 /* SettingsView.swift */; };
 		1D21F77E21D410FD00364C59 /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */; };
@@ -118,7 +117,6 @@
 		1D1A8EB9246BCEE8006111FF /* GoogleAPIKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoogleAPIKey.txt; sourceTree = SOURCE_ROOT; };
 		1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+ARDetailViewDelegate.swift"; sourceTree = "<group>"; };
 		1D1A8EC0246C1A17006111FF /* ClearButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonView.swift; sourceTree = "<group>"; };
-		1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingPreferences.swift; sourceTree = "<group>"; };
 		1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardsController+Data.swift"; sourceTree = "<group>"; };
 		1D21F77921D3AD9100364C59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
@@ -465,7 +463,6 @@
 			isa = PBXGroup;
 			children = (
 				1D17BE6A21D8D1C3005243E8 /* dictionary.json */,
-				1D1E34CA21D8C23C0096CEAB /* TestingPreferences.swift */,
 				1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */,
 				1D441E3720726F01005E2ADD /* Info.plist */,
 				1D95A9F421CAF725002EDAF1 /* LaunchScreen.storyboard */,
@@ -733,7 +730,6 @@
 				1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D95A9EE21CACCB0002EDAF1 /* PermissionsController.swift in Sources */,
-				1D1E34CB21D8C23C0096CEAB /* TestingPreferences.swift in Sources */,
 				1D104C8921BF0ADA000396C5 /* String+Localization.swift in Sources */,
 				1D65E4EA21CE708600DB52A5 /* TranslateController+Actions.swift in Sources */,
 				1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */,

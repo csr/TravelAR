@@ -12,14 +12,8 @@ extension TranslateController: AddButtonProtocol {
     
 	internal func setupViews() {
         view.backgroundColor = .black
-        
-        if Testing.isTesting {
-            view.addSubview(testImageView)
-            testImageView.fillToSuperview(includeNotch: true)            
-        } else {
-            setupSceneView()
-            setupCustomView()
-        }
+        setupSceneView()
+        setupCustomView()
         setupAddButton()
         setupFeedbackView()
         setupScanningView()
@@ -55,11 +49,7 @@ extension TranslateController: AddButtonProtocol {
     
     private func setupCustomView() {
         view.addSubview(customARView)
-        customARView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
-        
-        if Testing.isTesting {
-            self.recognizedObjectFeedbackView.textLabel.text = "TEST_LABEL".localized
-        }
+        customARView.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true        
     }
 
     func setupClearButton() {

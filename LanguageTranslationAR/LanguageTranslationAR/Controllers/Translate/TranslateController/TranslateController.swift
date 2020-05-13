@@ -67,19 +67,10 @@ public class TranslateController: UIViewController {
         didSet {
             UIView.animate(withDuration: 0.2) {
                 self.sceneView.alpha = self.shouldPresentARDetailView ? 1 : 0.3
-                self.testImageView.alpha = self.shouldPresentARDetailView ? 1 : 0.3
             }
         }
     }
     
-    // For testing, used to replace AR scene view if we're taking app screenshots
-    var testImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "test-icecream")
-        return imageView
-    }()
-
     // MARK: - View Lifecycle
     
     public override func viewDidLoad() {
@@ -89,12 +80,6 @@ public class TranslateController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // If we're running the app to take screenshots or on the simulator
-        // we're not interested in settup up the AR and ML sessions
-        if Testing.isTesting {
-            return
-        }
-        
         if isCameraPermissionGranted() {
             presentWelcomeController()
         } else {

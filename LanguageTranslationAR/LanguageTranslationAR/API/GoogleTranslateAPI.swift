@@ -32,6 +32,10 @@ class GoogleTranslateAPI {
             if let data = data, let languageData = try? JSONDecoder().decode(TranslationData.self, from: data), var translation = languageData.data.translations.first {
                 translation.targetLanguage = targetLanguage
                 translation.originalText = text
+                
+                // Decode characters such as '&#8216' into readable UTF-8 characters (accents, symbols, etc.)
+                translation.translatedText = String(htmlEncodedString: translation.translatedText) ?? ""
+                
                 completion(.success(translation))
             } else {
                 completion(.failure(.error))

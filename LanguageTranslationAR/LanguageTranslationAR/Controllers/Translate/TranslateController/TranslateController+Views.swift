@@ -80,6 +80,5 @@ extension TranslateController: AddButtonProtocol {
 	private func setupSceneView() {
 		view.addSubview(sceneView)
         sceneView.fillToSuperview(includeNotch: true)
-        sceneView.fillToSuperview()
 	}
 }

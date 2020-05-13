@@ -40,7 +40,6 @@ public class HistoryView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        backgroundColor = .black
     }
     
     private func setupView() {

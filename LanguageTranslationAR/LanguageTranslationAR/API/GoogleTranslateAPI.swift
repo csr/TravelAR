@@ -11,7 +11,7 @@ import Foundation
 class GoogleTranslateAPI {
     class func getTranslation(for text: String, sourceLanguage: String, targetLanguage: String, completion: @escaping(Translation?) -> Void) {
         let session = URLSession(configuration: .default)
-        let apiKey = Keys.GoogleAPIKey
+        let apiKey = Keys.GoogleAPIKey.value
         
         let urlStr = "https://translation.googleapis.com/language/translate/v2?q=\(text)&target=\(targetLanguage)&key=\(apiKey)"
         guard let escapedString = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: escapedString) else {

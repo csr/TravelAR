@@ -31,7 +31,7 @@ extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
         let height: CGFloat = 0.02
         let aspectRatio = customView.bounds.height / customView.bounds.width
         let width = height * (1 / aspectRatio)
-        
+            
         let plane = SCNPlane(width: width, height: height)
         let imageMaterial = SCNMaterial()
         imageMaterial.diffuse.contents = customView.asImage()

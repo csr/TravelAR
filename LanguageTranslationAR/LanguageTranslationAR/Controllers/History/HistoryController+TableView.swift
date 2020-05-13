@@ -17,21 +17,7 @@ extension HistoryController {
         let selection = UISelectionFeedbackGenerator()
         selection.selectionChanged()
     }
-    
-    private func didTapDeleteOnRow(indexPath: IndexPath) {
-        if isFiltering {
-            let translation = filteredItems[indexPath.row]
-            TranslationItems.shared.remove(object: translation)
-            self.filteredItems.remove(at: indexPath.row)
-        } else {
-            let translation = TranslationItems.shared.getAll()[indexPath.row]
-            TranslationItems.shared.remove(object: translation)
-        }
-
-        let impact = UIImpactFeedbackGenerator()
-        impact.impactOccurred()
-    }
-    
+        
     private func didSelectCell(translation: Translation) {
         TextToSpeech.speak(item: translation)
         
@@ -47,35 +33,33 @@ extension HistoryController {
     }
     
     func render() {
-        let deleteRowAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: ({ (rowAction, indexPath) in
-            self.didTapDeleteOnRow(indexPath: indexPath)
-        }))
-        
         let cellStyle = CellStyle(bottomSeparator: .inset,
                                   separatorColor: .gray,
                                   highlight: true,
                                   selectionColor: UIColor(named: "selectedCell"),
                                   backgroundColor: .black)
         
-//        let rows: [CellConfigType] = getSourceArray().enumerated().map { index, item in
-//            return HistoryCell(
-//                key: "index-\(index)-\(item.translatedText)",
-//                style: cellStyle,
-//                actions: CellActions(
-//                    selectionAction: { _ in
-//                        self.didSelectCell(translation: item)
-//                        return .selected
-//                },
-//                    deselectionAction: { _ in
-//                        return .deselected
-//                }, rowActions: [deleteRowAction]),
-//                state: HistoryState(translationItem: item),
-//                cellUpdater: HistoryState.updateView)
-//        }
+        
+        
+        let rows: [CellConfigType] = getSourceArray().enumerated().map { index, item in
+            return HistoryCell(
+                key: "index-\(index)-\(item.translatedText)",
+                style: cellStyle,
+                actions: CellActions(
+                    selectionAction: { _ in
+                        self.didSelectCell(translation: item)
+                        return .selected
+                },
+                    deselectionAction: { _ in
+                        return .deselected
+                }),
+                state: HistoryState(translationItem: item),
+                cellUpdater: HistoryState.updateView)
+        }
         
         functionalData.renderAndDiff([
-            TableSection(key: "section", rows: [])
-            ])
+            TableSection(key: "section", rows: rows)
+        ])
     }
     
     private func getSourceArray() -> [Translation] {

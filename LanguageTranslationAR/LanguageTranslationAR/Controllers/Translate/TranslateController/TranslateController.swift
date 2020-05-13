@@ -48,11 +48,8 @@ public class TranslateController: UIViewController {
         var preferences = EasyTipView.Preferences()
         preferences.drawing.font = UIFont.boldSystemFont(ofSize: 19)
         preferences.drawing.backgroundColor = #colorLiteral(red: 0.1411563158, green: 0.1411880553, blue: 0.1411542892, alpha: 1)
-        preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.top
-        preferences.drawing.cornerRadius = 15
-//        preferences.positioning.textHInset = 12
-//        preferences.positioning.textVInset = 12
-        
+        preferences.drawing.arrowPosition = .bottom
+        preferences.drawing.cornerRadius = 15        
         let tipView = EasyTipView(text: "TOOL_TIP_ADD_BUTTON".localized, preferences: preferences)
         return tipView
     }()
@@ -103,16 +100,14 @@ public class TranslateController: UIViewController {
     
     var focusSquare = FocusSquare()
     var canDisplayFocusSquare = true
-    let updateQueue = DispatchQueue(label: "cesaredecal")
+    let updateQueue = DispatchQueue(label: "queue")
 
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
     
     var identifier: String = "" {
         didSet {
-            if identifier == oldValue {
-                return
-            }            
+            if identifier == oldValue { return }
         }
     }
     

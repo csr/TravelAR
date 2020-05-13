@@ -10,7 +10,7 @@ import Foundation
 
 extension TranslateController {
     func getTranslation(text: String, completion: @escaping (Translation?) -> Void) {
-        print("Sent translation request...")
+        print("Sending translation request...")
         let userLanguage = LanguagePreferences.getCurrent()
         
         translateOriginalText(text: text) { (string) in

@@ -12,8 +12,9 @@ class CustomView: UIView {
     
     private let textLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 30)
+        label.font = UIFont.systemFont(ofSize: 23)
         label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -34,15 +35,22 @@ class CustomView: UIView {
     private func setupView() {
         backgroundColor = .white
         layer.masksToBounds = true
-        layer.cornerRadius = 30
+        layer.cornerRadius = 15
     }
     
     private func setupStackView() {
         let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)
-        stackView.fillToSuperview(constant: 15)
-        disclosureIndicatorImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        disclosureIndicatorImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+//        stackView.fillToSuperview(constant: 15)
+        
+        stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 7).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -7).isActive = true
+        stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -7).isActive = true
+        stackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 7).isActive = true
+        
+        disclosureIndicatorImageView.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        disclosureIndicatorImageView.widthAnchor.constraint(equalToConstant: 15).isActive = true
         stackView.addArrangedSubview(textLabel)
         stackView.addArrangedSubview(disclosureIndicatorImageView)
         stackView.spacing = 5

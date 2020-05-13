@@ -47,7 +47,11 @@ public class TranslateController: UIViewController {
         return CGPoint(x: bounds.midX, y: bounds.midY)
     }
     
-    // MARK: - AR
+    public override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    // MARK: - ARKit
     let augmentedRealitySession = ARSession()
     var configuration = ARWorldTrackingConfiguration()
     var focusSquare = FocusSquare()
@@ -105,26 +109,33 @@ public class TranslateController: UIViewController {
         sceneView.session.pause()
     }
     
+    // MARK: - Helper functions
+    
     private func presentWelcomeController() {
-        let vc = WelcomeController()
-        vc.onboardingDelegate = self
-        let navController = UINavigationController(rootViewController: vc)
+        let welcomeController = WelcomeController()
+        welcomeController.onboardingDelegate = self
+        
+        // Prevent user from dismissing view controller in iOS 13
+        if #available(iOS 13.0, *) {
+            welcomeController.isModalInPresentation = true
+        }
+        
+        let navController = UINavigationController(rootViewController: welcomeController)
         navController.modalPresentationStyle = .formSheet
+        
         present(navController, animated: true, completion: nil)
     }
-        
+            
     @objc internal func isCameraPermissionGranted() -> Bool {
         let cameraMediaType = AVMediaType.video
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
         return !(cameraAuthorizationStatus == .authorized)
     }
     
+    // MARK: - Event handling
+    
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.didTouchSceneView(touches: touches, event: event)
-    }
-    
-    public override var prefersStatusBarHidden: Bool {
-        return true
     }
  }

@@ -7,6 +7,7 @@ TravelAR is an iOS app that makes traveling and learning new languages easy by t
 * Powered by CoreML, ARKit, and the Google Cloud Translation API
 * Auto Layout written entirely with code (no Storyboards/XIBs)
 * Supports localization with localizable strings
+* Continous Integration with AppCenter.ms (looking into transitioning to Travis CI)
 
 ![](demo.gif)
 

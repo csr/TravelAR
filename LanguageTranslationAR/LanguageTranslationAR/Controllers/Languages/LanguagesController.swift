@@ -13,7 +13,7 @@ class LanguagesController: UIViewController {
     var tableViewSource = [String: [Language]]()
     var tableViewHeaders = [String]()
     
-    var didUpdateLanguageDelegate: DidUpdateLanguage?
+    var didUpdateLanguageDelegate: DidUpdateLanguageDelegate?
     
     var activityIndicatorView = UIActivityIndicatorView()
 

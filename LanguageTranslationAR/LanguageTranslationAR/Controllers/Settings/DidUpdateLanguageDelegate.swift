@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol DidUpdateLanguage {
+protocol DidUpdateLanguageDelegate {
     func didUpdateLanguage()
 }

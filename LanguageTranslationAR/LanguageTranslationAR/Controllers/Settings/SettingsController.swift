@@ -10,7 +10,7 @@ import UIKit
 import FunctionalTableData
 import MessageUI
 
-class SettingsController: UITableViewController, DidUpdateLanguage {
+class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
     
     private let functionalData = FunctionalTableData()
     

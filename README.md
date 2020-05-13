@@ -11,16 +11,16 @@ TravelAR is an iOS app that makes traveling and learning new languages easy by t
 
 ![](demo.gif)
 
-## How I built TravelAR
+## Techical Details
+At a high level, the app uses a local machine learning model (Inception V3) to perform object recognition via CoreML by analyzing the incoming camera frames. If the user taps on the plus button and an object in-view was successfully recognized, we send the object name along with the target language (the language we want to translate to) to the Google Cloud Platform API. After the API gets back to the app with the result, we create a ARKit node with the translated text and place it on the object that's been recognized. These results are cached locally to save on the number of API calls. The user can tap the ARKit view to learn more about the translation and listen to the correct pronounciation with AVSpeechSynthesizer. To get started with the project, you can take a look at the `TranslateController` class which handles the app core functionality. 
+
+## Motivation
 When people travel to a new country, it’s hard to learn to speak the local language, so we rely on gestures and facial expressions to communicate, without much success. I have always wanted to be able to point my device at an object and know the name of that object in another language, so I’ve decided to build a Swift app that does just that. 
 
- In the app, simply select the language you’d like to learn from the list (e.g. Portuguese) and point your iPad at an object. You'll see the results provided by the machine learning model, based on what the iPad is picturing. When you tap on the screen, the app provides a translation in your language of choice on top of the object as 3D text. You can also hear how the translation is pronounced in the local language and you can browse a list of the scanned items by tapping on the buttons at the top. To make this experience work, I have implemented several Apple technologies, such as CoreML, SceneKit, and ARKit. The app is also translated in multiple languages.
+ In the app, simply select the language you’d like to learn from the list (e.g. Portuguese) and point your device at an object. You'll see the results provided by the machine learning model, based on what the iPad is picturing. When you tap on the screen, the app provides a translation in your language of choice on top of the object as 3D text. You can also hear how the translation is pronounced in the local language and you can browse a list of the scanned items by tapping on the buttons at the top. To make this experience work, I have implemented several Apple technologies, such as CoreML, SceneKit, and ARKit. The app is also translated in multiple languages.
 
 ## Building the app
 To run the app, first run `carthage update` to update the dependencies. Then, place your Google Cloud Platform Translate API key in the `GoogleAPIKey.txt` file at root level. Although this is not necessary for the app to run, you will need to include the ky to in order to make requests to the Translation API.
-
-## Techical Details
-At a high level, the app uses a local machine learning model (Inception V3) to perform object recognition via CoreML by analyzing the incoming camera frames. If the user taps on the plus button and an object in-view was successfully recognized, we send the object name along with the target language (the language we want to translate to) to the Google Cloud Platform API. After the API gets back to the app with the result, we create a ARKit node with the translated text and place it on the object that's been recognized. These results are cached locally to save on the number of API calls. The user can tap the ARKit view to learn more about the translation and listen to the correct pronounciation with AVSpeechSynthesizer. To get started with the project, you can take a look at the `TranslateController` class which handles the app core functionality. 
 
 ## Screenshots
 | Welcome  | Camera permission | Language selection |

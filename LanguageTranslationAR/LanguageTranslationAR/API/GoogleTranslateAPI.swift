@@ -11,7 +11,7 @@ import Foundation
 class GoogleTranslateAPI {
     class func getTranslation(for text: String, sourceLanguage: String, targetLanguage: String, completion: @escaping(Translation?) -> Void) {
         let session = URLSession(configuration: .default)
-        let apiKey = Keys.GoogleAPIKey.value
+        let apiKey = APIKeys.googleCloud.value
         
         let url = "https://translation.googleapis.com/language/translate/v2"
         var components = URLComponents(string: url)!
@@ -43,7 +43,7 @@ class GoogleTranslateAPI {
     
     class func getAvailableLanguages(targetLanguage: String, completion: @escaping ([Language]) -> Void) {
         let session = URLSession(configuration: .default)
-        let apiKey = Keys.GoogleAPIKey.value
+        let apiKey = APIKeys.googleCloud.value
         
         let url = "https://translation.googleapis.com/language/translate/v2/languages"
         var components = URLComponents(string: url)!

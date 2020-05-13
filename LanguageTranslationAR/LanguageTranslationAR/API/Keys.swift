@@ -8,20 +8,26 @@
 
 import Foundation
 
-enum Keys: String {
-    case GoogleAPIKey
-    var value: String {
+enum APIKeys: String {
+    
+    case googleCloud
+    
+    // You can add any additional case you'd like here. The computed property below
+    // takes the value as input and files the {rawValue}.txt file at root level
+    
+    var value: String? {
         guard let path = Bundle.main.path(forResource: rawValue, ofType: "txt") else {
-            print("⚠️ I couldn't find the Cloud Translation key. Please include the GoogleAPIKey.txt file in the main directory.")
-            return ""
+            print("Couldn't find the \(rawValue).txt file at root level.")
+            return nil
         }
+        
         do {
             let string = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             return string
         } catch {
-            print("An error occured while loading the key:", error)
+            print("An error occured while loading the key:", error.localizedDescription)
+            return nil
         }
-        return ""
     }
     
 }

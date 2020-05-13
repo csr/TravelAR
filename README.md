@@ -30,14 +30,14 @@ A few interesting future technical goals would be:
 
 Pull requests are welcome.
 
-## License
-TravelAR is under the [MIT License](https://github.com/cesaredecal/TravelAR/blob/master/LICENSE.txt)
-
 ## Screenshots
+| Point and translate  | Listen and learn | Review what you learn |
+| ------------- | ------------- | ------------- |
+| ![](/Screenshots/appstore_1.png?raw=true)  | ![](/Screenshots/appstore_2.png?raw=true) | ![](/Screenshots/appstore_3.png?raw=true)  |
+
 | Welcome  | Camera permission | Language selection |
 | ------------- | ------------- | ------------- |
 | ![](/Screenshots/onboarding_1.png?raw=true)  | ![](/Screenshots/onboarding_2.png?raw=true)  | ![](/Screenshots/onboarding_3.png?raw=true)  |
 
-| Point and translate  | Listen and learn | Play with flashcards |
-| ------------- | ------------- | ------------- |
-| ![](/Screenshots/appstore_1.jpg?raw=true)  | ![](/Screenshots/appstore_2.jpg?raw=true) | ![](/Screenshots/appstore_3.jpg?raw=true)  |
+## License
+TravelAR is under the [MIT License](https://github.com/cesaredecal/TravelAR/blob/master/LICENSE.txt)

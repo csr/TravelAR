@@ -9,7 +9,6 @@
 import UIKit
 import Vision
 
-@available(iOS 11.0, *)
 extension TranslateController {
 	internal func setupCoreML() {
 		guard let mlmodelcFile = Bundle.main.url(forResource: "Inceptionv3", withExtension: "mlmodelc") else {

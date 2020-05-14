@@ -84,10 +84,16 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         bgColorView.backgroundColor = UIColor.cell
         cell.selectedBackgroundView = bgColorView
 
-        if indexPath != selectedIndexPath || LanguagePreferences.getCurrent() != language {
+        if indexPath != selectedIndexPath {
             cell.accessoryType = .none
         } else {
             cell.accessoryType = .checkmark
+        }
+        
+        if LanguagePreferences.getCurrent() == language {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
         }
         
         if selectedIndexPath == nil, language.code == LanguagePreferences.getCurrent().code {

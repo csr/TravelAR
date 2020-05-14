@@ -81,30 +81,7 @@ extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
             }
         }
     }
-                
-    @objc func updateLabel() {
-        if let mlPrediction = mlPrediction {
-            translateOriginalText(text: mlPrediction) { (translatedPrediction) in
-                if let translatedPrediction = translatedPrediction {
-                    self.previousObjectPrediction = translatedPrediction
                     
-                    DispatchQueue.main.async {
-                        self.recognizedObjectFeedbackView.textLabel.text = self.previousObjectPrediction
-                    }
-                }
-            }
-            
-            UIView.animate(withDuration: 0.2) {
-                self.plusButton.alpha = 1
-            }
-        } else {
-            UIView.animate(withDuration: 0.2) {
-                self.plusButton.alpha = 0.5
-            }
-            recognizedObjectFeedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized
-        }
-    }
-    
     func didFinishOnboarding() {
         runARSession()
         setupCoreML()

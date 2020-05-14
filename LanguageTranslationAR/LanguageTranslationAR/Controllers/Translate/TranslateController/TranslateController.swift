@@ -56,11 +56,11 @@ public class TranslateController: UIViewController {
     // MARK: - ARKit
     let augmentedRealitySession = ARSession()
     var configuration = ARWorldTrackingConfiguration()
+    let updateQueue = DispatchQueue(label: "queue")
     var focusSquare = FocusSquare()
     var canDisplayFocusSquare = true
     
     // MARK: - Vision
-    let updateQueue = DispatchQueue(label: "queue")
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
     var previousObjectPrediction = ""

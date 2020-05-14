@@ -95,4 +95,24 @@ extension TranslateController: AddButtonProtocol {
             self.present(alertController, animated: true, completion: nil)
         }
     }
+    
+    @objc func updateLabel() {
+        if let mlPrediction = mlPrediction {
+            translateOriginalText(text: mlPrediction) { translatedPrediction in
+                if let translatedPrediction = translatedPrediction {
+                    self.previousObjectPrediction = translatedPrediction
+                    
+                    DispatchQueue.main.async {
+                        self.recognizedObjectFeedbackView.textLabel.text = self.previousObjectPrediction
+                    }
+                }
+            }
+        } else {
+            recognizedObjectFeedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+            self.plusButton.alpha = self.mlPrediction == nil ? 0.5 : 1
+        }
+    }
 }

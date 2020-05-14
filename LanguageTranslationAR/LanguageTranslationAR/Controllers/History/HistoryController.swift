@@ -18,14 +18,11 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
             render()
         }
     }
-
-    var isFiltering = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         TranslationItems.shared.delegate = self
         setupView()
-        setupSearchController()
         render()
     }
     
@@ -54,12 +51,5 @@ class HistoryController: UITableViewController, TranslationItemsDelegate {
                 }
             }
         }
-    }
-
-    private func setupSearchController() {
-        let search = UISearchController(searchResultsController: nil)
-        search.searchResultsUpdater = self
-        search.delegate = self
-        self.navigationItem.searchController = search
     }
 }

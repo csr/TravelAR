@@ -62,11 +62,7 @@ extension HistoryController {
     }
     
     private func getSourceArray() -> [Translation] {
-        if isFiltering {
-            return filteredItems
-        } else {
-            return TranslationItems.shared.getAll()
-        }
+        return TranslationItems.shared.getAll()
     }
     
     func someItemDeleted() {

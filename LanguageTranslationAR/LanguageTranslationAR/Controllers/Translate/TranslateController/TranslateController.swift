@@ -35,7 +35,7 @@ public class TranslateController: UIViewController {
     lazy var tipView: EasyTipView = {
         var preferences = EasyTipView.Preferences()
         preferences.drawing.font = UIFont.boldSystemFont(ofSize: 19)
-        preferences.drawing.backgroundColor = #colorLiteral(red: 0.1411563158, green: 0.1411880553, blue: 0.1411542892, alpha: 1)
+        preferences.drawing.backgroundColor = UIColor.tooltip ?? UIColor()
         preferences.drawing.arrowPosition = .bottom
         preferences.drawing.cornerRadius = 15        
         let tipView = EasyTipView(text: "TOOL_TIP_ADD_BUTTON".localized, preferences: preferences)

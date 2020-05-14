@@ -8,7 +8,6 @@
 
 import UIKit
 import FunctionalTableData
-import MessageUI
 
 class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
     
@@ -23,13 +22,7 @@ class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
         didUpdateLanguage()
         setupView()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        render()
-    }
-    
+        
     func setupView() {
         tableView.backgroundColor = .clear
         view.backgroundColor = .black
@@ -90,15 +83,7 @@ class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
             }
         }
     }
-    
-    func composeSupportEmail() {
-        let composeVC = MFMailComposeViewController()
-        composeVC.setToRecipients(["help@cesare.io"])
-        composeVC.mailComposeDelegate = self
-        composeVC.setSubject("SUPPORT_MESSAGE_TITLE".localized)
-        present(composeVC, animated: true, completion: nil)
-    }
-    
+        
     @objc private func didSelectShareRow() {
         let text = "SETTINGS_SHARE_TEXT".localized
         let textShare = [text]
@@ -122,7 +107,7 @@ class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
                                          separatorColor: .gray,
                                          highlight: true,
                                          accessoryType: .disclosureIndicator,
-                                         selectionColor: #colorLiteral(red: 0.2941176471, green: 0.2980392157, blue: 0.3019607843, alpha: 1),
+                                         selectionColor: UIColor.selectedCell,
                                          backgroundColor: .black)
         
         var secondaryCellStyle = primaryCellStyle
@@ -169,11 +154,5 @@ class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
         
         functionalData.renderAndDiff([TableSection(key: "sectionH", rows: headerRows),
             TableSection(key: "section", rows: primaryRows), TableSection(key: "sectionH2", rows: headerRows), TableSection(key: "section2", rows: secondaryRows)])
-    }
-}
-
-extension SettingsController: MFMailComposeViewControllerDelegate {
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
     }
 }

@@ -52,7 +52,7 @@ class PermissionsController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = UIColor(named: "cellBackground")
+        view.backgroundColor = UIColor.cell
         view.addSubview(stackView)
         stackView.fillToSuperview(constant: 40)
         

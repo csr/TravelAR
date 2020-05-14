@@ -48,7 +48,7 @@ class WelcomeController: UIViewController {
     
     internal func setupView() {
         setupContentStackView()
-        view.backgroundColor = UIColor(named: "cellBackground")
+        view.backgroundColor = UIColor.cell
         navigationController?.isNavigationBarHidden = true
     }
     

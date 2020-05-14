@@ -8,7 +8,6 @@
 
 import UIKit
 import FunctionalTableData
-import TBEmptyDataSet
 
 extension HistoryController {
     @objc func didTapAddButton() {
@@ -36,7 +35,7 @@ extension HistoryController {
         let cellStyle = CellStyle(bottomSeparator: .inset,
                                   separatorColor: .gray,
                                   highlight: true,
-                                  selectionColor: UIColor(named: "selectedCell"),
+                                  selectionColor: UIColor.selectedCell,
                                   backgroundColor: .black)
         
         
@@ -76,25 +75,5 @@ extension HistoryController {
     
     func newItemAdded() {
         render()
-    }
-}
-
-extension HistoryController: TBEmptyDataSetDelegate, TBEmptyDataSetDataSource {
-    func titleForEmptyDataSet(in scrollView: UIScrollView) -> NSAttributedString? {
-        let attributedString = NSAttributedString(string: "EMPTY_STATE_TITLE".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        return attributedString
-    }
-    
-    func descriptionForEmptyDataSet(in scrollView: UIScrollView) -> NSAttributedString? {
-        let attributedString = NSAttributedString(string: "EMPTY_STATE_DESCRIPTION".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        return attributedString
-    }
-    
-    func imageForEmptyDataSet(in scrollView: UIScrollView) -> UIImage? {
-        return #imageLiteral(resourceName: "empty-state-view")
-    }
-    
-    func verticalOffsetForEmptyDataSet(in scrollView: UIScrollView) -> CGFloat {
-        return -100
     }
 }

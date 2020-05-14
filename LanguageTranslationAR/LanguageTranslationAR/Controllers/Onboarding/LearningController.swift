@@ -33,7 +33,7 @@ class LearningController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "cellBackground")
+        view.backgroundColor = UIColor.cell
         setupStackView()
     }
 

@@ -81,19 +81,13 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .black
         
         let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor(named: "selectedCell")
+        bgColorView.backgroundColor = UIColor.cell
         cell.selectedBackgroundView = bgColorView
 
-        if indexPath != selectedIndexPath {
+        if indexPath != selectedIndexPath || LanguagePreferences.getCurrent() != language {
             cell.accessoryType = .none
         } else {
             cell.accessoryType = .checkmark
-        }
-        
-        if LanguagePreferences.getCurrent() == language {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
         }
         
         if selectedIndexPath == nil, language.code == LanguagePreferences.getCurrent().code {

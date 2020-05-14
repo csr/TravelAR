@@ -48,7 +48,10 @@ extension TranslateController {
                     completion(translation.translatedText)
                 case .failure(let error):
                     print(error.localizedDescription)
-                    self.presentErrorAlertController()
+                    if !self.hasShownAPIKeyErrorMessageBefore {
+                        self.presentErrorAlertController()
+                        self.hasShownAPIKeyErrorMessageBefore = true
+                    }
                 }
             }
         }

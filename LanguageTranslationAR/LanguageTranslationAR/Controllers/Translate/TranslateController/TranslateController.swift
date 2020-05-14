@@ -64,15 +64,7 @@ public class TranslateController: UIViewController {
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
     var previousObjectPrediction = ""
-    
-    var shouldPresentARDetailView = true {
-        didSet {
-            UIView.animate(withDuration: 0.2) {
-                self.sceneView.alpha = self.shouldPresentARDetailView ? 1 : 0.3
-            }
-        }
-    }
-    
+        
     // MARK: - View Lifecycle
     
     public override func viewDidLoad() {
@@ -95,8 +87,66 @@ public class TranslateController: UIViewController {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
     }
+                
+    // MARK: - Event handling
     
-    // MARK: - Helper functions
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.didTouchSceneView(touches: touches, event: event)
+    }
+        
+    @objc func updatePredictionLabel() {
+        if let mlPrediction = mlPrediction {
+            translateOriginalText(text: mlPrediction) { translatedPrediction in
+                if let translatedPrediction = translatedPrediction {
+                    self.previousObjectPrediction = translatedPrediction
+                    
+                    DispatchQueue.main.async {
+                        self.recognizedObjectFeedbackView.textLabel.text = self.previousObjectPrediction
+                    }
+                }
+            }
+        } else {
+            recognizedObjectFeedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+            self.plusButton.alpha = self.mlPrediction == nil ? 0.5 : 1
+        }
+    }
+    
+    func changeScanningState(planesDetected: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            self.plusButton.isHidden = !planesDetected
+            self.recognizedObjectFeedbackView.isHidden = !planesDetected
+            self.clearButtonView.isHidden = !planesDetected
+            self.tipView.isHidden = !planesDetected
+            self.moveDeviceToScanView.isHidden = planesDetected
+        }
+        
+        if planesDetected {
+            Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updatePredictionLabel), userInfo: nil, repeats: true).fire()
+        }
+    }
+    
+    func presentDetailView(node: SCNNode, translation: Translation) {
+        // Convert the node's position to screen coordinates
+        let screenCoordinate = self.sceneView.projectPoint(node.position)
+        let xPosition = CGFloat(screenCoordinate.x)
+        let yPosition = CGFloat(screenCoordinate.y)
+        
+        let detailView = ARDetailView(frame: CGRect(x: xPosition, y: yPosition, width: 100, height: 40))
+        detailView.delegate = self
+        detailView.node = node
+        detailView.translation = translation
+        view.addSubview(detailView)
+        detailView.show()
+        self.sceneView.alpha = 0.3
+    }
+    
+    func presentTipView() {
+        tipView.show(forView: plusButton, withinSuperview: view)
+    }
     
     private func presentWelcomeController() {
         let welcomeController = WelcomeController()
@@ -112,17 +162,12 @@ public class TranslateController: UIViewController {
         
         present(navController, animated: true, completion: nil)
     }
+    
+    // MARK: - Helper functions
             
     @objc internal func isCameraPermissionGranted() -> Bool {
         let cameraMediaType = AVMediaType.video
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
         return !(cameraAuthorizationStatus == .authorized)
-    }
-    
-    // MARK: - Event handling
-    
-    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        self.didTouchSceneView(touches: touches, event: event)
     }
  }

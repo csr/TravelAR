@@ -17,7 +17,7 @@ class ClearButtonView: UIVisualEffectView {
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkGray
+        label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.text = "NAV_BAR_CLEAR".localized
         contentView.addSubview(label)
@@ -28,6 +28,10 @@ class ClearButtonView: UIVisualEffectView {
         layer.cornerRadius = 15
         
         isUserInteractionEnabled = true
+        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .dark
+        }
     }
     
     required init?(coder: NSCoder) {

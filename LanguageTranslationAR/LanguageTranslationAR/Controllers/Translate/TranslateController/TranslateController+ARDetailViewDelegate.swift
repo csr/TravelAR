@@ -6,7 +6,7 @@
 //  Copyright © 2020 Cesare de Cal. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension TranslateController: ARDetailViewDelegate {
     func didTapListenPronunciation(translation: Translation) {
@@ -14,6 +14,8 @@ extension TranslateController: ARDetailViewDelegate {
     }
     
     func didTapCloseDetailView() {
-        self.shouldPresentARDetailView = true
+        UIView.animate(withDuration: 0.2) {
+            self.sceneView.alpha = 1
+        }
     }
 }

@@ -60,7 +60,7 @@
 		1D65E4E321CE612800DB52A5 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DD21CE612800DB52A5 /* FunctionalTableData.framework */; };
 		1D65E4E521CE6BC700DB52A5 /* TranslationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E421CE6BC700DB52A5 /* TranslationNode.swift */; };
 		1D65E4E721CE6CAF00DB52A5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */; };
-		1D65E4EA21CE708600DB52A5 /* TranslateController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E921CE708600DB52A5 /* TranslateController+Actions.swift */; };
+		1D65E4EA21CE708600DB52A5 /* TranslateController+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E921CE708600DB52A5 /* TranslateController+Events.swift */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
 		1D745CCD21D22542008A974F /* HistoryController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D745CCC21D22542008A974F /* HistoryController+TableView.swift */; };
 		1D745CCF21D228AE008A974F /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D745CCE21D228AE008A974F /* HeaderCell.swift */; };
@@ -160,7 +160,7 @@
 		1D65E4DD21CE612800DB52A5 /* FunctionalTableData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalTableData.framework; path = Carthage/Build/iOS/FunctionalTableData.framework; sourceTree = "<group>"; };
 		1D65E4E421CE6BC700DB52A5 /* TranslationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNode.swift; sourceTree = "<group>"; };
 		1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		1D65E4E921CE708600DB52A5 /* TranslateController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+Actions.swift"; sourceTree = "<group>"; };
+		1D65E4E921CE708600DB52A5 /* TranslateController+Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+Events.swift"; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		1D745CCC21D22542008A974F /* HistoryController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryController+TableView.swift"; sourceTree = "<group>"; };
 		1D745CCE21D228AE008A974F /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
@@ -491,7 +491,7 @@
 				1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */,
 				1D23B95A20986D1100121E8F /* TranslateController+API.swift */,
 				1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */,
-				1D65E4E921CE708600DB52A5 /* TranslateController+Actions.swift */,
+				1D65E4E921CE708600DB52A5 /* TranslateController+Events.swift */,
 				1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */,
 			);
 			path = TranslateController;
@@ -698,7 +698,7 @@
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D95A9EE21CACCB0002EDAF1 /* PermissionsController.swift in Sources */,
 				1D104C8921BF0ADA000396C5 /* String+Extensions.swift in Sources */,
-				1D65E4EA21CE708600DB52A5 /* TranslateController+Actions.swift in Sources */,
+				1D65E4EA21CE708600DB52A5 /* TranslateController+Events.swift in Sources */,
 				1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */,
 				1D23B94D2097AB7C00121E8F /* GoogleTranslateAPI.swift in Sources */,
 				1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */,

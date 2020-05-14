@@ -39,8 +39,13 @@ class ARDetailView: UIView, NibView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
-        self.layer.masksToBounds = true
-        self.layer.cornerRadius = 18
+        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
+        
+        layer.masksToBounds = true
+        layer.cornerRadius = 18
         
         buttonClose.setTitle("MENU_ACTION_CLOSE".localized, for: .normal)
         reproduceButton.setTitle("MENU_ACTION_REPRODUCE".localized, for: .normal)

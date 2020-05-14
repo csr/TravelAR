@@ -1,5 +1,5 @@
 //
-//  TranslateController+Actions.swift
+//  TranslateController+Events.swift
 //  LanguageTranslationAR
 //
 //  Created by Cesare de Cal on 12/22/18.
@@ -26,33 +26,13 @@ extension TranslateController {
         guard let touch = touches.first else { return }
         let position = touch.location(in: sceneView)
         
-        guard let result = sceneView.hitTest(position, options: nil).first, let node = result.node as? TranslationNode, let translation = node.translation, shouldPresentARDetailView else {
+        guard let result = sceneView.hitTest(position, options: nil).first, let node = result.node as? TranslationNode, let translation = node.translation, sceneView.alpha == 1 else {
             return
         }
         
         presentDetailView(node: node, translation: translation)
     }
-    
-    private func presentDetailView(node: SCNNode, translation: Translation) {
-        // Convert the node's position to screen coordinates
-        let screenCoordinate = self.sceneView.projectPoint(node.position)
-        let xPosition = CGFloat(screenCoordinate.x)
-        let yPosition = CGFloat(screenCoordinate.y)
         
-        let detailView = ARDetailView(frame: CGRect(x: xPosition, y: yPosition, width: 100, height: 40))
-        detailView.delegate = self
-        detailView.node = node
-        detailView.translation = translation
-        view.addSubview(detailView)
-        detailView.show()
-        self.shouldPresentARDetailView = false
-    }
-    
-    func presentTipView() {
-        tipView.show(forView: plusButton,
-                         withinSuperview: view)
-    }
-    
     @objc func didTapClearButton() {
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
             if node is TranslationNode {

@@ -12,6 +12,8 @@ import Vision
 extension TranslateController {
     
     func setupCoreML() {
+        print("Setting up CoreML...")
+        
 		guard let mlmodelcFile = Bundle.main.url(forResource: "Inceptionv3", withExtension: "mlmodelc") else {
 			print("Couldn't locate the CoreML model")
 			return
@@ -24,21 +26,12 @@ extension TranslateController {
             // An ML model processes input images in a fixed aspect ratio, but input images may have arbitrary aspect ratios, so Vision must scale or crop the image to fit
             classificationRequest.imageCropAndScaleOption = .centerCrop
 			visionRequests = [classificationRequest]
-			loopCoreMLUpdate()
 		} catch let error {
             print(error.localizedDescription)
 		}
 	}
-	
-	private func loopCoreMLUpdate() {
-        // Keep looping on the same thread with given label
-		DispatchQueue(label: "com.cesaredecal.dispatchqueueml").async {
-			self.processVisionRequests()
-			self.loopCoreMLUpdate()
-		}
-	}
-	
-	private func processVisionRequests() {
+		
+    func processVisionRequests() {
 		guard let pixbuff = sceneView.session.currentFrame?.capturedImage else { return }
 		let ciImage = CIImage(cvPixelBuffer: pixbuff)
         let imageRequestHandler = VNImageRequestHandler(ciImage: ciImage)

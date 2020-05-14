@@ -14,8 +14,10 @@ import EasyTipView
 extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
     
     @objc internal func runARSession() {
+        print("Running AR session...")
         configuration.planeDetection = [.horizontal, .vertical]
         sceneView.session = augmentedRealitySession
+        sceneView.session.delegate = self
         sceneView.session.run(configuration)
     }
     
@@ -85,5 +87,11 @@ extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
     func didFinishOnboarding() {
         runARSession()
         setupCoreML()
+    }
+}
+
+extension TranslateController: ARSessionDelegate {
+    public func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        self.processVisionRequests()
     }
 }

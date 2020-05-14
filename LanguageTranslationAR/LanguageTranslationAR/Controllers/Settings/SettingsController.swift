@@ -12,9 +12,7 @@ import FunctionalTableData
 class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
     
     private let functionalData = FunctionalTableData()
-    
-    var languages: [Language] = []
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         functionalData.tableView = tableView
@@ -46,7 +44,6 @@ class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
     @objc private func didSelectTranslationLanguage() {
         let languagesController = LanguagesController()
         languagesController.didUpdateLanguageDelegate = self
-        languagesController.getTableData(languages: languages)
         navigationController?.pushViewController(languagesController, animated: true)
     }
     

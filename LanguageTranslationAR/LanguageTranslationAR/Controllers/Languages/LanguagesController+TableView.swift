@@ -42,7 +42,7 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         self.selectedIndexPath = indexPath
     }
     
-    // MARK: - Table view data source
+    // MARK: - UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewHeaders.count
@@ -172,9 +172,5 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return (sortedSymbolsStr, tableViewSource)
-    }
-    
-    func getTableData(languages: [Language]) {
-        (tableViewHeaders, tableViewSource) = createTableData(languagesList: languages)
     }
 }

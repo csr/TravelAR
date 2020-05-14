@@ -14,13 +14,11 @@
 		1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D104C8C21BF91A5000396C5 /* TranslationItems.swift */; };
 		1D17BE6B21D8D1C4005243E8 /* dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D17BE6A21D8D1C3005243E8 /* dictionary.json */; };
 		1D17BE6D21D8D6BB005243E8 /* LanguagePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */; };
-		1D17BE7121D8F320005243E8 /* CardTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */; };
 		1D17BE7321D914EF005243E8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17BE7221D914EF005243E8 /* Dictionary.swift */; };
 		1D182042246C456700A01BAE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D182041246C456700A01BAE /* NetworkError.swift */; };
 		1D1A8EBA246BCEE8006111FF /* GoogleAPIKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1D1A8EB9246BCEE8006111FF /* GoogleAPIKey.txt */; };
 		1D1A8EBC246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */; };
 		1D1A8EC1246C1A17006111FF /* ClearButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A8EC0246C1A17006111FF /* ClearButtonView.swift */; };
-		1D1E34CF21D8C73E0096CEAB /* CardsController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */; };
 		1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77921D3AD9100364C59 /* SettingsView.swift */; };
 		1D21F77E21D410FD00364C59 /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */; };
 		1D21F78121D411B600364C59 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21F78021D411B600364C59 /* TitleLabel.swift */; };
@@ -54,8 +52,6 @@
 		1D5AC48623BE9E2800571B10 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AC48523BE9E2800571B10 /* Platform.swift */; };
 		1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245721C93A1800EB2D5C /* ARDetailView.swift */; };
 		1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */; };
-		1D65245E21CA733300EB2D5C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245D21CA733300EB2D5C /* CardView.swift */; };
-		1D65246021CA735800EB2D5C /* CardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245F21CA735800EB2D5C /* CardsController.swift */; };
 		1D65E4DE21CE612800DB52A5 /* Flags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4D821CE612700DB52A5 /* Flags.framework */; };
 		1D65E4DF21CE612800DB52A5 /* EasyTipView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4D921CE612700DB52A5 /* EasyTipView.framework */; };
 		1D65E4E121CE612800DB52A5 /* TBEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D65E4DB21CE612700DB52A5 /* TBEmptyDataSet.framework */; };
@@ -113,13 +109,11 @@
 		1D104C8C21BF91A5000396C5 /* TranslationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationItems.swift; sourceTree = "<group>"; };
 		1D17BE6A21D8D1C3005243E8 /* dictionary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dictionary.json; sourceTree = "<group>"; };
 		1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagePreferences.swift; sourceTree = "<group>"; };
-		1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleLabel.swift; sourceTree = "<group>"; };
 		1D17BE7221D914EF005243E8 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		1D182041246C456700A01BAE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		1D1A8EB9246BCEE8006111FF /* GoogleAPIKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoogleAPIKey.txt; sourceTree = SOURCE_ROOT; };
 		1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+ARDetailViewDelegate.swift"; sourceTree = "<group>"; };
 		1D1A8EC0246C1A17006111FF /* ClearButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonView.swift; sourceTree = "<group>"; };
-		1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardsController+Data.swift"; sourceTree = "<group>"; };
 		1D21F77921D3AD9100364C59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1D21F77D21D410FD00364C59 /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
 		1D21F78021D411B600364C59 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
@@ -157,8 +151,6 @@
 		1D5AC48523BE9E2800571B10 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		1D65245721C93A1800EB2D5C /* ARDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailView.swift; sourceTree = "<group>"; };
 		1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDetectionView.swift; sourceTree = "<group>"; };
-		1D65245D21CA733300EB2D5C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		1D65245F21CA735800EB2D5C /* CardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsController.swift; sourceTree = "<group>"; };
 		1D65E4D821CE612700DB52A5 /* Flags.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flags.framework; path = Carthage/Build/iOS/Flags.framework; sourceTree = "<group>"; };
 		1D65E4D921CE612700DB52A5 /* EasyTipView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyTipView.framework; path = Carthage/Build/iOS/EasyTipView.framework; sourceTree = "<group>"; };
 		1D65E4DB21CE612700DB52A5 /* TBEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TBEmptyDataSet.framework; path = Carthage/Build/iOS/TBEmptyDataSet.framework; sourceTree = "<group>"; };
@@ -216,15 +208,6 @@
 				1D17BE6C21D8D6BB005243E8 /* LanguagePreferences.swift */,
 			);
 			path = "Helper Classes";
-			sourceTree = "<group>";
-		};
-		1D17BE6F21D8F2B4005243E8 /* CardView */ = {
-			isa = PBXGroup;
-			children = (
-				1D65245D21CA733300EB2D5C /* CardView.swift */,
-				1D17BE7021D8F320005243E8 /* CardTitleLabel.swift */,
-			);
-			path = CardView;
 			sourceTree = "<group>";
 		};
 		1D17BE7421D914F3005243E8 /* Dictionary */ = {
@@ -302,7 +285,6 @@
 				1D441E7020726F22005E2ADD /* History */,
 				1DEE6F3021BB14FA006D3830 /* Settings */,
 				1D94B76D20CB29FF0000B065 /* Languages */,
-				1DEC7D2E21C7A08200BBEDD3 /* Cards */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -534,16 +516,6 @@
 			path = "Helper Views";
 			sourceTree = "<group>";
 		};
-		1DEC7D2E21C7A08200BBEDD3 /* Cards */ = {
-			isa = PBXGroup;
-			children = (
-				1D65245F21CA735800EB2D5C /* CardsController.swift */,
-				1D1E34CE21D8C73E0096CEAB /* CardsController+Data.swift */,
-				1D17BE6F21D8F2B4005243E8 /* CardView */,
-			);
-			path = Cards;
-			sourceTree = "<group>";
-		};
 		1DEC7D3321C7CB9000BBEDD3 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,7 +657,6 @@
 				1D412B9F20D66D9F006CD60A /* Utilities.swift in Sources */,
 				1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */,
 				1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */,
-				1D1E34CF21D8C73E0096CEAB /* CardsController+Data.swift in Sources */,
 				1D95A9EA21CAC122002EDAF1 /* TranslationItemsDelegate.swift in Sources */,
 				1D745CC921D224D2008A974F /* HistoryController+Search.swift in Sources */,
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
@@ -705,7 +676,6 @@
 				1D441E9D20726F22005E2ADD /* TextToSpeech.swift in Sources */,
 				1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */,
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
-				1D17BE7121D8F320005243E8 /* CardTitleLabel.swift in Sources */,
 				1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */,
 				1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */,
 				1DEC7D1421C5771900BBEDD3 /* DidUpdateLanguageDelegate.swift in Sources */,
@@ -729,7 +699,6 @@
 				1D104C8D21BF91A5000396C5 /* TranslationItems.swift in Sources */,
 				1D1A8EBC246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift in Sources */,
 				1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */,
-				1D65246021CA735800EB2D5C /* CardsController.swift in Sources */,
 				1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */,
 				1D23B9602098945D00121E8F /* TranslationList.swift in Sources */,
 				1D95A9EE21CACCB0002EDAF1 /* PermissionsController.swift in Sources */,
@@ -744,7 +713,6 @@
 				1D182042246C456700A01BAE /* NetworkError.swift in Sources */,
 				1DD0873F21DCCE3900E671BA /* OnboardingDelegate.swift in Sources */,
 				1DF2BD0721C38C7B00D5E29B /* WelcomeController.swift in Sources */,
-				1D65245E21CA733300EB2D5C /* CardView.swift in Sources */,
 				1D441E9820726F22005E2ADD /* TranslateController.swift in Sources */,
 				1D441E9720726F22005E2ADD /* TranslateController+Views.swift in Sources */,
 				1D23B9552097C5AF00121E8F /* LanguagesList.swift in Sources */,

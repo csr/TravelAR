@@ -37,9 +37,7 @@ extension HistoryController {
                                   highlight: true,
                                   selectionColor: UIColor.selectedCell,
                                   backgroundColor: .black)
-        
-        
-        
+                
         let rows: [CellConfigType] = getSourceArray().enumerated().map { index, item in
             return HistoryCell(
                 key: "index-\(index)-\(item.translatedText)",

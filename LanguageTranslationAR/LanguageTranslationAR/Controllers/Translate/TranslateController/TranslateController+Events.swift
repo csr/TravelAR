@@ -46,8 +46,8 @@ extension TranslateController {
     }
     
     func addNodeTranslation(coords: SCNVector3) {
-        if !previousObjectPrediction.isEmpty {
-            getTranslation(text: previousObjectPrediction) { (translation) in
+        if let mlPrediction = mlPrediction {
+            getTranslation(text: mlPrediction) { (translation) in
                 DispatchQueue.main.async {
                     if let translation = translation {
                         self.addNode(translation: translation, coords: coords)

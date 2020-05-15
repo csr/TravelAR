@@ -488,9 +488,9 @@
 			children = (
 				1D441E6020726F22005E2ADD /* TranslateController.swift */,
 				1D441E5F20726F22005E2ADD /* TranslateController+Views.swift */,
+				1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */,
 				1D441E5B20726F22005E2ADD /* TranslateController+ARKit.swift */,
 				1D23B95A20986D1100121E8F /* TranslateController+API.swift */,
-				1D441E5C20726F22005E2ADD /* TranslateController+CoreML.swift */,
 				1D65E4E921CE708600DB52A5 /* TranslateController+Events.swift */,
 				1D1A8EBB246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift */,
 			);

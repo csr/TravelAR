@@ -59,11 +59,11 @@ public class TranslateController: UIViewController {
     let updateQueue = DispatchQueue(label: "queue")
     var focusSquare = FocusSquare()
     var canDisplayFocusSquare = true
+    var updatePredictionLabelTimer: Timer?
     
     // MARK: - Vision
     var visionRequests = [VNRequest]()
     var mlPrediction: String?
-    var previousObjectPrediction = ""
         
     // MARK: - View Lifecycle
     
@@ -85,7 +85,7 @@ public class TranslateController: UIViewController {
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        sceneView.session.pause()
+        stopARSession()
     }
                 
     // MARK: - Event handling
@@ -99,10 +99,8 @@ public class TranslateController: UIViewController {
         if let mlPrediction = mlPrediction {
             translateOriginalText(text: mlPrediction) { translatedPrediction in
                 if let translatedPrediction = translatedPrediction {
-                    self.previousObjectPrediction = translatedPrediction
-                    
                     DispatchQueue.main.async {
-                        self.recognizedObjectFeedbackView.textLabel.text = self.previousObjectPrediction
+                        self.recognizedObjectFeedbackView.textLabel.text = translatedPrediction
                     }
                 }
             }
@@ -110,22 +108,22 @@ public class TranslateController: UIViewController {
             recognizedObjectFeedbackView.textLabel.text = "WARNING_NOTHING_FOUND".localized
         }
         
-        UIView.animate(withDuration: 0.2) {
-            self.plusButton.alpha = self.mlPrediction == nil ? 0.5 : 1
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2) {
+                self.plusButton.alpha = self.mlPrediction == nil ? 0.5 : 1
+            }
         }
     }
     
-    func changeScanningState(planesDetected: Bool) {
-        UIView.animate(withDuration: 0.2) {
-            self.plusButton.isHidden = !planesDetected
-            self.recognizedObjectFeedbackView.isHidden = !planesDetected
-            self.clearButtonView.isHidden = !planesDetected
-            self.tipView.isHidden = !planesDetected
-            self.moveDeviceToScanView.isHidden = planesDetected
-        }
-        
-        if planesDetected {
-            Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updatePredictionLabel), userInfo: nil, repeats: true).fire()
+    func updateUI(planesDetected: Bool) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2) {
+                self.plusButton.isHidden = !planesDetected
+                self.recognizedObjectFeedbackView.isHidden = !planesDetected
+                self.clearButtonView.isHidden = !planesDetected
+                self.tipView.isHidden = !planesDetected
+                self.moveDeviceToScanView.isHidden = planesDetected
+            }
         }
     }
     

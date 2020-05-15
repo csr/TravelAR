@@ -13,22 +13,35 @@ import EasyTipView
 
 extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
     
-    @objc internal func runARSession() {
+    @objc func runARSession() {
         print("Running AR session...")
         configuration.planeDetection = [.horizontal, .vertical]
         sceneView.session = augmentedRealitySession
         sceneView.session.delegate = self
         sceneView.session.run(configuration)
+        enableUpdatePredictionLabelTimer()
+    }
+    
+    func stopARSession() {
+        sceneView.session.pause()
+        disableUpdatePredictionLabelTimer()
+    }
+    
+    func enableUpdatePredictionLabelTimer() {
+        updatePredictionLabelTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updatePredictionLabel), userInfo: nil, repeats: true)
+    }
+    
+    func disableUpdatePredictionLabelTimer() {
+        updatePredictionLabelTimer?.invalidate()
+        updatePredictionLabelTimer = nil
     }
     
     func addNode(translation: Translation, coords: SCNVector3) {
         let currentLanguage = LanguagePreferences.getCurrent()
         let langCode = currentLanguage.code.uppercased()
-        if let flagEmoji = Flag(countryCode: langCode)?.emoji {
-            customARView.setText(text: flagEmoji + " " + translation.translatedText)
-        } else {
-            customARView.setText(text: translation.translatedText)
-        }
+        
+        let flagEmoji = Flag(countryCode: langCode)?.emoji ?? ""
+        customARView.setText(text: flagEmoji + " " + translation.translatedText)
         
         let height: CGFloat = 0.02
         let aspectRatio = customARView.bounds.height / customARView.bounds.width
@@ -58,9 +71,7 @@ extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        DispatchQueue.main.async {
-            self.changeScanningState(planesDetected: true)
-        }
+        self.updateUI(planesDetected: true)
     }
     
     func updateFocusSquare() {        

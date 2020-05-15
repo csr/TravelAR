@@ -17,7 +17,7 @@ extension TranslateController: AddButtonProtocol {
         setupAddButton()
         setupFeedbackView()
         setupScanningView()
-        changeScanningState(planesDetected: false)
+        updateUI(planesDetected: false)
         setupClearButton()
     }
             

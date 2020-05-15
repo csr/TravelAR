@@ -30,8 +30,4 @@ class TranslationItems {
     public func getAll() -> [Translation] {
         return Array(set)
     }
-    
-    public func getRandomItem() -> Translation? {
-        return set.randomElement()
-    }
 }

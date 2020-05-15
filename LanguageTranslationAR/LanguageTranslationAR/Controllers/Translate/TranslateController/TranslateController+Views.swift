@@ -1,9 +1,6 @@
 //
-//  DictionaryController+Views.swift
-//  WWDC-App
-//
-//  Created by Cesare de Cal on 16/03/2018.
-//  Copyright © 2018 Cesare Gianfilippo Astianatte de Cal. All rights reserved.
+//  TranslateController+Views.swift
+//  LanguageTranslationAR
 //
 
 import UIKit

@@ -1,9 +1,6 @@
 //
-//  Keys.swift
+//  APIKeys.swift
 //  LanguageTranslationAR
-//
-//  Created by Cesare de Cal on 1/18/19.
-//  Copyright © 2019 Cesare de Cal. All rights reserved.
 //
 
 import Foundation

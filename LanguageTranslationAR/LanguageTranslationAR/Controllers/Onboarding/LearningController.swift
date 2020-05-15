@@ -2,15 +2,10 @@
 //  LearningController.swift
 //  LanguageTranslationAR
 //
-//  Created by Cesare de Cal on 26/12/2018.
-//  Copyright © 2018 Cesare de Cal. All rights reserved.
-//
 
 import UIKit
 
 class LearningController: UIViewController {
-
-    var onboardingDelegate: OnboardingDelegate?
     
     private let titleLabel: TitleLabel = {
         let label = TitleLabel()
@@ -71,7 +66,6 @@ class LearningController: UIViewController {
     }
 
     @objc private func presentLanguageSelection() {
-        onboardingDelegate?.didFinishOnboarding()
         let vc = LanguagesController()
         navigationController?.pushViewController(vc, animated: true)
     }

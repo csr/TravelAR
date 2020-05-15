@@ -2,16 +2,11 @@
 //  WelcomeController.swift
 //  LanguageTranslationAR
 //
-//  Created by Cesare de Cal on 12/14/18.
-//  Copyright © 2018 Cesare de Cal. All rights reserved.
-//
 
 import UIKit
 
 class WelcomeController: UIViewController {
-    
-    var onboardingDelegate: OnboardingDelegate?
-    
+        
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +37,6 @@ class WelcomeController: UIViewController {
     
     @objc func didSelectContinueButton() {
         let cameraPermissionVC = PermissionsController()
-        cameraPermissionVC.onboardingDelegate = onboardingDelegate
         navigationController?.pushViewController(cameraPermissionVC, animated: true)
     }
     

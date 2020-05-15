@@ -2,16 +2,11 @@
 //  CameraPermissionController.swift
 //  LanguageTranslationAR
 //
-//  Created by Cesare de Cal on 12/19/18.
-//  Copyright © 2018 Cesare de Cal. All rights reserved.
-//
 
 import UIKit
 import AVFoundation
 
 class PermissionsController: UIViewController {
-
-    var onboardingDelegate: OnboardingDelegate?
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -110,7 +105,6 @@ class PermissionsController: UIViewController {
     
     private func proceedWithOnboarding() {
         let vc = LearningController()
-        vc.onboardingDelegate = onboardingDelegate
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -1,9 +1,6 @@
 //
-//  DictionaryController+CoreML.swift
-//  WWDC-App
-//
-//  Created by Cesare de Cal on 16/03/2018.
-//  Copyright © 2018 Cesare Gianfilippo Astianatte de Cal. All rights reserved.
+//  TranslateController+CoreML.swift
+//  LanguageTranslationAR
 //
 
 import UIKit

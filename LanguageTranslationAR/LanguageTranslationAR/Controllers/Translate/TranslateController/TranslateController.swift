@@ -1,9 +1,6 @@
- //
-//  File.swift
-//  WWDC-App
 //
-//  Created by Cesare de Cal on 16/03/2018.
-//  Copyright © 2018 Cesare Gianfilippo Astianatte de Cal. All rights reserved.
+//  TranslateController.swift
+//  LanguageTranslationAR
 //
 
 import UIKit
@@ -62,7 +59,7 @@ public class TranslateController: UIViewController {
 		super.viewDidLoad()
         setupViews()        
 	}
-    
+        
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isCameraPermissionGranted() {
@@ -139,7 +136,6 @@ public class TranslateController: UIViewController {
     
     private func presentWelcomeController() {
         let welcomeController = WelcomeController()
-        welcomeController.onboardingDelegate = self
         
         // Prevent user from dismissing view controller in iOS 13
         if #available(iOS 13.0, *) {

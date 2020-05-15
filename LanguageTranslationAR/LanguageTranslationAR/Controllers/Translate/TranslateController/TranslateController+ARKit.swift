@@ -1,9 +1,6 @@
 //
-//  DictionaryController+ARKit.swift
-//  WWDC-App
-//
-//  Created by Cesare de Cal on 16/03/2018.
-//  Copyright © 2018 Cesare Gianfilippo Astianatte de Cal. All rights reserved.
+//  TranslateController+ARKit.swift
+//  LanguageTranslationAR
 //
 
 import UIKit
@@ -11,7 +8,7 @@ import ARKit
 import Flags
 import EasyTipView
 
-extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
+extension TranslateController: ARSCNViewDelegate {
     
     @objc func runARSession() {
         print("Running AR session...")
@@ -96,11 +93,6 @@ extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
                 }
             }
         }
-    }
-                    
-    func didFinishOnboarding() {
-        runARSession()
-        setupCoreML()
     }
 }
 

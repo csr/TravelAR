@@ -2,7 +2,7 @@
 //  LanguagePreferences.swift
 //  LanguageTranslationAR
 //
-//  Created by Cesare de Cal & Giuliano on 16/06/2018.
+//  Created by Cesare de Cal on 16/06/2018.
 //  Copyright © 2018 Cesare de Cal. All rights reserved.
 //
 
@@ -10,9 +10,7 @@ import Foundation
 import Flags
 
 class LanguagePreferences {
-    
-    static var languages = [Language]()
-    
+        
     class func getCurrent() -> Language {
         let defaults = UserDefaults.standard
         if let code = defaults.string(forKey: "languageCode"), let name = defaults.string(forKey: "languageName") {

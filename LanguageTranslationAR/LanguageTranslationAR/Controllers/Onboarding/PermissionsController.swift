@@ -1,5 +1,5 @@
 //
-//  CameraPermissionController.swift
+//  PermissionsController.swift
 //  LanguageTranslationAR
 //
 

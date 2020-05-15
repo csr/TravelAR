@@ -1,9 +1,6 @@
 //
-//  PopoverTableViewCell.swift
-//  testPlayground
-//
-//  Created by Cesare de Cal on 22/03/2018.
-//  Copyright © 2018 Cesare Gianfilippo Astianatte de Cal. All rights reserved.
+//  HistoryCell.swift
+//  LanguageTranslationAR
 //
 
 import UIKit

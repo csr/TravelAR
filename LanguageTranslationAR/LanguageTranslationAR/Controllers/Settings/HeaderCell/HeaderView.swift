@@ -2,9 +2,6 @@
 //  HeaderView.swift
 //  LanguageTranslationAR
 //
-//  Created by Cesare de Cal on 25/12/2018.
-//  Copyright © 2018 Cesare de Cal. All rights reserved.
-//
 
 import UIKit
 

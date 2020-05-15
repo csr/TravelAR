@@ -2,9 +2,6 @@
 //  HistoryController+TBEmptyDataSet.swift
 //  LanguageTranslationAR
 //
-//  Created by Cesare de Cal on 5/14/20.
-//  Copyright © 2020 Cesare de Cal. All rights reserved.
-//
 
 import UIKit
 import TBEmptyDataSet

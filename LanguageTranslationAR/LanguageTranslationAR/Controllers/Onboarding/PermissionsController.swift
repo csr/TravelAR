@@ -30,7 +30,7 @@ class PermissionsController: UIViewController {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = #imageLiteral(resourceName: "camera")
+        imageView.image = UIImage.camera
         return imageView
     }()
     

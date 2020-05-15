@@ -27,11 +27,14 @@ enum ApplicationTab: Int, CaseIterable {
     var activeImage: UIImage {
         var image: UIImage?
         switch self {
-        case .translate: image = UIImage(named: "translate")
-        case .history: image = UIImage(named: "history")
-        case .settings: image = UIImage(named: "settings")
+        case .translate:
+            image = UIImage.translateTabBar
+        case .history:
+            image = UIImage.historyTabBar
+        case .settings:
+            image = UIImage.settingsTabBar
         }
-        return image!
+        return image ?? UIImage()
     }
     
     var tabNumber: Int {

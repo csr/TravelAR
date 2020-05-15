@@ -51,6 +51,7 @@
 		1D441EA720726F22005E2ADD /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7320726F22005E2ADD /* HistoryController.swift */; };
 		1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* HistoryCell.swift */; };
 		1D4937C1246F212300779BB4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4937C0246F212300779BB4 /* TabBarController.swift */; };
+		1D4937C3246F2C7D00779BB4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4937C2246F2C7D00779BB4 /* UIImage+Extensions.swift */; };
 		1D5AC48623BE9E2800571B10 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AC48523BE9E2800571B10 /* Platform.swift */; };
 		1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245721C93A1800EB2D5C /* ARDetailView.swift */; };
 		1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */; };
@@ -149,6 +150,7 @@
 		1D441E7320726F22005E2ADD /* HistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
 		1D441E7420726F22005E2ADD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryCell.swift; path = LanguageTranslationAR/Controllers/History/HistoryCell.swift; sourceTree = SOURCE_ROOT; };
 		1D4937C0246F212300779BB4 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		1D4937C2246F2C7D00779BB4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		1D5AC48523BE9E2800571B10 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		1D65245721C93A1800EB2D5C /* ARDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailView.swift; sourceTree = "<group>"; };
 		1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDetectionView.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */,
 				1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */,
 				1D182045246D612A00A01BAE /* UIColor+Extensions.swift */,
+				1D4937C2246F2C7D00779BB4 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				1D412B9F20D66D9F006CD60A /* Utilities.swift in Sources */,
 				1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */,
 				1D95A9EA21CAC122002EDAF1 /* TranslationItemsDelegate.swift in Sources */,
+				1D4937C3246F2C7D00779BB4 /* UIImage+Extensions.swift in Sources */,
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
 				1D5AC48623BE9E2800571B10 /* Platform.swift in Sources */,
 				1D745CCD21D22542008A974F /* HistoryController+TableView.swift in Sources */,

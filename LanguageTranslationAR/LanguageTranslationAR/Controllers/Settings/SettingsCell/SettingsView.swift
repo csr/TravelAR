@@ -2,9 +2,6 @@
 //  SettingsView.swift
 //  LanguageTranslationAR
 //
-//  Created by Cesare de Cal on 26/12/2018.
-//  Copyright © 2018 Cesare de Cal. All rights reserved.
-//
 
 import UIKit
 
@@ -21,7 +18,7 @@ public class SettingsView: UIView {
     
     let imageView: UIImageView = {
         let view = UIImageView()
-        view.image = #imageLiteral(resourceName: "translate")
+        view.image = UIImage.translate
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFit
         return view

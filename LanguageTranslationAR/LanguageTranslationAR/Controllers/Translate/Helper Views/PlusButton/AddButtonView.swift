@@ -51,7 +51,7 @@ class AddButtonView: UIView {
         view.isUserInteractionEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
-        view.image = UIImage(named: "add-button")
+        view.image = UIImage.addButton
         return view
     }()
 

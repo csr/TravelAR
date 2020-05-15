@@ -90,7 +90,7 @@ public class HistoryView: UIView {
         audioImageView.translatesAutoresizingMaskIntoConstraints = false
         audioImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
         audioImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
-        audioImageView.image = UIImage(named: "sound")
+        audioImageView.image = UIImage.sound
         topStackView.addArrangedSubview(audioImageView)
         topStackView.spacing = 5
         topStackView.distribution = .equalSpacing

@@ -21,7 +21,7 @@ extension HistoryController: TBEmptyDataSetDelegate, TBEmptyDataSetDataSource {
     }
     
     func imageForEmptyDataSet(in scrollView: UIScrollView) -> UIImage? {
-        return #imageLiteral(resourceName: "empty-state-view")
+        return UIImage.emptyStateView
     }
     
     func verticalOffsetForEmptyDataSet(in scrollView: UIScrollView) -> CGFloat {

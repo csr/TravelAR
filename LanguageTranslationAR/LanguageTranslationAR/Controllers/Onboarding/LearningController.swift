@@ -22,7 +22,7 @@ class LearningController: UIViewController {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "welcome-language")
+        imageView.image = UIImage.welcomeLanguage
         return imageView
     }()
 

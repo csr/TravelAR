@@ -25,7 +25,7 @@ class ScanningStateView: UIView {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "search")
+        imageView.image = UIImage.search
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
         return imageView

@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
     }
     
+    // When the app enters foreground mode, we want to give it some nice blurred background
     private func presentBlurredView() {
         guard let rootVC = window?.rootViewController as? UITabBarController, let viewController = rootVC.selectedViewController as? TranslateController, viewController.isViewLoaded, let _ = viewController.view.window else { return }
         let blurEffect = UIBlurEffect(style: .light)

@@ -23,7 +23,7 @@ class CustomARView: UIView {
     private let disclosureIndicatorImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = #imageLiteral(resourceName: "disclosure-indicator")
+        imageView.image = UIImage.disclosureIndicator
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

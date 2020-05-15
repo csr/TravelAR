@@ -37,7 +37,7 @@ class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
     // Secondary cell states include the Help, Feedback sections
     private func getSecondaryCellStates() -> [SettingsState] {
         let helpCellState = SettingsState(text: "SETTINGS_HELP".localized, imageName: "help", imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(didTapHelpRow))
-        let friendCellState = SettingsState(text: "SETTINGS_FRIENDS".localized, imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didSelectShareRow))
+        let friendCellState = SettingsState(text: "SETTINGS_GITHUB".localized, imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didTapViewOnGitHubRow))
         return [helpCellState, friendCellState]
     }
     
@@ -81,12 +81,12 @@ class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
         }
     }
         
-    @objc private func didSelectShareRow() {
-        let text = "SETTINGS_SHARE_TEXT".localized
-        let textShare = [text]
-        let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
+    @objc private func didTapViewOnGitHubRow() {
+        guard let url = URL(string: "https://github.com/csr/TravelAR") else {
+          return
+        }
+
+        UIApplication.shared.open(url)
     }
     
     private func deselectRow() {

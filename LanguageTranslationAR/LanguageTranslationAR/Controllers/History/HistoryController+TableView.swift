@@ -39,6 +39,10 @@ extension HistoryController {
                                   backgroundColor: .black)
                 
         let rows: [CellConfigType] = getSourceArray().enumerated().map { index, item in
+            let deleteAction = CellActions.SwipeActionsConfiguration.ContextualAction(title: "Delete", backgroundColor: UIColor.red, style: .destructive) { _, completion in
+                self.didTapDeleteOnItem(item: item)
+                completion(true) // The true signifies a successful deletion
+            }
             return HistoryCell(
                 key: "index-\(index)-\(item.translatedText)",
                 style: cellStyle,
@@ -49,15 +53,24 @@ extension HistoryController {
                 },
                     deselectionAction: { _ in
                         return .deselected
-                }),
+                },
+                    trailingActionConfiguration: CellActions.SwipeActionsConfiguration(actions: [deleteAction])
+                ),
                 state: HistoryState(translationItem: item),
                 cellUpdater: HistoryState.updateView)
         }
-        
+
         functionalData.renderAndDiff([
             TableSection(key: "section", rows: rows)
         ])
     }
+    
+    private func didTapDeleteOnItem(item: Translation) {
+        TranslationItems.shared.remove(object: item)
+        let impact = UIImpactFeedbackGenerator()
+        impact.impactOccurred()
+    }
+
     
     private func getSourceArray() -> [Translation] {
         return TranslationItems.shared.getAll()

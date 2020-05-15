@@ -66,10 +66,6 @@ class PermissionsController: UIViewController {
         stackView.addArrangedSubview(button)
     }
     
-    private func didAuthorizeCamera() {
-        dismiss(animated: true, completion: nil)
-    }
-    
     @objc private func didTapAllowButton() {
         AVCaptureDevice.requestAccess(for: .video) { (granted) in
             DispatchQueue.main.async {

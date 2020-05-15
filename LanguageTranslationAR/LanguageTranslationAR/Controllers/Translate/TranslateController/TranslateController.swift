@@ -44,15 +44,6 @@ public class TranslateController: UIViewController {
     
     var hasShownAPIKeyErrorMessageBefore = false
     
-    var screenCenter: CGPoint {
-        let bounds = self.sceneView.bounds
-        return CGPoint(x: bounds.midX, y: bounds.midY)
-    }
-    
-    public override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     // MARK: - ARKit
     let augmentedRealitySession = ARSession()
     var configuration = ARWorldTrackingConfiguration()
@@ -167,5 +158,9 @@ public class TranslateController: UIViewController {
         let cameraMediaType = AVMediaType.video
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
         return !(cameraAuthorizationStatus == .authorized)
+    }
+    
+    public override var prefersStatusBarHidden: Bool {
+        return true
     }
  }

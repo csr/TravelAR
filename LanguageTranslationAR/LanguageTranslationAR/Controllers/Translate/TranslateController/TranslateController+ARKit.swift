@@ -74,7 +74,10 @@ extension TranslateController: ARSCNViewDelegate, OnboardingDelegate {
         self.updateUI(planesDetected: true)
     }
     
-    func updateFocusSquare() {        
+    func updateFocusSquare() {
+        let bounds = self.sceneView.bounds
+        let screenCenter = CGPoint(x: bounds.midX, y: bounds.midY)
+        
         if let camera = self.augmentedRealitySession.currentFrame?.camera,
             case .normal = camera.trackingState,
             let result = self.sceneView.smartHitTest(screenCenter) {

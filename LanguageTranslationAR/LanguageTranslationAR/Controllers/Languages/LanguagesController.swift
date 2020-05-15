@@ -28,7 +28,6 @@ class LanguagesController: UIViewController {
         }
     }
     
-    var isFiltering = false
     let cellId = "reuseIdentifier"
     
     lazy var tableView: UITableView = {

@@ -36,7 +36,6 @@
 		1D23B9602098945D00121E8F /* TranslationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23B95F2098945D00121E8F /* TranslationList.swift */; };
 		1D23B96C2098FEDD00121E8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B96E2098FEDD00121E8F /* Localizable.strings */; };
 		1D23B97220990AA000121E8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D23B97420990AA000121E8F /* InfoPlist.strings */; };
-		1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D630621BA6FC700F4FABD /* TabBarController.swift */; };
 		1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9720D66D9E006CD60A /* FocusSquareSegment.swift */; };
 		1D412B9D20D66D9F006CD60A /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9820D66D9F006CD60A /* FocusSquare.swift */; };
 		1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D412B9920D66D9F006CD60A /* FocusSquare+Extensions.swift */; };
@@ -51,6 +50,7 @@
 		1D441EA320726F22005E2ADD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E6E20726F22005E2ADD /* Language.swift */; };
 		1D441EA720726F22005E2ADD /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7320726F22005E2ADD /* HistoryController.swift */; };
 		1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* HistoryCell.swift */; };
+		1D4937C1246F212300779BB4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4937C0246F212300779BB4 /* TabBarController.swift */; };
 		1D5AC48623BE9E2800571B10 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AC48523BE9E2800571B10 /* Platform.swift */; };
 		1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245721C93A1800EB2D5C /* ARDetailView.swift */; };
 		1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */; };
@@ -71,7 +71,6 @@
 		1D95A9F121CAD026002EDAF1 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */; };
 		1D95A9F521CAF725002EDAF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D95A9F421CAF725002EDAF1 /* LaunchScreen.storyboard */; };
 		1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC8A43621CD9DE10083506F /* ARDetailViewDelegate.swift */; };
-		1DC8A43921CE39B90083506F /* ToolTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC8A43821CE39B90083506F /* ToolTipView.swift */; };
 		1DC8A43B21CEDC3B0083506F /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC8A43A21CEDC3B0083506F /* HistoryView.swift */; };
 		1DD0873F21DCCE3900E671BA /* OnboardingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD0873E21DCCE3900E671BA /* OnboardingDelegate.swift */; };
 		1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */; };
@@ -134,7 +133,6 @@
 		1D23B96F2098FEDF00121E8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1D23B97320990AA000121E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D23B97520990AA200121E8F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1D2D630621BA6FC700F4FABD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = LanguageTranslationAR/Controllers/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		1D412B9720D66D9E006CD60A /* FocusSquareSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
 		1D412B9820D66D9F006CD60A /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		1D412B9920D66D9F006CD60A /* FocusSquare+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FocusSquare+Extensions.swift"; sourceTree = "<group>"; };
@@ -151,6 +149,7 @@
 		1D441E6E20726F22005E2ADD /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		1D441E7320726F22005E2ADD /* HistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
 		1D441E7420726F22005E2ADD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryCell.swift; path = LanguageTranslationAR/Controllers/History/HistoryCell.swift; sourceTree = SOURCE_ROOT; };
+		1D4937C0246F212300779BB4 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1D5AC48523BE9E2800571B10 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		1D65245721C93A1800EB2D5C /* ARDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailView.swift; sourceTree = "<group>"; };
 		1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDetectionView.swift; sourceTree = "<group>"; };
@@ -171,7 +170,6 @@
 		1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		1D95A9F421CAF725002EDAF1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DC8A43621CD9DE10083506F /* ARDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailViewDelegate.swift; sourceTree = "<group>"; };
-		1DC8A43821CE39B90083506F /* ToolTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTipView.swift; sourceTree = "<group>"; };
 		1DC8A43A21CEDC3B0083506F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		1DD0873E21DCCE3900E671BA /* OnboardingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDelegate.swift; sourceTree = "<group>"; };
 		1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverClearView.swift; sourceTree = "<group>"; };
@@ -385,7 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				1D104C8621BF09DF000396C5 /* ApplicationTab.swift */,
-				1D2D630621BA6FC700F4FABD /* TabBarController.swift */,
+				1D4937C0246F212300779BB4 /* TabBarController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -478,7 +476,6 @@
 			children = (
 				1DF2BCFE21C2CF1D00D5E29B /* AddButtonView.swift */,
 				1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */,
-				1DC8A43821CE39B90083506F /* ToolTipView.swift */,
 			);
 			path = PlusButton;
 			sourceTree = "<group>";
@@ -647,10 +644,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D4937C1246F212300779BB4 /* TabBarController.swift in Sources */,
 				1D412B9D20D66D9F006CD60A /* FocusSquare.swift in Sources */,
 				1D09A74721F222FD00928848 /* APIKeys.swift in Sources */,
 				1D412B9F20D66D9F006CD60A /* Utilities.swift in Sources */,
-				1D2D630721BA6FC700F4FABD /* TabBarController.swift in Sources */,
 				1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */,
 				1D95A9EA21CAC122002EDAF1 /* TranslationItemsDelegate.swift in Sources */,
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
@@ -663,7 +660,6 @@
 				1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */,
 				1D182046246D612A00A01BAE /* UIColor+Extensions.swift in Sources */,
 				1D94B77120CB2B210000B065 /* LanguagesController.swift in Sources */,
-				1DC8A43921CE39B90083506F /* ToolTipView.swift in Sources */,
 				1D023F9721D9496D00D5EFFC /* CustomButton.swift in Sources */,
 				1D441EA320726F22005E2ADD /* Language.swift in Sources */,
 				1D23B95B20986D1100121E8F /* TranslateController+API.swift in Sources */,

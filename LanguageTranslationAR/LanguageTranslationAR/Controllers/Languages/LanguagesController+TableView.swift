@@ -100,15 +100,7 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
             selectedIndexPath = indexPath
         }
     }
-    
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        var strings = [String]()
-        for character in tableViewHeaders {
-            strings.append(String(character))
-        }
-        return Array(strings.dropFirst()) // remove "Popular" from A-Z grid
-    }
-    
+        
     func createTableData(languagesList: [Language]) -> (firstSymbols: [String], source: [String: [Language]]) {
         
         // Build Character Set

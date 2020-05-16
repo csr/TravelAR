@@ -7,18 +7,16 @@ import UIKit
 
 class LanguagesController: UIViewController {
     
-    var tableViewSource = [String: [Language]]()
     var tableViewHeaders = [String]()
-        
+    var tableViewSource = [String: [Language]]()
     var activityIndicatorView = UIActivityIndicatorView()
-
     var selectedIndexPath: IndexPath?
     
     var selectedLanguage: Language? {
         didSet {
             guard let language = selectedLanguage else { return }
             LanguagePreferences.save(language: language)
-            setButtonTitle()
+            updateChooseLanguageButtonTitle()
             print("Saving language \(language.name), code: \(language.code)")
         }
     }
@@ -33,7 +31,7 @@ class LanguagesController: UIViewController {
         return tableView
     }()
     
-    let chooseButton: UIButton = {
+    let chooseLanguageButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .orange
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +42,7 @@ class LanguagesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        view.backgroundColor = .black
+        setupTableView()
         displayActivityIndicator()
     }
     
@@ -73,7 +71,19 @@ class LanguagesController: UIViewController {
     }
     
     private func setupView() {
-        setButtonTitle()
+        view.backgroundColor = .black
+                
+        if isModal {
+            // Make space for the choose language button at the bottom
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
+            setupChooseLanguageButton()
+        }
+        
+        displayActivityIndicator()
+    }
+    
+    private func setupTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         title = "SETTINGS_TRANSLATE_TO".localized
         tableView.tableFooterView = UIView()
@@ -82,21 +92,6 @@ class LanguagesController: UIViewController {
         
         view.addSubview(tableView)
         tableView.fillToSuperview()
-
-        
-        if isModal {
-            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
-        } else {
-            chooseButton.isHidden = true
-        }
-        
-        view.addSubview(chooseButton)
-        chooseButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        chooseButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        chooseButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        chooseButton.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
-        displayActivityIndicator()
     }
     
     @objc private func dismissViewController() {
@@ -122,10 +117,19 @@ class LanguagesController: UIViewController {
         activityIndicatorView.startAnimating()
     }
     
-    private func setButtonTitle() {
+    private func setupChooseLanguageButton() {
+        view.addSubview(chooseLanguageButton)
+        chooseLanguageButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        chooseLanguageButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        chooseLanguageButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        chooseLanguageButton.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
+        updateChooseLanguageButtonTitle()
+    }
+    
+    private func updateChooseLanguageButtonTitle() {
         let language = LanguagePreferences.getCurrent()
         let buttonTitle = "SAVE_LANGUAGE_NAME".localizedString(with: [language.name])
-        chooseButton.setTitle(buttonTitle, for: .normal)
+        chooseLanguageButton.setTitle(buttonTitle, for: .normal)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

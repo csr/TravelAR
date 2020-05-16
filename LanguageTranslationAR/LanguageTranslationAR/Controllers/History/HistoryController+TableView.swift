@@ -7,12 +7,6 @@ import UIKit
 import FunctionalTableData
 
 extension HistoryController {
-    @objc func didTapAddButton() {
-        let translation = Translation(originalText: "backpack", targetLanguage: "es", translatedText: "test", sourceLanguage: "en")
-        TranslationItems.shared.add(object: translation)
-        let selection = UISelectionFeedbackGenerator()
-        selection.selectionChanged()
-    }
         
     private func didSelectCell(translation: Translation) {
         TextToSpeech.speak(item: translation)

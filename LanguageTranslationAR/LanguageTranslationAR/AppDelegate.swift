@@ -25,11 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupWindow() {
         window = UIWindow()
-        window?.tintColor = .orange
+        window?.tintColor = .primary
         window?.makeKeyAndVisible()
         window?.rootViewController = TabBarController()
         UINavigationBar.appearance().barStyle = .black
-        UINavigationBar.appearance().tintColor = .orange
+        UINavigationBar.appearance().tintColor = .primary
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
     }
     

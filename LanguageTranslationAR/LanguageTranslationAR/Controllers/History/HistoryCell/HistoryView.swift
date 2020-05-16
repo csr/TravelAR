@@ -11,7 +11,7 @@ public class HistoryView: UIView {
     var textLabel: UILabel = {
         let textLabel = UILabel()
         textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.textColor = .orange
+        textLabel.textColor = .primary
         textLabel.numberOfLines = 0
         textLabel.font = UIFont.preferredFont(forTextStyle: .title2)
         return textLabel

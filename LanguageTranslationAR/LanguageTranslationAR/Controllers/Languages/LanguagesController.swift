@@ -33,7 +33,7 @@ class LanguagesController: UIViewController {
     
     let chooseLanguageButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .orange
+        button.backgroundColor = .primary
         button.translatesAutoresizingMaskIntoConstraints = false
         button.heightAnchor.constraint(equalToConstant: 60).isActive = true
         return button

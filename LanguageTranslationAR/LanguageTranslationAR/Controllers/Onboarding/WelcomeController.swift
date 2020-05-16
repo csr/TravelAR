@@ -18,7 +18,7 @@ class WelcomeController: UIViewController {
     let titleLabel: TitleLabel = {
         let titleLabel = TitleLabel()
         let attributedString = NSMutableAttributedString(string: "WELCOME_TITLE".localized)
-        attributedString.setColor(color: UIColor.orange, forText: "TranslateAR")
+        attributedString.setColor(color: .primary, forText: "TranslateAR")
         titleLabel.attributedText = attributedString
         return titleLabel
     }()
@@ -82,7 +82,7 @@ class WelcomeController: UIViewController {
         imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
         imageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .orange
+        imageView.tintColor = .primary
         
         let labelsStackView = UIStackView()
         labelsStackView.axis = .vertical

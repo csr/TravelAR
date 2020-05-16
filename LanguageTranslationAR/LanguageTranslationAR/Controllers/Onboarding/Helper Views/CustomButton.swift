@@ -9,7 +9,7 @@ class CustomButton: UIButton {
     
     override open var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? UIColor.orange.withAlphaComponent(0.5) : .orange
+            backgroundColor = isHighlighted ? UIColor.primary.withAlphaComponent(0.5) : .primary
         }
     }
     
@@ -19,7 +19,7 @@ class CustomButton: UIButton {
     }
     
     private func setup() {
-        backgroundColor = .orange
+        backgroundColor = .primary
         translatesAutoresizingMaskIntoConstraints = false
         layer.masksToBounds = true
         layer.cornerRadius = 8

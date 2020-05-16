@@ -51,6 +51,12 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         return tableViewHeaders[section]
     }
     
+    // Create alphabetical jump list (A-Z) to quickly scroll through the list
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        // Remove "Popular Picks" from
+        return Array(tableViewHeaders.dropFirst())
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let key = tableViewHeaders[indexPath.section]

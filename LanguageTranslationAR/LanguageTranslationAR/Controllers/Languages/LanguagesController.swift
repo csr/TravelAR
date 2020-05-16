@@ -42,8 +42,6 @@ class LanguagesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setupTableView()
-        displayActivityIndicator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,14 +70,12 @@ class LanguagesController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .black
-                
-        if isModal {
-            // Make space for the choose language button at the bottom
-            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
-            setupChooseLanguageButton()
-        }
+        // Make space for the choose language button at the bottom
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
         
+        setupTableView()
+        setupChooseLanguageButton()
         displayActivityIndicator()
     }
     

@@ -7,36 +7,28 @@ import UIKit
 
 extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let char = tableViewHeaders[indexPath.section]
-        let languages = tableViewSource[char]
+        let selectedSection = tableViewHeaders[indexPath.section]
         
-        if let languages = languages {
+        if let languages = tableViewSource[selectedSection] {
             let language = languages[indexPath.row]
             selectedLanguage = language
         }
         
-        didUpdateLanguageDelegate?.didUpdateLanguage()
-        
-        guard let selectedIndexPath = selectedIndexPath else {
-            self.selectedIndexPath = indexPath
-            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            return
+        // First, delesect previous cell
+        if let oldIndexPath = selectedIndexPath {
+            let oldCell = tableView.cellForRow(at: oldIndexPath)
+            oldCell?.accessoryType = .none
         }
         
-        if indexPath == selectedIndexPath {
-            return
-        }
-        
-        // toggle old one off and the new one on
+        // Then, select current cell
         let newCell = tableView.cellForRow(at: indexPath)
         newCell?.accessoryType = .checkmark
-
-        let oldCell = tableView.cellForRow(at: selectedIndexPath)
-        oldCell?.accessoryType = .none
-
         self.selectedIndexPath = indexPath
+
+        didUpdateLanguageDelegate?.didUpdateLanguage()
     }
     
     // MARK: - UITableViewDataSource
@@ -48,54 +40,45 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let view = view as? UITableViewHeaderFooterView {
             view.textLabel?.textColor = .black
-            view.tintColor = #colorLiteral(red: 0.2941176471, green: 0.2980392157, blue: 0.3019607843, alpha: 1)
+            view.tintColor = UIColor.selectedCell
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let header = tableViewHeaders[section]
-        let values = tableViewSource[header]
-        return values?.count ?? 0
+        return tableViewSource[header]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let title = tableViewHeaders[section]
-        return String(title)
+        return tableViewHeaders[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let key = tableViewHeaders[indexPath.section]
-        let values = tableViewSource[key]
-        let language = values![indexPath.row]
-        setupCell(cell: cell, language: language, indexPath: indexPath)
+        
+        if let values = tableViewSource[key] {
+            let language = values[indexPath.row]
+            setupCell(cell: cell, language: language, indexPath: indexPath)
+        }
+        
         return cell
     }
     
     func setupCell(cell: UITableViewCell, language: Language, indexPath: IndexPath) {
         cell.textLabel?.text = language.name
         cell.textLabel?.textColor = .white
-        cell.backgroundColor = .black
+        cell.backgroundColor = UIColor.cell
         
         let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor.cell
+        bgColorView.backgroundColor = UIColor.selectedCell
         cell.selectedBackgroundView = bgColorView
 
-        if indexPath != selectedIndexPath {
-            cell.accessoryType = .none
-        } else {
-            cell.accessoryType = .checkmark
-        }
-        
         if LanguagePreferences.getCurrent() == language {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
-        
-        if selectedIndexPath == nil, language.code == LanguagePreferences.getCurrent().code {
             selectedIndexPath = indexPath
         }
+        
+        cell.accessoryType = indexPath == selectedIndexPath ? .checkmark : .none
     }
         
     func createTableData(languagesList: [Language]) -> (firstSymbols: [String], source: [String: [Language]]) {

@@ -6,7 +6,7 @@
 import UIKit
 import FunctionalTableData
 
-class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
+class SettingsController: UITableViewController {
     
     private let functionalData = FunctionalTableData()
         
@@ -14,8 +14,12 @@ class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
         super.viewDidLoad()
         functionalData.tableView = tableView
         render()
-        didUpdateLanguage()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        render()
     }
         
     func setupView() {
@@ -27,20 +31,19 @@ class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
     // Primary cell states include the "Translate To" row
     private func getPrimaryCellStates() -> [SettingsState] {
         let currentLanguage = LanguagePreferences.getCurrent()
-        let translateCellState = SettingsState(text: "SETTINGS_TRANSLATE_TO".localized, detailText: currentLanguage.name, imageName: "translate", imageBgColor: .red, selector: #selector(didSelectTranslationLanguage))
+        let translateCellState = SettingsState(text: "SETTINGS_TRANSLATE_TO".localized, detailText: currentLanguage.name, imageName: "translate", imageBgColor: .red, selector: #selector(didTapSelectTranslationLanguage))
         return [translateCellState]
     }
     
     // Secondary cell states include the Help, Feedback sections
     private func getSecondaryCellStates() -> [SettingsState] {
         let helpCellState = SettingsState(text: "SETTINGS_HELP".localized, imageName: "help", imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(didTapHelpRow))
-        let friendCellState = SettingsState(text: "SETTINGS_GITHUB".localized, imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didTapViewOnGitHubRow))
-        return [helpCellState, friendCellState]
+        let githubCellState = SettingsState(text: "SETTINGS_GITHUB".localized, imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didTapViewOnGitHubRow))
+        return [helpCellState, githubCellState]
     }
     
-    @objc private func didSelectTranslationLanguage() {
+    @objc private func didTapSelectTranslationLanguage() {
         let languagesController = LanguagesController()
-        languagesController.didUpdateLanguageDelegate = self
         navigationController?.pushViewController(languagesController, animated: true)
     }
     
@@ -91,11 +94,7 @@ class SettingsController: UITableViewController, DidUpdateLanguageDelegate {
             self.tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
     }
-    
-    func didUpdateLanguage() {
-        render()
-    }
-    
+        
     private func render() {
         let primaryCellStyle = CellStyle(bottomSeparator: .inset,
                                          separatorColor: .gray,

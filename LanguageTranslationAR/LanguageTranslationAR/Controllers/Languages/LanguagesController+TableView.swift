@@ -27,8 +27,6 @@ extension LanguagesController: UITableViewDelegate, UITableViewDataSource {
         let newCell = tableView.cellForRow(at: indexPath)
         newCell?.accessoryType = .checkmark
         self.selectedIndexPath = indexPath
-
-        didUpdateLanguageDelegate?.didUpdateLanguage()
     }
     
     // MARK: - UITableViewDataSource

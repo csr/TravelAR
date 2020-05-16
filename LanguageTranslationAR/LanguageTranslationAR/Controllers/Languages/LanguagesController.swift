@@ -9,9 +9,7 @@ class LanguagesController: UIViewController {
     
     var tableViewSource = [String: [Language]]()
     var tableViewHeaders = [String]()
-    
-    var didUpdateLanguageDelegate: DidUpdateLanguageDelegate?
-    
+        
     var activityIndicatorView = UIActivityIndicatorView()
 
     var selectedIndexPath: IndexPath?

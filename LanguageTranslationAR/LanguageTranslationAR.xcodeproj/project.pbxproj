@@ -74,7 +74,6 @@
 		1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC8A43621CD9DE10083506F /* ARDetailViewDelegate.swift */; };
 		1DC8A43B21CEDC3B0083506F /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC8A43A21CEDC3B0083506F /* HistoryView.swift */; };
 		1DEC7D1221C574A500BBEDD3 /* NeverClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */; };
-		1DEC7D1421C5771900BBEDD3 /* DidUpdateLanguageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D1321C5771900BBEDD3 /* DidUpdateLanguageDelegate.swift */; };
 		1DEC7D2121C69C4300BBEDD3 /* AddButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */; };
 		1DEC7D2521C6CFCE00BBEDD3 /* ARDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */; };
 		1DEC7D2B21C6F40200BBEDD3 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */; };
@@ -173,7 +172,6 @@
 		1DC8A43621CD9DE10083506F /* ARDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailViewDelegate.swift; sourceTree = "<group>"; };
 		1DC8A43A21CEDC3B0083506F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		1DEC7D1121C574A500BBEDD3 /* NeverClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeverClearView.swift; sourceTree = "<group>"; };
-		1DEC7D1321C5771900BBEDD3 /* DidUpdateLanguageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidUpdateLanguageDelegate.swift; sourceTree = "<group>"; };
 		1DEC7D2021C69C4300BBEDD3 /* AddButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonProtocol.swift; sourceTree = "<group>"; };
 		1DEC7D2421C6CFCE00BBEDD3 /* ARDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARDetailView.xib; sourceTree = "<group>"; };
 		1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
@@ -347,14 +345,14 @@
 		1D441E6220726F22005E2ADD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1D182045246D612A00A01BAE /* UIColor+Extensions.swift */,
+				1D4937C2246F2C7D00779BB4 /* UIImage+Extensions.swift */,
 				1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */,
 				1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */,
 				1D104C8821BF0ADA000396C5 /* String+Extensions.swift */,
 				1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */,
 				1D95A9F021CAD026002EDAF1 /* UIView+Constraints.swift */,
 				1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */,
-				1D182045246D612A00A01BAE /* UIColor+Extensions.swift */,
-				1D4937C2246F2C7D00779BB4 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -521,7 +519,6 @@
 			children = (
 				1DEE6F2E21BB1363006D3830 /* SettingsController.swift */,
 				1D182049246D682000A01BAE /* SettingsController+MFMailComposeViewControllerDelegate.swift */,
-				1DEC7D1321C5771900BBEDD3 /* DidUpdateLanguageDelegate.swift */,
 				1D745CD321D22916008A974F /* SettingsCell */,
 				1D745CD021D228B6008A974F /* HeaderCell */,
 			);
@@ -670,7 +667,6 @@
 				1D23B9532097C59D00121E8F /* LanguageData.swift in Sources */,
 				1D412B9C20D66D9F006CD60A /* FocusSquareSegment.swift in Sources */,
 				1D412B9E20D66D9F006CD60A /* FocusSquare+Extensions.swift in Sources */,
-				1DEC7D1421C5771900BBEDD3 /* DidUpdateLanguageDelegate.swift in Sources */,
 				1D17BE6D21D8D6BB005243E8 /* LanguagePreferences.swift in Sources */,
 				1D745CCF21D228AE008A974F /* HeaderCell.swift in Sources */,
 				1D23B95920986BB700121E8F /* Translation.swift in Sources */,

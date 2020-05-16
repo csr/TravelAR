@@ -52,6 +52,7 @@
 		1D441EA820726F22005E2ADD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D441E7420726F22005E2ADD /* HistoryCell.swift */; };
 		1D4937C1246F212300779BB4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4937C0246F212300779BB4 /* TabBarController.swift */; };
 		1D4937C3246F2C7D00779BB4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4937C2246F2C7D00779BB4 /* UIImage+Extensions.swift */; };
+		1D4937C7246FF0D400779BB4 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4937C6246FF0D400779BB4 /* URL+Extensions.swift */; };
 		1D5AC48623BE9E2800571B10 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AC48523BE9E2800571B10 /* Platform.swift */; };
 		1D65245821C93A1800EB2D5C /* ARDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245721C93A1800EB2D5C /* ARDetailView.swift */; };
 		1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */; };
@@ -150,6 +151,7 @@
 		1D441E7420726F22005E2ADD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryCell.swift; path = LanguageTranslationAR/Controllers/History/HistoryCell.swift; sourceTree = SOURCE_ROOT; };
 		1D4937C0246F212300779BB4 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1D4937C2246F2C7D00779BB4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		1D4937C6246FF0D400779BB4 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		1D5AC48523BE9E2800571B10 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		1D65245721C93A1800EB2D5C /* ARDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailView.swift; sourceTree = "<group>"; };
 		1D65245A21C9417300EB2D5C /* CurrentDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDetectionView.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			children = (
 				1D182045246D612A00A01BAE /* UIColor+Extensions.swift */,
 				1D4937C2246F2C7D00779BB4 /* UIImage+Extensions.swift */,
+				1D4937C6246FF0D400779BB4 /* URL+Extensions.swift */,
 				1DF2BD0321C38C3D00D5E29B /* NSMutableStringExtensions.swift */,
 				1D21F78621D42A0800364C59 /* UIViewController+Extensions.swift */,
 				1D104C8821BF0ADA000396C5 /* String+Extensions.swift */,
@@ -697,6 +700,7 @@
 				1D21F77A21D3AD9100364C59 /* SettingsView.swift in Sources */,
 				1D104C8721BF09DF000396C5 /* ApplicationTab.swift in Sources */,
 				1D745CD221D228E6008A974F /* HeaderView.swift in Sources */,
+				1D4937C7246FF0D400779BB4 /* URL+Extensions.swift in Sources */,
 				1D441E9320726F22005E2ADD /* TranslateController+ARKit.swift in Sources */,
 				1D182042246C456700A01BAE /* NetworkError.swift in Sources */,
 				1DF2BD0721C38C7B00D5E29B /* WelcomeController.swift in Sources */,

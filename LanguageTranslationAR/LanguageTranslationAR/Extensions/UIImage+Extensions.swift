@@ -15,6 +15,9 @@ extension UIImage {
     static let camera = UIImage(named: "camera")
     static let disclosureIndicator = UIImage(named: "disclosure-indicator")
     static let search = UIImage(named: "search")
-    static let translate = UIImage(named: "translate")
     static let emptyStateView = UIImage(named: "empty-state-view")
+    
+    static let translate = UIImage(named: "translate")
+    static let help = UIImage(named: "help")
+    static let heart = UIImage(named: "heart")
 }

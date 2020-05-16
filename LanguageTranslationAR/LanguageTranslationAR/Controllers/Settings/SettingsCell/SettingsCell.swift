@@ -12,15 +12,15 @@ public typealias LabelCell = HostCell<SettingsView, SettingsState, LayoutMargins
 public struct SettingsState: Equatable {
     
     public let text: String
-    public let imageName: String
     public let imageBgColor: UIColor
     public let detailText: String?
+    public let image: UIImage?
     public let selector: Selector
     
-    public init(text: String, detailText: String? = nil, imageName: String, imageBgColor: UIColor, selector: Selector) {
+    public init(text: String, detailText: String? = nil, image: UIImage?, imageBgColor: UIColor, selector: Selector) {
         self.text = text
         self.detailText = detailText
-        self.imageName = imageName
+        self.image = image
         self.imageBgColor = imageBgColor
         self.selector = selector
     }
@@ -32,12 +32,12 @@ public struct SettingsState: Equatable {
         
         view.textLabel.text = state.text
         view.detailTextLabel.text = state.detailText
-        view.imageView.image = UIImage(named: state.imageName)?.withRenderingMode(.alwaysTemplate)
+        view.imageView.image = state.image?.withRenderingMode(.alwaysTemplate)
         view.imageView.tintColor = .white
         view.bgImageView.backgroundColor = state.imageBgColor
     }
     
     public static func ==(lhs: SettingsState, rhs: SettingsState) -> Bool {
-        return lhs.text == rhs.text && lhs.imageName == rhs.imageName && lhs.detailText == rhs.detailText && lhs.imageBgColor == rhs.imageBgColor
+        return lhs.text == rhs.text && lhs.detailText == rhs.detailText && lhs.imageBgColor == rhs.imageBgColor
     }
 }

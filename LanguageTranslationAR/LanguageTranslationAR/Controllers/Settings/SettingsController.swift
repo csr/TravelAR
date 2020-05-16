@@ -31,14 +31,14 @@ class SettingsController: UITableViewController {
     // Primary cell states include the "Translate To" row
     private func getPrimaryCellStates() -> [SettingsState] {
         let currentLanguage = LanguagePreferences.getCurrent()
-        let translateCellState = SettingsState(text: "SETTINGS_TRANSLATE_TO".localized, detailText: currentLanguage.name, imageName: "translate", imageBgColor: .red, selector: #selector(didTapSelectTranslationLanguage))
+        let translateCellState = SettingsState(text: "SETTINGS_TRANSLATE_TO".localized, detailText: currentLanguage.name, image: UIImage.translate, imageBgColor: .red, selector: #selector(didTapSelectTranslationLanguage))
         return [translateCellState]
     }
     
     // Secondary cell states include the Help, Feedback sections
     private func getSecondaryCellStates() -> [SettingsState] {
-        let helpCellState = SettingsState(text: "SETTINGS_HELP".localized, imageName: "help", imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(didTapHelpRow))
-        let githubCellState = SettingsState(text: "SETTINGS_GITHUB".localized, imageName: "heart", imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didTapViewOnGitHubRow))
+        let helpCellState = SettingsState(text: "SETTINGS_HELP".localized, image: UIImage.help, imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(didTapHelpRow))
+        let githubCellState = SettingsState(text: "SETTINGS_GITHUB".localized, image: UIImage.heart, imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didTapViewOnGitHubRow))
         return [helpCellState, githubCellState]
     }
     
@@ -82,7 +82,7 @@ class SettingsController: UITableViewController {
     }
         
     @objc private func didTapViewOnGitHubRow() {
-        guard let url = URL(string: "https://github.com/csr/TravelAR") else {
+        guard let url = URL.githubRepository else {
           return
         }
 

@@ -5,9 +5,7 @@
 
 import Foundation
 
-class TranslationItems {
-    var delegate: TranslationItemsDelegate?
-    
+class TranslationItems {    
     static let shared = TranslationItems()
     
     private var set = Set<Translation>()
@@ -16,12 +14,10 @@ class TranslationItems {
     
     public func add(object: Translation) {
         set.insert(object)
-        delegate?.newItemAdded()
     }
     
     public func remove(object: Translation) {
         set.remove(object)
-        delegate?.someItemDeleted()
     }
     
     public func getAll() -> [Translation] {

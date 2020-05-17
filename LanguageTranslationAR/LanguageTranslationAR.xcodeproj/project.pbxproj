@@ -13,7 +13,6 @@
 		1D0F00B92471735A00F0C508 /* TranslationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F00B02471735900F0C508 /* TranslationList.swift */; };
 		1D0F00BA2471735A00F0C508 /* TranslationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F00B12471735900F0C508 /* TranslationItems.swift */; };
 		1D0F00BB2471735A00F0C508 /* TranslationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F00B22471735900F0C508 /* TranslationData.swift */; };
-		1D0F00BC2471735A00F0C508 /* TranslationItemsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F00B32471735900F0C508 /* TranslationItemsDelegate.swift */; };
 		1D0F00BD2471735A00F0C508 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F00B52471735900F0C508 /* Language.swift */; };
 		1D0F00BE2471735A00F0C508 /* LanguagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F00B62471735900F0C508 /* LanguagesList.swift */; };
 		1D0F00BF2471735A00F0C508 /* LanguageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F00B72471735900F0C508 /* LanguageData.swift */; };
@@ -64,7 +63,6 @@
 		1D65E4E721CE6CAF00DB52A5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */; };
 		1D65E4EA21CE708600DB52A5 /* TranslateController+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D65E4E921CE708600DB52A5 /* TranslateController+Events.swift */; };
 		1D7451BA20C4306C0089D961 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */; };
-		1D745CCD21D22542008A974F /* HistoryController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D745CCC21D22542008A974F /* HistoryController+TableView.swift */; };
 		1D745CCF21D228AE008A974F /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D745CCE21D228AE008A974F /* HeaderCell.swift */; };
 		1D745CD221D228E6008A974F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D745CD121D228E6008A974F /* HeaderView.swift */; };
 		1D94B77120CB2B210000B065 /* LanguagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D94B77020CB2B210000B065 /* LanguagesController.swift */; };
@@ -107,7 +105,6 @@
 		1D0F00B02471735900F0C508 /* TranslationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationList.swift; sourceTree = "<group>"; };
 		1D0F00B12471735900F0C508 /* TranslationItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationItems.swift; sourceTree = "<group>"; };
 		1D0F00B22471735900F0C508 /* TranslationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationData.swift; sourceTree = "<group>"; };
-		1D0F00B32471735900F0C508 /* TranslationItemsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationItemsDelegate.swift; sourceTree = "<group>"; };
 		1D0F00B52471735900F0C508 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		1D0F00B62471735900F0C508 /* LanguagesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesList.swift; sourceTree = "<group>"; };
 		1D0F00B72471735900F0C508 /* LanguageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageData.swift; sourceTree = "<group>"; };
@@ -162,7 +159,6 @@
 		1D65E4E621CE6CAF00DB52A5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		1D65E4E921CE708600DB52A5 /* TranslateController+Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslateController+Events.swift"; sourceTree = "<group>"; };
 		1D7451B920C4306B0089D961 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
-		1D745CCC21D22542008A974F /* HistoryController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryController+TableView.swift"; sourceTree = "<group>"; };
 		1D745CCE21D228AE008A974F /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		1D745CD121D228E6008A974F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		1D94B77020CB2B210000B065 /* LanguagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesController.swift; sourceTree = "<group>"; };
@@ -216,7 +212,6 @@
 				1D0F00B02471735900F0C508 /* TranslationList.swift */,
 				1D0F00B12471735900F0C508 /* TranslationItems.swift */,
 				1D0F00B22471735900F0C508 /* TranslationData.swift */,
-				1D0F00B32471735900F0C508 /* TranslationItemsDelegate.swift */,
 			);
 			path = Translation;
 			sourceTree = "<group>";
@@ -371,7 +366,6 @@
 			isa = PBXGroup;
 			children = (
 				1D441E7320726F22005E2ADD /* HistoryController.swift */,
-				1D745CCC21D22542008A974F /* HistoryController+TableView.swift */,
 				1D182047246D664700A01BAE /* HistoryController+TBEmptyDataSet.swift */,
 				1D745CD521D245E3008A974F /* HistoryCell */,
 			);
@@ -646,7 +640,6 @@
 				1D4937C3246F2C7D00779BB4 /* UIImage+Extensions.swift in Sources */,
 				1DF2BD0421C38C3D00D5E29B /* NSMutableStringExtensions.swift in Sources */,
 				1D5AC48623BE9E2800571B10 /* Platform.swift in Sources */,
-				1D745CCD21D22542008A974F /* HistoryController+TableView.swift in Sources */,
 				1D0F00B92471735A00F0C508 /* TranslationList.swift in Sources */,
 				1D1A8EC1246C1A17006111FF /* ClearButtonView.swift in Sources */,
 				1DEC7D3221C7CB8900BBEDD3 /* CustomARView.swift in Sources */,
@@ -679,7 +672,6 @@
 				1D95A9F121CAD026002EDAF1 /* UIView+Constraints.swift in Sources */,
 				1D21F78121D411B600364C59 /* TitleLabel.swift in Sources */,
 				1D182048246D664700A01BAE /* HistoryController+TBEmptyDataSet.swift in Sources */,
-				1D0F00BC2471735A00F0C508 /* TranslationItemsDelegate.swift in Sources */,
 				1D0F00BB2471735A00F0C508 /* TranslationData.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,
 				1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */,

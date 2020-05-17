@@ -24,7 +24,7 @@ enum ApplicationTab: Int, CaseIterable {
         }
     }
     
-    var activeImage: UIImage {
+    var activeImage: UIImage? {
         var image: UIImage?
         switch self {
         case .translate:
@@ -34,7 +34,7 @@ enum ApplicationTab: Int, CaseIterable {
         case .settings:
             image = UIImage.settingsTabBar
         }
-        return image ?? UIImage()
+        return image
     }
     
     var tabNumber: Int {

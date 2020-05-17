@@ -13,7 +13,6 @@ class SettingsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         functionalData.tableView = tableView
-        render()
         setupView()
     }
     

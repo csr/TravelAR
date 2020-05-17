@@ -9,7 +9,10 @@ class ClearButtonView: UIVisualEffectView {
     override init(effect: UIVisualEffect?) {
         let blurEffect = UIBlurEffect(style: .prominent)
         super.init(effect: blurEffect)
-        
+        setupView()
+    }
+    
+    private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         
         let label = UILabel()

@@ -23,7 +23,7 @@ class WelcomeController: UIViewController {
         return titleLabel
     }()
     
-    let button: CustomButton = {
+    let continueOnboardingButton: CustomButton = {
         let button = CustomButton()
         button.addTarget(self, action: #selector(didSelectContinueButton), for: .touchUpInside)
         button.setTitle("WELCOME_BUTTON_TEXT".localized, for: .normal)
@@ -51,7 +51,7 @@ class WelcomeController: UIViewController {
         stackView.fillToSuperview(constant: 40)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(getMiddleStackView())
-        stackView.addArrangedSubview(button)
+        stackView.addArrangedSubview(continueOnboardingButton)
     }
     
     private func getMiddleStackView() -> UIStackView {
@@ -75,7 +75,19 @@ class WelcomeController: UIViewController {
         stackView.distribution = .fill
         stackView.spacing = 16
         stackView.alignment = .center
+                
+        let labelsStackView = UIStackView()
+        labelsStackView.axis = .vertical
+                
+        labelsStackView.addArrangedSubview(getTitleLabel(text: title))
+        labelsStackView.addArrangedSubview(getDescriptionLabel(text: description))
         
+        stackView.addArrangedSubview(getImageView(imageName: imageName))
+        stackView.addArrangedSubview(labelsStackView)
+        return stackView
+    }
+    
+    private func getImageView(imageName: String) -> UIImageView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -83,27 +95,25 @@ class WelcomeController: UIViewController {
         imageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .primary
-        
-        let labelsStackView = UIStackView()
-        labelsStackView.axis = .vertical
-        
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.numberOfLines = 0
-        titleLabel.textColor = .white
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        
+        return imageView
+    }
+    
+    private func getDescriptionLabel(text: String) -> UILabel {
         let descriptionLabel = UILabel()
         descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
         descriptionLabel.textColor = .white
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.text = description
-        labelsStackView.addArrangedSubview(titleLabel)
-        labelsStackView.addArrangedSubview(descriptionLabel)
-        
-        stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(labelsStackView)
-        return stackView
+        descriptionLabel.text = text
+        return descriptionLabel
+    }
+    
+    private func getTitleLabel(text: String) -> UILabel {
+        let titleLabel = UILabel()
+        titleLabel.text = text
+        titleLabel.numberOfLines = 0
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        return titleLabel
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

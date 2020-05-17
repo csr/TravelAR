@@ -19,8 +19,7 @@ enum APIKeys: String {
         }
         
         do {
-            let string = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-            return string
+            return try String(contentsOfFile: path, encoding: String.Encoding.utf8)
         } catch {
             print("An error occured while loading the key:", error.localizedDescription)
             return nil

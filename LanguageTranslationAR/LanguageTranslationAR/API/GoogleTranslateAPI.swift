@@ -11,15 +11,26 @@ class GoogleTranslateAPI {
     
     func getTranslation(for text: String, sourceLanguage: String, targetLanguage: String, completion: @escaping (Result<Translation, NetworkError>) -> Void) {
         let apiKey = APIKeys.GoogleAPIKey.value
+        
         let url = "https://translation.googleapis.com/language/translate/v2"
-        var components = URLComponents(string: url)!
+        
+        guard var components = URLComponents(string: url) else {
+            completion(.failure(.malformedRequest))
+            return
+        }
         components.queryItems = [
             URLQueryItem(name: "q", value: text),
             URLQueryItem(name: "target", value: targetLanguage),
             URLQueryItem(name: "key", value: apiKey)
         ]
         
-        let request = URLRequest(url: components.url!)
+        guard let componentsUrl = components.url else {
+            completion(.failure(.networkError))
+            return
+        }
+        
+        let request = URLRequest(url: componentsUrl)
+        
         let session = URLSession(configuration: .default)
         session.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -35,7 +46,7 @@ class GoogleTranslateAPI {
                 
                 completion(.success(translation))
             } else {
-                completion(.failure(.error))
+                completion(.failure(.networkError))
             }
         }.resume()
     }
@@ -45,13 +56,22 @@ class GoogleTranslateAPI {
         let apiKey = APIKeys.GoogleAPIKey.value
         
         let url = "https://translation.googleapis.com/language/translate/v2/languages"
-        var components = URLComponents(string: url)!
+        
+        guard var components = URLComponents(string: url) else {
+            completion(.failure(.malformedRequest))
+            return
+        }
         components.queryItems = [
             URLQueryItem(name: "target", value: targetLanguage),
             URLQueryItem(name: "key", value: apiKey)
         ]
 
-        let request = URLRequest(url: components.url!)
+        guard let componentsUrl = components.url else {
+            completion(.failure(.networkError))
+            return
+        }
+        
+        let request = URLRequest(url: componentsUrl)
         session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -60,7 +80,7 @@ class GoogleTranslateAPI {
             if let data = data, let languageData = try? JSONDecoder().decode(LanguageData.self, from: data) {
                 completion(.success(languageData.data.languages))
             } else {
-                completion(.failure(.error))
+                completion(.failure(.networkError))
             }
         }.resume()
     }

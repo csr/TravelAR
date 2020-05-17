@@ -6,5 +6,6 @@
 import Foundation
 
 enum NetworkError: Error {
-    case error
+    case malformedRequest
+    case networkError
 }

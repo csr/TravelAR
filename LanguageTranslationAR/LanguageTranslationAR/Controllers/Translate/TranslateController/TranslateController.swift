@@ -63,17 +63,20 @@ public class TranslateController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isCameraPermissionGranted() {
-            presentWelcomeController()
+            setupSession()
         } else {
-            runARSession()
-            setupCoreML()
-            moveDeviceToScanView.animateImageView()
+            presentWelcomeController()
         }
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopARSession()
+    }
+    
+    private func setupSession() {
+        runARSession()
+        setupCoreML()
     }
                 
     // MARK: - Event handling
@@ -145,7 +148,9 @@ public class TranslateController: UIViewController {
         let navController = UINavigationController(rootViewController: welcomeController)
         navController.modalPresentationStyle = .formSheet
         
-        present(navController, animated: true, completion: nil)
+        present(navController, animated: true) {
+            self.setupSession()
+        }
     }
     
     // MARK: - Helper functions
@@ -153,7 +158,7 @@ public class TranslateController: UIViewController {
     @objc internal func isCameraPermissionGranted() -> Bool {
         let cameraMediaType = AVMediaType.video
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
-        return !(cameraAuthorizationStatus == .authorized)
+        return cameraAuthorizationStatus == .authorized
     }
     
     public override var prefersStatusBarHidden: Bool {

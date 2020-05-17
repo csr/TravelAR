@@ -46,8 +46,6 @@ class LanguagesController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.isNavigationBarHidden = false
         getLanguages()
     }
     
@@ -69,10 +67,11 @@ class LanguagesController: UIViewController {
     }
     
     private func setupView() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
+        
         view.backgroundColor = .black
         // Make space for the choose language button at the bottom
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
         
         setupTableView()
         setupChooseLanguageButton()

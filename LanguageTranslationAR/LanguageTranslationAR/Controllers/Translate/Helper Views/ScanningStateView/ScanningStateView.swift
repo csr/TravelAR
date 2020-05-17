@@ -41,7 +41,7 @@ class ScanningStateView: UIView {
         instructionLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
     }
     
-    func animateImageView() {
+    private func animateImageView() {
         let centerPoint = CGPoint(x: bounds.width/2, y: bounds.height/2)
         let circlePath = UIBezierPath(arcCenter: centerPoint, radius: 10, startAngle: 0, endAngle: .pi*2, clockwise: true)
         
@@ -55,7 +55,7 @@ class ScanningStateView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //animateImageView()
+        animateImageView()
     }
     
     required init?(coder aDecoder: NSCoder) {

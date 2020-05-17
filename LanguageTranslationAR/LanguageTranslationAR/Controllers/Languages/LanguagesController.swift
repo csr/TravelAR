@@ -47,14 +47,10 @@ class LanguagesController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         getLanguages()
+        displayActivityIndicator()
     }
-    
+        
     func getLanguages() {
         let languageCode = LanguagePreferences.getLocaleLanguageCode()
         
@@ -81,13 +77,15 @@ class LanguagesController: UIViewController {
         self.sections = keys.map { Section(letter: $0, languages: groupedDictionary[$0]!.sorted()) }
         
         DispatchQueue.main.async {
-            self.setupTableView()
-            self.tableView.reloadData()
-            self.activityIndicatorView.stopAnimating()
+            self.setupView()
         }
     }
     
     private func setupView() {
+        self.setupTableView()
+        self.tableView.reloadData()
+        self.activityIndicatorView.stopAnimating()
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveBarButtonItem))
         
         view.backgroundColor = .black
@@ -95,7 +93,6 @@ class LanguagesController: UIViewController {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
         
         setupChooseLanguageButton()
-        displayActivityIndicator()
     }
     
     private func setupTableView() {

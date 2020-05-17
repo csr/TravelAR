@@ -24,6 +24,6 @@ public struct Translation: Codable, Equatable, Hashable {
     }
     
     public static func ==(lhs: Translation, rhs: Translation) -> Bool {
-        return lhs.originalText == rhs.originalText && lhs.translatedText == rhs.translatedText
+        return lhs.originalText == rhs.originalText && lhs.translatedText == rhs.translatedText && lhs.sourceLanguage == rhs.sourceLanguage && lhs.targetLanguage == rhs.targetLanguage
     }
 }

@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct Language: Codable, Equatable {
+struct Language: Codable, Equatable, Comparable {
     var name: String
     var code: String
         
@@ -16,5 +16,9 @@ struct Language: Codable, Equatable {
     private enum CodingKeys: String, CodingKey {
         case name
         case code = "language"
+    }
+    
+    static func < (lhs: Language, rhs: Language) -> Bool {
+        return lhs.name < rhs.name
     }
 }

@@ -77,7 +77,6 @@
 		1DEC7D2B21C6F40200BBEDD3 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */; };
 		1DEC7D3221C7CB8900BBEDD3 /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7D3121C7CB8900BBEDD3 /* CustomARView.swift */; };
 		1DEE6F2F21BB1363006D3830 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEE6F2E21BB1363006D3830 /* SettingsController.swift */; };
-		1DF2BCF021C1A7DC00D5E29B /* LanguagesController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCEF21C1A7DC00D5E29B /* LanguagesController+TableView.swift */; };
 		1DF2BCF221C1AA1C00D5E29B /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */; };
 		1DF2BCFD21C2BC5300D5E29B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF2BCFC21C2BC5300D5E29B /* Colors.xcassets */; };
 		1DF2BCFF21C2CF1D00D5E29B /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2BCFE21C2CF1D00D5E29B /* AddButtonView.swift */; };
@@ -173,7 +172,6 @@
 		1DEC7D2A21C6F40200BBEDD3 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		1DEC7D3121C7CB8900BBEDD3 /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
 		1DEE6F2E21BB1363006D3830 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		1DF2BCEF21C1A7DC00D5E29B /* LanguagesController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagesController+TableView.swift"; sourceTree = "<group>"; };
 		1DF2BCF121C1AA1C00D5E29B /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		1DF2BCFC21C2BC5300D5E29B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1DF2BCFE21C2CF1D00D5E29B /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
@@ -457,7 +455,6 @@
 			isa = PBXGroup;
 			children = (
 				1D94B77020CB2B210000B065 /* LanguagesController.swift */,
-				1DF2BCEF21C1A7DC00D5E29B /* LanguagesController+TableView.swift */,
 				1D17BE6E21D8D6BD005243E8 /* Helper Classes */,
 			);
 			path = Languages;
@@ -675,7 +672,6 @@
 				1D0F00BB2471735A00F0C508 /* TranslationData.swift in Sources */,
 				1D441E2C20726EFE005E2ADD /* AppDelegate.swift in Sources */,
 				1D441E9420726F22005E2ADD /* TranslateController+CoreML.swift in Sources */,
-				1DF2BCF021C1A7DC00D5E29B /* LanguagesController+TableView.swift in Sources */,
 				1D1A8EBC246C11BB006111FF /* TranslateController+ARDetailViewDelegate.swift in Sources */,
 				1DC8A43721CD9DE10083506F /* ARDetailViewDelegate.swift in Sources */,
 				1D65245B21C9417300EB2D5C /* CurrentDetectionView.swift in Sources */,

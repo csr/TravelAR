@@ -58,9 +58,9 @@ class WelcomeController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 45
-        let firstItem = getItemStackView(title: "WELCOME_FIRST_ITEM_TITLE".localized, description: "WELCOME_FIRST_ITEM_DESCRIPTION".localized, imageName: "welcome-first")
-        let secondItem = getItemStackView(title: "WELCOME_SECOND_ITEM_TITLE".localized, description: "WELCOME_SECOND_ITEM_DESCRIPTION".localized, imageName: "welcome-second")
-        let thirdItem = getItemStackView(title: "WELCOME_THIRD_ITEM_TITLE".localized, description: "WELCOME_THIRD_ITEM_DESCRIPTION".localized, imageName: "welcome-third")
+        let firstItem = getItemStackView(title: "WELCOME_FIRST_ITEM_TITLE".localized, description: "WELCOME_FIRST_ITEM_DESCRIPTION".localized, image: UIImage.welcomeFirst)
+        let secondItem = getItemStackView(title: "WELCOME_SECOND_ITEM_TITLE".localized, description: "WELCOME_SECOND_ITEM_DESCRIPTION".localized, image: UIImage.welcomeSecond)
+        let thirdItem = getItemStackView(title: "WELCOME_THIRD_ITEM_TITLE".localized, description: "WELCOME_THIRD_ITEM_DESCRIPTION".localized, image: UIImage.welcomeThird)
         
         stackView.addArrangedSubview(firstItem)
         stackView.addArrangedSubview(secondItem)
@@ -69,7 +69,7 @@ class WelcomeController: UIViewController {
         return stackView
     }
     
-    private func getItemStackView(title: String, description: String, imageName: String) -> UIStackView {
+    private func getItemStackView(title: String, description: String, image: UIImage?) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fill
@@ -82,17 +82,17 @@ class WelcomeController: UIViewController {
         labelsStackView.addArrangedSubview(getTitleLabel(text: title))
         labelsStackView.addArrangedSubview(getDescriptionLabel(text: description))
         
-        stackView.addArrangedSubview(getImageView(imageName: imageName))
+        stackView.addArrangedSubview(getImageView(image: image))
         stackView.addArrangedSubview(labelsStackView)
         return stackView
     }
     
-    private func getImageView(imageName: String) -> UIImageView {
+    private func getImageView(image: UIImage?) -> UIImageView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        imageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        imageView.image = image?.withRenderingMode(.alwaysTemplate)
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .primary
         return imageView

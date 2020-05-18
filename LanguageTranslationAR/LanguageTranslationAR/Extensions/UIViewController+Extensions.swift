@@ -24,4 +24,20 @@ extension UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
     }
+    
+    func presentWelcomeController(completion: @escaping () -> ()) {
+        let welcomeController = WelcomeController()
+        
+        // Prevent user from dismissing view controller in iOS 13
+        if #available(iOS 13.0, *) {
+            welcomeController.isModalInPresentation = true
+        }
+        
+        let navController = UINavigationController(rootViewController: welcomeController)
+        navController.modalPresentationStyle = .formSheet
+        
+        present(navController, animated: true) {
+            completion()
+        }
+    }
 }

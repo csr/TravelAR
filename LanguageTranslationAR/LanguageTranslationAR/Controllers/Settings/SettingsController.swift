@@ -37,8 +37,9 @@ class SettingsController: UITableViewController {
     // Secondary cell states include the Help, Feedback sections
     private func getSecondaryCellStates() -> [SettingsState] {
         let helpCellState = SettingsState(text: "SETTINGS_HELP".localized, image: UIImage.help, imageBgColor: #colorLiteral(red: 0.2941176471, green: 0.6231607199, blue: 0.9967945218, alpha: 1), selector: #selector(didTapHelpRow))
+        let showWalkthroughCellState = SettingsState(text: "SETTINGS_WALKTHROUGH".localized, image: UIImage.historyTabBar, imageBgColor: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), selector: #selector(didTapShowWalkthrough))
         let githubCellState = SettingsState(text: "SETTINGS_GITHUB".localized, image: UIImage.heart, imageBgColor: #colorLiteral(red: 0.9991746545, green: 0.1697836518, blue: 0.3347602487, alpha: 1), selector: #selector(didTapViewOnGitHubRow))
-        return [helpCellState, githubCellState]
+        return [helpCellState, showWalkthroughCellState, githubCellState]
     }
     
     @objc private func didTapSelectTranslationLanguage() {
@@ -80,6 +81,10 @@ class SettingsController: UITableViewController {
         }
     }
         
+    @objc private func didTapShowWalkthrough() {
+        presentWelcomeController {}
+    }
+    
     @objc private func didTapViewOnGitHubRow() {
         guard let url = URL.githubRepository else {
           return

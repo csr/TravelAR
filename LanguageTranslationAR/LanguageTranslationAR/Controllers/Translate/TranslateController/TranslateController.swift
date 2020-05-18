@@ -65,7 +65,9 @@ public class TranslateController: UIViewController {
         if isCameraPermissionGranted() {
             setupSession()
         } else {
-            presentWelcomeController()
+            presentWelcomeController {
+                self.setupSession()
+            }
         }
     }
     
@@ -136,23 +138,7 @@ public class TranslateController: UIViewController {
     func presentTipView() {
         tipView.show(forView: plusButton, withinSuperview: view)
     }
-    
-    private func presentWelcomeController() {
-        let welcomeController = WelcomeController()
         
-        // Prevent user from dismissing view controller in iOS 13
-        if #available(iOS 13.0, *) {
-            welcomeController.isModalInPresentation = true
-        }
-        
-        let navController = UINavigationController(rootViewController: welcomeController)
-        navController.modalPresentationStyle = .formSheet
-        
-        present(navController, animated: true) {
-            self.setupSession()
-        }
-    }
-    
     // MARK: - Helper functions
             
     @objc internal func isCameraPermissionGranted() -> Bool {
